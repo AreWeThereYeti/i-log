@@ -28,4 +28,24 @@ var app = angular.module('app', [
 //				}
 //			}
 			})
+			.otherwise({
+				redirectTo: '/'
+			});
 }])
+
+		.run(['$rootScope', function( $rootScope ) {
+//			Look for route changes
+			$rootScope.$on('$routeChangeStart', function(e, curr, prev) {
+//				Check if promise is resolves on route change. Show loader while processing
+				if (curr.$$route && curr.$$route.resolve) {
+					// Show a loading message until promises are not resolved
+					console.log('showing loading message. Setting $rootScope.loadingView to true');
+					$rootScope.loadingView = true;
+				}
+			});
+			$rootScope.$on('$routeChangeSuccess', function(e, curr, prev) {
+				// Hide loading message
+				console.log('hiding loading message');
+				$rootScope.loadingView = false;
+			});
+		}]);
