@@ -205,7 +205,12 @@ table {
     -webkit-transform: scale(1);
   }
 }
-/* line 4, ../sass/main.scss */
+/* line 1, ../sass/pages/_logs.scss */
+h1 {
+  color: red;
+}
+
+/* line 7, ../sass/main.scss */
 .container {
   margin: 30px;
 }

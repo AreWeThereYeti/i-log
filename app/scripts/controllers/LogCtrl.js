@@ -1,9 +1,8 @@
 "use strict";
 
-app.controller('OversigtCtrl', [function () {
+app.controller('LogCtrl', [function () {
 	//Save reference to controller in order to avoid reference soup
-	var OversigtCtrl = this;
-
+	var Log = this;
 	//Test variable. If you see it when the app runs you are good to go
-	OversigtCtrl.testVar = 'We are up and running !';
+	Log.testVar = 'We are up and running  on Log - page!';
 }]);

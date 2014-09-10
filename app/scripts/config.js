@@ -9,19 +9,39 @@ var app = angular.module('app', [
 
 	$routeProvider
 			.when('/', {
-				templateUrl: 'views/oversigt.html',
-				controller: 'OversigtCtrl',
-				controllerAs: 'Oversigt'
+				templateUrl: 'views/mainOverview.html',
+				controller: 'MainOverviewCtrl',
+				controllerAs: 'MainOverview'
 			})
-			.when('/viser', {
-				templateUrl: 'views/viser.html',
-				controller: 'ViserCtrl',
-				controllerAs: 'Viser'
+			.when('/logs', {
+				templateUrl: '../views/LogsOverview.html',
+				controller: 'LogsOverviewCtrl',
+				controllerAs: 'LogsOverview'
 			})
-			.when('/rapport', {
+			.when('/rapporter', {
+				templateUrl: 'views/rapportsoverview.html',
+				controller: 'RapportsOverviewCtrl',
+				controllerAs: 'RapportsOverview'
+//			resolve: {
+//				links: function (dataService, $route) {
+//					return dataService.getBoards($route.current.params);
+//				}
+//			}
+			})
+			.when('/rapport:id', {
 				templateUrl: 'views/rapport.html',
 				controller: 'RapportCtrl',
 				controllerAs: 'Rapport'
+//			resolve: {
+//				links: function (dataService, $route) {
+//					return dataService.getBoards($route.current.params);
+//				}
+//			}
+			})
+			.when('/log:id', {
+				templateUrl: 'views/log.html',
+				controller: 'LogCtrl',
+				controllerAs: 'Log'
 //			resolve: {
 //				links: function (dataService, $route) {
 //					return dataService.getBoards($route.current.params);
