@@ -9,9 +9,19 @@ var app = angular.module('app', [
 
 	$routeProvider
 			.when('/', {
-				templateUrl: 'views/main.html',
-				controller: 'MainCtrl',
-				controllerAs: 'Main'
+				templateUrl: 'views/oversigt.html',
+				controller: 'OversigtCtrl',
+				controllerAs: 'Oversigt'
+			})
+			.when('/viser', {
+				templateUrl: 'views/viser.html',
+				controller: 'ViserCtrl',
+				controllerAs: 'Viser'
+			})
+			.when('/rapport', {
+				templateUrl: 'views/rapport.html',
+				controller: 'RapportCtrl',
+				controllerAs: 'Rapport'
 //			resolve: {
 //				links: function (dataService, $route) {
 //					return dataService.getBoards($route.current.params);
