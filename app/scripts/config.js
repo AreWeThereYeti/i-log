@@ -2,10 +2,11 @@
 
 var app = angular.module('app', [
 	'ngResource',
-	'ngRoute'
+	'ngRoute',
+	'gyldendal.services'
 ])
 
-.config(['$routeProvider',function ($routeProvider) {
+.config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider) {
 
 	$routeProvider
 			.when('/', {
@@ -14,7 +15,7 @@ var app = angular.module('app', [
 				controllerAs: 'MainOverview'
 			})
 			.when('/logs', {
-				templateUrl: '../views/LogsOverview.html',
+				templateUrl: 'views/LogsOverview.html',
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview'
 			})
@@ -28,7 +29,7 @@ var app = angular.module('app', [
 //				}
 //			}
 			})
-			.when('/rapport:id', {
+			.when('/rapport/:id', {
 				templateUrl: 'views/rapport.html',
 				controller: 'RapportCtrl',
 				controllerAs: 'Rapport'
@@ -38,34 +39,35 @@ var app = angular.module('app', [
 //				}
 //			}
 			})
-			.when('/log:id', {
+			.when('/log/:id', {
 				templateUrl: 'views/log.html',
 				controller: 'LogCtrl',
-				controllerAs: 'Log'
-//			resolve: {
-//				links: function (dataService, $route) {
-//					return dataService.getBoards($route.current.params);
-//				}
-//			}
+				controllerAs: 'Log',
+				resolve: {
+					logs: function(GetLogService, $route) {
+						return GetLogService.getLog($route.current.params);
+					}
+				}
 			})
 			.otherwise({
 				redirectTo: '/'
 			});
 }])
 
-		.run(['$rootScope', function( $rootScope ) {
+.run(['$rootScope', function( $rootScope ) {
 //			Look for route changes
-			$rootScope.$on('$routeChangeStart', function(e, curr, prev) {
+	$rootScope.$on('$routeChangeStart', function(e, curr, prev) {
 //				Check if promise is resolves on route change. Show loader while processing
-				if (curr.$$route && curr.$$route.resolve) {
-					// Show a loading message until promises are not resolved
-					console.log('showing loading message. Setting $rootScope.loadingView to true');
-					$rootScope.loadingView = true;
-				}
-			});
-			$rootScope.$on('$routeChangeSuccess', function(e, curr, prev) {
-				// Hide loading message
-				console.log('hiding loading message');
-				$rootScope.loadingView = false;
-			});
-		}]);
+		if (curr.$$route && curr.$$route.resolve) {
+			// Show a loading message until promises are not resolved
+			console.log('showing loading message. Setting $rootScope.loadingView to true');
+			$rootScope.loadingView = true;
+		}
+	});
+//	Listen to when route has successfully changed
+	$rootScope.$on('$routeChangeSuccess', function(e, curr, prev) {
+		// Hide loading message
+		console.log('hiding loading message');
+		$rootScope.loadingView = false;
+	});
+}]);
