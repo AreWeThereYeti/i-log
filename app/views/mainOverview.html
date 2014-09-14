@@ -1,37 +1,9 @@
-
 <div class="topheader">
   <h1>Gyldendal Ilog</h1>
 </div>
 
-<div class="menubar">
-  <ul>
-  <li>mine logs</li>
-  <li>mine rapporter</li>
-  </ul>
-  <button>Plus</button>
-  <button>hide statusbar</button>
-  <button>Help</button>
-</div>
+<div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
 
-<div class="filterbar">
-  <ul>
-    <li>Dato filtrering</li>
-  </ul>
-</div>
-
-
-<div class="filterbar">
-  <ul>
-    <li>Dato filtrering</h1>
-    <li>Distance</h1>
-    <li>Aktivitet</h1>
-  </ul>
-  <button class="edit">
-    edit
-  </button>
-  <button class="delete">
-    Delete
-  </button>
-</div>
+<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
 
 <p>{{MainOverview.testVar | uppercase}}</p>

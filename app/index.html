@@ -1,34 +1,37 @@
 <!doctype html>
 <html lang="en" ng-app="app" ng-cloak>
     <head>
-      <title>i-log</title>
+      <title>I-log</title>
       <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
 
       <!--Spinner-->
-      <div ng-show="$root.loadingView == true" class="spinner">
-        <div class="spinner-container container1">
-          <div class="circle1"></div>
-          <div class="circle2"></div>
-          <div class="circle3"></div>
-          <div class="circle4"></div>
-        </div>
-        <div class="spinner-container container2">
-          <div class="circle1"></div>
-          <div class="circle2"></div>
-          <div class="circle3"></div>
-          <div class="circle4"></div>
-        </div>
-        <div class="spinner-container container3">
-          <div class="circle1"></div>
-          <div class="circle2"></div>
-          <div class="circle3"></div>
-          <div class="circle4"></div>
+      <div ng-show="$root.loadingView == true" class="spinner-backdrop">
+        <div  class="spinner">
+          <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+          </div>
+          <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+          </div>
+          <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+          </div>
         </div>
       </div>
 
-      <div class="container" ng-view=""></div>
+      <!-- NG-view is where your view is served via the routes setup in config.js-->
+      <div ng-view=""></div>
 
       <!--libs-->
       <script src="scripts/libs/angular.min.js"></script>
@@ -37,15 +40,20 @@
 
       <!--config-->
       <script src="scripts/config.js"></script>
+
       <!--controllers-->
       <script src="scripts/controllers/MainOverviewCtrl.js"></script>
       <script src="scripts/controllers/LogsOverviewCtrl.js"></script>
-      <script src="scripts/controllers/RapportsOverviewCtrl.js"></script>
+      <script src="scripts/controllers/RapportOverviewCtrl.js"></script>
       <script src="scripts/controllers/RapportCtrl.js"></script>
       <script src="scripts/controllers/LogCtrl.js"></script>
 
+      <!--Component/template controllers-->
+      <script src="scripts/controllers/MenubarCtrl.js"></script>
+      <script src="scripts/controllers/FilterbarCtrl.js"></script>
 
-    <!--services-->
-      <script src="scripts/services/GetLogService.js"></script>
+      <!--services-->
+      <script src="scripts/services/getdataservice.js"></script>
+
     </body>
 </html>

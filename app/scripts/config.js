@@ -6,7 +6,9 @@ var app = angular.module('app', [
 	'gyldendal.services'
 ])
 
-.config(['$routeProvider', '$locationProvider',function ($routeProvider, $locationProvider) {
+.config(['$routeProvider',function ($routeProvider) {
+
+//			delete $http.defaults.headers.common["X-Requested-With"];
 
 	$routeProvider
 			.when('/', {
@@ -17,35 +19,40 @@ var app = angular.module('app', [
 			.when('/logs', {
 				templateUrl: 'views/LogsOverview.html',
 				controller: 'LogsOverviewCtrl',
-				controllerAs: 'LogsOverview'
+				controllerAs: 'LogsOverview',
+				resolve: {
+					reports: function(getdataservice, $route) {
+						return getdataservice.getAllLogs($route.current.params);
+					}
+				}
 			})
 			.when('/rapporter', {
-				templateUrl: 'views/rapportsoverview.html',
-				controller: 'RapportsOverviewCtrl',
-				controllerAs: 'RapportsOverview'
-//			resolve: {
-//				links: function (dataService, $route) {
-//					return dataService.getBoards($route.current.params);
-//				}
-//			}
+				templateUrl: 'views/rapportoverview.html',
+				controller: 'RapportOverviewCtrl',
+				controllerAs: 'RapportOverview',
+				resolve: {
+					reports: function(getdataservice, $route) {
+						return getdataservice.getAllReports($route.current.params);
+					}
+				}
 			})
 			.when('/rapport/:id', {
 				templateUrl: 'views/rapport.html',
 				controller: 'RapportCtrl',
-				controllerAs: 'Rapport'
-//			resolve: {
-//				links: function (dataService, $route) {
-//					return dataService.getBoards($route.current.params);
-//				}
-//			}
+				controllerAs: 'Rapport',
+				resolve: {
+					reports: function(getdataservice, $route) {
+						return getdataservice.getReport($route.current.params);
+					}
+				}
 			})
 			.when('/log/:id', {
 				templateUrl: 'views/log.html',
 				controller: 'LogCtrl',
 				controllerAs: 'Log',
 				resolve: {
-					logs: function(GetLogService, $route) {
-						return GetLogService.getLog($route.current.params);
+					logs: function(getdataservice, $route) {
+						return getdataservice.getLog($route.current.params);
 					}
 				}
 			})

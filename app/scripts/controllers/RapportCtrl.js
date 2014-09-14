@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('RapportCtrl', [function () {
+app.controller('RapportCtrl', ['reports', function (reports) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 

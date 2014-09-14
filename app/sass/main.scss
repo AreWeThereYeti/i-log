@@ -4,6 +4,15 @@
 //pages
 @import "pages/logs";
 
-.container{
+//components
+@import "components/topheader";
+@import "components/filterbar";
+@import "components/menubar";
 
+body{
+
+}
+
+h2{
+font-size: 30px;
 }

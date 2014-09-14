@@ -1,0 +1,16 @@
+.filterbar{
+  width: 100%;
+  background-color: #e04f2f;
+  height: 75px;
+  ul{
+    line-height: 75px;
+    vertical-align: middle;
+    display: inline-block;
+    li{
+      cursor: pointer;
+      font-size: 20px;
+      margin: 0 10px;
+      display: inline-block;
+    }
+  }
+}
