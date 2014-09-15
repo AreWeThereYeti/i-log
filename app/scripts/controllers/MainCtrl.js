@@ -1,9 +1,9 @@
 "use strict";
 
-app.controller('MainOverviewCtrl', [function () {
+app.controller('MainCtrl', [ '$location', function ($location) {
 	//Save reference to controller in order to avoid reference soup
-	var MainOverviewCtrl = this;
+	var Main = this;
 
 	//Test variable. If you see it when the app runs you are good to go
-	MainOverviewCtrl.testVar = 'We are up and running !';
+	Main.testVar = 'Main Ctrl!';
 }]);

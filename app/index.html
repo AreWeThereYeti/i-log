@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en" ng-app="app" ng-cloak>
     <head>
+      <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
       <title>I-log</title>
       <link rel="stylesheet" href="styles/main.css" />
     </head>
-    <body>
+    <body ng-controller="MainCtrl as Main">
 
       <!--Spinner-->
       <div ng-show="$root.loadingView == true" class="spinner-backdrop">
@@ -42,11 +43,11 @@
       <script src="scripts/config.js"></script>
 
       <!--controllers-->
-      <script src="scripts/controllers/MainOverviewCtrl.js"></script>
       <script src="scripts/controllers/LogsOverviewCtrl.js"></script>
       <script src="scripts/controllers/RapportOverviewCtrl.js"></script>
       <script src="scripts/controllers/RapportCtrl.js"></script>
       <script src="scripts/controllers/LogCtrl.js"></script>
+      <script src="scripts/controllers/MainCtrl.js"></script>
 
       <!--Component/template controllers-->
       <script src="scripts/controllers/MenubarCtrl.js"></script>
