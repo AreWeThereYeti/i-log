@@ -3,11 +3,12 @@
 <p>{{Log.testVar | uppercase}}</p>
 
 <p>{{Log.route}}</p>
-<p>{{Log.test}}</p>
+<p>{{Log.test | json}}</p>
 
 <form class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
 
   <div ng-switch-when="text">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
     <label for="log-input-{{input.id}}">{{input.label}}</label>
     <input id="log-input-{{input.id}}" type="text" required="{{input.required}}">{{input.unit}}
   </div>
