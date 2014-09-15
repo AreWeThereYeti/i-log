@@ -6,11 +6,19 @@
 
 <div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
 
-<div class="subfilter">
-  <span>Fra dato</span>
-  <span>fra dato</span>
-  <span>titel</span>
-  <span>delt</span>
+<div class="listheader">
+  <div class="col-1-8">
+    <span>Fra dato</span>
+  </div>
+  <div class="col-1-8">
+    <span>fra dato</span>
+  </div>
+  <div class="col-1-2">
+    <span>titel</span>
+  </div>
+  <div class="col-1-4">
+    <span>delt</span>
+  </div>
 </div>
 
 <div class="list">
@@ -20,9 +28,14 @@
   <div class="col-1-8">
     <span class="date">08-09-2014</span>
   </div>
-  <div class="col-1-4">
+  <div class="col-1-2">
     <span class="date">Titel på rapporten</span>
   </div>
-  <span class="shared">ja</span>
+  <div class="col-1-8">
+    <span class="shared">ja</span>
+  </div>
+  <div class="col-1-8">
+    <span class="shared">icons here</span>
+  </div>
   <p>{{LogsOverview.testVar | uppercase}}</p>
 </div>

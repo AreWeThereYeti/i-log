@@ -2,10 +2,10 @@
   @include box-sizing(border-box);
 }
 
-$pad: 20px;
+$pad: 0px;
 
 .grid {
-  background: white;
+  clear: both;
   margin: 0 0 $pad 0;
 
   &:after {
@@ -22,6 +22,15 @@ $pad: 20px;
   .grid &:last-of-type {
     padding-right: 0;
   }
+}
+.col-7-8 {
+  width: 87.5%;
+}
+.col-5-8 {
+  width: 62.5%;
+}
+.col-3-4 {
+  width: 75%;
 }
 .col-2-3 {
   width: 66.66%;

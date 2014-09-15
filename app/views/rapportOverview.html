@@ -1,3 +1,39 @@
-<h1>Rapports</h1>
+<div class="topheader">
+  <h1>Gyldendal Ilog</h1>
+</div>
+
+<div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
+
+<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
+
+<div class="list">
+  <!--header-->
+  <div class="listheader grid">
+    <div class="col-1-8">
+      <span>Dato</span>
+    </div>
+    <div class="col-1-8">
+      <span>Distance</span>
+    </div>
+    <div class="col-3-4">
+      <span>Aktivitet</span>
+    </div>
+  </div>
+<!--item-->
+  <div class="listitem grid">
+    <div class="col-1-8">
+      <span>Dato</span>
+    </div>
+    <div class="col-1-8">
+      <span>Distance</span>
+    </div>
+    <div class="col-5-8">
+      <span>Aktivitet</span>
+    </div>
+    <div class="col-1-8">
+      <span class="shared">icons here</span>
+    </div>
+  </div>
+</div>
 
 <p>{{RapportOverview.testVar | uppercase}}</p>
