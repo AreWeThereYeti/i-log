@@ -7,18 +7,44 @@
 
 <form class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
 
-  <input type="text" ng-switch-when="text">
-  <input type="number" ng-switch-when="number">
-  <input type="checkbox" ng-switch-when="checkbox">
-  <select class="input-switch" ng-switch-when="dropdown">
-    <option ng-repeat="option in input.options" value="option">{{option}}</option>
-  </select>
-  <textarea ng-switch-when="largetext">
-    height: {{input.height}}
-    width: {{input.width}}
-  </textarea>
+  <div ng-switch-when="text">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <input id="log-input-{{input.id}}" type="text" required="{{input.required}}">{{input.unit}}
+  </div>
 
-  <div class="data" ng-switch-when="data">{{input.data}}</div>
-  <div class="formula" ng-switch-when="formula">{{input.formula}}</div>
+  <div ng-switch-when="number">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <input id="log-input-{{input.id}}" type="number" required="{{input.required}}">{{input.unit}}
+  </div>
+
+  <div ng-switch-when="checkbox">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <input id="log-input-{{input.id}}" type="checkbox" checked="{{input.prechecked}}">
+  </div>
+
+  <div ng-switch-when="dropdown">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <select id="log-input-{{input.id}}" required="{{input.required}}">
+      <option ng-repeat="option in input.options" value="option">{{option}}</option>
+    </select>
+  </div>
+
+  <div ng-switch-when="largetext">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <textarea id="log-input-{{input.id}}" required="{{input.required}}">
+      height: {{input.height}}
+      width: {{input.width}}
+    </textarea>
+  </div>
+
+  <div ng-switch-when="data">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <div id="log-input-{{input.id}}" class="data">{{input.data}}</div>
+  </div>
+
+  <div ng-switch-when="formula">
+    <label for="log-input-{{input.id}}">{{input.label}}</label>
+    <div id="log-input-{{input.id}}" class="formula">{{input.formula}}</div>
+  </div>
 
 </form>
