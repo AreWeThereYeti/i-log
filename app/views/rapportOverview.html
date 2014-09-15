@@ -20,21 +20,19 @@
     </div>
   </div>
 
-<!--item-->
-  <div class="listitem grid" ng-click="RapportOverview.setRoute('#/rapport/{{RapportOverview.testid}}')">
-    <div class="col-1-8">
+<!--item in reports-->
+  <a class="listitem grid" ng-href="#/rapport/{{RapportOverview.testid}}">
+    <span class="col-1-8">
       <span>02-04-2014</span>
-    </div>
-    <div class="col-1-8">
+    </span>
+    <span class="col-1-8">
       <span>7 km</span>
-    </div>
-    <div class="col-5-8">
+    </span>
+    <span class="col-5-8">
       <span>Løb</span>
-    </div>
-    <div class="col-1-8">
+    </span>
+    <span class="col-1-8">
       <span class="shared">icons here</span>
-    </div>
-  </div>
+    </span>
+  </a>
 </div>
-
-<p>{{RapportOverview.testVar | uppercase}}</p>

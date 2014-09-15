@@ -6,36 +6,41 @@
 
 <div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
 
-<div class="listheader">
-  <div class="col-1-8">
-    <span>Fra dato</span>
-  </div>
-  <div class="col-1-8">
-    <span>fra dato</span>
-  </div>
-  <div class="col-1-2">
-    <span>titel</span>
-  </div>
-  <div class="col-1-4">
-    <span>delt</span>
-  </div>
-</div>
+  <div class="list">
+    <div class="listheader">
+      <div class="col-1-8">
+        <span>Dato</span>
+      </div>
+      <div class="col-1-2">
+        <span>Distance</span>
+      </div>
+      <div class="col-1-4">
+        <span>Aktivitet</span>
+      </div>
+    </div>
 
-<div class="list">
-  <div class="col-1-8">
-    <span class="date">08-09-2014</span>
-  </div>
-  <div class="col-1-8">
-    <span class="date">08-09-2014</span>
-  </div>
-  <div class="col-1-2">
-    <span class="date">Titel på rapporten</span>
-  </div>
-  <div class="col-1-8">
-    <span class="shared">ja</span>
-  </div>
-  <div class="col-1-8">
-    <span class="shared">icons here</span>
+    <!--item in logs-->'
+    <div >
+      <a class="listitem" ng-href="#/log/{{LogsOverview.id}}">
+        <span class="col-1-8">
+          <span class="date">08-09-2014</span>
+        </span>
+        <span class="col-1-2">
+          <span class="date">Titel på rapporten</span>
+        </span>
+        <span class="col-1-8">
+          <span class="shared">ja</span>
+        </span>
+        <span class="col-1-8">
+              <span class="circ">
+                <span>hide</span>
+              </span>
+              <span class="circ">
+                <span ng-click="LogsOverview.delete($index)">delete</span>
+              </span>
+        </span>
+      </a>
+    </div>
   </div>
   <p>{{LogsOverview.testVar | uppercase}}</p>
 </div>
