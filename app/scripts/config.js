@@ -66,7 +66,7 @@ var app = angular.module('app', [
 			});
 }])
 
-.run(['$rootScope', function( $rootScope ) {
+.run(['$rootScope','$location', function( $rootScope, $location) {
 	//	Look for route changes
 	$rootScope.$on('$routeChangeStart', function(e, curr, prev) {
 		//	Check if promise is resolves on route change. Show loader while processing
@@ -80,5 +80,7 @@ var app = angular.module('app', [
 	$rootScope.$on('$routeChangeSuccess', function(e, curr, prev) {
 		// Hide loading message
 		$rootScope.loadingView = false;
+		// Set path in rootvariable
+		$rootScope.showSection = $location.path();
 	});
 }]);

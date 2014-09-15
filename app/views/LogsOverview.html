@@ -1,5 +1,5 @@
 <div class="topheader">
-  <h1>Gyldendal Ilog</h1>
+  <h1>Gyldendal I-log</h1>
 </div>
 
 <div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
@@ -11,36 +11,35 @@
       <div class="col-1-8">
         <span>Dato</span>
       </div>
-      <div class="col-1-2">
+      <div class="col-1-8">
         <span>Distance</span>
       </div>
-      <div class="col-1-4">
+      <div class="col-3-4">
         <span>Aktivitet</span>
       </div>
     </div>
 
-    <!--item in logs-->'
+    <!--item in logs-->
     <div >
       <a class="listitem" ng-href="#/log/{{LogsOverview.id}}">
         <span class="col-1-8">
           <span class="date">08-09-2014</span>
         </span>
-        <span class="col-1-2">
-          <span class="date">Titel på rapporten</span>
+        <span class="col-1-8">
+          <span class="date">25</span>
+        </span>
+        <span class="col-5-8">
+          <span class="shared">Løb</span>
         </span>
         <span class="col-1-8">
-          <span class="shared">ja</span>
-        </span>
-        <span class="col-1-8">
-              <span class="circ">
-                <span>hide</span>
-              </span>
-              <span class="circ">
-                <span ng-click="LogsOverview.delete($index)">delete</span>
-              </span>
+          <span class="circ">
+            <span>hide</span>
+          </span>
+          <span class="circ">
+            <span ng-click="LogsOverview.delete($index)">delete</span>
+          </span>
         </span>
       </a>
     </div>
-  </div>
   <p>{{LogsOverview.testVar | uppercase}}</p>
 </div>

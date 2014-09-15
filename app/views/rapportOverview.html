@@ -10,13 +10,16 @@
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
-      <span>Dato</span>
+      <span>Fra Dato</span>
     </div>
     <div class="col-1-8">
-      <span>Distance</span>
+      <span>Til dato</span>
     </div>
-    <div class="col-3-4">
-      <span>Aktivitet</span>
+    <div class="col-1-2">
+      <span>Titel</span>
+    </div>
+    <div class="col-1-4">
+      <span>Delt</span>
     </div>
   </div>
 
@@ -26,13 +29,21 @@
       <span>02-04-2014</span>
     </span>
     <span class="col-1-8">
-      <span>7 km</span>
+      <span>03-05-2014</span>
     </span>
-    <span class="col-5-8">
-      <span>Løb</span>
+    <span class="col-1-2">
+      <span>Titel på rapporten</span>
     </span>
     <span class="col-1-8">
-      <span class="shared">icons here</span>
+      <span>Ja</span>
+    </span>
+    <span class="col-1-8">
+      <span class="circ">
+        <span>hide</span>
+      </span>
+      <span class="circ">
+        <span ng-click="LogsOverview.delete($index)">delete</span>
+      </span>
     </span>
   </a>
 </div>

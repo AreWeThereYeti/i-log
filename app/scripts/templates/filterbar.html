@@ -1,11 +1,15 @@
 <div class="filterbar grid">
-  <div class="col-1-8">
-    <span>Dato filtrering</span>
+  <div ng-if="$root.showSection == '/rapporter'">
+    <div class="col-1-8">
+      <span>Fra dato</span>
+    </div>
+    <div class="col-7-8">
+      <span>Til dato</span>
+    </div>
   </div>
-  <div class="col-1-8">
-    <span>Distance</span>
-  </div>
-  <div class="col-1-8">
-    <span>Aktivitet</span>
+  <div ng-if="$root.showSection == '/logs'">
+    <div class="col-1-8">
+      <span>Dato</span>
+    </div>
   </div>
 </div>
