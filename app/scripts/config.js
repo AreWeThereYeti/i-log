@@ -46,7 +46,7 @@ var app = angular.module('app', [
 				controller: 'RapportCtrl',
 				controllerAs: 'Rapport',
 				resolve: {
-					reports: function(getdataservice, $route) {
+					report: function(getdataservice, $route) {
 						return getdataservice.getReport($route.current.params);
 					}
 				}

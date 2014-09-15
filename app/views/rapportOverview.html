@@ -1,5 +1,5 @@
 <div class="topheader">
-  <h1>Gyldendal Ilog</h1>
+  <h1>Gyldendal I-log</h1>
 </div>
 
 <div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
@@ -19,16 +19,17 @@
       <span>Aktivitet</span>
     </div>
   </div>
+
 <!--item-->
-  <div class="listitem grid">
+  <div class="listitem grid" ng-click="RapportOverview.setRoute('#/rapport/{{RapportOverview.testid}}')">
     <div class="col-1-8">
-      <span>Dato</span>
+      <span>02-04-2014</span>
     </div>
     <div class="col-1-8">
-      <span>Distance</span>
+      <span>7 km</span>
     </div>
     <div class="col-5-8">
-      <span>Aktivitet</span>
+      <span>Løb</span>
     </div>
     <div class="col-1-8">
       <span class="shared">icons here</span>
