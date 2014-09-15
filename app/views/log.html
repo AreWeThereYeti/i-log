@@ -4,3 +4,21 @@
 
 <p>{{Log.route}}</p>
 <p>{{Log.test}}</p>
+
+<form class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
+
+  <input type="text" ng-switch-when="text">
+  <input type="number" ng-switch-when="number">
+  <input type="checkbox" ng-switch-when="checkbox">
+  <select class="input-switch" ng-switch-when="dropdown">
+    <option ng-repeat="option in input.options" value="option">{{option}}</option>
+  </select>
+  <textarea ng-switch-when="largetext">
+    height: {{input.height}}
+    width: {{input.width}}
+  </textarea>
+
+  <div class="data" ng-switch-when="data">{{input.data}}</div>
+  <div class="formula" ng-switch-when="formula">{{input.formula}}</div>
+
+</form>
