@@ -1,4 +1,28 @@
 <h1>My awesome app</h1>
 
-<p>{{Rapport.testVar | uppercase}}</p>
-    <p>{{$root.showSection}}</p>
+<div ng-controller="ReportMenubarCtrl as ReportMenubar" class="menubar" ng-include="'scripts/templates/reportmenubar.html'"></div>
+
+<div class="grid">
+  <div class="col-1-8">
+    <h2>Rapport titel</h2>
+  </div>
+  <div class="col-1-8">
+    <h2>Rapport titel</h2>
+  </div>
+  <div class="col-1-8">
+    <h2>Rapport titel</h2>
+  </div>
+  <div class="col-1-8">
+    <h2>Rapport titel</h2>
+  </div>
+  <div class="col-1-8">
+    <h2>Punktgraf</h2>
+  </div>
+  <div class="col-1-8">
+    <h2>Forbundet graf</h2>
+  </div>
+</div>
+    <div class="grid">
+      <h2>Beregninger</h2>
+    </div>
+<p>{{$root.showSection}}</p>

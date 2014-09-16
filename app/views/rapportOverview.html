@@ -22,28 +22,29 @@
       <span>Delt</span>
     </div>
   </div>
-
 <!--item in reports-->
-  <a class="listitem grid" ng-href="#/rapport/{{RapportOverview.testid}}">
-    <span class="col-1-8">
-      <span>02-04-2014</span>
-    </span>
-    <span class="col-1-8">
-      <span>03-05-2014</span>
-    </span>
-    <span class="col-1-2">
-      <span>Titel på rapporten</span>
-    </span>
-    <span class="col-1-8">
-      <span>Ja</span>
-    </span>
-    <span class="col-1-8">
-      <span class="circ">
-        <span>hide</span>
+  <div class="listitem grid" ng-repeat="item in RapportOverview.reports">
+    <a ng-href="#/rapport/{{RapportOverview.testid}}">
+      <span class="col-1-8">
+        <span>02-04-2014</span>
       </span>
-      <span class="circ">
-        <span ng-click="LogsOverview.delete($index)">delete</span>
+      <span class="col-1-8">
+        <span>03-05-2014</span>
       </span>
-    </span>
-  </a>
+      <span class="col-1-2">
+        <span>{{item.title}}</span>
+      </span>
+      <span class="col-1-8">
+        <span>Ja</span>
+      </span>
+      <span class="col-1-8">
+        <span class="circ">
+          <span>hide</span>
+        </span>
+        <span class="circ">
+          <span ng-click="LogsOverview.delete($index)">delete</span>
+        </span>
+      </span>
+    </a>
+  </div>
 </div>
