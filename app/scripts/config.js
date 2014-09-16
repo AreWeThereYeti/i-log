@@ -4,7 +4,9 @@
 var app = angular.module('app', [
 	'ngResource',
 	'ngRoute',
-	'gyldendal.services'
+	'd3',
+	'gyldendal.services',
+	'gyldendal.directives'
 ])
 
 //	Configure module
