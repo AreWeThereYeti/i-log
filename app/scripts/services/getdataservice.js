@@ -9,7 +9,7 @@ angular.module('gyldendal.services', [])
 				},
 
 				getLog: function () {
-					var promise = $http({cache: true, method: 'GET', url: 'http://www.mocky.io/v2/5412cb2886a645eb0aa1c336' }).success(function (data, status, headers, config) {
+					var promise = $http({cache: true, method: 'GET', url: 'http://www.mocky.io/v2/5419844daa0a3ab30a453db7' }).success(function (data, status, headers, config) {
 
 					});
 					return promise;

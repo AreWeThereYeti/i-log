@@ -14,7 +14,7 @@
 
   <div ng-switch-when="number">
     <label for="log-input-{{input.id}}">{{input.label}}</label>
-    <input id="log-input-{{input.id}}" type="number" required="{{input.required}}" ng-model="Log.ID1">{{input.unit}}
+    <input  type="number" required="{{input.required}}" ng-model="Log.numFields[$index].value">{{input.unit}}
   </div>
 
   <div ng-switch-when="checkbox">
@@ -44,7 +44,7 @@
 
   <div ng-switch-when="formula">
     <label for="log-input-{{input.id}}">{{input.label}}</label>
-    <div id="log-input-{{input.id}}" class="formula">{{$eval(Log.parseFormula(input.formula))}}</div>
+    <div id="log-input-{{input.id}}" class="formula">{{Log.parseFormula(input.formula)}}</div>
     <div>{{Log.parseFormula(input.formula)}}</div>
 
   </div>
