@@ -1,0 +1,16 @@
+.report{
+  background-color: #FFF;
+  .reportsubmenu{
+    line-height: 50px;
+    height: 50px;
+    background-color: #f8f8f8;
+  }
+  .listview{
+    span:first-of-type{
+      border-right: 2px solid black;
+    }
+    span {
+      border: 1px solid #E5E5E5;
+    }
+  }
+}

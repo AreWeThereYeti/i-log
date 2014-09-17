@@ -7,6 +7,7 @@
 
 //pages
 @import "pages/logs";
+@import "pages/report";
 
 //components
 @import "components/topheader";
@@ -16,10 +17,8 @@
 @import "components/icons_and_buttons";
 
 body{
-
-  background-color: #f5f5f5;
 }
 
 h2{
-font-size: 30px;
+  font-size: 30px;
 }

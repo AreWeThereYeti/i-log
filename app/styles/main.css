@@ -279,6 +279,25 @@ h1 {
   color: red;
 }
 
+/* line 1, ../sass/pages/_report.scss */
+.report {
+  background-color: #FFF;
+}
+/* line 3, ../sass/pages/_report.scss */
+.report .reportsubmenu {
+  line-height: 50px;
+  height: 50px;
+  background-color: #f8f8f8;
+}
+/* line 9, ../sass/pages/_report.scss */
+.report .listview span:first-of-type {
+  border-right: 2px solid black;
+}
+/* line 12, ../sass/pages/_report.scss */
+.report .listview span {
+  border: 1px solid #E5E5E5;
+}
+
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
@@ -315,18 +334,22 @@ h1 {
   height: 75px;
 }
 /* line 5, ../sass/components/_menubar.scss */
+.menubar.reportmenu {
+  background-color: white;
+}
+/* line 8, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 75px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 9, ../sass/components/_menubar.scss */
+/* line 12, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
 }
-/* line 15, ../sass/components/_menubar.scss */
+/* line 18, ../sass/components/_menubar.scss */
 .menubar .icons {
   float: right;
   display: inline-block;
@@ -377,12 +400,7 @@ h1 {
   line-height: 35px;
 }
 
-/* line 18, ../sass/main.scss */
-body {
-  background-color: #f5f5f5;
-}
-
-/* line 23, ../sass/main.scss */
+/* line 22, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }

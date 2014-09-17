@@ -2,6 +2,9 @@
   width: 100%;
   background-color: #808080;
   height: 75px;
+  &.reportmenu{
+    background-color: white;
+  }
   ul{
     line-height: 75px;
     vertical-align: middle;
