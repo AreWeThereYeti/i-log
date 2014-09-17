@@ -404,3 +404,8 @@ h1 {
 h2 {
   font-size: 30px;
 }
+
+/* line 26, ../sass/main.scss */
+.active {
+  color: red;
+}

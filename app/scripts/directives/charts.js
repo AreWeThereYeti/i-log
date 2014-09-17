@@ -30,7 +30,7 @@ angular.module('gyldendal.directives', ['d3'])
 								scope.renderpie(scope.data);
 							}
 							else if(attrs.type == 'list'){
-								scope.renderlist(scope.data);
+								scope.renderlist();
 							}
 							else if(attrs.type == 'line'){
 								scope.renderline(scope.data);
@@ -72,55 +72,55 @@ angular.module('gyldendal.directives', ['d3'])
 								var yAxis = d3.svg.axis().scale(y).orient("left");
 
 								svg = d3.select(".d3container")
-										.append('svg')
-										.style('width', '100%')
-										.style('height', '375px')
-										.attr("class", "chart")
-										.attr("width", width + margin.left + margin.right)
-										.attr("height", height + margin.top + margin.bottom).append("g")
-										.attr("transform", "translate(" + margin.left + "," + margin.right + ")");
+									.append('svg')
+									.style('width', '100%')
+									.style('height', '375px')
+									.attr("class", "chart")
+									.attr("width", width + margin.left + margin.right)
+									.attr("height", height + margin.top + margin.bottom).append("g")
+									.attr("transform", "translate(" + margin.left + "," + margin.right + ")");
 
 								svg.append("g")
-										.attr("class", "x axis")
-										.attr("transform", "translate( "+20+"," + height + ")")
-										.attr("dy", ".71em")
-										.style("text-anchor", "end")
-										.call(xAxis)
-										.append("text")
-										.attr("y", 16)
-										.attr("transform", "translate( " + width + ", "+ 20 +")")
-										.attr("dy", ".71em")
-										.text("Institutions");
+									.attr("class", "x axis")
+									.attr("transform", "translate( "+20+"," + height + ")")
+									.attr("dy", ".71em")
+									.style("text-anchor", "end")
+									.call(xAxis)
+									.append("text")
+									.attr("y", 16)
+									.attr("transform", "translate( " + width + ", "+ 20 +")")
+									.attr("dy", ".71em")
+									.text("Institutions");
 
 								svg.append("g")
-										.attr("class", "y axis").call(yAxis)
-										.append("text")
-										.attr("transform", "rotate(-90)")
-										.attr("y", 6)
-										.attr("dy", ".71em")
-										.style("text-anchor", "end")
-										.text("Værdi");
+									.attr("class", "y axis").call(yAxis)
+									.append("text")
+									.attr("transform", "rotate(-90)")
+									.attr("y", 6)
+									.attr("dy", ".71em")
+									.style("text-anchor", "end")
+									.text("Værdi");
 
 								svg.selectAll(".bar").data(data.institutions).enter().append("rect")
-										.attr("class", "bar")
-										.attr("transform", "translate( "+ 20 + "," + -20 + ")")
-										.attr("x", function(d, i) {
-											return i * x.rangeBand();
-										})
-										.attr("y", function(d) {
-											return y(d);
-										})
-										.attr("width", function(){
-											return x.rangeBand();
-										})
-										.attr("height", function(d) {
-											return height -y(d);
-										});
+									.attr("class", "bar")
+									.attr("transform", "translate( "+ 20 + "," + -20 + ")")
+									.attr("x", function(d, i) {
+										return i * x.rangeBand();
+									})
+									.attr("y", function(d) {
+										return y(d);
+									})
+									.attr("width", function(){
+										return x.rangeBand();
+									})
+									.attr("height", function(d) {
+										return height -y(d);
+									});
 							}
-						}
+						};
 
 // -------------	D3 function for rendering bar ----------------
-						scope.renderlist = function(data) {
+						scope.renderlist = function() {
 							// remove all previous items before render
 							svg.selectAll('*').remove();
 						};
@@ -135,9 +135,9 @@ angular.module('gyldendal.directives', ['d3'])
 							if (!data) return;
 
 							svg = d3.select(".d3container")
-									.append('svg')
-									.style('width', '100%')
-									.style('height', '375px')
+								.append('svg')
+								.style('width', '100%')
+								.style('height', '375px');
 
 							var text;
 
@@ -146,57 +146,57 @@ angular.module('gyldendal.directives', ['d3'])
 							var colorscale = d3.scale.linear().domain([0,data.length]).range(colors);
 
 							var arc = d3.svg.arc()
-									.innerRadius(0)
-									.outerRadius(150);
+								.innerRadius(0)
+								.outerRadius(150);
 
 							var arcOver = d3.svg.arc()
-									.innerRadius(0)
-									.outerRadius(150 + 10);
+								.innerRadius(0)
+								.outerRadius(150 + 10);
 
 							var pie = d3.layout.pie()
-									.value(function(d){ return d.value; });
+								.value(function(d){ return d.value; });
 
 
 							var renderarcs = svg.append('g')
-									.attr('transform','translate(440,200)')
-									.selectAll('.arc')
-									.data(pie(data))
-									.enter()
-									.append('g')
-									.attr('class',"arc");
+								.attr('transform','translate(440,200)')
+								.selectAll('.arc')
+								.data(pie(data))
+								.enter()
+								.append('g')
+								.attr('class',"arc");
 
 							renderarcs.append('path')
-									.attr('d',arc)
-									.attr('fill',function(d,i){ return colorscale(i); })
-									.on("mouseover", function(d) {
-										d3.select(this).transition()
-												.duration(1000)
-												.attr("d", arcOver)
-												.ease("elastic");
+								.attr('d',arc)
+								.attr('fill',function(d,i){ return colorscale(i); })
+								.on("mouseover", function(d) {
+									d3.select(this).transition()
+										.duration(1000)
+										.attr("d", arcOver)
+										.ease("elastic");
 
-										text = renderarcs.append("text")
-												.attr("transform",'translate(' + arc.centroid(d)[0] + ', ' + arc.centroid(d)[1] + ')' )
-												.attr("dy", ".5em")
-												.style("text-anchor", "middle")
-												.style("fill", "white")
-												.style('pointer-events' , 'none')
-												.attr("class", "on")
-												.text(d.data.label);
-									})
+									text = renderarcs.append("text")
+										.attr("transform",'translate(' + arc.centroid(d)[0] + ', ' + arc.centroid(d)[1] + ')' )
+										.attr("dy", ".5em")
+										.style("text-anchor", "middle")
+										.style("fill", "white")
+										.style('pointer-events' , 'none')
+										.attr("class", "on")
+										.text(d.data.label);
+								})
 
-									.on("mouseout", function(d) {
-										d3.select(this).transition()
-												.duration(1000)
-												.attr("d", arc)
-												.ease("elastic");
-										text.remove();
-									});
+								.on("mouseout", function(d) {
+									d3.select(this).transition()
+										.duration(1000)
+										.attr("d", arc)
+										.ease("elastic");
+									text.remove();
+								});
 
 							renderarcs.append('text')
-									.attr('transform',function(d) {
-										var c = arc.centroid(d);
-										return "translate(" + c[0] +"," + c[1]+ ")";
-									});
+								.attr('transform',function(d) {
+									var c = arc.centroid(d);
+									return "translate(" + c[0] +"," + c[1]+ ")";
+								});
 						};
 
 						//---------------- D3 function for rendering line chart----------------
@@ -219,8 +219,6 @@ angular.module('gyldendal.directives', ['d3'])
 									.append("g")
 									.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-							var parseDate = d3.time.format("%d-%b-%y").parse;
-
 							var x = d3.time.scale()
 									.range([0, width]);
 
@@ -239,34 +237,34 @@ angular.module('gyldendal.directives', ['d3'])
 									.x(function(d) { return x(d.date); })
 									.y(function(d) { return y(d.close); });
 
-								x.domain(d3.extent(data, function(d) { return d.date; }));
-								y.domain(d3.extent(data, function(d) { return d.close; }));
+							x.domain(d3.extent(data, function(d) { return d.date; }));
+							y.domain(d3.extent(data, function(d) { return d.close; }));
 
-								svg.append("g")
-										.attr("class", "x axis")
-										.attr("transform", "translate(0," + height + ")")
-										.call(xAxis)
-										.append("text")
-										.attr("transform", "translate ( "+width / 2 +" , 0)")
-										.attr("y", 0)
-										.attr("dy", 0)
-										.style("text-anchor", "end")
-										.text("x værdi");
+							svg.append("g")
+								.attr("class", "x axis")
+								.attr("transform", "translate(0," + height + ")")
+								.call(xAxis)
+								.append("text")
+								.attr("transform", "translate ( "+width / 2 +" , 0)")
+								.attr("y", 0)
+								.attr("dy", 0)
+								.style("text-anchor", "end")
+								.text("x værdi");
 
-								svg.append("g")
-										.attr("class", "y axis")
-										.call(yAxis)
-										.append("text")
-										.attr("transform", "translate ( 0 , "+height / 2 +") rotate(-90)")
-										.attr("x", 0)
-										.attr("dy", 0)
-										.style("text-anchor", "end")
-										.text("Y værdi");
+							svg.append("g")
+								.attr("class", "y axis")
+								.call(yAxis)
+								.append("text")
+								.attr("transform", "translate ( 0 , "+height / 2 +") rotate(-90)")
+								.attr("x", 0)
+								.attr("dy", 0)
+								.style("text-anchor", "end")
+								.text("Y værdi");
 
-								svg.append("path")
-										.datum(data)
-										.attr("class", "line")
-										.attr("d", line);
+							svg.append("path")
+								.datum(data)
+								.attr("class", "line")
+								.attr("d", line);
 						}
 					});
 				}};

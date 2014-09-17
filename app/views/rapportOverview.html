@@ -1,5 +1,5 @@
 <div class="topheader">
-  <h1>Gyldendal I-log</h1>
+  <h1>Gyldendal I-log. Path is : {{$root.showSection}}</h1>
 </div>
 
 <div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
@@ -10,20 +10,20 @@
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
-      <span>Fra Dato</span>
+      <span ng-click="RapportOverview.predicate = 'fromdate'; reverse=!reverse">Fra Dato</span>
     </div>
     <div class="col-1-8">
-      <span>Til dato</span>
+      <span ng-click="RapportOverview.predicate = 'todate'; reverse=!reverse">Til dato</span>
     </div>
     <div class="col-1-2">
-      <span>Titel</span>
+      <span ng-click="RapportOverview.predicate = 'title'; reverse=!reverse">Titel</span>
     </div>
     <div class="col-1-4">
-      <span>Delt</span>
+      <span ng-click="RapportOverview.predicate = 'shared'; reverse=!reverse">Delt</span>
     </div>
   </div>
 <!--item in reports-->
-  <div class="listitem grid" ng-repeat="item in RapportOverview.reports">
+  <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
         <span>02-04-2014</span>
@@ -35,7 +35,7 @@
         <span>{{item.title}}</span>
       </span>
       <span class="col-1-8">
-        <span>Ja</span>
+        <span>{{$index}}</span>
       </span>
       <span class="col-1-8">
         <span class="circ">
