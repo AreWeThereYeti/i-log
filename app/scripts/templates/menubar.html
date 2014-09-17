@@ -1,11 +1,8 @@
 <div class="menubar grid">
-  <div ng-if="$root.showSection == '/rapport/:id'">
-    <p>id is hello</p>
-  </div>
   <div class="col-3-4">
     <ul>
-      <li><a href="#/logs">Mine logs</a></li>
-      <li><a href="#/rapporter">Mine rapporter</a></li>
+      <li><a href="#/logs" ng-class="{active : $root.showSection == '/logs'}">Mine logs</a></li>
+      <li><a href="#/rapporter" ng-class="{active : $root.showSection == '/rapporter'}">Mine rapporter</a></li>
     </ul>
   </div>
   <div class="icons col-1-4">
