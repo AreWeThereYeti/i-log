@@ -94,6 +94,7 @@ angular.module('gyldendal.directives', ['d3'])
 									console.log(c);
 									return "translate(" + c[0] +"," + c[1]+ ")";
 								});
+							console.log('done piechart')
 						}
 					});
 				}};
