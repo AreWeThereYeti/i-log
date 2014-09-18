@@ -6,11 +6,19 @@ var app = angular.module('app', [
 	'ngRoute',
 	'd3',
 	'gyldendal.services',
-	'gyldendal.directives'
+	'gyldendal.directives',
+	'ngDialog'
 ])
 
 //	Configure module
-.config(['$routeProvider',function ($routeProvider) {
+.config(['$routeProvider', 'ngDialogProvider',function ($routeProvider, ngDialogProvider) {
+
+			ngDialogProvider.setDefaults({
+				showClose: true,
+				closeByDocument: true,
+				closeByEscape: true,
+				appendTo: '.append-dialog'
+			});
 
 	$routeProvider
 			.when('/', {

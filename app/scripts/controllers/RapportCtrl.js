@@ -1,8 +1,16 @@
 "use strict";
 
-app.controller('RapportCtrl', ['report', function (report) {
+app.controller('RapportCtrl', ['report', 'ngDialog', function (report, ngDialog) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
+
+	Rapport.clickToOpen = function () {
+		console.log('click to open')
+		ngDialog.open({
+			template: 'scripts/templates/dialog.html',
+			controller : 'DialogCtrl'
+		});
+	};
 
 	Rapport.data = {
 		"regions": ["Federal", "Tigray", "Afar", "Amhara", "Oromia", "Gambella", "Addis Ababa", "Dire Dawa", "Harar", "Benishangul-Gumuz", "Somali", "SNNPR "],
