@@ -19,10 +19,10 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
   Log.parseElements = function(expr, array){
     if(expr.search(/\,/)!=-1){
 
-      array.push(expr.slice(0, expr.search(/\,/)));
+      array.push($scope.$eval(expr.slice(0, expr.search(/\,/))));
       Log.parseElements(expr.slice(expr.search(/\,/)+1, expr.length), array);
     } else if(expr.length){
-      array.push(expr.slice(0, expr.length));
+      array.push($scope.$eval(expr.slice(0, expr.length)));
       expr = "";
     }
     return array;
@@ -137,7 +137,7 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
       }
     }
 
-    return math.eval(exp);
+    return $scope.$eval(exp);
 
   }
 
