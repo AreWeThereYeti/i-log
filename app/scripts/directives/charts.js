@@ -9,6 +9,7 @@ angular.module('gyldendal.directives', ['d3'])
 				link: function(scope, ele, attrs) {
 //					Load d3 service
 					d3Service.d3().then(function(d3) {
+						console.log('render chart');
 
 //						initialize base svg object on div.d3container
 						var svg = d3.select(".d3container");

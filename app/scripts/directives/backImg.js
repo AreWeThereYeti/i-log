@@ -1,7 +1,7 @@
 'use strict';
 
 //Add class on scroll
-angular.module('linkfireWebappApp')
+angular.module('gyldendal.directives')
 	.directive('backImg', function(){
 		return function(scope, element, attrs){
 			var url = attrs.backImg;

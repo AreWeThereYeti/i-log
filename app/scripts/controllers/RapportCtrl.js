@@ -4,7 +4,7 @@ app.controller('RapportCtrl', ['report', function (report) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
-	Rapport.bardata = {
+	Rapport.data = {
 		"regions": ["Federal", "Tigray", "Afar", "Amhara", "Oromia", "Gambella", "Addis Ababa", "Dire Dawa", "Harar", "Benishangul-Gumuz", "Somali", "SNNPR "],
 		"institutions": [0, 0, 34, 421, 738, 0, 218, 22, 22, 109, 0, 456]
 	};
