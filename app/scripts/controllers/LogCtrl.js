@@ -28,12 +28,49 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
     return array;
   };
 
+  Log.highest = function(val){
+    var max = 0;
+    for(var i= 0; i<val.length; i++){
+      if(parseFloat(val[i])>max){
+        max = parseFloat(val[i]);
+      }
+    }
+    return max;
+  };
+
+  Log.lowest = function(val){
+    var min = 99999999;
+    for(var i= 0; i<val.length; i++){
+      if(parseFloat(val[i])<min){
+        min = parseFloat(val[i]);
+      }
+    }
+    return min;
+  };
+
+  Log.average = function(val){
+    var sum = 0;
+    for(var i= 0; i<val.length; i++){
+      sum += parseFloat(val[i]);
+    }
+    return sum/val.length;
+  };
+
+  Log.sum = function(val){
+    var sum = 0;
+    for(var i= 0; i<val.length; i++){
+      sum += parseFloat(val[i]);
+    }
+    return sum;
+  };
 
   // function binding 'formula' number scope models
   Log.parseFormula = function(formula){
     var exp = formula;
     for(var i=0; i<Log.numFields.length; i++){
-      exp = exp.replace(/ID.(?!=\\.)/i, Log.numFields[i].value);
+      var regexp = "ID"+(i+1)+"(?!=\\.)";
+      var re = new RegExp(regexp, "i");
+      exp = exp.replace(re, Log.numFields[i].value);
     }
 
     // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
@@ -41,24 +78,27 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
       exp = exp.replace(/HIGHEST\(/g, "").slice(0,-1);
       for(var i=0; i<Log.numFields.length; i++){
         if(angular.isUndefined(Log.numFields[i].value)) {
+          // Expression returned if number fields are not defined
           return exp;
         }
       }
       var num = [];
       num = Log.parseElements(exp, num);
-      return math.max(parseFloat(num[0], 10), parseFloat(num[1], 10));
+      return Log.highest(num);
     }
-/*
+
     // Checks for LOWEST formula. returns math.min(exp) only if all number fields are filled
     if(exp.search(/LOWEST\(/g)!=-1){
       exp = exp.replace(/LOWEST\(/g, "").slice(0,-1);
       for(var i=0; i<Log.numFields.length; i++){
         if(angular.isUndefined(Log.numFields[i].value)) {
+          // Expression returned if number fields are not defined
           return exp;
         }
       }
-
-      return math.min(exp);
+      var num = [];
+      num = Log.parseElements(exp, num);
+      return Log.lowest(num);
     }
 
     // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
@@ -66,10 +106,13 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
       exp = exp.replace(/AVERAGE\(/g, "").slice(0,-1);
       for(var i=0; i<Log.numFields.length; i++){
         if(angular.isUndefined(Log.numFields[i].value)) {
+          // Expression returned if number fields are not defined
           return exp;
         }
       }
-      return math.mean(exp);
+      var num = [];
+      num = Log.parseElements(exp, num);
+      return Log.average(num);
     }
 
     // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
@@ -77,10 +120,13 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
       exp = exp.replace(/SUM\(/g, "").slice(0,-1);
       for(var i=0; i<Log.numFields.length; i++){
         if(angular.isUndefined(Log.numFields[i].value)) {
+          // Expression returned if number fields are not defined
           return exp;
         }
       }
-      return math.sum(exp);
+      var num = [];
+      num = Log.parseElements(exp, num);
+      return Log.sum(num);
     }
 
 
@@ -91,7 +137,7 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
       }
     }
 
-    return math.eval(exp);*/
+    return math.eval(exp);
 
   }
 
