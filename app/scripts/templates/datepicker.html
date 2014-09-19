@@ -1,9 +1,28 @@
-<div class="datepicker">
-  <h2>{{data}}</h2>
-  <select ng-init="selectedyear = year[0]" ng-model="selectedyear" ng-options="year as year for year in year track by year" name="År" id="">
-  </select>
-  <select ng-model="selectedmonth" ng-options="month as month for month in month track by month" name="Maaned" id="">
-  </select>
-  <select ng-model="selectedday" ng-model="selectedmonth" ng-options="day as day for day in day track by day" name="Dag" id="">
-  </select>
+<div class="datepicker grid">
+  <h3>Dato fra {{data}}</h3>
+  <div class="select">
+    <select  ng-init="fromyear = year[0]" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
+    </select>
+  </div>
+  <div class="select">
+    <select ng-model="fromMonth" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
+    </select>
+  </div>
+  <div class="select">
+    <select ng-model="fromDay" ng-options="day as day for day in day track by day" name="Dag" >
+    </select>
+  </div>
+  <h3>Dato til</h3>
+  <div class="select">
+    <select  ng-init="toYear = year[0]" ng-model="toYear" ng-options="year as year for year in year track by year" name="År">
+    </select>
+  </div>
+  <div class="select">
+    <select ng-model="toMonth" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
+    </select>
+  </div>
+  <div class="select">
+    <select ng-model="toDay" ng-options="day as day for day in day track by day" name="Dag" >
+    </select>
+  </div>
 </div>

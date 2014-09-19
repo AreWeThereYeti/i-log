@@ -2,16 +2,12 @@ angular.module('gyldendal.directives')
 	.directive('datePicker',[function() {
 		return {
 			restrict: 'EA',
-			scope : {
-			},
+			scope : true,
 			templateUrl: 'scripts/templates/datepicker.html',
 			controller : 'DatePickerCtrl',
 			replace: true, // Replace with the template below
 			link: function(scope, element, attrs) {
-				console.log('datepicker');
-				element.bind('click', function(){
-					console.log('clicked');
-					scope.data = 'clicked';
+				element.bind('click', function(element){
 					scope.$apply();
 				})
 			}

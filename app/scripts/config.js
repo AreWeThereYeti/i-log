@@ -14,7 +14,7 @@ var app = angular.module('app', [
 .config(['$routeProvider', 'ngDialogProvider',function ($routeProvider, ngDialogProvider) {
 
 			ngDialogProvider.setDefaults({
-				showClose: true,
+				showClose: false,
 				closeByDocument: true,
 				closeByEscape: true,
 				appendTo: '.append-dialog'
