@@ -1,6 +1,6 @@
-<div>
+<div class="datepicker">
   <h2>{{data}}</h2>
-  <select ng-model="selectedyear" ng-options="year as year for year in year track by year" name="År" id="">
+  <select ng-init="selectedyear = year[0]" ng-model="selectedyear" ng-options="year as year for year in year track by year" name="År" id="">
   </select>
   <select ng-model="selectedmonth" ng-options="month as month for month in month track by month" name="Maaned" id="">
   </select>

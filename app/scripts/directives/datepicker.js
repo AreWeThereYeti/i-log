@@ -6,7 +6,6 @@ angular.module('gyldendal.directives')
 			},
 			templateUrl: 'scripts/templates/datepicker.html',
 			controller : 'DatePickerCtrl',
-			controllerAs: 'DatePicker',
 			replace: true, // Replace with the template below
 			link: function(scope, element, attrs) {
 				console.log('datepicker');

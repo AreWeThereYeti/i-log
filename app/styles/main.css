@@ -400,116 +400,35 @@ h1 {
   line-height: 35px;
 }
 
-@-webkit-keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+/* line 3, ../sass/directives/_datepicker.scss */
+.datepicker select {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  border-bottom: 3px solid #000;
+  border-radius: 0px;
+  padding-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-bottom: 10px;
 }
-@keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-/* line 41, ../sass/components/_modal.scss */
-.ngdialog,
-.ngdialog *,
-.ngdialog *:before,
-.ngdialog *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+/* line 17, ../sass/directives/_datepicker.scss */
+.datepicker select:after {
+  display: inline-block;
+  content: "&#9650";
 }
 
-/* line 50, ../sass/components/_modal.scss */
-.ngdialog {
-  position: absolute;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  z-index: 10000;
-  margin-left: -400px;
-}
-/* line 56, ../sass/components/_modal.scss */
-.ngdialog .ngdialog-content {
-  background: white;
-  position: relative;
-  width: 400px;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-}
-
-/* line 66, ../sass/components/_modal.scss */
-.ngdialog-overlay {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.4);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-}
-
-/* line 78, ../sass/components/_modal.scss */
-.ngdialog.ngdialog-closing .ngdialog-overlay {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-/* line 84, ../sass/components/_modal.scss */
-.ngdialog.ngdialog-closing .ngdialog-content {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-/* line 90, ../sass/components/_modal.scss */
-.ngdialog-close:before {
-  font-family: 'Helvetica', Arial, sans-serif;
-  content: '\00D7';
-  cursor: pointer;
-}
-
-/* line 96, ../sass/components/_modal.scss */
-body.ngdialog-open {
-  overflow: hidden;
-}
-
-/* line 22, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 .active {
   color: red;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 .dialog {
   background-color: #F00;
   width: 40px;
