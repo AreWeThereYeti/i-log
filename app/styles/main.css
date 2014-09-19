@@ -444,14 +444,23 @@ h1 {
 
 /* line 50, ../sass/components/_modal.scss */
 .ngdialog {
-  position: fixed;
+  position: absolute;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
   margin-left: -400px;
 }
+/* line 56, ../sass/components/_modal.scss */
+.ngdialog .ngdialog-content {
+  background: white;
+  position: relative;
+  width: 400px;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadein 0.5s;
+  animation: ngdialog-fadein 0.5s;
+}
 
-/* line 58, ../sass/components/_modal.scss */
+/* line 66, ../sass/components/_modal.scss */
 .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
@@ -464,38 +473,28 @@ h1 {
   animation: ngdialog-fadein 0.5s;
 }
 
-/* line 70, ../sass/components/_modal.scss */
+/* line 78, ../sass/components/_modal.scss */
 .ngdialog.ngdialog-closing .ngdialog-overlay {
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadeout 0.5s;
   animation: ngdialog-fadeout 0.5s;
 }
 
-/* line 76, ../sass/components/_modal.scss */
-.ngdialog-content {
-  background: white;
-  position: relative;
-  width: 400px;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-}
-
-/* line 85, ../sass/components/_modal.scss */
+/* line 84, ../sass/components/_modal.scss */
 .ngdialog.ngdialog-closing .ngdialog-content {
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadeout 0.5s;
   animation: ngdialog-fadeout 0.5s;
 }
 
-/* line 91, ../sass/components/_modal.scss */
+/* line 90, ../sass/components/_modal.scss */
 .ngdialog-close:before {
   font-family: 'Helvetica', Arial, sans-serif;
   content: '\00D7';
   cursor: pointer;
 }
 
-/* line 97, ../sass/components/_modal.scss */
+/* line 96, ../sass/components/_modal.scss */
 body.ngdialog-open {
   overflow: hidden;
 }

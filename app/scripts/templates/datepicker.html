@@ -1,0 +1,9 @@
+<div>
+  <h2>{{data}}</h2>
+  <select ng-model="selectedyear" ng-options="year as year for year in year track by year" name="År" id="">
+  </select>
+  <select ng-model="selectedmonth" ng-options="month as month for month in month track by month" name="Maaned" id="">
+  </select>
+  <select ng-model="selectedday" ng-model="selectedmonth" ng-options="day as day for day in day track by day" name="Dag" id="">
+  </select>
+</div>

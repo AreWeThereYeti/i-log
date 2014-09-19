@@ -48,11 +48,19 @@
 }
 
 .ngdialog {
-  position: fixed;
+  position: absolute;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
   margin-left: -400px;
+  .ngdialog-content {
+    background: white;
+    position: relative;
+    width: 400px;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: ngdialog-fadein 0.5s;
+    animation: ngdialog-fadein 0.5s;
+  }
 }
 
 .ngdialog-overlay {
@@ -71,15 +79,6 @@
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadeout 0.5s;
   animation: ngdialog-fadeout 0.5s;
-}
-
-.ngdialog-content {
-  background: white;
-  position: relative;
-  width: 400px;
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
 }
 
 .ngdialog.ngdialog-closing .ngdialog-content {
