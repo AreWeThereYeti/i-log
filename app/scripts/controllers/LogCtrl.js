@@ -75,16 +75,26 @@ app.controller('LogCtrl', ['$window', '$scope', 'logs', '$routeParams', function
 
     // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
     if(exp.search(/HIGHEST\(/g)!=-1){
-      exp = exp.replace(/HIGHEST\(/g, "").slice(0,-1);
-      for(var i=0; i<Log.numFields.length; i++){
-        if(angular.isUndefined(Log.numFields[i].value)) {
-          // Expression returned if number fields are not defined
-          return exp;
+
+      if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){ // findes der et HIGHER(...) udtryk (ikke HIGHER(...()...))
+        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);//.slice(0,8);
+        func[0] = func[0].replace(/HIGHEST\(/g, "");
+        //exp = exp.replace(/HIGHEST\(/g, "").slice(0,-1);
+        for(var i=0; i<Log.numFields.length; i++){
+          if(angular.isUndefined(Log.numFields[i].value)) {
+            // Expression returned if number fields are not defined
+            return exp;
+          }
         }
+        var num = [];
+        num = Log.parseElements(func[0], num);
+        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, Log.highest(num));
+      }else{
+        // HIGHEST function includes invalid parenthesises. ex  HIGHEST( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
       }
-      var num = [];
-      num = Log.parseElements(exp, num);
-      return Log.highest(num);
     }
 
     // Checks for LOWEST formula. returns math.min(exp) only if all number fields are filled
