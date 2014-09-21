@@ -1,30 +1,36 @@
 <div class="datepicker grid">
-  <h3>Dato fra {{data}}</h3>
-  <div class="select">
-    <select  ng-init="'fromYear = year[0]'" ng-change="update()" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
-    </select>
+  <div class="">
+    <h1>Opret ny rapport</h1>
   </div>
-  <div class="select">
-    <select ng-model="fromMonth"  ng-change="update()" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
-    </select>
+  <h2>Title</h2>
+  <input type="text"/>
+  <div class="grid">
+    <div class="select">
+      <select  ng-init="'fromYear = year[0]'" ng-change="update()" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
+      </select>
+    </div>
+    <div class="select">
+      <select ng-model="fromMonth"  ng-change="update()" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
+      </select>
+    </div>
+    <div class="select">
+      <select ng-model="fromDay" ng-options="day as day for day in day track by day" name="Dag" >
+      </select>
+    </div>
+    <h3>Dato til</h3>
+    <div class="select">
+      <select  ng-init="toYear = year[0]" ng-model="toYear" ng-options="year as year for year in year track by year" name="År">
+      </select>
+    </div>
+    <div class="select">
+      <select ng-model="toMonth" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
+      </select>
+    </div>
+    <div class="select">
+      <select ng-model="toDay" ng-options="day as day for day in day track by day" name="Dag" >
+      </select>
+    </div>
+    <button ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay" ng-click="createReport()">Gå Videre</button>
   </div>
-  <div class="select">
-    <select ng-model="fromDay" ng-options="day as day for day in day track by day" name="Dag" >
-    </select>
-  </div>
-  <h3>Dato til</h3>
-  <div class="select">
-    <select  ng-init="toYear = year[0]" ng-model="toYear" ng-options="year as year for year in year track by year" name="År">
-    </select>
-  </div>
-  <div class="select">
-    <select ng-model="toMonth" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
-    </select>
-  </div>
-  <div class="select">
-    <select ng-model="toDay" ng-options="day as day for day in day track by day" name="Dag" >
-    </select>
-  </div>
-  <button ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay" ng-click="createReport()">create report ng-cl</button>
-</div>
 
+</div>
