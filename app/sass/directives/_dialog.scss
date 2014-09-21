@@ -1,42 +1,4 @@
-@-webkit-keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
 
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
 
 .ngdialog,
 .ngdialog *,
@@ -52,18 +14,13 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
-  margin-left: -400px;
   .ngdialog-content {
     background: white;
     position: relative;
     width: 400px;
     -webkit-backface-visibility: hidden;
-    -webkit-animation: ngdialog-fadein 0.5s;
-    animation: ngdialog-fadein 0.5s;
+    text-align: left;
 
-    .ngdialogbody{
-      text-align: left;
-    }
   }
 }
 

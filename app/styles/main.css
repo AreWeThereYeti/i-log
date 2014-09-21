@@ -401,39 +401,7 @@ h1 {
   line-height: 35px;
 }
 
-@-webkit-keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes ngdialog-fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes ngdialog-fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-/* line 41, ../sass/directives/_dialog.scss */
+/* line 3, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -443,29 +411,23 @@ h1 {
   box-sizing: border-box;
 }
 
-/* line 50, ../sass/directives/_dialog.scss */
+/* line 12, ../sass/directives/_dialog.scss */
 .ngdialog {
   position: absolute;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
-  margin-left: -400px;
 }
-/* line 56, ../sass/directives/_dialog.scss */
+/* line 17, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content {
   background: white;
   position: relative;
   width: 400px;
   -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
-}
-/* line 64, ../sass/directives/_dialog.scss */
-.ngdialog .ngdialog-content .ngdialogbody {
   text-align: left;
 }
 
-/* line 70, ../sass/directives/_dialog.scss */
+/* line 27, ../sass/directives/_dialog.scss */
 .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
@@ -478,28 +440,28 @@ h1 {
   animation: ngdialog-fadein 0.5s;
 }
 
-/* line 82, ../sass/directives/_dialog.scss */
+/* line 39, ../sass/directives/_dialog.scss */
 .ngdialog.ngdialog-closing .ngdialog-overlay {
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadeout 0.5s;
   animation: ngdialog-fadeout 0.5s;
 }
 
-/* line 88, ../sass/directives/_dialog.scss */
+/* line 45, ../sass/directives/_dialog.scss */
 .ngdialog.ngdialog-closing .ngdialog-content {
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadeout 0.5s;
   animation: ngdialog-fadeout 0.5s;
 }
 
-/* line 94, ../sass/directives/_dialog.scss */
+/* line 51, ../sass/directives/_dialog.scss */
 .ngdialog-close:before {
   font-family: 'Helvetica', Arial, sans-serif;
   content: '\00D7';
   cursor: pointer;
 }
 
-/* line 100, ../sass/directives/_dialog.scss */
+/* line 57, ../sass/directives/_dialog.scss */
 body.ngdialog-open {
   overflow: hidden;
 }

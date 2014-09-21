@@ -6,20 +6,11 @@ var app = angular.module('app', [
 	'ngRoute',
 	'd3',
 	'gyldendal.services',
-	'gyldendal.directives',
-	'ngDialog'
+	'gyldendal.directives'
 ])
 
 //	Configure module
-.config(['$routeProvider', 'ngDialogProvider',function ($routeProvider, ngDialogProvider) {
-
-			ngDialogProvider.setDefaults({
-				showClose: false,
-				closeByDocument: true,
-				closeByEscape: true,
-				appendTo: '.append-dialog'
-			});
-
+.config(['$routeProvider',function ($routeProvider) {
 	$routeProvider
 			.when('/', {
 				templateUrl: 'views/LogsOverview.html',
