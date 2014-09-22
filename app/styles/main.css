@@ -1,4 +1,4 @@
-/* line 1, ../sass/reset/_reset.scss */
+/* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,7 +21,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 22, ../sass/reset/_reset.scss */
+/* line 23, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -42,7 +42,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 35, ../sass/reset/_reset.scss */
+/* line 36, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -57,8 +57,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -142,6 +142,32 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
+  @-webkit-keyframes bouncedelay {
+    /* line 108, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      -webkit-transform: scale(0);
+    }
+
+    /* line 109, ../sass/_loader.scss */
+    40% {
+      -webkit-transform: scale(1);
+    }
+}
+
+  @keyframes bouncedelay {
+    /* line 113, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+    }
+
+    /* line 116, ../sass/_loader.scss */
+    40% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+}
+
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -256,27 +282,24 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
+
 /* line 1, ../sass/pages/_logs.scss */
 h1 {
   color: red;
+}
+
+/* line 6, ../sass/pages/_logs.scss */
+.log-content {
+  padding: 30px;
+}
+/* line 10, ../sass/pages/_logs.scss */
+.log-content label {
+  display: block;
+  padding-bottom: 10px;
+}
+/* line 15, ../sass/pages/_logs.scss */
+.log-content .input-field {
+  padding-bottom: 20px;
 }
 
 /* line 1, ../sass/pages/_report.scss */

@@ -5,6 +5,16 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
 	var Log = this;
   Log.test = logs.data.inputs;
 
+
+
+  Log.route = $routeParams.id;
+  //Test variable. If you see it when the app runs you are good to go
+  Log.testVar = 'We are up and running  on Log - page!';
+
+
+  // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
+  //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
+
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
   for(var i=0; i<Log.test.length; i++){
@@ -12,10 +22,6 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
       Log.numFields.push(Log.test[i]);
     }
   }
-
-	Log.route = $routeParams.id;
-	//Test variable. If you see it when the app runs you are good to go
-	Log.testVar = 'We are up and running  on Log - page!';
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
   Log.parseElements = function(expr, array){

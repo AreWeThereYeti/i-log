@@ -1,46 +1,57 @@
-<h1>Log </h1>
+<div class="topheader">
+  <h1>Gyldendal I-log</h1>
+</div>
+
+<div class="log">
+
+  <div ng-controller="LogMenubarCtrl as LogMenubar" class="menubar" ng-include="'scripts/templates/logmenubar.html'"></div>
 
 
-<form>
-  <div class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
-    <div ng-switch-when="text">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <input id="log-input-{{input.id}}" type="text" required="{{input.required}}">{{input.unit}}
-    </div>
+  <div class="log-content" back-img="{{Log.backgroundImg}}">
 
-    <div ng-switch-when="number">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <input  type="number" required="{{input.required}}" ng-model="Log.numFields[$index].value">{{input.unit}}
-    </div>
 
-    <div ng-switch-when="checkbox">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <input id="log-input-{{input.id}}" type="checkbox" checked="{{input.prechecked}}">
-    </div>
+    <form>
+      <div class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
+        <div ng-switch-when="text">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <input id="log-input-{{input.id}}" type="text" required="{{input.required}}">{{input.unit}}
+        </div>
 
-    <div ng-switch-when="dropdown">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <select id="log-input-{{input.id}}" required="{{input.required}}">
-        <option ng-repeat="option in input.options" value="option">{{option}}</option>
-      </select>
-    </div>
+        <div ng-switch-when="number">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <input  type="number" required="{{input.required}}" ng-model="Log.numFields[$index].value">{{input.unit}}
+        </div>
 
-    <div ng-switch-when="largetext">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <textarea id="log-input-{{input.id}}" required="{{input.required}}">
-        height: {{input.height}}
-        width: {{input.width}}
-      </textarea>
-    </div>
+        <div ng-switch-when="checkbox">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <input id="log-input-{{input.id}}" type="checkbox" checked="{{input.prechecked}}">
+        </div>
 
-    <div ng-switch-when="data">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <div id="log-input-{{input.id}}" class="data">{{input.data}}</div>
-    </div>
+        <div ng-switch-when="dropdown">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <select id="log-input-{{input.id}}" required="{{input.required}}">
+            <option ng-repeat="option in input.options" value="option">{{option}}</option>
+          </select>
+        </div>
 
-    <div ng-switch-when="formula">
-      <label for="log-input-{{input.id}}">{{input.label}}</label>
-      <div id="log-input-{{input.id}}" class="formula">{{Log.parseFormula(input.formula)}}</div>
-    </div>
+        <div ng-switch-when="largetext">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <textarea id="log-input-{{input.id}}" required="{{input.required}}" style="height: {{input.height}}px; width: {{input.width}}px;">
+            height: {{input.height}}
+            width: {{input.width}}
+          </textarea>
+        </div>
+
+        <div ng-switch-when="data">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <div id="log-input-{{input.id}}" class="data">{{input.data}}</div>
+        </div>
+
+        <div ng-switch-when="formula">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <div id="log-input-{{input.id}}" class="formula">{{Log.parseFormula(input.formula)}}</div>
+        </div>
+      </div>
+    </form>
   </div>
-</form>
+</div>
