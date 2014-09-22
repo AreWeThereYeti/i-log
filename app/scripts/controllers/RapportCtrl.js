@@ -5,8 +5,8 @@ app.controller('RapportCtrl', ['report', function (report) {
 	var Rapport = this;
 
 	Rapport.data = {
-		"regions": ["Federal", "Tigray", "Afar", "Amhara", "Oromia", "Gambella", "Addis Ababa", "Dire Dawa", "Harar", "Benishangul-Gumuz", "Somali", "SNNPR "],
-		"institutions": [0, 0, 34, 421, 738, 0, 218, 22, 22, 109, 0, 456]
+		"regions": ["Federal", "Tigray", "Afar", "Amhara", "Oromia", "Gambella", "Addis Ababa"],
+		"institutions": [0, 5, 34, 99, 21, 0, 3]
 	};
 
 	Rapport.piedata = [

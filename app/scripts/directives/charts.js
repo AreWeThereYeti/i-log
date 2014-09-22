@@ -56,12 +56,15 @@ angular.module('gyldendal.directives', ['d3'])
 											"left": 50
 										},
 										width = 500,
-										height = 300;
+										height = 300,
+										barPad = .1;
 
 								var x = d3.scale.ordinal()
 										.domain(data.regions.map(function(d) {
-											return d.substring(0, 2);}))
-										.rangeRoundBands([0, width], 0);
+											// Splices string and only shows 2 first characters
+											return d.substring(0, 2);
+										}))
+										.rangeRoundBands([0, width], 0,0);
 
 
 								var y = d3.scale.linear()
