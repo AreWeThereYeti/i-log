@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, logs, $routeParams) {
+app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', function (statcalcservice, $scope, logs, $routeParams) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.test = logs.data.inputs;
@@ -36,42 +36,6 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
     return array;
   };
 
-  Log.highest = function(val){
-    var max = 0;
-    for(var i= 0; i<val.length; i++){
-      if(parseFloat(val[i])>max){
-        max = parseFloat(val[i]);
-      }
-    }
-    return max;
-  };
-
-  Log.lowest = function(val){
-    var min = 99999999;
-    for(var i= 0; i<val.length; i++){
-      if(parseFloat(val[i])<min){
-        min = parseFloat(val[i]);
-      }
-    }
-    return min;
-  };
-
-  Log.average = function(val){
-    var sum = 0;
-    for(var i= 0; i<val.length; i++){
-      sum += parseFloat(val[i]);
-    }
-    return sum/val.length;
-  };
-
-  Log.sum = function(val){
-    var sum = 0;
-    for(var i= 0; i<val.length; i++){
-      sum += parseFloat(val[i]);
-    }
-    return sum;
-  };
-
 
   // main function for parsing formula field in relation to number input fields
   Log.parseFormula = function(formula){
@@ -101,7 +65,7 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
         func[0] = func[0].replace(/HIGHEST\(/g, "");
         var num = [];
         num = Log.parseElements(func[0], num);
-        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, Log.highest(num));
+        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, statcalcservice.highest(num));
       }else{
         // HIGHEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
         // return either empty string or error
@@ -118,7 +82,7 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
         func[0] = func[0].replace(/LOWEST\(/g, "");
         var num = [];
         num = Log.parseElements(func[0], num);
-        exp = exp.replace(/LOWEST\(([^\(]+)\)/ig, Log.lowest(num));
+        exp = exp.replace(/LOWEST\(([^\(]+)\)/ig, statcalcservice.lowest(num));
       }else{
         // LOWEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
         // return either empty string or error
@@ -134,7 +98,7 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
         func[0] = func[0].replace(/AVERAGE\(/g, "");
         var num = [];
         num = Log.parseElements(func[0], num);
-        exp = exp.replace(/AVERAGE\(([^\(]+)\)/ig, Log.average(num));
+        exp = exp.replace(/AVERAGE\(([^\(]+)\)/ig, statcalcservice.average(num));
       }else{
         // AVERAGE function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
         // return either empty string or error
@@ -150,7 +114,7 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
         func[0] = func[0].replace(/SUM\(/g, "");
         var num = [];
         num = Log.parseElements(func[0], num);
-        exp = exp.replace(/SUM\(([^\(]+)\)/ig, Log.sum(num));
+        exp = exp.replace(/SUM\(([^\(]+)\)/ig, statcalcservice.sum(num));
       }else{
         // SUM function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
         // return either empty string or error

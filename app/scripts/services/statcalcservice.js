@@ -1,6 +1,9 @@
-angular.module('gyldendal.services', [])
+angular.module('gyldendal.services')
 
   .service('statcalcservice', function(){
+
+    // statistical helper functions
+    // takes as input an array of numeric values and returns a float (highers/lowest/sum/average)
 
      var highest = function(val){
       var max = 0;
