@@ -91,7 +91,7 @@ angular.module('gyldendal.directives', ['d3'])
 									.attr("y", 16)
 									.attr("transform", "translate( " + width + ", "+ 20 +")")
 									.attr("dy", ".71em")
-									.text("Institutions");
+									.text("Værdi X");
 
 								svg.append("g")
 									.attr("class", "y axis").call(yAxis)
@@ -100,7 +100,7 @@ angular.module('gyldendal.directives', ['d3'])
 									.attr("y", 6)
 									.attr("dy", ".71em")
 									.style("text-anchor", "end")
-									.text("Værdi");
+									.text("Værdi Y");
 
 								svg.selectAll(".bar").data(data.institutions).enter().append("rect")
 									.attr("class", "bar")
