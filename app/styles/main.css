@@ -401,7 +401,7 @@ h1 {
   line-height: 35px;
 }
 
-/* line 3, ../sass/directives/_dialog.scss */
+/* line 1, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -411,59 +411,36 @@ h1 {
   box-sizing: border-box;
 }
 
-/* line 12, ../sass/directives/_dialog.scss */
+/* line 10, ../sass/directives/_dialog.scss */
 .ngdialog {
-  position: absolute;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
 }
-/* line 17, ../sass/directives/_dialog.scss */
+/* line 14, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content {
+  z-index: 1;
   background: white;
   position: relative;
   width: 400px;
   -webkit-backface-visibility: hidden;
   text-align: left;
 }
-
-/* line 27, ../sass/directives/_dialog.scss */
-.ngdialog-overlay {
+/* line 22, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   -webkit-animation: ngdialog-fadein 0.5s;
   animation: ngdialog-fadein 0.5s;
-}
-
-/* line 39, ../sass/directives/_dialog.scss */
-.ngdialog.ngdialog-closing .ngdialog-overlay {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-/* line 45, ../sass/directives/_dialog.scss */
-.ngdialog.ngdialog-closing .ngdialog-content {
-  -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadeout 0.5s;
-  animation: ngdialog-fadeout 0.5s;
-}
-
-/* line 51, ../sass/directives/_dialog.scss */
-.ngdialog-close:before {
-  font-family: 'Helvetica', Arial, sans-serif;
-  content: '\00D7';
-  cursor: pointer;
-}
-
-/* line 57, ../sass/directives/_dialog.scss */
-body.ngdialog-open {
-  overflow: hidden;
 }
 
 /* line 2, ../sass/directives/_datepicker.scss */

@@ -5,11 +5,22 @@
       <li><a href="#/rapporter" ng-class="{active : $root.showSection == '/rapporter'}">Mine rapporter</a></li>
     </ul>
   </div>
-  <div class="icons col-1-4">
+  <div ng-if="$root.showSection == '/logs'" class="icons col-1-4">
+    <div ng-click="Menubar.createReport()" class="circ">
+      <span class>Fejl</span>
+    </div>
+    <div ng-click="Menubar.openError()" class="circ">
+      <span>hide statusbar</span>
+    </div>
+    <div class="circ">
+      <span>Help</span>
+    </div>
+  </div>
+  <div ng-if="$root.showSection == '/rapporter'" class="icons col-1-4">
     <div ng-click="Menubar.createReport()" class="circ">
       <span class>Plus</span>
     </div>
-    <div class="circ">
+    <div ng-click="Menubar.openError()" class="circ">
       <span>hide statusbar</span>
     </div>
     <div class="circ">
@@ -18,8 +29,5 @@
   </div>
 </div>
 
-<div class="ngdialog">
-  <div class="ngdialog-content">
-    <div date-picker></div>
-  </div>
+<div dialog>
 </div>

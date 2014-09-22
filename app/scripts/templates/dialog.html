@@ -1,0 +1,21 @@
+<div class="ngdialog">
+  <div class="ngdialog-content">
+    <div ng-if="$root.dialog == 'create report'">
+      <div date-picker></div>
+    </div>
+    <div ng-if="$root.dialog == 'error'">
+      <div>
+        <h2>Meld en fejl</h2>
+      </div>
+      <div>
+        <p>
+          Vil du melde en fejl eller en uhensigtsmæssighed?
+          <br>
+          Klik på knappen for at gå videre til vores supportformular (åbner i nyt vindue).
+        </p>
+        <button ng-click="Dialog.openFormularDialog()">Åben supportformular</button>
+      </div>
+    </div>
+  </div>
+  <div ng-if="!!$root.dialog" ng-click="Dialog.closeDialog()" class="ngdialog-overlay"></div>
+</div>
