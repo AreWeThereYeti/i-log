@@ -9,6 +9,7 @@ angular.module('gyldendal.directives', ['d3'])
 				link: function(scope, ele, attrs) {
 //					Load d3 service
 					d3Service.d3().then(function(d3) {
+						console.log('render chart');
 
 //						initialize base svg object on div.d3container
 						var svg = d3.select(".d3container");
@@ -141,7 +142,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var text;
 
-							var colors = ['green','blue'];
+							var colors = ['black', 'red'];
 
 							var colorscale = d3.scale.linear().domain([0,data.length]).range(colors);
 
@@ -163,10 +164,15 @@ angular.module('gyldendal.directives', ['d3'])
 								.data(pie(data))
 								.enter()
 								.append('g')
+								.style('stroke', 'white')
+								.style('stroke-width', '1.8')
+								.style('fill', 'none')
 								.attr('class',"arc");
+
 
 							renderarcs.append('path')
 								.attr('d',arc)
+
 								.attr('fill',function(d,i){ return colorscale(i); })
 								.on("mouseover", function(d) {
 									d3.select(this).transition()
@@ -177,6 +183,7 @@ angular.module('gyldendal.directives', ['d3'])
 									text = renderarcs.append("text")
 										.attr("transform",'translate(' + arc.centroid(d)[0] + ', ' + arc.centroid(d)[1] + ')' )
 										.attr("dy", ".5em")
+										.style('stroke', 'none')
 										.style("text-anchor", "middle")
 										.style("fill", "white")
 										.style('pointer-events' , 'none')

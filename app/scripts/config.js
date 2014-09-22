@@ -11,7 +11,6 @@ var app = angular.module('app', [
 
 //	Configure module
 .config(['$routeProvider',function ($routeProvider) {
-
 	$routeProvider
 			.when('/', {
 				templateUrl: 'views/LogsOverview.html',
