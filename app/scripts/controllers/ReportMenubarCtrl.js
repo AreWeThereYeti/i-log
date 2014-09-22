@@ -1,9 +1,9 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ '$location', function ($location) {
+app.controller('ReportMenubarCtrl', [ function () {
 	//Save reference to controller in order to avoid reference soup
-	var LogsOverview = this;
+	var ReportMenubar = this;
 
 	//Test variable. If you see it when the app runs you are good to go
-	LogsOverview.id = 32;
+	ReportMenubar.testVar = 'This is data from the menubar!';
 }]);

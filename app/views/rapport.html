@@ -1,3 +1,67 @@
-<h1>My awesome app</h1>
+<div class="topheader">
+  <h1>Gyldendal I-log</h1>
+</div>
 
-<p>{{Rapport.testVar | uppercase}}</p>
+<div class="report">
+  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="menubar reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
+
+  <div class="grid reportsubmenu" ng-init="Report.pane = 'graph-line'">
+    <div class="col-1-8">
+      <span ng-click="Report.pane = 'pie'">Pie</span>
+    </div>
+    <div class="col-1-8">
+      <span ng-click="Report.pane = 'bar'"> Bar</span>
+    </div>
+    <div class="col-1-8">
+      <span ng-click="Report.pane = 'list'">List</span>
+    </div>
+    <div class="col-1-8">
+      <span ng-click="Report.pane = 'graph-dotted'">graph dotted</span>
+    </div>
+    <div class="col-1-8">
+      <span ng-click="Report.pane = 'graph-line'">linie</span>
+    </div>
+  </div>
+
+  <div ng-if="Report.pane == 'pie'">
+    <d3-chart data="Rapport.piedata" type="pie"></d3-chart>
+  </div>
+
+  <div ng-if="Report.pane == 'bar'">
+    <d3-chart data="Rapport.bardata" type="bar"></d3-chart>
+  </div>
+
+  <div class="listview" ng-if="Report.pane == 'list'">
+    <!--if directive is of type list, the directive only clears the svg-->
+    <d3-chart type="list"></d3-chart>
+    <div class="grid" ng-repeat="item in Rapport.piedata track by $index">
+      <span class="col-1-4 first">{{$index}}</span>
+      <span class="col-1-8">{{item.label}}</span>
+      <span class="col-1-8">{{item.value}}</span>
+    </div>
+    <div class="grid">
+      <span class="col-1-4 first">Titel på beregning</span>
+      <span class="col-1-8"></span>
+      <span class="col-1-8">Titel på beregning</span>
+    </div>
+    <div class="grid">
+      <span class="col-1-4">Titel på beregning</span>
+      <span class="col-1-8">Titel på beregning</span>
+      <span class="col-1-8"></span>
+    </div>
+
+  </div>
+
+  <div ng-if="Report.pane == 'graph-dotted'">
+    <p>Grpah dotted view</p>
+  </div>
+
+  <div ng-if="Report.pane == 'graph-line'">
+    <p>Graph line view</p>
+    <d3-chart data="Rapport.linedata" type="line"></d3-chart>
+  </div>
+
+  <div class="grid">
+    <h2>Beregninger</h2>
+  </div>
+</div>

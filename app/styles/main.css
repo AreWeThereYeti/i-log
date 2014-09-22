@@ -55,6 +55,86 @@ table {
   border-spacing: 0;
 }
 
+/* line 1, ../sass/_grid.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 7, ../sass/_grid.scss */
+.grid {
+  clear: both;
+  margin: 0 0 0px 0;
+}
+/* line 11, ../sass/_grid.scss */
+.grid:after {
+  /* Or @extend clearfix */
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 19, ../sass/_grid.scss */
+[class*='col-'] {
+  float: left;
+  padding-right: 0px;
+}
+/* line 22, ../sass/_grid.scss */
+.grid [class*='col-']:last-of-type {
+  padding-right: 0;
+}
+
+/* line 26, ../sass/_grid.scss */
+.col-7-8 {
+  width: 87.5%;
+}
+
+/* line 29, ../sass/_grid.scss */
+.col-5-8 {
+  width: 62.5%;
+}
+
+/* line 32, ../sass/_grid.scss */
+.col-3-4 {
+  width: 75%;
+}
+
+/* line 35, ../sass/_grid.scss */
+.col-2-3 {
+  width: 66.66%;
+}
+
+/* line 38, ../sass/_grid.scss */
+.col-1-3 {
+  width: 33.33%;
+}
+
+/* line 41, ../sass/_grid.scss */
+.col-1-2 {
+  width: 50%;
+}
+
+/* line 44, ../sass/_grid.scss */
+.col-1-4 {
+  width: 25%;
+}
+
+/* line 47, ../sass/_grid.scss */
+.col-1-8 {
+  width: 12.5%;
+}
+
+/* Opt-in outside padding */
+/* line 52, ../sass/_grid.scss */
+.grid-pad {
+  padding: 0px 0 0px 0px;
+}
+/* line 54, ../sass/_grid.scss */
+.grid-pad [class*='col-']:last-of-type {
+  padding-right: 0px;
+}
+
 /* line 1, ../sass/_loader.scss */
 .spinner-backdrop {
   position: absolute;
@@ -199,6 +279,25 @@ h1 {
   color: red;
 }
 
+/* line 1, ../sass/pages/_report.scss */
+.report {
+  background-color: #FFF;
+}
+/* line 3, ../sass/pages/_report.scss */
+.report .reportsubmenu {
+  line-height: 50px;
+  height: 50px;
+  background-color: #f8f8f8;
+}
+/* line 9, ../sass/pages/_report.scss */
+.report .listview span:first-of-type {
+  border-right: 2px solid black;
+}
+/* line 12, ../sass/pages/_report.scss */
+.report .listview span {
+  border: 1px solid #E5E5E5;
+}
+
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
@@ -213,7 +312,7 @@ h1 {
 .filterbar {
   width: 100%;
   background-color: #e04f2f;
-  height: 75px;
+  line-height: 75px;
 }
 /* line 5, ../sass/components/_filterbar.scss */
 .filterbar ul {
@@ -225,7 +324,6 @@ h1 {
 .filterbar ul li {
   cursor: pointer;
   font-size: 20px;
-  margin: 0 10px;
   display: inline-block;
 }
 
@@ -236,43 +334,78 @@ h1 {
   height: 75px;
 }
 /* line 5, ../sass/components/_menubar.scss */
+.menubar.reportmenu {
+  background-color: white;
+}
+/* line 8, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 75px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 9, ../sass/components/_menubar.scss */
+/* line 12, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
 }
-/* line 15, ../sass/components/_menubar.scss */
+/* line 18, ../sass/components/_menubar.scss */
 .menubar .icons {
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 19, ../sass/components/_menubar.scss */
-.menubar .icons .circ {
+
+/* line 3, ../sass/components/_list.scss */
+.list .listheader {
+  line-height: 50px;
+  height: 50px;
+  background-color: #FFF;
+  border-bottom: 1px solid #2d2d2d;
+}
+/* line 10, ../sass/components/_list.scss */
+.list .listitem {
+  cursor: pointer;
+  line-height: 50px;
+  height: 50px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #B9B9B9;
+}
+/* line 16, ../sass/components/_list.scss */
+.list .listitem .circ {
+  margin: 10px 0px;
+  width: 25px;
+  height: 25px;
+}
+/* line 21, ../sass/components/_list.scss */
+.list .listitem .circ .span {
+  line-height: 25px;
+}
+
+/* line 3, ../sass/components/_icons_and_buttons.scss */
+.circ {
   cursor: pointer;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  float: left;
+  width: 35px;
+  height: 35px;
+  float: right;
   border: 2px solid black;
   border-radius: 50%;
-  margin: 12.5px 0;
+  margin: 10px 0px;
 }
-/* line 30, ../sass/components/_menubar.scss */
-.menubar .icons .circ span {
-  line-height: 50px;
-  font-size: 140%;
+/* line 14, ../sass/components/_icons_and_buttons.scss */
+.circ span {
+  line-height: 35px;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 22, ../sass/main.scss */
 h2 {
   font-size: 30px;
+}
+
+/* line 26, ../sass/main.scss */
+.active {
+  color: red;
 }

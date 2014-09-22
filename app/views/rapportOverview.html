@@ -1,3 +1,50 @@
-<h1>Rapports</h1>
+<div class="topheader">
+  <h1>Gyldendal I-log. Path is : {{$root.showSection}}</h1>
+</div>
 
-<p>{{RapportOverview.testVar | uppercase}}</p>
+<div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
+
+<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
+
+<div class="list">
+  <!--header-->
+  <div class="listheader grid">
+    <div class="col-1-8">
+      <span ng-click="RapportOverview.predicate = 'fromdate'; reverse=!reverse">Fra Dato</span>
+    </div>
+    <div class="col-1-8">
+      <span ng-click="RapportOverview.predicate = 'todate'; reverse=!reverse">Til dato</span>
+    </div>
+    <div class="col-1-2">
+      <span ng-click="RapportOverview.predicate = 'title'; reverse=!reverse">Titel</span>
+    </div>
+    <div class="col-1-4">
+      <span ng-click="RapportOverview.predicate = 'shared'; reverse=!reverse">Delt</span>
+    </div>
+  </div>
+<!--item in reports-->
+  <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
+    <a ng-href="#/rapport/{{RapportOverview.testid}}">
+      <span class="col-1-8">
+        <span>02-04-2014</span>
+      </span>
+      <span class="col-1-8">
+        <span>03-05-2014</span>
+      </span>
+      <span class="col-1-2">
+        <span>{{item.title}}</span>
+      </span>
+      <span class="col-1-8">
+        <span>{{$index}}</span>
+      </span>
+      <span class="col-1-8">
+        <span class="circ">
+          <span>hide</span>
+        </span>
+        <span class="circ">
+          <span ng-click="LogsOverview.delete($index)">delete</span>
+        </span>
+      </span>
+    </a>
+  </div>
+</div>

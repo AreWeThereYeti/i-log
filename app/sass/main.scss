@@ -1,18 +1,28 @@
+@import "compass";
+
+
 @import "reset/reset";
+@import "grid";
 @import "loader";
 
 //pages
 @import "pages/logs";
+@import "pages/report";
 
 //components
 @import "components/topheader";
 @import "components/filterbar";
 @import "components/menubar";
+@import "components/list";
+@import "components/icons_and_buttons";
 
 body{
-
 }
 
 h2{
-font-size: 30px;
+  font-size: 30px;
+}
+
+.active{
+  color: red;
 }

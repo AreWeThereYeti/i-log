@@ -1,3 +1,44 @@
-<h1>LogsOverview</h1>
+<div class="topheader">
+  <h1>Gyldendal I-log. Path is : {{$root.showSection}}</h1>
+</div>
 
-<p>{{LogsOverview.testVar | uppercase}}</p>
+<div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
+
+<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar" ng-include="'scripts/templates/filterbar.html'"></div>
+
+  <div class="list">
+    <div class="listheader">
+      <div class="col-1-8">
+        <span>Dato</span>
+      </div>
+      <div class="col-1-8">
+        <span>Distance</span>
+      </div>
+      <div class="col-3-4">
+        <span>Aktivitet</span>
+      </div>
+    </div>
+
+    <!--item in logs-->
+    <div >
+      <a class="listitem" ng-href="#/log/{{LogsOverview.id}}">
+        <span class="col-1-8">
+          <span class="date">08-09-2014</span>
+        </span>
+        <span class="col-1-8">
+          <span class="date">25</span>
+        </span>
+        <span class="col-5-8">
+          <span class="shared">Løb</span>
+        </span>
+        <span class="col-1-8">
+          <span class="circ">
+            <span>hide</span>
+          </span>
+          <span class="circ">
+            <span ng-click="LogsOverview.delete($index)">delete</span>
+          </span>
+        </span>
+      </a>
+    </div>
+</div>
