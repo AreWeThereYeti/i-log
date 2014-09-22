@@ -4,10 +4,27 @@ app.controller('RapportCtrl', ['report', function (report) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
-	Rapport.data = {
-		"regions": ["Federal", "Tigray", "Afar", "Amhara", "Oromia", "Gambella", "Addis Ababa"],
-		"institutions": [0, 5, 34, 99, 21, 0, 3]
-	};
+	Rapport.data = [
+		{
+			"letter": "A",
+			"frequency": 5
+		}, {
+			"letter": "B",
+			"frequency": 20
+		}, {
+			"letter": "C",
+			"frequency": 10
+		}, {
+			"letter": "D",
+			"frequency": 40
+		}, {
+			"letter": "E",
+			"frequency": 5
+		}, {
+			"letter": "F",
+			"frequency": 20
+		}
+	];
 
 	Rapport.piedata = [
 		{
