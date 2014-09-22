@@ -110,6 +110,8 @@ angular.module('gyldendal.directives', ['d3'])
 											.data(data)
 											.enter().append("rect")
 											.attr("class", "bar")
+											.attr("transform", "translate( "+ 20 + "," + -20 + ")")
+
 											.attr("x", function(d) { return x(d.letter); })
 											.style("fill", "e6e6e6")
 											.attr("width", x.rangeBand())
