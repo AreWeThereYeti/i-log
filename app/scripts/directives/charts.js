@@ -81,32 +81,41 @@ angular.module('gyldendal.directives', ['d3'])
 
 									svg.append("g")
 											.attr("class", "x axis")
-											.attr("transform", "translate(0," + height + ")")
-											.call(xAxis);
-
-									svg.append("g")
-											.attr("class", "y axis")
-											.call(yAxis)
+											.attr("transform", "translate("+ 0 +"," + height + ")")
+											.call(xAxis)
+											.style("fill", "e6e6e6")
 											.append("text")
-											.attr("transform", "rotate(-90)")
+											.style("fill", "000000")
+											.attr("transform", "translate("+width/2+",0)")
 											.attr("y", 6)
 											.attr("dy", ".71em")
 											.style("text-anchor", "end")
-											.text("Frequency");
+											.text("Udfaldsrum")
+											.style("fill", "000000");
+
+									svg.append("g")
+											.attr("class", "y axis")
+											.style("fill", "e6e6e6")
+											.call(yAxis)
+											.append("text")
+											.style("fill", "000000")
+											.attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
+											.attr("y", 6)
+											.attr("dy", ".71em")
+											.style("text-anchor", "end")
+											.text("Værdi")
+											.style("fill", "000000");
 
 									svg.selectAll(".bar")
 											.data(data)
 											.enter().append("rect")
 											.attr("class", "bar")
 											.attr("x", function(d) { return x(d.letter); })
+											.style("fill", "e6e6e6")
 											.attr("width", x.rangeBand())
 											.attr("y", function(d) { return y(d.frequency); })
-											.attr("height", function(d) { return height - y(d.frequency); });
+											.attr("height", function(d) { return height - y(d.frequency); })
 
-								function type(d) {
-									d.frequency = +d.frequency;
-									return d;
-								}
 							}
 						};
 
