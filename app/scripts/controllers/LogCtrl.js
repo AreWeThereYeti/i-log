@@ -4,6 +4,8 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.test = logs.data.inputs;
+
+  // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
   for(var i=0; i<Log.test.length; i++){
     if(Log.test[i].type == "number"){
@@ -64,46 +66,25 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
     return sum;
   };
 
-/*  //  formats TIMEFORMAT(ID1, ‘hh:mm:ss’)
-  Log.timeFormat = function(val){
-    var time = "";
 
-
-  };*/
-
-  // function binding 'formula' number scope models
+  // main function for parsing formula field in relation to number input fields
   Log.parseFormula = function(formula){
     var exp = formula;
+
+    // finds and replaces all "ID" references with coresponding number input fields
     for(var i=0; i<Log.numFields.length; i++){
       var regexp = "ID"+(i+1)+"(?!=\\.)";
       var re = new RegExp(regexp, "i");
       exp = exp.replace(re, Log.numFields[i].value);
     }
 
+    // returns placeholder expression if input number fields are not filled out
     for(var i=0; i<Log.numFields.length; i++){
       if(angular.isUndefined(Log.numFields[i].value)) {
         // Expression returned if number fields are not defined
         return exp;
       }
     }
-
-    // TIMEFORMAT
-/*    if(exp.search(/TIMEFORMAT\(/g)!=-1){
-
-      if(exp.search(/TIMEFORMAT\(([^\(]+)(?=\))/i)!=-1){ // findes der et HIGHER(...) udtryk (ikke HIGHER(...()...))
-        var func = exp.match(/TIMEFORMAT\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/TIMEFORMAT\(/g, "");
-
-        var num = [];
-        num = Log.parseElements(func[0], num);
-        exp = exp.replace(/TIMEFORMAT\(([^\(]+)\)/ig, Log.timeFormat(num));
-      }else{
-        // HIGHEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
-        // return either empty string or error
-        return exp;
-
-      }
-    }*/
 
 
     // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
@@ -172,6 +153,7 @@ app.controller('LogCtrl', ['$scope', 'logs', '$routeParams', function ($scope, l
       }
     }
 
+    // evaluates and returns parsed string expression as angular expression
     return $scope.$eval(exp);
 
   }
