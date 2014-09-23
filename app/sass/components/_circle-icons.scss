@@ -1,0 +1,24 @@
+//Circle icons
+// Fits in the middle of a row with height and line-height : 75px;
+.circ{
+  cursor: pointer;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 20px 2px;
+  line-height: 35px;
+  display: inline-block;
+  vertical-align: initial;
+
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    vertical-align: text-top;
+  }
+
+  span{
+    line-height: 35px;
+    vertical-align: super;
+  }
+}

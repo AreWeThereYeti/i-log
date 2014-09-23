@@ -3,8 +3,11 @@
 @import "reset/reset";
 @import "grid";
 @import "loader";
+@import "components/variables";
+@import "components/fonts";
+@import "components/helpers";
 
-//pages
+//pages<<<
 @import "pages/logs";
 @import "pages/report";
 
@@ -13,8 +16,7 @@
 @import "components/filterbar";
 @import "components/menubar";
 @import "components/list";
-@import "components/icons_and_buttons";
-
+@import "components/circle-icons";
 
 @import "directives/dialog";
 @import "directives/datepicker";
@@ -27,17 +29,23 @@ h2{
   font-size: 30px;
 }
 
+a {
+  color: $font-color-dark;
+  text-decoration: none;
+}
+
 .active{
-  color: red;
+  &[class*=" icon-"]:before, a{
+    color: $font-color-orange;
+  }
 }
-
-
-.dialog{
-  background-color: #F00;
-  width: 40px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  left: 50%;
-  cursor: pointer;
-}
+//
+//.dialog{
+//  background-color: #F00;
+//  width: 40px;
+//  height: 20px;
+//  display: block;
+//  position: absolute;
+//  left: 11150%;
+//  cursor: pointer;
+//}

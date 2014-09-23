@@ -1,21 +1,28 @@
 .menubar{
   width: 100%;
-  background-color: #808080;
+  padding: $base-padding;
+  background-color: $backgroundcolor-white;
   height: 75px;
   &.reportmenu{
-    background-color: white;
+    background-color: $backgroundcolor-white;
   }
   ul{
-    line-height: 75px;
+    line-height: 70px;
     vertical-align: middle;
     display: inline-block;
     li{
       cursor: pointer;
       font-size: 30px;
       display: inline-block;
+      vertical-align: middle;
+    }
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+      margin: 0 5px 0 10px;
+      font-size: 20px;
     }
   }
   .icons{
+    height: 75px;
     float: right;
     display: inline-block;
     vertical-align: middle;

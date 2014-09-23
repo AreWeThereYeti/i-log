@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 @charset "UTF-8";
 /* line 1, ../sass/reset/_reset.scss */
-=======
-/* line 13, ../sass/reset/_reset.scss */
->>>>>>> 12dc3ae1b4784c4c7ac35ff2571fa38d5d5b6c49
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -26,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 23, ../sass/reset/_reset.scss */
+/* line 22, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -47,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 36, ../sass/reset/_reset.scss */
+/* line 35, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -62,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -147,32 +143,6 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
-  @-webkit-keyframes bouncedelay {
-    /* line 108, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      -webkit-transform: scale(0);
-    }
-
-    /* line 109, ../sass/_loader.scss */
-    40% {
-      -webkit-transform: scale(1);
-    }
-}
-
-  @keyframes bouncedelay {
-    /* line 113, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      transform: scale(0);
-      -webkit-transform: scale(0);
-    }
-
-    /* line 116, ../sass/_loader.scss */
-    40% {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-    }
-}
-
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -287,22 +257,156 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+@font-face {
+  font-family: "ilog";
+  src: url("../fonts/ilog.eot");
+  src: url("../fonts/ilog.eot?#iefix") format("embedded-opentype"), url("../fonts/ilog.woff") format("woff"), url("../fonts/ilog.ttf") format("truetype"), url("../fonts/ilog.svg#ilog") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 14, ../sass/components/_fonts.scss */
+[data-icon]:before {
+  font-family: "ilog" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: middle;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 28, ../sass/components/_fonts.scss */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "ilog" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  vertical-align: middle;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 42, ../sass/components/_fonts.scss */
+.icon-arrow:before {
+  content: "a";
+}
+
+/* line 45, ../sass/components/_fonts.scss */
+.icon-bar:before {
+  content: "b";
+}
+
+/* line 48, ../sass/components/_fonts.scss */
+.icon-disc:before {
+  content: "c";
+}
+
+/* line 51, ../sass/components/_fonts.scss */
+.icon-dots:before {
+  content: "d";
+}
+
+/* line 54, ../sass/components/_fonts.scss */
+.icon-grid:before {
+  content: "f";
+}
+
+/* line 57, ../sass/components/_fonts.scss */
+.icon-line:before {
+  content: "g";
+}
+
+/* line 60, ../sass/components/_fonts.scss */
+.icon-logs:before {
+  content: "h";
+}
+
+/* line 63, ../sass/components/_fonts.scss */
+.icon-piechart:before {
+  content: "i";
+}
+
+/* line 66, ../sass/components/_fonts.scss */
+.icon-plus:before {
+  content: "j";
+}
+
+/* line 69, ../sass/components/_fonts.scss */
+.icon-reports:before {
+  content: "k";
+}
+
+/* line 72, ../sass/components/_fonts.scss */
+.icon-speech:before {
+  content: "l";
+}
+
+/* line 75, ../sass/components/_fonts.scss */
+.icon-trash-bin:before {
+  content: "m";
+}
+
+/* line 78, ../sass/components/_fonts.scss */
+.icon-question:before {
+  content: "n";
+}
+
+/* line 81, ../sass/components/_fonts.scss */
+.icon-filter:before {
+  content: "e";
+}
+
+/* line 84, ../sass/components/_fonts.scss */
+.icon-edit:before {
+  content: "o";
+}
+
+/* line 1, ../sass/components/_helpers.scss */
+.float-right {
+  float: right;
+}
 
 /* line 1, ../sass/pages/_logs.scss */
 h1 {
   color: red;
 }
 
-/* line 6, ../sass/pages/_logs.scss */
+/* line 5, ../sass/pages/_logs.scss */
 .log-content {
   padding: 30px;
 }
-/* line 10, ../sass/pages/_logs.scss */
+/* line 9, ../sass/pages/_logs.scss */
 .log-content label {
   display: block;
   padding-bottom: 10px;
 }
-/* line 15, ../sass/pages/_logs.scss */
+/* line 14, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 20px;
 }
@@ -329,11 +433,21 @@ h1 {
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
+  padding: 0 5px;
   background-color: #383838;
 }
-/* line 4, ../sass/components/_topheader.scss */
+/* line 5, ../sass/components/_topheader.scss */
 .topheader h1 {
+  font-size: 18px;
   line-height: 50px;
+}
+/* line 7, ../sass/components/_topheader.scss */
+.topheader h1 .gyldendal {
+  color: #e6e6e6;
+}
+/* line 11, ../sass/components/_topheader.scss */
+.topheader h1 .ilog {
+  color: #e04f2f;
 }
 
 /* line 1, ../sass/components/_filterbar.scss */
@@ -341,91 +455,104 @@ h1 {
   width: 100%;
   background-color: #e04f2f;
   line-height: 75px;
+  padding: 0 5px;
+  border-top: 2px solid #b33f26;
 }
-/* line 5, ../sass/components/_filterbar.scss */
-.filterbar ul {
-  line-height: 75px;
-  vertical-align: middle;
-  display: inline-block;
-}
-/* line 9, ../sass/components/_filterbar.scss */
-.filterbar ul li {
-  cursor: pointer;
-  font-size: 20px;
-  display: inline-block;
+/* line 7, ../sass/components/_filterbar.scss */
+.filterbar span {
+  color: #e6e6e6;
 }
 
 /* line 1, ../sass/components/_menubar.scss */
 .menubar {
   width: 100%;
-  background-color: #808080;
+  padding: 0 5px;
+  background-color: #ffffff;
   height: 75px;
 }
-/* line 5, ../sass/components/_menubar.scss */
+/* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: white;
+  background-color: #ffffff;
 }
-/* line 8, ../sass/components/_menubar.scss */
+/* line 9, ../sass/components/_menubar.scss */
 .menubar ul {
-  line-height: 75px;
+  line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 12, ../sass/components/_menubar.scss */
+/* line 13, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
+  vertical-align: middle;
 }
-/* line 18, ../sass/components/_menubar.scss */
+/* line 19, ../sass/components/_menubar.scss */
+.menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
+  margin: 0 5px 0 10px;
+  font-size: 20px;
+}
+/* line 24, ../sass/components/_menubar.scss */
 .menubar .icons {
+  height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 3, ../sass/components/_list.scss */
+/* line 2, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
+  padding: 0 5px;
   height: 50px;
   background-color: #FFF;
-  border-bottom: 1px solid #2d2d2d;
+  border-bottom: 1px solid #c8c8c8;
 }
 /* line 10, ../sass/components/_list.scss */
 .list .listitem {
+  padding: 0 5px;
   cursor: pointer;
   line-height: 50px;
   height: 50px;
   background-color: #f5f5f5;
-  border-bottom: 1px solid #B9B9B9;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+  float: left;
 }
-/* line 16, ../sass/components/_list.scss */
+/* line 19, ../sass/components/_list.scss */
 .list .listitem .circ {
-  margin: 10px 0px;
+  margin: 10px 5px;
   width: 25px;
   height: 25px;
 }
-/* line 21, ../sass/components/_list.scss */
-.list .listitem .circ .span {
+/* line 23, ../sass/components/_list.scss */
+.list .listitem .circ span {
   line-height: 25px;
+  font-size: 12px;
 }
 
-/* line 3, ../sass/components/_icons_and_buttons.scss */
+/* line 3, ../sass/components/_circle-icons.scss */
 .circ {
   cursor: pointer;
-  display: table-cell;
   text-align: center;
-  vertical-align: middle;
   width: 35px;
   height: 35px;
-  float: right;
   border: 2px solid black;
   border-radius: 50%;
-  margin: 10px 0px;
+  margin: 20px 2px;
+  line-height: 35px;
+  display: inline-block;
+  vertical-align: initial;
 }
-/* line 14, ../sass/components/_icons_and_buttons.scss */
+/* line 15, ../sass/components/_circle-icons.scss */
+.circ [class^="icon-"]:before,
+.circ [class*=" icon-"]:before {
+  vertical-align: text-top;
+}
+/* line 20, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
+  vertical-align: super;
 }
 
 /* line 1, ../sass/directives/_dialog.scss */
@@ -498,23 +625,18 @@ h1 {
   line-height: 35px;
 }
 
-/* line 26, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 30, ../sass/main.scss */
-.active {
-  color: red;
+/* line 32, ../sass/main.scss */
+a {
+  color: #383838;
+  text-decoration: none;
 }
 
-/* line 35, ../sass/main.scss */
-.dialog {
-  background-color: #F00;
-  width: 40px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  left: 50%;
-  cursor: pointer;
+/* line 38, ../sass/main.scss */
+.active[class*=" icon-"]:before, .active a {
+  color: #e04f2f;
 }
