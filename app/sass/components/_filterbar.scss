@@ -2,15 +2,9 @@
   width: 100%;
   background-color: #e04f2f;
   line-height: 75px;
+  padding: $base-padding;
   border-top: 2px solid #b33f26;
-  ul{
-    line-height: 75px;
-    vertical-align: middle;
-    display: inline-block;
-    li{
-      cursor: pointer;
-      font-size: 20px;
-      display: inline-block;
-    }
+  span{
+    color: $font-color-light;
   }
 }

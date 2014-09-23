@@ -34,12 +34,14 @@
         <span>{{$index}}</span>
       </span>
       <span class="col-1-8">
-        <span class="circ">
-          <span>hide</span>
-        </span>
-        <span class="circ">
-          <span ng-click="LogsOverview.delete($index)">delete</span>
-        </span>
+        <div class="float-right">
+          <span class="circ">
+            <span class="icon icon-trash-bin"></span>
+          </span>
+          <span class="circ">
+            <span class="icon icon-trash-bin" ng-click="LogsOverview.delete($index)"></span>
+          </span>
+        </div>
       </span>
     </a>
   </div>

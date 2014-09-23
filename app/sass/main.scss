@@ -3,10 +3,11 @@
 @import "reset/reset";
 @import "grid";
 @import "loader";
-@import "components/colors";
+@import "components/variables";
 @import "components/fonts";
+@import "components/helpers";
 
-//pages
+//pages<<<
 @import "pages/logs";
 @import "pages/report";
 
@@ -15,7 +16,7 @@
 @import "components/filterbar";
 @import "components/menubar";
 @import "components/list";
-@import "components/icons_and_buttons";
+@import "components/circle-icons";
 
 @import "directives/dialog";
 @import "directives/datepicker";
@@ -29,6 +30,7 @@ h2{
 }
 
 a {
+  color: $font-color-dark;
   text-decoration: none;
 }
 

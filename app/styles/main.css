@@ -333,53 +333,63 @@ table {
 }
 
 /* line 54, ../sass/components/_fonts.scss */
-.icon-filter:before {
-  content: "e";
-}
-
-/* line 57, ../sass/components/_fonts.scss */
 .icon-grid:before {
   content: "f";
 }
 
-/* line 60, ../sass/components/_fonts.scss */
+/* line 57, ../sass/components/_fonts.scss */
 .icon-line:before {
   content: "g";
 }
 
-/* line 63, ../sass/components/_fonts.scss */
+/* line 60, ../sass/components/_fonts.scss */
 .icon-logs:before {
   content: "h";
 }
 
-/* line 66, ../sass/components/_fonts.scss */
+/* line 63, ../sass/components/_fonts.scss */
 .icon-piechart:before {
   content: "i";
 }
 
-/* line 69, ../sass/components/_fonts.scss */
+/* line 66, ../sass/components/_fonts.scss */
 .icon-plus:before {
   content: "j";
 }
 
-/* line 72, ../sass/components/_fonts.scss */
+/* line 69, ../sass/components/_fonts.scss */
 .icon-reports:before {
   content: "k";
 }
 
-/* line 75, ../sass/components/_fonts.scss */
+/* line 72, ../sass/components/_fonts.scss */
 .icon-speech:before {
   content: "l";
 }
 
-/* line 78, ../sass/components/_fonts.scss */
+/* line 75, ../sass/components/_fonts.scss */
 .icon-trash-bin:before {
   content: "m";
 }
 
-/* line 81, ../sass/components/_fonts.scss */
+/* line 78, ../sass/components/_fonts.scss */
 .icon-question:before {
   content: "n";
+}
+
+/* line 81, ../sass/components/_fonts.scss */
+.icon-filter:before {
+  content: "e";
+}
+
+/* line 84, ../sass/components/_fonts.scss */
+.icon-edit:before {
+  content: "o";
+}
+
+/* line 1, ../sass/components/_helpers.scss */
+.float-right {
+  float: right;
 }
 
 /* line 1, ../sass/pages/_logs.scss */
@@ -387,16 +397,16 @@ h1 {
   color: red;
 }
 
-/* line 6, ../sass/pages/_logs.scss */
+/* line 5, ../sass/pages/_logs.scss */
 .log-content {
   padding: 30px;
 }
-/* line 10, ../sass/pages/_logs.scss */
+/* line 9, ../sass/pages/_logs.scss */
 .log-content label {
   display: block;
   padding-bottom: 10px;
 }
-/* line 15, ../sass/pages/_logs.scss */
+/* line 14, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 20px;
 }
@@ -423,18 +433,19 @@ h1 {
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
+  padding: 0 5px;
   background-color: #383838;
 }
-/* line 4, ../sass/components/_topheader.scss */
+/* line 5, ../sass/components/_topheader.scss */
 .topheader h1 {
   font-size: 18px;
   line-height: 50px;
 }
-/* line 6, ../sass/components/_topheader.scss */
+/* line 7, ../sass/components/_topheader.scss */
 .topheader h1 .gyldendal {
   color: #e6e6e6;
 }
-/* line 10, ../sass/components/_topheader.scss */
+/* line 11, ../sass/components/_topheader.scss */
 .topheader h1 .ilog {
   color: #e04f2f;
 }
@@ -444,38 +455,32 @@ h1 {
   width: 100%;
   background-color: #e04f2f;
   line-height: 75px;
+  padding: 0 5px;
   border-top: 2px solid #b33f26;
 }
-/* line 6, ../sass/components/_filterbar.scss */
-.filterbar ul {
-  line-height: 75px;
-  vertical-align: middle;
-  display: inline-block;
-}
-/* line 10, ../sass/components/_filterbar.scss */
-.filterbar ul li {
-  cursor: pointer;
-  font-size: 20px;
-  display: inline-block;
+/* line 7, ../sass/components/_filterbar.scss */
+.filterbar span {
+  color: #e6e6e6;
 }
 
 /* line 1, ../sass/components/_menubar.scss */
 .menubar {
   width: 100%;
+  padding: 0 5px;
   background-color: #ffffff;
   height: 75px;
 }
-/* line 5, ../sass/components/_menubar.scss */
+/* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
   background-color: #ffffff;
 }
-/* line 8, ../sass/components/_menubar.scss */
+/* line 9, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 12, ../sass/components/_menubar.scss */
+/* line 13, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
@@ -483,54 +488,71 @@ h1 {
   vertical-align: middle;
 }
 /* line 19, ../sass/components/_menubar.scss */
+.menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
+  margin: 0 5px 0 10px;
+  font-size: 20px;
+}
+/* line 24, ../sass/components/_menubar.scss */
 .menubar .icons {
+  height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 3, ../sass/components/_list.scss */
+/* line 2, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
+  padding: 0 5px;
   height: 50px;
   background-color: #FFF;
-  border-bottom: 1px solid #2d2d2d;
+  border-bottom: 1px solid #c8c8c8;
 }
 /* line 10, ../sass/components/_list.scss */
 .list .listitem {
+  padding: 0 5px;
   cursor: pointer;
   line-height: 50px;
   height: 50px;
   background-color: #f5f5f5;
-  border-bottom: 1px solid #B9B9B9;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+  float: left;
 }
-/* line 16, ../sass/components/_list.scss */
+/* line 19, ../sass/components/_list.scss */
 .list .listitem .circ {
-  margin: 10px 0px;
+  margin: 10px 5px;
   width: 25px;
   height: 25px;
 }
-/* line 21, ../sass/components/_list.scss */
-.list .listitem .circ .span {
+/* line 23, ../sass/components/_list.scss */
+.list .listitem .circ span {
   line-height: 25px;
+  font-size: 12px;
 }
 
-/* line 3, ../sass/components/_icons_and_buttons.scss */
+/* line 3, ../sass/components/_circle-icons.scss */
 .circ {
   cursor: pointer;
-  display: table-cell;
   text-align: center;
-  vertical-align: middle;
   width: 35px;
   height: 35px;
-  float: right;
   border: 2px solid black;
   border-radius: 50%;
-  margin: 10px 0px;
+  margin: 20px 2px;
+  line-height: 35px;
+  display: inline-block;
+  vertical-align: initial;
 }
-/* line 14, ../sass/components/_icons_and_buttons.scss */
+/* line 15, ../sass/components/_circle-icons.scss */
+.circ [class^="icon-"]:before,
+.circ [class*=" icon-"]:before {
+  vertical-align: text-top;
+}
+/* line 20, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
+  vertical-align: super;
 }
 
 /* line 1, ../sass/directives/_dialog.scss */
@@ -603,17 +625,18 @@ h1 {
   line-height: 35px;
 }
 
-/* line 27, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 a {
+  color: #383838;
   text-decoration: none;
 }
 
-/* line 36, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

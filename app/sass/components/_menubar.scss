@@ -1,5 +1,6 @@
 .menubar{
   width: 100%;
+  padding: $base-padding;
   background-color: $backgroundcolor-white;
   height: 75px;
   &.reportmenu{
@@ -15,8 +16,13 @@
       display: inline-block;
       vertical-align: middle;
     }
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+      margin: 0 5px 0 10px;
+      font-size: 20px;
+    }
   }
   .icons{
+    height: 75px;
     float: right;
     display: inline-block;
     vertical-align: middle;
