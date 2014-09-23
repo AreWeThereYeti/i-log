@@ -50,7 +50,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 							function draw(data) {
 
-								var margin = {top: 20, right: 20, bottom: 30, left: 40},
+								var margin = {top: 20, right: 20, bottom: 30, left: 60},
 										width = 860 - margin.left - margin.right,
 										height = 500 - margin.top - margin.bottom;
 
@@ -67,7 +67,6 @@ angular.module('gyldendal.directives', ['d3'])
 								var yAxis = d3.svg.axis()
 										.scale(y)
 										.orient("left")
-										.ticks(10, "%");
 
 								svg = d3.select(".d3container")
 										.append("svg")
@@ -81,14 +80,14 @@ angular.module('gyldendal.directives', ['d3'])
 
 									svg.append("g")
 											.attr("class", "x axis")
-											.attr("transform", "translate("+ 0 +"," + height + ")")
+											.attr("transform", "translate("+ 20 +"," + height + ")")
 											.call(xAxis)
 											.style("fill", "e6e6e6")
 											.append("text")
 											.style("fill", "000000")
-											.attr("transform", "translate("+width/2+",0)")
-											.attr("y", 6)
-											.attr("dy", ".71em")
+											.attr("transform", "translate("+width/2+","+20+")")
+											.attr("dy", "-.1em")
+											.style("background-color", "white")
 											.style("text-anchor", "end")
 											.text("Udfaldsrum")
 											.style("fill", "000000");
@@ -100,7 +99,6 @@ angular.module('gyldendal.directives', ['d3'])
 											.append("text")
 											.style("fill", "000000")
 											.attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
-											.attr("y", 6)
 											.attr("dy", ".71em")
 											.style("text-anchor", "end")
 											.text("Værdi")
@@ -111,13 +109,11 @@ angular.module('gyldendal.directives', ['d3'])
 											.enter().append("rect")
 											.attr("class", "bar")
 											.attr("transform", "translate( "+ 20 + "," + -20 + ")")
-
 											.attr("x", function(d) { return x(d.letter); })
 											.style("fill", "e6e6e6")
 											.attr("width", x.rangeBand())
 											.attr("y", function(d) { return y(d.frequency); })
 											.attr("height", function(d) { return height - y(d.frequency); })
-
 							}
 						};
 
