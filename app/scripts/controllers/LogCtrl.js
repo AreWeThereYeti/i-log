@@ -3,7 +3,7 @@
 app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', function (statcalcservice, $scope, logs, $routeParams) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
-  Log.test = logs.data.inputs;
+  Log.inputs = logs.data.inputs;
 
 
 
@@ -17,9 +17,15 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
-  for(var i=0; i<Log.test.length; i++){
-    if(Log.test[i].type == "number"){
-      Log.numFields.push(Log.test[i]);
+  for(var i=0; i<Log.inputs.length; i++){
+    if(Log.inputs[i].type == "number"){
+      Log.numFields.push(Log.inputs[i]);
+    }
+    if(Log.inputs[i].type == "checkbox"){
+      Log.inputs[i].value = Log.inputs[i].prechecked;
+    }
+    if(Log.inputs[i].type == "data"){
+      Log.inputs[i].value = Log.inputs[i].data;
     }
   }
 
@@ -38,10 +44,10 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
 
   // main function for parsing formula field in relation to number input fields
-  Log.parseFormula = function(formula){
-    var exp = formula;
+  Log.parseFormula = function(input, index){
+    var exp = input.formula;
 
-    // finds and replaces all "ID" references with coresponding number input fields
+    // finds and replaces all "ID" references with corresponding number input fields
     for(var i=0; i<Log.numFields.length; i++){
       var regexp = "ID"+(i+1)+"(?!=\\.)";
       var re = new RegExp(regexp, "i");
@@ -51,6 +57,8 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
     // returns placeholder expression if input number fields are not filled out
     for(var i=0; i<Log.numFields.length; i++){
       if(angular.isUndefined(Log.numFields[i].value)) {
+        // empty input value if number fields are not defined
+        Log.inputs[index].value = null;
         // Expression returned if number fields are not defined
         return exp;
       }
@@ -122,6 +130,8 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
       }
     }
+    // evaluates and sets parsed string expression to input field value
+    Log.inputs[index].value = $scope.$eval(exp);
 
     // evaluates and returns parsed string expression as angular expression
     return $scope.$eval(exp);
