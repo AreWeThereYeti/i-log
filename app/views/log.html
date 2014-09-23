@@ -5,32 +5,32 @@
   <div class="log-content" back-img="{{Log.backgroundImg}}">
 
     <form>
-      <div class="input-field" ng-repeat="input in Log.test" ng-switch on="input.type">
+      <div class="input-field" ng-repeat="input in Log.inputs" ng-switch on="input.type">
         <div ng-switch-when="text">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <input id="log-input-{{input.id}}" type="text" required="{{input.required}}">{{input.unit}}
+          <input id="log-input-{{input.id}}" type="text" required="{{input.required}}" ng-model="input.value">{{input.unit}}
         </div>
 
         <div ng-switch-when="number">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <input  type="number" required="{{input.required}}" ng-model="Log.numFields[$index].value">{{input.unit}}
+          <input  type="number" required="{{input.required}}" ng-model="input.value">{{input.unit}}
         </div>
 
         <div ng-switch-when="checkbox">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <input id="log-input-{{input.id}}" type="checkbox" checked="{{input.prechecked}}">
+          <input id="log-input-{{input.id}}" type="checkbox" ng-model="input.value">
         </div>
 
         <div ng-switch-when="dropdown">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <select id="log-input-{{input.id}}" required="{{input.required}}">
-            <option ng-repeat="option in input.options" value="option">{{option}}</option>
+          <select id="log-input-{{input.id}}" required="{{input.required}}" ng-model="input.value">
+            <option ng-repeat="option in input.options" value="{{option}}">{{option}}</option>
           </select>
         </div>
 
         <div ng-switch-when="largetext">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <textarea id="log-input-{{input.id}}" required="{{input.required}}" style="height: {{input.height}}px; width: {{input.width}}px;">
+          <textarea id="log-input-{{input.id}}" required="{{input.required}}" ng-model="input.value" style="height: {{input.height}}px; width: {{input.width}}px;">
             height: {{input.height}}
             width: {{input.width}}
           </textarea>
@@ -38,12 +38,12 @@
 
         <div ng-switch-when="data">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <div id="log-input-{{input.id}}" class="data">{{input.data}}</div>
+          <input id="log-input-{{input.id}}" class="data" ng-model="input.value" readonly>
         </div>
 
         <div ng-switch-when="formula">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <div id="log-input-{{input.id}}" class="formula">{{Log.parseFormula(input.formula)}}</div>
+          <input type="text" id="log-input-{{input.id}}" class="formula" value="{{Log.parseFormula(input,$index)}}" ng-model="input.value" readonly>
         </div>
       </div>
     </form>
