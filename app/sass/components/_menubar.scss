@@ -1,18 +1,19 @@
 .menubar{
   width: 100%;
-  background-color: #808080;
+  background-color: $backgroundcolor-white;
   height: 75px;
   &.reportmenu{
-    background-color: white;
+    background-color: $backgroundcolor-white;
   }
   ul{
-    line-height: 75px;
+    line-height: 70px;
     vertical-align: middle;
     display: inline-block;
     li{
       cursor: pointer;
       font-size: 30px;
       display: inline-block;
+      vertical-align: middle;
     }
   }
   .icons{

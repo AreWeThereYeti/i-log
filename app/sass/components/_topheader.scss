@@ -1,7 +1,16 @@
 .topheader{
   height: 50px;
-  background-color: #383838;
+  background-color: $backgroundcolor-dark;
   h1{
+    font-size: 18px;
+    .gyldendal{
+      color: $font-color-light;
+    }
+
+    .ilog{
+      color: $font-color-orange;
+
+    }
     line-height: 50px;
   }
 }

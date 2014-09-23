@@ -1,8 +1,9 @@
 <div class="menubar grid">
   <div class="col-3-4">
     <ul>
-      <li><a href="#/logs" ng-class="{active : $root.showSection == '/logs'}">Mine logs</a></li>
-      <li><a href="#/rapporter" ng-class="{active : $root.showSection == '/rapporter'}">Mine rapporter</a></li>
+      <li ng-class="{active : $root.showSection == '/logs'}" class="icon icon-logs"><a href="#/logs" >Mine logs</a></li>
+      <li> | </li>
+      <li ng-class="{active : $root.showSection == '/rapporter'}" class="icon icon-reports"><a href="#/rapporter">Mine rapporter</a></li>
     </ul>
   </div>
   <div ng-if="$root.showSection == '/logs'" class="icons col-1-4">
@@ -10,7 +11,7 @@
       <span class>Fejl</span>
     </div>
     <div ng-click="Menubar.openError()" class="circ">
-      <span>hide statusbar</span>
+      <span>hide</span>
     </div>
     <div class="circ">
       <span>Help</span>
@@ -21,7 +22,7 @@
       <span class>Plus</span>
     </div>
     <div ng-click="Menubar.openError()" class="circ">
-      <span>hide statusbar</span>
+      <span>hide</span>
     </div>
     <div class="circ">
       <span>Help</span>
