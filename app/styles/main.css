@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 1, ../sass/reset/_reset.scss */
+/* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 22, ../sass/reset/_reset.scss */
+/* line 23, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 35, ../sass/reset/_reset.scss */
+/* line 36, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -143,6 +143,32 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
+  @-webkit-keyframes bouncedelay {
+    /* line 108, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      -webkit-transform: scale(0);
+    }
+
+    /* line 109, ../sass/_loader.scss */
+    40% {
+      -webkit-transform: scale(1);
+    }
+}
+
+  @keyframes bouncedelay {
+    /* line 113, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+    }
+
+    /* line 116, ../sass/_loader.scss */
+    40% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+}
+
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -257,24 +283,7 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
+
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -282,6 +291,7 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -297,7 +307,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 28, ../sass/components/_fonts.scss */
+/* line 29, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -429,6 +439,13 @@ h1 {
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
+/* line 18, ../sass/pages/_report.scss */
+.report .axis path,
+.report .axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 2;
+}
 
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
@@ -467,12 +484,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 0 5px;
-  background-color: #ffffff;
+  background-color: white;
   height: 75px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: #ffffff;
+  background-color: white;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar ul {
@@ -531,7 +548,7 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 29, ../sass/components/_list.scss */
+/* line 30, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -549,7 +566,7 @@ h1 {
   line-height: 35px;
   display: inline-block;
 }
-/* line 14, ../sass/components/_circle-icons.scss */
+/* line 15, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 35px;
@@ -559,7 +576,7 @@ h1 {
   line-height: 35px;
 }
 
-/* line 1, ../sass/directives/_dialog.scss */
+/* line 4, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -610,7 +627,7 @@ h1 {
 }
 /* line 7, ../sass/directives/_datepicker.scss */
 .datepicker .select select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 50px;
