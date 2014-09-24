@@ -6,10 +6,10 @@
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
-      <span ng-click="RapportOverview.predicate = 'fromdate'; reverse=!reverse">Fra Dato</span>
+      <span ng-click="RapportOverview.predicate = 'from'; reverse=!reverse">Fra Dato</span>
     </div>
     <div class="col-1-8">
-      <span ng-click="RapportOverview.predicate = 'todate'; reverse=!reverse">Til dato</span>
+      <span ng-click="RapportOverview.predicate = 'to'; reverse=!reverse">Til dato</span>
     </div>
     <div class="col-1-2">
       <span ng-click="RapportOverview.predicate = 'title'; reverse=!reverse">Titel</span>
@@ -22,16 +22,16 @@
   <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
-        <span>02-04-2014</span>
+        <span>{{item.from}}</span>
       </span>
       <span class="col-1-8">
-        <span>03-05-2014</span>
+        <span>{{item.to}}</span>
       </span>
       <span class="col-1-2">
         <span>{{item.title}}</span>
       </span>
       <span class="col-1-8">
-        <span>{{$index}}</span>
+        <span>{{item.shared}}</span>
       </span>
       <span class="col-1-8">
         <div class="float-right">

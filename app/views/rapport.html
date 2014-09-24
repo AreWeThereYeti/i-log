@@ -52,11 +52,13 @@
 
   <div ng-if="Report.pane == 'graph-dotted'">
     <p>Grpah dotted view</p>
+    <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
+
   </div>
 
   <div ng-if="Report.pane == 'graph-line'">
     <p>Graph line view</p>
-    <d3-chart data="Rapport.data" type="line"></d3-chart>
+    <d3-chart data="Rapport.linedata" type="line"></d3-chart>
   </div>
 
   <div class="grid">
