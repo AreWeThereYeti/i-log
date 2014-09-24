@@ -38,7 +38,6 @@ angular.module('gyldendal.services', [])
 
                 loadComponent: function() {
 
-                    console.log('debug')
                     var promise = $http({
                         cache: false,
                         method: 'GET',
