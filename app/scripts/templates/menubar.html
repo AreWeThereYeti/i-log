@@ -7,25 +7,29 @@
     </ul>
   </div>
   <div ng-if="$root.showSection == '/logs'" class="icons col-1-8">
-    <div class="circ">
-      <span class="icon icon-plus"></span>
-    </div>
-    <div class="circ">
-      <span class="icon icon-filter"></span>
-    </div>
-    <div class="circ">
-      <span class="icon icon-question"></span>
+    <div class="float-right">
+      <div class="circ">
+        <span class="icon icon-plus"></span>
+      </div>
+      <div class="circ">
+        <span class="icon icon-filter"></span>
+      </div>
+      <div class="circ">
+        <span class="icon icon-question"></span>
+      </div>
     </div>
   </div>
   <div ng-if="$root.showSection == '/rapporter'" class="icons col-1-8">
-    <div ng-click="Menubar.createReport()" class="circ ">
-      <span class="icon icon-plus"></span>
-    </div>
-    <div ng-click="Menubar.openError()" class="circ">
-      <span class="icon icon-filter"></span>
-    </div>
-    <div class="circ">
-      <span class="icon icon-question"></span>
+    <div class="float-right">
+      <div ng-click="Menubar.createReport()" class="circ ">
+        <span class="icon icon-plus"></span>
+      </div>
+      <div ng-click="Menubar.openError()" class="circ">
+        <span class="icon icon-filter"></span>
+      </div>
+      <div class="circ">
+        <span class="icon icon-question"></span>
+      </div>
     </div>
   </div>
 </div>

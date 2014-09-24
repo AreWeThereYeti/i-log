@@ -19,10 +19,17 @@
     .circ{
       margin: 10px 5px;
       width: 25px;
+      line-height: 20px;
       height: 25px;
       span{
-        line-height: 25px;
+        line-height: 20px;
         font-size: 12px;
+      }
+
+      [class^="icon-"]:before,
+      [class*=" icon-"]:before {
+        line-height: 22px;
+
       }
     }
   }

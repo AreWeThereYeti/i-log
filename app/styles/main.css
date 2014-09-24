@@ -439,7 +439,7 @@ h1 {
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
-/* line 19, ../sass/pages/_report.scss */
+/* line 18, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -540,12 +540,18 @@ h1 {
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
+  line-height: 20px;
   height: 25px;
 }
-/* line 23, ../sass/components/_list.scss */
+/* line 24, ../sass/components/_list.scss */
 .list .listitem .circ span {
-  line-height: 25px;
+  line-height: 20px;
   font-size: 12px;
+}
+/* line 30, ../sass/components/_list.scss */
+.list .listitem .circ [class^="icon-"]:before,
+.list .listitem .circ [class*=" icon-"]:before {
+  line-height: 22px;
 }
 
 /* line 3, ../sass/components/_circle-icons.scss */
@@ -559,17 +565,15 @@ h1 {
   margin: 20px 2px;
   line-height: 35px;
   display: inline-block;
-  vertical-align: initial;
 }
-/* line 16, ../sass/components/_circle-icons.scss */
+/* line 15, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
-  vertical-align: text-top;
+  line-height: 35px;
 }
-/* line 20, ../sass/components/_circle-icons.scss */
+/* line 18, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
-  vertical-align: super;
 }
 
 /* line 4, ../sass/directives/_dialog.scss */
