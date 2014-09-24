@@ -16,3 +16,5 @@ else {
 }
 
 ?>
+
+http://localhost:8888/?componentID=540025f23c5b5a07d0570c53&timestamp=1411557484&signature=85d21e33cbbf24ac6efffce20be93295db124337d6469e987c4c6c95bb606345
