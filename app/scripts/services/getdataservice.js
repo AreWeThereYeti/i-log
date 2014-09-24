@@ -16,7 +16,7 @@ angular.module('gyldendal.services', [])
 				},
 
 				getAllReports: function () {
-					var promise = $http({cache: false, method: 'GET', url: 'http://www.mocky.io/v2/5418060fadbf620b064d00a2' }).success(function (data, status, headers, config) {
+					var promise = $http({cache: false, method: 'GET', url: 'http://www.mocky.io/v2/54217262da4aeb4a070aabcf' }).success(function (data, status, headers, config) {
 
 					});
 					return promise;

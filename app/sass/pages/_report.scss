@@ -13,4 +13,19 @@
       border: 1px solid #E5E5E5;
     }
   }
+
+/*  path {
+    stroke: grey;
+    stroke-width: 5;
+    fill: none;
+  }*/
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 2;
+    //shape-rendering: crispEdges;
+
+  }
 }

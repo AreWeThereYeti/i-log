@@ -16,7 +16,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 						// Browser onresize event
 						window.onresize = function() {
-							scope.$apply();
+              scope.$apply();
 						};
 
 						// Watch for resize event
@@ -67,12 +67,13 @@ angular.module('gyldendal.directives', ['d3'])
 								var yAxis = d3.svg.axis()
 										.scale(y)
 										.orient("left")
+                    .ticks(0);
 
 								svg = d3.select(".d3container")
 										.append("svg")
 										.attr("width", width + margin.left + margin.right)
 										.attr("height", height + margin.top + margin.bottom)
-										.append("g")
+ 										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 									x.domain(data.map(function(d) { return d.letter; }));
@@ -114,6 +115,7 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("width", x.rangeBand())
 											.attr("y", function(d) { return y(d.frequency); })
 											.attr("height", function(d) { return height - y(d.frequency); })
+
 							}
 						};
 
@@ -210,9 +212,97 @@ angular.module('gyldendal.directives', ['d3'])
 							svg.selectAll('*').remove();
 
 							// If we don't pass any data, return out of the element
-//							if (!data) return;
+							if (!data) return;
 
-							var margin = {top: 20, right: 20, bottom: 30, left: 50},
+
+
+              // Set the dimensions of the canvas / graph
+              var margin = {top: 20, right: 20, bottom: 30, left: 50},
+                width = 960 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom;
+
+              // Parse the date / time
+              var parseDate = d3.time.format("%d-%b-%y").parse;
+
+              // Set the ranges
+              var x = d3.time.scale().range([0, width]);
+              var y = d3.scale.linear().range([height, 0]);
+
+              // Define the axes
+              var xAxis = d3.svg.axis().scale(x)
+                .orient("bottom").ticks(5);
+
+              var yAxis = d3.svg.axis().scale(y)
+                .orient("left").ticks(0).tickSize(0);
+
+              // Define the line
+              var valueline = d3.svg.line()
+                .x(function(d) { return x(d.date); })
+                .y(function(d) { return y(d.close); });
+
+              // Adds the svg canvas
+              svg = d3.select(".d3container")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform",
+                  "translate(" + margin.left + "," + margin.top + ")");
+
+              // parse data.date if not parsed allready
+              if(!data.isParsed) {
+                for(var i= 0;i<data.length;i++){
+                  data[i].date = parseDate(data[i].date)
+                  data[i].close = +data[i].close;
+                }
+                data.isParsed = true;
+              }
+                // Scale the range of the data
+              x.domain(d3.extent(data, function(d) { return d.date; }));
+              y.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+                // Add the valueline path.
+              svg.append("path")
+                .attr("class", "line")
+                .attr("d", valueline(data))
+                .style("fill", "none")
+                .style("stroke", "grey")
+                .style("stroke-width", 5);
+
+
+              var node = svg.selectAll("g")
+                .data(data)
+                .enter()
+                .append("g");
+
+              node.append("circle")
+                .attr("class", "dot")
+                .attr("cx", function(d) { return x(d.date); })
+                .attr("cy", function(d) { return y(d.close); })
+                .attr("r", 12)
+                .style("fill", "red");
+
+              node.append("text")
+                .attr("x", function(d) { return x(d.date); })
+                .attr("y", function(d) { return y(d.close)+30; })
+                .text(function(d) { return d.close })
+                .style("text-anchor", "middle");
+
+
+                // Add the X Axis
+                svg.append("g")
+                  .attr("class", "x axis")
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(xAxis);
+
+                // Add the Y Axis
+                svg.append("g")
+                  .attr("class", "y axis")
+                  .call(yAxis);
+
+
+
+						/*	var margin = {top: 20, right: 20, bottom: 30, left: 50},
 									width = 960 - margin.left - margin.right,
 									height = 500 - margin.top - margin.bottom;
 
@@ -268,7 +358,7 @@ angular.module('gyldendal.directives', ['d3'])
 							svg.append("path")
 								.datum(data)
 								.attr("class", "line")
-								.attr("d", line);
+								.attr("d", line(data));*/
 						}
 					});
 				}};
