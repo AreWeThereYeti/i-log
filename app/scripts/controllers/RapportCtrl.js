@@ -42,27 +42,33 @@ app.controller('RapportCtrl', ['report', function (report) {
 		}
 	];
 
-	Rapport.linedata = [
-    {
-      "date": "1-May-12",
-      "close": 5
-    }, {
-      "date": "30-Apr-12",
-      "close": 20
-    }, {
-      "date": "27-Apr-12",
-      "close": 10
-    }, {
-      "date": "25-Apr-12",
-      "close": 40
-    }, {
-      "date": "19-Apr-12",
-      "close": 5
-    }, {
-      "date": "12-Apr-12",
-      "close": 20
-    }
-	];
+	Rapport.linedata =
+  {
+    "ytitle": "Y-akse titel",
+    "xtitle": "X-akse titel",
+    "data":
+    [
+      {
+        "date": "1-May-12",
+        "close": 16
+      }, {
+        "date": "30-Apr-12",
+        "close": 20
+      }, {
+        "date": "27-Apr-12",
+        "close": 15
+      }, {
+        "date": "25-Apr-12",
+        "close": 20
+      }, {
+        "date": "19-Apr-12",
+        "close": 15
+      }, {
+        "date": "12-Apr-12",
+        "close": 5
+      }
+	  ]
+  };
 
 	//Test variable. If you see it when the app runs you are good to go
 	Rapport.testVar = 'We are up and running  on rapports overview -page!';

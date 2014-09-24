@@ -424,11 +424,6 @@ h1 {
 /* line 1, ../sass/pages/_report.scss */
 .report {
   background-color: #FFF;
-  /*  path {
-      stroke: grey;
-      stroke-width: 5;
-      fill: none;
-    }*/
 }
 /* line 3, ../sass/pages/_report.scss */
 .report .reportsubmenu {
@@ -444,7 +439,7 @@ h1 {
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
-/* line 24, ../sass/pages/_report.scss */
+/* line 19, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;

@@ -1,7 +1,7 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="menubar reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
 
-  <div class="grid reportsubmenu" ng-init="Report.pane = 'graph-line'">
+  <div class="grid reportsubmenu" ng-init="Report.pane = 'bar'">
     <div class="col-1-8">
       <span ng-click="Report.pane = 'pie'">Pie</span>
     </div>
@@ -52,6 +52,8 @@
 
   <div ng-if="Report.pane == 'graph-dotted'">
     <p>Grpah dotted view</p>
+    <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
+
   </div>
 
   <div ng-if="Report.pane == 'graph-line'">
