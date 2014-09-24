@@ -530,6 +530,11 @@ h1 {
   line-height: 25px;
   font-size: 12px;
 }
+/* line 28, ../sass/components/_list.scss */
+.list .listitem .circ [class^="icon-"]:before,
+.list .listitem .circ [class*=" icon-"]:before {
+  line-height: 22px;
+}
 
 /* line 3, ../sass/components/_circle-icons.scss */
 .circ {
@@ -547,9 +552,9 @@ h1 {
 /* line 15, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
-  vertical-align: text-top;
+  line-height: 35px;
 }
-/* line 20, ../sass/components/_circle-icons.scss */
+/* line 21, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
   vertical-align: super;
