@@ -19,6 +19,7 @@
     </div>
   </div>
 <!--item in reports-->
+    <button ng-click="RapportOverview.click()">Click her for api</button>
   <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
