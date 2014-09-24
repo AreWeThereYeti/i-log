@@ -542,17 +542,10 @@ h1 {
   margin: 20px 2px;
   line-height: 35px;
   display: inline-block;
-  vertical-align: initial;
 }
-/* line 15, ../sass/components/_circle-icons.scss */
-.circ [class^="icon-"]:before,
-.circ [class*=" icon-"]:before {
-  vertical-align: text-top;
-}
-/* line 20, ../sass/components/_circle-icons.scss */
+/* line 18, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
-  vertical-align: super;
 }
 
 /* line 1, ../sass/directives/_dialog.scss */

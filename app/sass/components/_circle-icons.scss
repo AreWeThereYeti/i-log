@@ -10,15 +10,12 @@
   margin: 20px 2px;
   line-height: 35px;
   display: inline-block;
-  vertical-align: initial;
 
   [class^="icon-"]:before,
   [class*=" icon-"]:before {
-    vertical-align: text-top;
   }
 
   span{
     line-height: 35px;
-    vertical-align: super;
   }
 }
