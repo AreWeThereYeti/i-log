@@ -52,6 +52,8 @@ angular.module('gyldendal.services', [])
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null) {
                     returndata = angular.fromJson(data.Content);
+
+                    //set settings in rootscope
                     $rootScope.backgroundImageID = returndata.settings.backgroundImageID;
                     $rootScope.download = returndata.settings.download;
                     $rootScope.export = returndata.settings.export;

@@ -32,8 +32,8 @@
           <span class="circ">
             <span class="icon icon-edit"></span>
           </span>
-          <span class="circ">
-            <span class="icon icon-trash-bin" ng-click="LogsOverview.delete($index)"></span>
+          <span class="circ" ng-click="LogsOverview.delete($index, $event)">
+            <span class="icon icon-trash-bin"></span>
           </span>
           </div>
         </span>

@@ -8,8 +8,8 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
   // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
   //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
-  if(angular.isDefined($rootscope.backgroundImageID)){
-    Log.backgroundImg = $rootscope.backgroundImageID;
+  if(angular.isDefined($rootScope.backgroundImageID)){
+    Log.backgroundImg = $rootScope.backgroundImageID;
   }
 
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
