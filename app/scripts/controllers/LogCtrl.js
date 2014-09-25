@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', function (statcalcservice, $scope, logs, $routeParams) {
+app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.inputs = logs.data.inputs;
@@ -13,7 +13,8 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
 
   // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
-  //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
+  Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
+  Log.backgroundImg = $rootScope.ba
 
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
@@ -49,7 +50,7 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
     // finds and replaces all "ID" references with corresponding number input fields
     for(var i=0; i<Log.numFields.length; i++){
-      var regexp = "ID"+(i+1)+"(?!=\\.)";
+      var regexp = "ID"+(Log.numFields[i].id)+"(?!=\\.)";
       var re = new RegExp(regexp, "i");
       exp = exp.replace(re, Log.numFields[i].value);
     }

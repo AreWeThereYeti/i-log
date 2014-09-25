@@ -436,7 +436,11 @@ h1 {
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
+<<<<<<< HEAD
 /* line 29, ../sass/pages/_report.scss */
+=======
+/* line 17, ../sass/pages/_report.scss */
+>>>>>>> develop
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -598,9 +602,10 @@ h1 {
   position: relative;
   width: 400px;
   -webkit-backface-visibility: hidden;
+  float: right;
   text-align: left;
 }
-/* line 22, ../sass/directives/_dialog.scss */
+/* line 23, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
