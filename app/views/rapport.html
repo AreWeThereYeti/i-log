@@ -1,7 +1,7 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="menubar reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
 
-  <div class="grid reportsubmenu" ng-init="Report.pane = 'bar'">
+  <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
     <div class="col-1-8">
       <span ng-click="Report.pane = 'pie'">Pie</span>
     </div>
@@ -31,21 +31,26 @@
 
   <div class="listview" ng-if="Report.pane == 'list'">
     <!--if directive is of type list, the directive only clears the svg-->
-    <d3-chart type="list"></d3-chart>
-    <div class="grid" ng-repeat="item in Rapport.listdata track by $index">
-      <span class="col-1-4 first">{{$index}}</span>
-      <span class="col-1-8">{{item.label}}</span>
-      <span class="col-1-8">{{item.value}}</span>
+    <!--<d3-chart type="list"></d3-chart>-->
+
+    <!-- List view Header-->
+    <div class="grid list-head" >
+      <span class="col-1-4 first"></span>
+      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">{{column.label}}</span>
     </div>
-    <div class="grid">
-      <span class="col-1-4 first">Titel på beregning</span>
-      <span class="col-1-8"></span>
-      <span class="col-1-8">Titel på beregning</span>
+
+    <div class="grid list-content" ng-repeat="ilog in Rapport.dummylogs track by $index">
+      <span class="col-1-4 first">{{$index+1}}</span>
+      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">
+        {{ilog.data[column.inputID]}}
+      </span>
     </div>
-    <div class="grid">
-      <span class="col-1-4">Titel på beregning</span>
-      <span class="col-1-8">Titel på beregning</span>
-      <span class="col-1-8"></span>
+
+    <div class="grid list.calculations" ng-repeat="calculation in Rapport.listdata[0].calculations">
+      <span class="col-1-4">{{calculation.label}}</span>
+      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">
+        {{calculation.formula}} in {{calculation.unit}}
+      </span>
     </div>
 
   </div>
