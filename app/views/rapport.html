@@ -51,7 +51,7 @@
     <div class="grid list.calculations" ng-repeat="calculation in Rapport.listdata[0].calculations">
       <span class="col-1-4">{{calculation.label}}</span>
       <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">
-        {{calculation.formula}} in {{calculation.unit}}
+        {{Rapport.listFormula(calculation, column)}}
       </span>
     </div>
 

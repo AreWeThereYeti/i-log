@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('RapportCtrl', ['report', function (report) {
+app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function ($scope, report, statcalcservice) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
@@ -86,7 +86,7 @@ app.controller('RapportCtrl', ['report', function (report) {
           "formula":"SUM",
           "unit":"km",
           "columns":[
-            "K1",
+
             "K2"
           ]
         },
@@ -95,6 +95,7 @@ app.controller('RapportCtrl', ['report', function (report) {
           "formula":"AVERAGE*2",
           "unit":"km",
           "columns":[
+            "K2",
             "K1"
           ]
         }
@@ -224,17 +225,47 @@ app.controller('RapportCtrl', ['report', function (report) {
 
   // Function for parsing column calculations in list view
 
-  var listFormula = function(formula){
+  Rapport.listFormula = function(calculation, column){
 
-    // determine columns used un formula
+    var columnValues = [],
+        exp = "";
 
-    // gather all affected column entries in an array
+    // determine if this column is used in formula. if not, return
+    angular.forEach(calculation.columns, function(kID){
+      if(kID == column.id){
 
-    // use regex to evaluate the formula function type
+        // gather all affected column entries in an array
+        angular.forEach(Rapport.dummylogs, function(ilog) {
+          columnValues.push(ilog.data[column.inputID]);
+        });
+      }
+    });
 
-    // use statcalcservice helper functions to replace formula function with evaluated expression
+    // return if there are no calculation on this column
+    if(!columnValues.length){
+      return
+    }
+
+    // use regex to evaluate the formula function type, and
+    // statcalcservice helper functions to replace formula function with evaluated expression
+    if(calculation.formula.search(/SUM/g)!=-1){
+      exp = calculation.formula.replace(/SUM/ig, statcalcservice.sum(columnValues))
+    }
+    if(calculation.formula.search(/HIGHEST/g)!=-1){
+      exp = calculation.formula.replace(/HIGHEST/ig, statcalcservice.highest(columnValues))
+
+    }
+    if(calculation.formula.search(/LOWEST/g)!=-1){
+      exp = calculation.formula.replace(/LOWEST/ig, statcalcservice.lowest(columnValues))
+
+    }
+    if(calculation.formula.search(/AVERAGE/g)!=-1){
+      exp = calculation.formula.replace(/AVERAGE/ig, statcalcservice.average(columnValues))
+
+    }
 
     // return expression evaluated with $eval
+    return $scope.$eval(exp)+" "+calculation.unit;
   };
 
 
