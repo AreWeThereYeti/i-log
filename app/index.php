@@ -1,11 +1,11 @@
 <?php
-//
-//	include('php/user-auth.php');
-//
-//	//Initialize auth process
-//	$authObj = new UserAuth();
-//
-//?>
+
+	include('php/user-auth.php');
+
+	//Initialize auth process
+	$authObj = new UserAuth();
+
+?>
 
 <!doctype html>
 <html lang="en" ng-app="app" ng-cloak>
@@ -15,8 +15,21 @@
       <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
       <title>I-log</title>
       <link rel="stylesheet" href="styles/main.css" />
+
+        <style dynamic-css>
+            body {
+                font-family: {{$root.fontFamily}};
+            }
+
+            p{
+                font-size : {{$root.fontSize}}px;
+            }
+        </style>
+
     </head>
     <body ng-controller="MainCtrl as Main">
+
+
 
     <div class="topheader">
       <h1><span class="gyldendal">Gyldendal |</span> <span class="ilog">I-log</span> debug :Path is : {{$root.showSection}}</h1>
@@ -86,6 +99,8 @@
       <script src="scripts/directives/datepicker.js"></script>
       <script src="scripts/directives/dialog.js"></script>
       <script src="scripts/directives/backImg.js"></script>
+      <script src="scripts/directives/hideFilterDirective.js"></script>
+      <script src="scripts/directives/globalCss.js"></script>
 
     </body>
 </html>
