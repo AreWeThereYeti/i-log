@@ -50,7 +50,7 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
 
     // finds and replaces all "ID" references with corresponding number input fields
     for(var i=0; i<Log.numFields.length; i++){
-      var regexp = "ID"+(i+1)+"(?!=\\.)";
+      var regexp = "ID"+(Log.numFields[i].id)+"(?!=\\.)";
       var re = new RegExp(regexp, "i");
       exp = exp.replace(re, Log.numFields[i].value);
     }
