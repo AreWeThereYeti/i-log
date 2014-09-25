@@ -1,9 +1,21 @@
 .report{
   background-color: #FFF;
   .reportsubmenu{
+    padding: $base-padding;
     line-height: 50px;
     height: 50px;
     background-color: #f8f8f8;
+
+
+    .col-1-8{
+      .icon{
+        &:before{
+          vertical-align: middle;
+          margin: 0 5px 0 0px;
+          font-size: 20px;
+        }
+      }
+    }
   }
   .listview{
     span:first-of-type{

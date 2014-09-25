@@ -1,31 +1,34 @@
 <div class="report">
-  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="menubar reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
+  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
 
   <div class="grid reportsubmenu" ng-init="Report.pane = 'bar'">
-    <div class="col-1-8">
-      <span ng-click="Report.pane = 'pie'">Pie</span>
+    <div  ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8">
+      <span class="icon icon-piechart"></span>
+      <span>Pie</span>
     </div>
-    <div class="col-1-8">
-      <span ng-click="Report.pane = 'bar'"> Bar</span>
+    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8">
+      <span class="icon icon-bar"></span>
+      <span > Bar</span>
     </div>
-    <div class="col-1-8">
-      <span ng-click="Report.pane = 'list'">List</span>
+    <div  ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8">
+      <span class="icon icon-grid"></span>
+      <span>List</span>
     </div>
-    <div class="col-1-8">
-      <span ng-click="Report.pane = 'graph-dotted'">graph dotted</span>
+    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="col-1-8">
+      <span class="icon icon-dots"></span>
+      <span >graph dotted</span>
     </div>
-    <div class="col-1-8">
-      <span ng-click="Report.pane = 'graph-line'">linie</span>
+    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8">
+      <span class="icon icon-line"></span>
+      <span>linie</span>
     </div>
   </div>
 
   <div ng-if="Report.pane == 'pie'">
-    <p>Pie view</p>
     <d3-chart data="Rapport.piedata" type="pie"></d3-chart>
   </div>
 
   <div ng-if="Report.pane == 'bar'">
-    <p>Bar view</p>
     <d3-chart data="Rapport.data" type="bar"></d3-chart>
   </div>
 
@@ -51,13 +54,11 @@
   </div>
 
   <div ng-if="Report.pane == 'graph-dotted'">
-    <p>Grpah dotted view</p>
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
 
   </div>
 
   <div ng-if="Report.pane == 'graph-line'">
-    <p>Graph line view</p>
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
   </div>
 

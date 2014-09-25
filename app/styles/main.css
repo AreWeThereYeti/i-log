@@ -290,7 +290,7 @@ table {
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  vertical-align: middle;
+  vertical-align: top;
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
@@ -305,7 +305,7 @@ table {
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  vertical-align: middle;
+  vertical-align: top;
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
@@ -417,19 +417,26 @@ h1 {
 }
 /* line 3, ../sass/pages/_report.scss */
 .report .reportsubmenu {
+  padding: 0 5px;
   line-height: 50px;
   height: 50px;
   background-color: #f8f8f8;
 }
-/* line 9, ../sass/pages/_report.scss */
+/* line 12, ../sass/pages/_report.scss */
+.report .reportsubmenu .col-1-8 .icon:before {
+  vertical-align: middle;
+  margin: 0 5px 0 0px;
+  font-size: 20px;
+}
+/* line 21, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   border-right: 2px solid black;
 }
-/* line 12, ../sass/pages/_report.scss */
+/* line 24, ../sass/pages/_report.scss */
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
-/* line 17, ../sass/pages/_report.scss */
+/* line 29, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -496,10 +503,11 @@ h1 {
 }
 /* line 19, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
-  margin: 0 5px 0 10px;
+  margin: 0 5px 0 0px;
   font-size: 20px;
+  vertical-align: middle;
 }
-/* line 24, ../sass/components/_menubar.scss */
+/* line 25, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
@@ -560,8 +568,9 @@ h1 {
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 35px;
+  font-size: 16px;
 }
-/* line 18, ../sass/components/_circle-icons.scss */
+/* line 19, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
 }
@@ -668,6 +677,10 @@ a {
   text-decoration: none;
 }
 
+/* line 51, ../sass/main.scss */
+.active {
+  color: #e04f2f;
+}
 /* line 52, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;

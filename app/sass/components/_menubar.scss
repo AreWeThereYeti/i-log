@@ -17,8 +17,9 @@
       vertical-align: middle;
     }
     [class^="icon-"]:before, [class*=" icon-"]:before{
-      margin: 0 5px 0 10px;
+      margin: 0 5px 0 0px;
       font-size: 20px;
+      vertical-align: middle;
     }
   }
   .icons{

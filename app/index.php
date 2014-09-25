@@ -18,22 +18,19 @@
 
         <style dynamic-css>
             body {
-                font-family: {{$root.fontFamily}};
+                font-family: {{$root.fontFamily || 'times new roman'}};
             }
 
             p{
-                font-size : {{$root.fontSize}}px;
+                font-size : {{$root.fontSize || 13}}px;
             }
         </style>
 
     </head>
     <body ng-controller="MainCtrl as Main">
 
-
-
     <div class="topheader">
       <h1><span class="gyldendal">Gyldendal |</span> <span class="ilog">I-log</span> debug :Path is : {{$root.showSection}}</h1>
-
     </div>
 
       <!--Spinner-->
