@@ -22,8 +22,22 @@
 @import "directives/datepicker";
 
 body{
-
+  height: 1000px;
 }
+
+.collapsable {
+  display: inline-block;
+  overflow: hidden;
+  height: 0;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -o-transition: height 1s;
+}
+.collapsable.showme {
+  height: 75px;
+}
+
 
 h2{
   font-size: 30px;
@@ -38,6 +52,7 @@ a {
   &[class*=" icon-"]:before, a{
     color: $font-color-orange;
   }
+  color: $font-color-orange;
 }
 //
 //.dialog{
