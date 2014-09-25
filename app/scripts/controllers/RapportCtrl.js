@@ -20,6 +20,38 @@ app.controller('RapportCtrl', ['report', function (report) {
     }
 	];
 
+
+  Rapport.listdata = [
+    {
+      "type": "list",
+      "title": "list title",
+      "columns": [
+        {
+          "id": 1, // ID'et på feltet som tildelt i rapporten
+          "inputID": 2, // er dette id en reference til en tal række? Hvor kommer kolonne inholdet fra?
+          "label": "Kolonnetitel1"
+        },
+        {
+          "id": 2, // ID'et på feltet som tildelt i rapporten
+          "inputID": 1,
+          "label": "Kolonnetitel2"
+        }
+      ],
+      "calculations": [
+        {
+          "title": "Beregningstitel",
+          "formula": "SUM",
+          "columns": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ];
+
+
+
 	Rapport.piedata = [
 		{
 			"label": "Den første",
