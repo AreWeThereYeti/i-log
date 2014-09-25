@@ -312,79 +312,84 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 42, ../sass/components/_fonts.scss */
-.icon-arrow:before {
-  content: "a";
-}
-
-/* line 45, ../sass/components/_fonts.scss */
-.icon-bar:before {
-  content: "b";
-}
-
-/* line 48, ../sass/components/_fonts.scss */
-.icon-disc:before {
-  content: "c";
-}
-
-/* line 51, ../sass/components/_fonts.scss */
-.icon-dots:before {
-  content: "d";
-}
-
-/* line 54, ../sass/components/_fonts.scss */
-.icon-grid:before {
-  content: "f";
-}
-
-/* line 57, ../sass/components/_fonts.scss */
-.icon-line:before {
-  content: "g";
-}
-
-/* line 60, ../sass/components/_fonts.scss */
-.icon-logs:before {
-  content: "h";
-}
-
-/* line 63, ../sass/components/_fonts.scss */
-.icon-piechart:before {
-  content: "i";
-}
-
-/* line 66, ../sass/components/_fonts.scss */
-.icon-plus:before {
-  content: "j";
-}
-
-/* line 69, ../sass/components/_fonts.scss */
-.icon-reports:before {
-  content: "k";
-}
-
-/* line 72, ../sass/components/_fonts.scss */
-.icon-speech:before {
-  content: "l";
-}
-
-/* line 75, ../sass/components/_fonts.scss */
+/* line 43, ../sass/components/_fonts.scss */
 .icon-trash-bin:before {
   content: "m";
 }
 
-/* line 78, ../sass/components/_fonts.scss */
+/* line 46, ../sass/components/_fonts.scss */
 .icon-question:before {
   content: "n";
 }
 
-/* line 81, ../sass/components/_fonts.scss */
-.icon-filter:before {
+/* line 49, ../sass/components/_fonts.scss */
+.icon-arrow:before {
+  content: "a";
+}
+
+/* line 52, ../sass/components/_fonts.scss */
+.icon-bar:before {
+  content: "b";
+}
+
+/* line 55, ../sass/components/_fonts.scss */
+.icon-disc:before {
+  content: "c";
+}
+
+/* line 58, ../sass/components/_fonts.scss */
+.icon-dots:before {
+  content: "d";
+}
+
+/* line 61, ../sass/components/_fonts.scss */
+.icon-edit:before {
   content: "e";
 }
 
-/* line 84, ../sass/components/_fonts.scss */
-.icon-edit:before {
+/* line 64, ../sass/components/_fonts.scss */
+.icon-filter:before {
+  content: "f";
+}
+
+/* line 67, ../sass/components/_fonts.scss */
+.icon-grid:before {
+  content: "g";
+}
+
+/* line 70, ../sass/components/_fonts.scss */
+.icon-line:before {
+  content: "h";
+}
+
+/* line 73, ../sass/components/_fonts.scss */
+.icon-logs:before {
+  content: "i";
+}
+
+/* line 76, ../sass/components/_fonts.scss */
+.icon-piechart:before {
+  content: "j";
+}
+
+/* line 79, ../sass/components/_fonts.scss */
+.icon-plus:before {
+  content: "k";
+}
+
+/* line 82, ../sass/components/_fonts.scss */
+.icon-quicklook:before {
+  content: "l";
+}
+
+/* line 85, ../sass/components/_fonts.scss */
+.icon-reports:before {
   content: "o";
+}
+
+/* line 88, ../sass/components/_fonts.scss */
+.icon-speech:before {
+  content: "p";
 }
 
 /* line 1, ../sass/components/_helpers.scss */
@@ -436,11 +441,7 @@ h1 {
 .report .listview span {
   border: 1px solid #E5E5E5;
 }
-<<<<<<< HEAD
 /* line 29, ../sass/pages/_report.scss */
-=======
-/* line 17, ../sass/pages/_report.scss */
->>>>>>> develop
 .report .axis path,
 .report .axis line {
   fill: none;

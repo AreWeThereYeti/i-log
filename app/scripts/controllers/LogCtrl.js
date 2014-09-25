@@ -3,18 +3,14 @@
 app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
-  Log.inputs = logs.data.inputs;
-
-
 
   Log.route = $routeParams.id;
-  //Test variable. If you see it when the app runs you are good to go
-  Log.testVar = 'We are up and running  on Log - page!';
-
 
   // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
-  Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
-  Log.backgroundImg = $rootScope.ba
+  //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
+  if(angular.isDefined($rootscope.backgroundImageID)){
+    Log.backgroundImg = $rootscope.backgroundImageID;
+  }
 
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];

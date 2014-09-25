@@ -37,8 +37,15 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
+.icon-trash-bin:before {
+  content: "m";
+}
+.icon-question:before {
+  content: "n";
+}
 .icon-arrow:before {
   content: "a";
 }
@@ -51,36 +58,33 @@
 .icon-dots:before {
   content: "d";
 }
-.icon-grid:before {
-  content: "f";
-}
-.icon-line:before {
-  content: "g";
-}
-.icon-logs:before {
-  content: "h";
-}
-.icon-piechart:before {
-  content: "i";
-}
-.icon-plus:before {
-  content: "j";
-}
-.icon-reports:before {
-  content: "k";
-}
-.icon-speech:before {
-  content: "l";
-}
-.icon-trash-bin:before {
-  content: "m";
-}
-.icon-question:before {
-  content: "n";
-}
-.icon-filter:before {
+.icon-edit:before {
   content: "e";
 }
-.icon-edit:before {
+.icon-filter:before {
+  content: "f";
+}
+.icon-grid:before {
+  content: "g";
+}
+.icon-line:before {
+  content: "h";
+}
+.icon-logs:before {
+  content: "i";
+}
+.icon-piechart:before {
+  content: "j";
+}
+.icon-plus:before {
+  content: "k";
+}
+.icon-quicklook:before {
+  content: "l";
+}
+.icon-reports:before {
   content: "o";
+}
+.icon-speech:before {
+  content: "p";
 }
