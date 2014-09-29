@@ -15,6 +15,22 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','
   // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
   //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
 
+
+  //function for formating time in data input
+  Log.formatDate = function(format){
+    var t = new Date().getTime();
+
+    if(format=="date"){
+      t =  $filter('date')(t, 'dd:MM:yyyy');
+    }else if(format=="datetime"){
+      t  =  $filter('date')(t, 'dd:MM:yyyy, hh:mm');
+    } else if(format=="time"){
+      t =  $filter('date')(t, 'hh:mm');
+    }
+
+    return t;
+  };
+
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
   for(var i=0; i<Log.inputs.length; i++){
@@ -23,6 +39,9 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','
     }
     if(Log.inputs[i].type == "checkbox"){
       Log.inputs[i].value = Log.inputs[i].prechecked;
+    }
+    if(Log.inputs[i].type == "data"){
+      Log.inputs[i].value = Log.formatDate(Log.inputs[i].data);
     }
   }
 
@@ -39,22 +58,7 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','
     return array;
   };
 
-  //function for formating time in data input
-  Log.formatDate = function(format,index){
-    var t = new Date().getTime();
 
-    if(format=="date"){
-      t =  $filter('date')(t, 'dd:MM:yyyy');
-    }else if(format=="datetime"){
-      t  =  $filter('date')(t, 'dd:MM:yyyy, hh:mm');
-    } else if(format=="time"){
-      t =  $filter('date')(t, 'hh:mm');
-    }
-    // sets data input to the formated date
-    Log.inputs[index].value = t;
-
-    return t;
-  };
 
 
 
