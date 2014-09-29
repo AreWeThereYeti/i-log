@@ -23,10 +23,10 @@
   <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
-        <span>{{item.from}}</span>
+        <span>{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-8">
-        <span>{{item.to}}</span>
+        <span>{{item.to * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-2">
         <span>{{item.title}}</span>
