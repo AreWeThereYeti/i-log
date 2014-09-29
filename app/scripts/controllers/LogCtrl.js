@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $rootScope) {
+app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','$filter', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $filter, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.inputs = logs.data.inputs;
@@ -23,9 +23,6 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
     if(Log.inputs[i].type == "checkbox"){
       Log.inputs[i].value = Log.inputs[i].prechecked;
     }
-    if(Log.inputs[i].type == "data"){
-      Log.inputs[i].value = Log.inputs[i].data;
-    }
   }
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
@@ -40,6 +37,24 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams', 
     }
     return array;
   };
+
+  //function for formating time in data input
+  Log.formatDate = function(format,index){
+    var t = new Date().getTime();
+
+    if(format=="date"){
+      t =  $filter('date')(t, 'dd:MM:yyyy');
+    }else if(format=="datetime"){
+      t  =  $filter('date')(t, 'dd:MM:yyyy, hh:mm');
+    } else if(format=="time"){
+      t =  $filter('date')(t, 'hh:mm');
+    }
+    // sets data input to the formated date
+    Log.inputs[index].value = t;
+
+    return t;
+  };
+
 
 
   // main function for parsing formula field in relation to number input fields

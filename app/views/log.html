@@ -38,7 +38,7 @@
 
         <div ng-switch-when="data">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
-          <input id="log-input-{{input.id}}" class="data" ng-model="input.value" readonly>
+          <input id="log-input-{{input.id}}" class="data"  value="{{Log.formatDate(input.data, $index)}}" ng-model="input.value" readonly>
         </div>
 
         <div ng-switch-when="formula">

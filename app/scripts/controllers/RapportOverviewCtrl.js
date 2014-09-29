@@ -13,7 +13,7 @@ app.controller('RapportOverviewCtrl', [ 'reports','getdataservice' ,function (re
             .then(function(data){
                 console.log('test : ' + data)
             });
-    }
+    };
 
 
 	//Test variable. If you see it when the app runs you are good to go
