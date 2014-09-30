@@ -7,6 +7,24 @@ app.controller('LogMenubarCtrl', ['$scope', '$location', function ($scope, $loca
   //Test variable. If you see it when the app runs you are good to go
   LogMenubar.testVar = 'This is data from the menubar!';
 
+  LogMenubar.checkInputs = function(){
+
+    // checks if all required fields are filled, alerts and returns if not
+    for(var i=0; i<$scope.$parent.Log.inputs.length; i++){
+      if($scope.$parent.Log.inputs[i].type != "data" && $scope.$parent.Log.inputs[i].type != "formula"){
+        if($scope.$parent.Log.inputs[i].value){
+          if(confirm("Der er foretaget ikke-gemte indtastninger. Disse vil gå tabt hvis du fortsætter.")){
+            $location.path('logs');
+          } else {
+            return;
+          }
+        }
+      }
+
+    }
+    $location.path('logs');
+
+  };
 
   LogMenubar.saveLog = function(){
 
