@@ -29,17 +29,10 @@ angular.module('gyldendal.services', [])
 					return promise;
                 },
 
-          testfunction: function () {
-					  var promise = $http({cache: false, method: 'GET', url: 'http://www.mocky.io/v2/541416bce37eca2c0a8e2dad' }).success(function (data, status, headers, config) {
+        loadComponent: function() {
 
-					  });
-
-            return promise;
-          },
-
-          loadComponent: function() {
-
-            var returndata
+            var ComponentID = '540025f23c5b5a07d0570c53';
+            var returndata;
 
             var promise = $http({
               cache: false,
@@ -65,7 +58,52 @@ angular.module('gyldendal.services', [])
               });
 
               return promise;
+            },
+
+        deleteEntry: function() {
+
+            var returndata
+
+            var promise = $http({
+              cache: false,
+              headers: {
+                'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+              },
+              method: 'GET',
+              url: '/php/mads/deleteEntry.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              })
+              .success(function (data, status, headers, config) {
+              if (data.Content !== null) {
+                returndata = angular.fromJson(data.Content);
+              }
+            });
+
+            return promise;
+          },
+        getLatest: function() {
+
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+
+          var returndata;
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: '/php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            })
+            .success(function (data, status, headers, config) {
+            if (data.Content !== null) {
+              returndata = angular.fromJson(data.Content);
             }
+          });
+
+          return promise;
+        }
 			};
 
 			return sdo

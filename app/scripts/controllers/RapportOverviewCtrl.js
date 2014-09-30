@@ -9,10 +9,17 @@ app.controller('RapportOverviewCtrl', [ 'reports','getdataservice' ,function (re
     var test;
 
     RapportOverview.click = function(){
-        test = getdataservice.loadComponent()
-            .then(function(data){
-                console.log('test : ' + data)
-            });
+      test = getdataservice.loadComponent()
+        .then(function(data){
+            console.log('test : ' + data)
+        });
+    };
+
+  RapportOverview.getAll = function(){
+    test = getdataservice.getLatest()
+      .then(function(data){
+        console.log('test : ' + data)
+      });
     };
 
 

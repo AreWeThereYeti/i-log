@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ '$location', function ($location) {
+app.controller('LogsOverviewCtrl', [ '$location', 'getdataservice', function ($location, getdataservice) {
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
 
@@ -8,6 +8,7 @@ app.controller('LogsOverviewCtrl', [ '$location', function ($location) {
   LogsOverview.delete = function(index, event){
     if (confirm('Er du sikker på du vil slette denne log??')) {
       alert('sletted')
+      getdataservice.deleteEntry();
       //delete service here with item id and component id. See Component.svc/delete in userdata documentation
     } else {
 
