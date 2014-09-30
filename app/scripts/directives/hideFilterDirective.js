@@ -2,14 +2,14 @@
 
 //Add class on scroll
 angular.module('gyldendal.directives')
-    .directive("scroll", function ($window) {
+    .directive("scroll", function ($window, $rootScope) {
       return function(scope, element, attrs) {
-        scope.boolChangeClass = true;
+        $rootScope.filter = true;
         angular.element($window).bind("scroll", function() {
           if(this.pageYOffset >= 50) {
-            scope.boolChangeClass = false;
+            $rootScope.filter = false;
           } else {
-            scope.boolChangeClass = true;
+            $rootScope.filter = true;
           }
           scope.$apply();
         });

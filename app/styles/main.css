@@ -710,6 +710,30 @@ h1 {
   line-height: 15px;
 }
 
+/* line 1, ../sass/components/_buttons.scss */
+.btn {
+  background-color: #e04f2f;
+  border: none;
+  padding: 10px 20px;
+  outline: 0;
+  cursor: pointer;
+  margin: 0;
+  color: #FFF;
+  -moz-transition: all;
+  -o-transition: all;
+  -webkit-transition: all;
+  transition: all;
+}
+/* line 11, ../sass/components/_buttons.scss */
+.btn.btn:hover {
+  background-color: #BF472C;
+}
+/* line 19, ../sass/components/_buttons.scss */
+.btn.btn:disabled {
+  background-color: #f3f3f3;
+  color: black;
+}
+
 /* line 1, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
@@ -736,7 +760,7 @@ h1 {
   float: right;
   text-align: left;
 }
-/* line 23, ../sass/directives/_dialog.scss */
+/* line 24, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
@@ -753,19 +777,67 @@ h1 {
   animation: ngdialog-fadein 0.5s;
 }
 
-/* line 2, ../sass/directives/_datepicker.scss */
-.datepicker .select {
-  border-bottom: 3px solid #000;
-  width: 30%;
+/* line 3, ../sass/directives/_datepicker.scss */
+.datepicker {
+  border-top: 5px solid #000;
+  border-bottom: 5px solid #FFF;
+}
+/* line 6, ../sass/directives/_datepicker.scss */
+.datepicker .header {
+  background-color: #ffffff;
+  width: 100%;
+}
+/* line 9, ../sass/directives/_datepicker.scss */
+.datepicker .header h1 {
+  color: #000000;
+  font-size: 24px;
+  padding: 15px 20px;
+}
+/* line 15, ../sass/directives/_datepicker.scss */
+.datepicker .content {
+  background-color: #E2E2E2;
+}
+/* line 17, ../sass/directives/_datepicker.scss */
+.datepicker .content h2 {
+  padding: 15px 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #383838;
+}
+/* line 23, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer, .datepicker .content .selectcontainer {
+  padding: 15px 20px;
+}
+/* line 26, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer input, .datepicker .content .selectcontainer input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+}
+/* line 32, ../sass/directives/_datepicker.scss */
+.datepicker .content .select {
+  width: 33.3%;
   float: left;
+}
+/* line 39, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner {
+  border-bottom: 3px solid #000;
   margin: 5px;
 }
-/* line 7, ../sass/directives/_datepicker.scss */
-.datepicker .select select {
+/* line 43, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.left {
+  margin-left: 0px;
+}
+/* line 47, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.right {
+  margin-right: 0px;
+}
+/* line 50, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner select {
   background-color: transparent;
   outline: 0;
   border: 0;
-  width: 50px;
+  width: 90px;
   height: 35px;
   border-radius: 0px;
   padding: 00px;
@@ -773,20 +845,25 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 21, ../sass/directives/_datepicker.scss */
-.datepicker .select:after {
+/* line 63, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
+/* line 71, ../sass/directives/_datepicker.scss */
+.datepicker .content .btn {
+  margin-top: 20px;
+  float: right;
+}
 
-/* line 26, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
 body {
   height: 1000px;
 }
 
-/* line 30, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -797,27 +874,27 @@ body {
   -o-transition: height 1s;
 }
 
-/* line 39, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
 }
 
-/* line 43, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 47, ../sass/main.scss */
+/* line 48, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 53, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
