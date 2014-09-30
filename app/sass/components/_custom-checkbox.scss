@@ -1,0 +1,38 @@
+.custom-radio{
+  margin-left: 0px !important;
+  input[type=radio] {
+    display: none;
+  }
+
+  label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    left: 0;
+    border: 3px solid #FFF;
+    box-shadow: 0 0 0 2px #000;
+    vertical-align: sub;
+
+  }
+
+  label:before {
+    border-radius: 8px;
+  }
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  label:before {
+    border-radius: 50%;
+  }
+
+  input[type=radio]:checked + label:before {
+    content: "";
+    background-color: $backgroundcolor-orange;
+    text-align: center;
+    line-height: 15px;
+  }
+}

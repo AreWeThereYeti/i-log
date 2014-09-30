@@ -397,6 +397,46 @@ table {
   float: right;
 }
 
+/* line 1, ../sass/components/_arrow.scss */
+.arrow_box {
+  position: relative;
+}
+
+/* line 4, ../sass/components/_arrow.scss */
+.arrow_box:after {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  display: inline-block;
+  pointer-events: none;
+  border-top-color: #6c2c1e;
+  border-width: 7px;
+  margin-left: 10px;
+  margin-bottom: -2px;
+  vertical-align: middle;
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -moz-transform-origin: 50% 40%;
+  -ms-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
+  transform-origin: 50% 40%;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
 /* line 1, ../sass/pages/_logs.scss */
 h1 {
   color: red;
@@ -404,7 +444,7 @@ h1 {
 
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
-  padding: 30px;
+  padding: 0 2.5%;
 }
 /* line 9, ../sass/pages/_logs.scss */
 .log-content label {
@@ -422,7 +462,7 @@ h1 {
 }
 /* line 3, ../sass/pages/_report.scss */
 .report .reportsubmenu {
-  padding: 0 5px;
+  padding: 0 2.5%;
   line-height: 50px;
   height: 50px;
   background-color: #f8f8f8;
@@ -452,7 +492,7 @@ h1 {
 /* line 1, ../sass/components/_topheader.scss */
 .topheader {
   height: 50px;
-  padding: 0 5px;
+  padding: 0 2.5%;
   background-color: #383838;
 }
 /* line 5, ../sass/components/_topheader.scss */
@@ -474,18 +514,66 @@ h1 {
   width: 100%;
   background-color: #e04f2f;
   line-height: 75px;
-  padding: 0 5px;
+  padding: 0 2.5%;
   border-top: 2px solid #b33f26;
 }
 /* line 7, ../sass/components/_filterbar.scss */
-.filterbar span {
+.filterbar div {
   color: #e6e6e6;
+}
+/* line 11, ../sass/components/_filterbar.scss */
+.filterbar .datefilter {
+  margin-left: -15px;
+  position: absolute;
+  width: 200px;
+  z-index: 5;
+  background-color: #FFF;
+  box-shadow: 0px 0px 10px 0px #474747;
+}
+/* line 18, ../sass/components/_filterbar.scss */
+.filterbar .datefilter .arrow_box:after {
+  margin-right: 14px;
+  margin-bottom: 10px;
+  -moz-transform-origin: 50% 40%;
+  -ms-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
+  transform-origin: 50% 40%;
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+/* line 27, ../sass/components/_filterbar.scss */
+.filterbar .datefilter div {
+  color: #e04f2f;
+  margin-left: 15px;
+}
+/* line 31, ../sass/components/_filterbar.scss */
+.filterbar .datefilter ul {
+  width: 215px;
+}
+/* line 33, ../sass/components/_filterbar.scss */
+.filterbar .datefilter ul li {
+  margin-left: 15px;
+  line-height: 50px;
 }
 
 /* line 1, ../sass/components/_menubar.scss */
 .menubar {
   width: 100%;
-  padding: 0 5px;
+  padding: 0 2.5%;
   background-color: #ffffff;
   height: 75px;
 }
@@ -523,14 +611,14 @@ h1 {
 /* line 2, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
-  padding: 0 5px;
+  padding: 0 2.5%;
   height: 50px;
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
 /* line 10, ../sass/components/_list.scss */
 .list .listitem {
-  padding: 0 5px;
+  padding: 0 2.5%;
   cursor: pointer;
   line-height: 50px;
   height: 50px;
@@ -578,6 +666,48 @@ h1 {
 /* line 19, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
+}
+
+/* line 1, ../sass/components/_custom-checkbox.scss */
+.custom-radio {
+  margin-left: 0px !important;
+}
+/* line 3, ../sass/components/_custom-checkbox.scss */
+.custom-radio input[type=radio] {
+  display: none;
+}
+/* line 7, ../sass/components/_custom-checkbox.scss */
+.custom-radio label:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  left: 0;
+  border: 3px solid #FFF;
+  box-shadow: 0 0 0 2px #000;
+  vertical-align: sub;
+}
+/* line 20, ../sass/components/_custom-checkbox.scss */
+.custom-radio label:before {
+  border-radius: 8px;
+}
+/* line 23, ../sass/components/_custom-checkbox.scss */
+.custom-radio label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0px;
+}
+/* line 28, ../sass/components/_custom-checkbox.scss */
+.custom-radio label:before {
+  border-radius: 50%;
+}
+/* line 32, ../sass/components/_custom-checkbox.scss */
+.custom-radio input[type=radio]:checked + label:before {
+  content: "";
+  background-color: #e04f2f;
+  text-align: center;
+  line-height: 15px;
 }
 
 /* line 1, ../sass/directives/_dialog.scss */
@@ -651,12 +781,12 @@ h1 {
   line-height: 35px;
 }
 
-/* line 24, ../sass/main.scss */
+/* line 26, ../sass/main.scss */
 body {
   height: 1000px;
 }
 
-/* line 28, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -667,27 +797,27 @@ body {
   -o-transition: height 1s;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
 }
 
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 46, ../sass/main.scss */
+/* line 47, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 51, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 52, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

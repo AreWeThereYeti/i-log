@@ -1,0 +1,21 @@
+.arrow_box {
+  position: relative;
+}
+.arrow_box:after{
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  display: inline-block;
+  pointer-events: none;
+  border-top-color: #6c2c1e;
+  border-width: 7px;
+  margin-left: 10px;
+  margin-bottom: -2px;
+  vertical-align: middle;
+  @include transform(rotate(0deg));
+  @include transform-origin(50%, 40%);
+  @include transition-property(all);
+  @include transition-duration(0.1s);
+  @include transition-timing-function(linear);
+}

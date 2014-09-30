@@ -1,15 +1,29 @@
 <div class="grid">
-  <div ng-if="$root.showSection == '/rapporter'">
-    <div class="col-1-8">
-      <span>Fra dato</span>
-    </div>
-    <div class="col-7-8">
-      <span>Til dato</span>
-    </div>
-  </div>
-  <div ng-if="$root.showSection == '/logs' || $root.showSection == '/'">
-    <div class="col-1-8">
-      <span>Dato</span>
-    </div>
+  <div ng-class="{datefilter : Date}" class="col-1-8">
+    <div class="arrow_box" ng-click="Date = !Date">Dato</div>
+    <ul ng-show="Date" ng-click="Date = !Date">
+      <li>
+        <div class="custom-radio">
+          <input id="check1" type="radio" name="check" value="check1">
+          <label for="check1">Idag</label>
+        </div>
+        <div class="custom-radio">
+          <input id="check2" type="radio" name="check" value="check2">
+          <label for="check2">Igår</label>
+        </div>
+        <div class="custom-radio">
+          <input id="check3" type="radio" name="check" value="check3">
+          <label for="check3">Seneste uge</label>
+        </div>
+        <div class="custom-radio">
+          <input id="check4" type="radio" name="check" value="check4">
+          <label for="check4">Seneste måned</label>
+        </div>
+        <div class="custom-radio">
+          <input id="check5" type="radio" name="check" value="check5">
+          <label for="check5">Seneste år</label>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
