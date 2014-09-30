@@ -23,7 +23,7 @@
   <button ng-click="RapportOverview.getAll()">Click her og test Get Latest</button>
 
   <!--item in reports-->
-  <div class="listitem grid" ng-repeat="item in RapportOverview.reports | orderBy:RapportOverview.predicate:reverse">
+  <div class="listitem grid" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
         <span>{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>

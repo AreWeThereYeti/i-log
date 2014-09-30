@@ -1,6 +1,7 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ '$location', 'getdataservice', function ($location, getdataservice) {
+app.controller('LogsOverviewCtrl', [ '$location', 'getdataservice', '$scope', function ($location, getdataservice, $scope) {
+
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
 
@@ -14,6 +15,10 @@ app.controller('LogsOverviewCtrl', [ '$location', 'getdataservice', function ($l
 
     }
     event.preventDefault();
+  };
+
+  $scope.changeRange = function(range){
+    LogsOverview.filterRange = range;
   };
 
 	//Test variable. If you see it when the app runs you are good to go

@@ -6,7 +6,8 @@ var app = angular.module('app', [
 	'ngRoute',
 	'd3',
 	'gyldendal.services',
-	'gyldendal.directives'
+	'gyldendal.directives',
+  'gyldendal.filters'
 ])
 
 //	Configure module

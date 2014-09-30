@@ -4,24 +4,28 @@
     <ul ng-show="Date" ng-click="Date = !Date">
       <li>
         <div class="custom-radio">
-          <input id="check1" type="radio" name="check" value="check1">
+          <input id="check1" type="radio" name="check" value="check1" ng-click="Filterbar.changeRange(1)">
           <label for="check1">Idag</label>
         </div>
         <div class="custom-radio">
-          <input id="check2" type="radio" name="check" value="check2">
+          <input id="check2" type="radio" name="check" value="check2" ng-click="Filterbar.changeRange(2)">
           <label for="check2">Igår</label>
         </div>
         <div class="custom-radio">
-          <input id="check3" type="radio" name="check" value="check3">
+          <input id="check3" type="radio" name="check" value="check3" ng-click="Filterbar.changeRange(7)">
           <label for="check3">Seneste uge</label>
         </div>
         <div class="custom-radio">
-          <input id="check4" type="radio" name="check" value="check4">
+          <input id="check4" type="radio" name="check" value="check4" ng-click="Filterbar.changeRange(30)">
           <label for="check4">Seneste måned</label>
         </div>
         <div class="custom-radio">
-          <input id="check5" type="radio" name="check" value="check5">
+          <input id="check5" type="radio" name="check" value="check5" ng-click="Filterbar.changeRange(365)">
           <label for="check5">Seneste år</label>
+        </div>
+        <div class="custom-radio">
+          <input id="check6" type="radio" name="check" value="check6" ng-click="Filterbar.changeRange(null)">
+          <label for="check6">Alle</label>
         </div>
       </li>
     </ul>
