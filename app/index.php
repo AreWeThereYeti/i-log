@@ -1,11 +1,15 @@
 <?php
-
-	include('php/user-auth.php');
-
-	//Initialize auth process
-	$authObj = new UserAuth();
+include('php/mads/core.php');
 
 ?>
+
+<!--//
+//	include('php/user-auth.php');
+//
+//	//Initialize auth process
+//	$authObj = new UserAuth();
+//
+//-->
 
 <!doctype html>
 <html lang="en" ng-app="app" ng-cloak>

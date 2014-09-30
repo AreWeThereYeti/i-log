@@ -47,7 +47,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: '/php/load-component.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: '/php/michael/load-component.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null) {
