@@ -90,8 +90,12 @@
       <script src="scripts/services/dateservice.js"></script>
       <script src="scripts/services/statcalcservice.js"></script>
 
+      <!--filters-->
+      <script src="scripts/filters/logRangeFilter.js"></script>
+      <script src="scripts/filters/reportRangeFilter.js"></script>
 
-      <!--directives-->
+
+    <!--directives-->
       <script src="scripts/directives/charts.js"></script>
       <script src="scripts/directives/datepicker.js"></script>
       <script src="scripts/directives/dialog.js"></script>
