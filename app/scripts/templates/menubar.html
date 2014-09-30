@@ -1,7 +1,7 @@
 <div class="grid">
   <div class="col-7-8">
     <ul>
-      <li ng-class="{active : $root.showSection == '/logs'}" class="icon icon-logs"><a href="#/logs" >Mine logs</a></li>
+      <li ng-class="{active : $root.showSection == '/logs' || $root.showSection == '' }" class="icon icon-logs"><a href="#/logs" >Mine logs</a></li>
       <li> | </li>
       <li ng-class="{active : $root.showSection == '/rapporter'}" class="icon icon-reports"><a href="#/rapporter">Mine rapporter</a></li>
     </ul>
@@ -11,7 +11,7 @@
       <div class="circ">
         <span class="icon icon-plus"></span>
       </div>
-      <div class="circ">
+      <div ng-click="$root.filter = !$root.filter" class="circ">
         <span class="icon icon-filter"></span>
       </div>
       <div class="circ">
@@ -24,10 +24,10 @@
       <div ng-click="Menubar.createReport()" class="circ ">
         <span class="icon icon-plus"></span>
       </div>
-      <div ng-click="Menubar.openError()" class="circ">
+      <div ng-click="$root.filter = !$root.filter" class="circ">
         <span class="icon icon-filter"></span>
       </div>
-      <div class="circ">
+      <div ng-click="Menubar.openError()" class="circ">
         <span class="icon icon-question"></span>
       </div>
     </div>
