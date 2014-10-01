@@ -65,7 +65,7 @@ var app = angular.module('app', [
 				controllerAs: 'Log',
 				resolve: {
 					logs: function(getdataservice, $route) {
-						return getdataservice.getLog($route.current.params);
+						return getdataservice.loadComponent($route.current.params);
 					}
 				}
 			})

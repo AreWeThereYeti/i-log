@@ -3,7 +3,8 @@
 app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','$filter', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $filter, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
-  Log.inputs = logs.data.inputs;
+  Log.componentData = angular.fromJson(logs.data.Content);
+  Log.inputs = Log.componentData.inputs;
 
   Log.route = $routeParams.id;
 
