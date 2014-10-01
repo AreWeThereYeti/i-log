@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogMenubarCtrl', ['$scope', '$location', function ($scope, $location) {
+app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$location', function (getdataservice, $rootScope, $scope, $location) {
   //Save reference to controller in order to avoid reference soup
   var LogMenubar = this;
 
@@ -15,6 +15,7 @@ app.controller('LogMenubarCtrl', ['$scope', '$location', function ($scope, $loca
         if($scope.$parent.Log.inputs[i].value){
           if(confirm("Der er foretaget ikke-gemte indtastninger. Disse vil gå tabt hvis du fortsætter.")){
             $location.path('logs');
+            return;
           } else {
             return;
           }
@@ -53,9 +54,28 @@ app.controller('LogMenubarCtrl', ['$scope', '$location', function ($scope, $loca
         }
     }
 
-
-
     // post json to server
+    if($rootScope.firstLogEntry){
+      // no prior ilogs so use addEntry
+      var newlog = [];
+      newlog.push(iLog);
+      getdataservice.addNewLog(angular.toJson(newlog));
+
+    }else{
+      // prior ilogs exist so use updateEntry
+      getdataservice.getLatest()
+        .then(function(data){
+          var ilogs = angular.fromJson(data.data.content);
+          ilogs.push(iLog);
+          //getdataservice.updateLog(iLogs, data.data.objectID);
+        }, function(error){
+          console.log(error);
+        });
+
+
+
+    }
+
 
     // route to logsOverview view after receiving server confirmation of successful post
     //$location.path('logs');

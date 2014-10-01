@@ -26,7 +26,10 @@ var app = angular.module('app', [
 				resolve: {
 					reports: function(getdataservice, $route) {
 						return getdataservice.getAllLogs($route.current.params);
-					}
+					},
+          logs: function(getdataservice, $route) {
+            return getdataservice.getLatest($route.current.params);
+          }
 				}
 			})
 			.when('/logs', {
@@ -36,7 +39,10 @@ var app = angular.module('app', [
 				resolve: {
 					reports: function(getdataservice, $route) {
 						return getdataservice.getAllLogs($route.current.params);
-					}
+					},
+          logs: function(getdataservice, $route) {
+            return getdataservice.getLatest($route.current.params);
+          }
 				}
 			})
 			.when('/rapporter', {
@@ -59,12 +65,22 @@ var app = angular.module('app', [
 					}
 				}
 			})
+      .when('/log', {
+        templateUrl: 'views/log.html',
+        controller: 'LogCtrl',
+        controllerAs: 'Log',
+        resolve: {
+          component: function(getdataservice, $route) {
+            return getdataservice.loadComponent($route.current.params);
+          }
+        }
+      })
 			.when('/log/:id', {
 				templateUrl: 'views/log.html',
 				controller: 'LogCtrl',
 				controllerAs: 'Log',
 				resolve: {
-					logs: function(getdataservice, $route) {
+					component: function(getdataservice, $route) {
 						return getdataservice.loadComponent($route.current.params);
 					}
 				}

@@ -1,9 +1,9 @@
 "use strict";
 
-app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','$filter', '$rootScope', function (statcalcservice, $scope, logs, $routeParams, $filter, $rootScope) {
+app.controller('LogCtrl', ['statcalcservice', '$scope', 'component', '$routeParams','$filter', '$rootScope', function (statcalcservice, $scope, component, $routeParams, $filter, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
-  Log.componentData = angular.fromJson(logs.data.Content);
+  Log.componentData = angular.fromJson(component.data.Content);
   Log.inputs = Log.componentData.inputs;
 
   Log.route = $routeParams.id;
@@ -11,7 +11,7 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'logs', '$routeParams','
   // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
   //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
   if(angular.isDefinedOrNotNull($rootScope.backgroundImageID) ){
-    console.log('background is defined in rootscope');
+    console.log('background is defined in rootscope ');
     Log.backgroundImg = $rootScope.backgroundImageID;
   }
 

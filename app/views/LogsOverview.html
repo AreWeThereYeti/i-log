@@ -8,10 +8,10 @@
         <span>Dato</span>
       </div>
       <div class="col-1-8">
-        <span>Distance</span>
+        <span>Titel</span>
       </div>
       <div class="col-3-4">
-        <span>Aktivitet</span>
+        <span></span>
       </div>
     </div>
 
@@ -19,13 +19,13 @@
     <div class="listitem">
       <a ng-href="#/log/{{LogsOverview.id}}">
         <span class="col-1-8">
-          <span class="date">08-09-2014</span>
-        </span>
-        <span class="col-1-8">
-          <span class="date">25</span>
+          <span class="date">{{LogsOverview.logs.timestamp | date:'dd-MM-yyyy'}}</span>
         </span>
         <span class="col-5-8">
-          <span class="shared">Løb</span>
+          <span class="date">EnLog har ingen titel... Hvad skal loades her??</span>
+        </span>
+        <span class="col-1-8">
+          <span class="shared">-</span>
         </span>
         <span class="col-1-8">
           <div class="float-right">

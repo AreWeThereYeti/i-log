@@ -103,7 +103,114 @@ angular.module('gyldendal.services', [])
           });
 
           return promise;
+        },
+        addNewLog: function(log) {
+
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+
+          var returndata;
+
+          var request = {
+            "componentEntry": {
+              "userID":         UserID,
+              "componentID":    ComponentID,
+              "componentType":  "i-log",
+              "productID":      1111111111111,
+              "title":          "some title",
+              "content":        log
+            }
+          };
+          console.log("request: "+request);
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: '/php/mads/addEntry.php/',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+              if (data !== null) {
+                console.log("response: "+JSON.stringify(data));
+                //returndata = angular.fromJson(data);
+              }
+            })
+            .error(function(error){
+              console.log("err: "+JSON.stringify(error));
+
+            });
+
+          return promise;
+        },
+        updateLog: function(logs, objectId) {
+
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+          //var objectID = '542c02723c5b5a0c285b025a';
+
+          var returndata;
+
+          var request = {
+            "objectID":         objectId,
+            "componentEntry": {
+              "title":          "some title",
+              "content":        logs
+            }
+          };
+
+          console.log("request: "+request);
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: '/php/mads/updateEntry.php/',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+              if (data !== null) {
+                console.log("response: "+JSON.stringify(data));
+              }
+            })
+            .error(function(error){
+              console.log("err: "+JSON.stringify(error));
+
+            });
+
+           return promise;
+        },
+        deleteLog: function() {
+
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+
+          var returndata;
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: '/php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+          })
+            .success(function (data, status, headers, config) {
+              if (data.Content !== null) {
+                returndata = angular.fromJson(data.Content);
+              }
+            });
+
+          return promise;
         }
+
 			};
 
 			return sdo
