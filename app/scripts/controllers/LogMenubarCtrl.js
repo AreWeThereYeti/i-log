@@ -59,7 +59,14 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
       // no prior ilogs so use addEntry
       var newlog = [];
       newlog.push(iLog);
-      getdataservice.addNewLog(angular.toJson(newlog));
+      getdataservice.addNewLog(angular.toJson(newlog))
+        .then(function(data){
+          // on success go to logs view
+          $location.path('logs');
+        }, function(err){
+          // on err
+          alert("Error: "+err);
+        });
 
     }else{
       // prior ilogs exist so use updateEntry
@@ -71,8 +78,6 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
         }, function(error){
           console.log(error);
         });
-
-
 
     }
 

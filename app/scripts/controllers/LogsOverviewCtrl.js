@@ -38,7 +38,9 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
 
      // load logs into view
     LogsOverview.logs = angular.fromJson(LogsOverview.logEntries.content);
-
+    for(var i = 0; i<LogsOverview.logs.length; i++){
+      LogsOverview.logs[i].id = i;
+    }
 
 
 
@@ -46,15 +48,17 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
   }
 
   //Delete log
-  LogsOverview.delete = function(index, event){
+  LogsOverview.delete = function(){
     if (confirm('Er du sikker på du vil slette denne log?')) {
-      alert('sletted')
-      getdataservice.deleteEntry();
+      getdataservice.deleteAllLogs(LogsOverview.logEntries.objectID)
+        .then(function(isDeleted){
+          console.log(isDeleted);
+          $location.path('/');
+        });
       //delete service here with item id and component id. See Component.svc/delete in userdata documentation
     } else {
 
     }
-    event.preventDefault();
   };
 
   $scope.changeRange = function(range){

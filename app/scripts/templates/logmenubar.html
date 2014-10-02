@@ -1,7 +1,7 @@
 <div class="reportmenu grid">
   <div class="col-3-4">
     <ul>
-      <li class="icon icon-arrow" ng-click="LogMenubar.checkInputs()"></li>
+      <li class="icon icon-arrow" ng-click="LogMenubar.checkInputs()" ng-hide="$root.firstLogEntry"></li>
       <li>{{Log.componentData.title}}</li>
     </ul>
   </div>
