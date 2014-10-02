@@ -38,7 +38,9 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
 
      // load logs into view
     LogsOverview.logs = angular.fromJson(LogsOverview.logEntries.content);
-
+    for(var i = 0; i<LogsOverview.logs.length; i++){
+      LogsOverview.logs[i].id = i;
+    }
 
 
 
@@ -46,15 +48,32 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
   }
 
   //Delete log
-  LogsOverview.delete = function(index, event){
+  LogsOverview.delete = function(logIndex){
     if (confirm('Er du sikker på du vil slette denne log?')) {
-      alert('sletted')
-      getdataservice.deleteEntry();
-      //delete service here with item id and component id. See Component.svc/delete in userdata documentation
-    } else {
+      var newLogs = angular.fromJson(LogsOverview.logEntries.content);
+      newLogs.splice(logIndex,1);
+      if(newLogs.length){
+        getdataservice.updateLog(newLogs, LogsOverview.logEntries.objectID)
+        .then(function(isDeleted){
+          console.log(isDeleted);
+          $location.path('/');
+        });
+      } else {
+        LogsOverview.deleteAll();
+      }
 
     }
-    event.preventDefault();
+  };
+
+  //Delete all logs
+  LogsOverview.deleteAll = function(){
+    if (confirm('Er du sikker på du vil slette alle logs?')) {
+      getdataservice.deleteAllLogs(LogsOverview.logEntries.objectID)
+        .then(function(isDeleted){
+          console.log(isDeleted);
+          $location.path('/');
+        });
+    }
   };
 
   $scope.changeRange = function(range){

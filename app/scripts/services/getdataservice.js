@@ -141,20 +141,13 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
-        updateLog: function(logs, objectId) {
-
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-          //var objectID = '542c02723c5b5a0c285b025a';
-
-          var returndata;
+        updateLog: function(newLogs, objectId) {
 
           var request = {
             "objectID":         objectId,
             "componentEntry": {
               "title":          "some title",
-              "content":        logs
+              "content":        angular.toJson(newLogs)
             }
           };
 
@@ -170,9 +163,7 @@ angular.module('gyldendal.services', [])
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
-              if (data !== null) {
                 console.log("response: "+JSON.stringify(data));
-              }
             })
             .error(function(error){
               console.log("err: "+JSON.stringify(error));
@@ -181,26 +172,24 @@ angular.module('gyldendal.services', [])
 
            return promise;
         },
-        deleteLog: function() {
+        deleteAllLogs: function(objectId) {
 
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-
-          var returndata;
+          // objectID of the entry to delete
+          var request = {
+            "objectID": objectId
+          };
 
           var promise = $http({
             cache: false,
             headers: {
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
-            method: 'GET',
-            url: '/php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            method: 'POST',
+            url: '/php/mads/deleteEntry.php/',
+            data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
-              if (data.Content !== null) {
-                returndata = angular.fromJson(data.Content);
-              }
+              console.log("delete: "+data);
             });
 
           return promise;
