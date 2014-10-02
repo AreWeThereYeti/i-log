@@ -62,6 +62,7 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
       getdataservice.addNewLog(angular.toJson(newlog))
         .then(function(data){
           // on success go to logs view
+          $rootScope.introPrompt = false;
           $location.path('logs');
         }, function(err){
           // on err
@@ -72,18 +73,19 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
       // prior ilogs exist so use updateEntry
       getdataservice.getLatest()
         .then(function(data){
-          var ilogs = angular.fromJson(data.data.content);
-          ilogs.push(iLog);
-          //getdataservice.updateLog(iLogs, data.data.objectID);
+          var iLogs = angular.fromJson(data.data.content);
+          iLogs.push(iLog);
+          console.log(" new log array: "+iLogs);
+          getdataservice.updateLog(iLogs, data.data.objectID)
+            .then(function(data){
+              // on success go to logs view
+              $rootScope.introPrompt = false;
+              $location.path('logs');            });
         }, function(error){
           console.log(error);
         });
 
     }
-
-
-    // route to logsOverview view after receiving server confirmation of successful post
-    //$location.path('logs');
 
     // for testing
     alert("Object submitted to server "+JSON.stringify(iLog));

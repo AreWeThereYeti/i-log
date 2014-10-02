@@ -148,18 +148,11 @@ angular.module('gyldendal.services', [])
         },
         updateLog: function(logs, objectId) {
 
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-          //var objectID = '542d12f63c5b5a04648c7c86';
-
-          var returndata;
-
           var request = {
             "objectID":         objectId,
             "componentEntry": {
               "title":          "some title",
-              "content":        logs
+              "content":        angular.toJson(logs)
             }
           };
 
@@ -175,9 +168,7 @@ angular.module('gyldendal.services', [])
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
-              if (data !== null) {
                 console.log("response: "+JSON.stringify(data));
-              }
             })
             .error(function(error){
               console.log("err: "+JSON.stringify(error));
@@ -190,10 +181,8 @@ angular.module('gyldendal.services', [])
 
           // objectID of the entry to delete
           var request = {
-            // debuggin' id
             "objectID": objectId
           };
-
 
           var promise = $http({
             cache: false,
