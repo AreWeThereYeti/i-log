@@ -88,7 +88,7 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
     }
 
     // for testing
-    alert("Object submitted to server "+JSON.stringify(iLog));
+    //alert("Object submitted to server "+JSON.stringify(iLog));
   };
 
 }]);

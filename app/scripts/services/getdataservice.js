@@ -146,13 +146,13 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
-        updateLog: function(logs, objectId) {
+        updateLog: function(newLogs, objectId) {
 
           var request = {
             "objectID":         objectId,
             "componentEntry": {
               "title":          "some title",
-              "content":        angular.toJson(logs)
+              "content":        angular.toJson(newLogs)
             }
           };
 
