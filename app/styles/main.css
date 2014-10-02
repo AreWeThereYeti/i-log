@@ -753,14 +753,21 @@ h1 {
 /* line 14, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content {
   z-index: 1;
-  background: white;
   position: relative;
   width: 400px;
   -webkit-backface-visibility: hidden;
   float: right;
   text-align: left;
 }
-/* line 24, ../sass/directives/_dialog.scss */
+/* line 22, ../sass/directives/_dialog.scss */
+.ngdialog .ngdialog-content .create-report .arrow_box:after {
+  border-top-color: transparent;
+  border-bottom-color: #000000;
+  margin-top: -2px;
+  left: 280px;
+  position: relative;
+}
+/* line 32, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
@@ -778,62 +785,63 @@ h1 {
 }
 
 /* line 3, ../sass/directives/_datepicker.scss */
-.datepicker {
+.datepicker, .error {
   border-top: 5px solid #000;
   border-bottom: 5px solid #FFF;
 }
-/* line 6, ../sass/directives/_datepicker.scss */
-.datepicker .header {
+/* line 7, ../sass/directives/_datepicker.scss */
+.datepicker .header, .error .header {
   background-color: #ffffff;
   width: 100%;
 }
-/* line 9, ../sass/directives/_datepicker.scss */
-.datepicker .header h1 {
+/* line 10, ../sass/directives/_datepicker.scss */
+.datepicker .header h1, .error .header h1 {
   color: #000000;
   font-size: 24px;
   padding: 15px 20px;
 }
-/* line 15, ../sass/directives/_datepicker.scss */
-.datepicker .content {
+/* line 16, ../sass/directives/_datepicker.scss */
+.datepicker .content, .error .content {
   background-color: #E2E2E2;
 }
-/* line 17, ../sass/directives/_datepicker.scss */
-.datepicker .content h2 {
+/* line 18, ../sass/directives/_datepicker.scss */
+.datepicker .content h2, .error .content h2 {
   padding: 15px 20px;
   text-transform: uppercase;
   font-size: 14px;
   color: #383838;
 }
-/* line 23, ../sass/directives/_datepicker.scss */
-.datepicker .content .inputcontainer, .datepicker .content .selectcontainer {
+/* line 24, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer, .datepicker .content .content-inner, .error .content .inputcontainer, .error .content .content-inner {
   padding: 15px 20px;
+  min-height: 120px;
 }
-/* line 26, ../sass/directives/_datepicker.scss */
-.datepicker .content .inputcontainer input, .datepicker .content .selectcontainer input {
+/* line 27, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer input, .datepicker .content .content-inner input, .error .content .inputcontainer input, .error .content .content-inner input {
   width: 100%;
   height: 40px;
   border: 0;
 }
-/* line 32, ../sass/directives/_datepicker.scss */
-.datepicker .content .select {
+/* line 33, ../sass/directives/_datepicker.scss */
+.datepicker .content .select, .error .content .select {
   width: 33.3%;
   float: left;
 }
-/* line 39, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner {
+/* line 40, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner, .error .content .select-inner {
   border-bottom: 3px solid #000;
   margin: 5px;
 }
-/* line 43, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner.left {
+/* line 44, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.left, .error .content .select-inner.left {
   margin-left: 0px;
 }
-/* line 47, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner.right {
+/* line 48, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.right, .error .content .select-inner.right {
   margin-right: 0px;
 }
-/* line 50, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner select {
+/* line 51, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner select, .error .content .select-inner select {
   background-color: transparent;
   outline: 0;
   border: 0;
@@ -845,15 +853,15 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 63, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner:after {
+/* line 64, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner:after, .error .content .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 71, ../sass/directives/_datepicker.scss */
-.datepicker .content .btn {
+/* line 72, ../sass/directives/_datepicker.scss */
+.datepicker .content .btn, .error .content .btn {
   margin-top: 20px;
   float: right;
 }

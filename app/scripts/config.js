@@ -24,9 +24,6 @@ var app = angular.module('app', [
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
-					reports: function(getdataservice, $route) {
-						return getdataservice.getAllLogs($route.current.params);
-					},
           logs: function(getdataservice, $route) {
             return getdataservice.getLatest($route.current.params);
           }
@@ -37,9 +34,6 @@ var app = angular.module('app', [
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
-					reports: function(getdataservice, $route) {
-						return getdataservice.getAllLogs($route.current.params);
-					},
           logs: function(getdataservice, $route) {
             return getdataservice.getLatest($route.current.params);
           }

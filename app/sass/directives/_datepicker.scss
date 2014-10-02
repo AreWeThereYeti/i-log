@@ -1,8 +1,9 @@
 $dialog-padding : 15px 20px;
 
-.datepicker{
+.datepicker, .error{
   border-top: 5px solid #000;
   border-bottom: 5px solid #FFF;
+
   .header{
     background-color: #ffffff;
     width: 100%;
@@ -20,9 +21,9 @@ $dialog-padding : 15px 20px;
       font-size: 14px;
       color: $font-color-dark;
     }
-    .inputcontainer, .selectcontainer{
+    .inputcontainer, .content-inner{
       padding: $dialog-padding;
-
+      min-height: 120px;
       input{
         width: 100%;
         height: 40px;
