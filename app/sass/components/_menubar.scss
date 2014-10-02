@@ -6,6 +6,16 @@
   &.reportmenu{
     background-color: $backgroundcolor-white;
   }
+  .back{
+    float: left;
+    color: #BFBFBF;
+    border-color: #BFBFBF;
+    [class*=" icon-"]:before{
+      vertical-align: top;
+      margin: 0;
+    }
+
+  }
   ul{
     line-height: 70px;
     vertical-align: middle;
@@ -14,7 +24,7 @@
       cursor: pointer;
       font-size: 30px;
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
     }
     [class^="icon-"]:before, [class*=" icon-"]:before{
       margin: 0 5px 0 0px;

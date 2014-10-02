@@ -6,16 +6,16 @@
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
-      <span ng-click="RapportOverview.predicate = 'from'; reverse=!reverse">Fra Dato</span>
+      <span ng-class="{active : RapportOverview.predicate == 'from'}" ng-click="RapportOverview.predicate = 'from'; reverse=!reverse">Fra Dato</span>
     </div>
     <div class="col-1-8">
-      <span ng-click="RapportOverview.predicate = 'to'; reverse=!reverse">Til dato</span>
+      <span ng-class="{active : RapportOverview.predicate == 'to'}" ng-click="RapportOverview.predicate = 'to'; reverse=!reverse">Til dato</span>
     </div>
     <div class="col-1-2">
-      <span ng-click="RapportOverview.predicate = 'title'; reverse=!reverse">Titel</span>
+      <span ng-class="{active : RapportOverview.predicate == 'title'}" ng-click="RapportOverview.predicate = 'title'; reverse=!reverse">Titel</span>
     </div>
     <div class="col-1-4">
-      <span ng-click="RapportOverview.predicate = 'shared'; reverse=!reverse">Delt</span>
+      <span ng-class="{active : RapportOverview.predicate == 'shared'}" ng-click="RapportOverview.predicate = 'shared'; reverse=!reverse">Delt</span>
     </div>
   </div>
 

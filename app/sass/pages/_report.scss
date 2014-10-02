@@ -6,8 +6,8 @@
     height: 50px;
     background-color: #f8f8f8;
 
-
     .col-1-8{
+      cursor: pointer;
       .icon{
         &:before{
           vertical-align: middle;
@@ -22,7 +22,28 @@
       border-right: 2px solid black;
     }
     span {
+      text-align: center;
+      text-transform: capitalize;
       border: 1px solid #E5E5E5;
+      min-height: 40px;
+      line-height: 40px;
+      box-sizing: content-box;
+    }
+  }
+
+  .list-content{
+    span.first{
+      color: #bfbfbf;
+      text-align: right;
+      padding-right: 10px;
+      margin-left: -10px;
+    }
+  }
+
+  .list-head{
+    span{
+      border-bottom: 2px solid #000;
+      font-weight: bold;
     }
   }
 

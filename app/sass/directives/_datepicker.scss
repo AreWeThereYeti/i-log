@@ -22,8 +22,8 @@ $dialog-padding : 15px 20px;
       color: $font-color-dark;
     }
     .inputcontainer, .content-inner{
+      overflow: auto;
       padding: $dialog-padding;
-      min-height: 120px;
       input{
         width: 100%;
         height: 40px;

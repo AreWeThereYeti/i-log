@@ -1,10 +1,20 @@
 .list{
+  padding: $base-padding;
   .listheader{
     line-height: 50px;
     padding: $base-padding;
     height: 50px;
     background-color: #FFF;
     border-bottom: 1px solid #c8c8c8;
+    span{
+      cursor: pointer;
+
+      &:hover{
+        color: $font-color-orange;
+        @include transition-property(color);
+        @include transition-duration(0.2s);
+      }
+    }
   }
 
   .listitem{
@@ -29,7 +39,7 @@
       [class^="icon-"]:before,
       [class*=" icon-"]:before {
         line-height: 22px;
-
+        font-size: 12px;
       }
     }
   }

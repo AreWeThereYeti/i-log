@@ -467,6 +467,10 @@ h1 {
   height: 50px;
   background-color: #f8f8f8;
 }
+/* line 9, ../sass/pages/_report.scss */
+.report .reportsubmenu .col-1-8 {
+  cursor: pointer;
+}
 /* line 12, ../sass/pages/_report.scss */
 .report .reportsubmenu .col-1-8 .icon:before {
   vertical-align: middle;
@@ -479,9 +483,26 @@ h1 {
 }
 /* line 24, ../sass/pages/_report.scss */
 .report .listview span {
+  text-align: center;
+  text-transform: capitalize;
   border: 1px solid #E5E5E5;
+  min-height: 40px;
+  line-height: 40px;
+  box-sizing: content-box;
 }
-/* line 29, ../sass/pages/_report.scss */
+/* line 35, ../sass/pages/_report.scss */
+.report .list-content span.first {
+  color: #bfbfbf;
+  text-align: right;
+  padding-right: 10px;
+  margin-left: -10px;
+}
+/* line 44, ../sass/pages/_report.scss */
+.report .list-head span {
+  border-bottom: 2px solid #000;
+  font-weight: bold;
+}
+/* line 50, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -582,25 +603,36 @@ h1 {
   background-color: #ffffff;
 }
 /* line 9, ../sass/components/_menubar.scss */
+.menubar .back {
+  float: left;
+  color: #BFBFBF;
+  border-color: #BFBFBF;
+}
+/* line 13, ../sass/components/_menubar.scss */
+.menubar .back [class*=" icon-"]:before {
+  vertical-align: top;
+  margin: 0;
+}
+/* line 19, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 13, ../sass/components/_menubar.scss */
+/* line 23, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
-/* line 19, ../sass/components/_menubar.scss */
+/* line 29, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 5px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 25, ../sass/components/_menubar.scss */
+/* line 35, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
@@ -608,7 +640,11 @@ h1 {
   vertical-align: middle;
 }
 
-/* line 2, ../sass/components/_list.scss */
+/* line 1, ../sass/components/_list.scss */
+.list {
+  padding: 0 2.5%;
+}
+/* line 3, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 2.5%;
@@ -616,7 +652,23 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 10, ../sass/components/_list.scss */
+/* line 9, ../sass/components/_list.scss */
+.list .listheader span {
+  cursor: pointer;
+}
+/* line 12, ../sass/components/_list.scss */
+.list .listheader span:hover {
+  color: #e04f2f;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+/* line 20, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 2.5%;
   cursor: pointer;
@@ -627,22 +679,23 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 19, ../sass/components/_list.scss */
+/* line 29, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
   line-height: 20px;
   height: 25px;
 }
-/* line 24, ../sass/components/_list.scss */
+/* line 34, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 29, ../sass/components/_list.scss */
+/* line 39, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
+  font-size: 12px;
 }
 
 /* line 3, ../sass/components/_circle-icons.scss */
@@ -660,7 +713,7 @@ h1 {
 /* line 14, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
-  line-height: 35px;
+  line-height: 33px;
   font-size: 16px;
 }
 /* line 19, ../sass/components/_circle-icons.scss */
@@ -813,8 +866,8 @@ h1 {
 }
 /* line 24, ../sass/directives/_datepicker.scss */
 .datepicker .content .inputcontainer, .datepicker .content .content-inner, .error .content .inputcontainer, .error .content .content-inner {
+  overflow: auto;
   padding: 15px 20px;
-  min-height: 120px;
 }
 /* line 27, ../sass/directives/_datepicker.scss */
 .datepicker .content .inputcontainer input, .datepicker .content .content-inner input, .error .content .inputcontainer input, .error .content .content-inner input {

@@ -22,7 +22,8 @@ include('php/mads/core.php');
 
         <style dynamic-css>
             body {
-                font-family: {{$root.fontFamily || 'times new roman'}};
+                font-family: {{$root.fontFamily || 'HelveticaNeue-Light'}};
+                font-weight : 300;
             }
 
             p{
