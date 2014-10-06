@@ -27,6 +27,30 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
   };
 
+  //Delete log
+  LogMenubar.delete = function(){
+    if (confirm('Er du sikker på du vil slette denne log?')) {
+      if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
+        getdataservice.getLatest()
+          .then(function(data){
+            var iLogs = angular.fromJson(data.data.content);
+            iLogs.splice($scope.$parent.Log.route,1);
+            getdataservice.updateLog(iLogs, data.data.objectID)
+              .then(function(data){
+                // on success go to logs view
+                $rootScope.introPrompt = false;
+                $location.path('logs');
+              });
+          }, function(error){
+            console.log(error);
+          });
+      } else {
+        $location.path('logs');
+        return;
+      }
+    }
+  };
+
   LogMenubar.saveLog = function(){
 
     // build json object
@@ -75,7 +99,6 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
         .then(function(data){
           var iLogs = angular.fromJson(data.data.content);
           iLogs[$scope.$parent.Log.route] = iLog;
-          console.log(" new log array: "+iLogs);
           getdataservice.updateLog(iLogs, data.data.objectID)
             .then(function(data){
               // on success go to logs view
@@ -92,7 +115,6 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
         .then(function(data){
           var iLogs = angular.fromJson(data.data.content);
           iLogs.push(iLog);
-          console.log(" new log array: "+iLogs);
           getdataservice.updateLog(iLogs, data.data.objectID)
             .then(function(data){
               // on success go to logs view
