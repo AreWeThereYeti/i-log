@@ -11,7 +11,7 @@ app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,fun
     RapportOverview.click = function(){
       test = getdataservice.loadComponent()
         .then(function(data){
-            console.log('test : ' + data)
+            console.log('test : ' + JSON.stringify(angular.fromJson(data.data.Content)))
         });
     };
 

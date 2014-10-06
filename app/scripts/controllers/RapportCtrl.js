@@ -1,8 +1,32 @@
 "use strict";
 
-app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function ($scope, report, statcalcservice) {
+app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcalcservice', function (component, logs, $scope, report, statcalcservice) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
+
+  // populate Rapport.logs with all user logs for component
+  if(angular.fromJson(logs.data) != "Not found") {
+    Rapport.logs = angular.fromJson(logs.data.content);
+  } else {
+    // what happens if there is no logs?
+  }
+
+  // populate Rapport.component with all user logs for component
+  Rapport.component = angular.fromJson(component.data.Content);
+
+  Rapport.dataList = [];
+  Rapport.dataDiagram = [];
+  Rapport.dataGraph = [];
+
+  for(var i=0; i<Rapport.component.reports.length; i++){
+    if(Rapport.component.reports[i].type == "list"){
+      Rapport.dataList.push(Rapport.component.reports[i]);
+    } else if(Rapport.component.reports[i].type == "diagram"){
+      Rapport.dataDiagram.push(Rapport.component.reports[i]);
+    } else if(Rapport.component.reports[i].type == "graph"){
+      Rapport.dataGraph.push(Rapport.component.reports[i]);
+    }
+  }
 
 	Rapport.data = [
 		{
@@ -20,50 +44,7 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
     }
 	];
 
-  Rapport.dummylogs = [
-    {
-      "timestamp":1411645441874,
-      "data":
-      {
-        "1":"Noget tekst",
-        "2":28,
-        "3":"datetime",
-        "4":14,
-        "5":"test",
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    },
-    {
-      "timestamp":1411645646885,
-      "data":
-      {
-        "1":"Noget tekst2",
-        "2":10,
-        "3":"datetime",
-        "4":5,
-        "5":"test",
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    },
-    {
-      "timestamp":1411645441874,
-      "data":
-      {
-        "1":"Noget tekst3",
-        "2":8,
-        "3":"datetime",
-        "4":1,
-        "5":null,
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    }
-
-  ];
-
-  Rapport.listdata = [
+  /*Rapport.listdata = [
     {
       "id":1,
       "type":"list",
@@ -95,8 +76,7 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
           "formula":"AVERAGE*2",
           "unit":"km",
           "columns":[
-            "K2",
-            "K1"
+            "K2"
           ]
         }
       ]
@@ -166,7 +146,7 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
         ]
       }
     }
-  ];
+  ];*/
 
 
 
@@ -230,12 +210,16 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
     var columnValues = [],
         exp = "";
 
+    // correct bug in builder: calculation.columns can be a string if it only has one value (should be array)
+    if(Object.prototype.toString.call( calculation.columns ) === "[object String]"){
+      calculation.columns = [calculation.columns];
+    }
     // determine if this column is used in formula. if not, return
     angular.forEach(calculation.columns, function(kID){
       if(kID == column.id){
 
         // gather all affected column entries in an array
-        angular.forEach(Rapport.dummylogs, function(ilog) {
+        angular.forEach(Rapport.logs, function(ilog) {
           columnValues.push(ilog.data[column.inputID]);
         });
       }
