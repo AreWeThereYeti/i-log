@@ -66,6 +66,9 @@ var app = angular.module('app', [
         resolve: {
           component: function(getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);
+          },
+          logs: function(getdataservice, $route) {
+            return getdataservice.getLatest($route.current.params);
           }
         }
       })
@@ -76,7 +79,10 @@ var app = angular.module('app', [
 				resolve: {
 					component: function(getdataservice, $route) {
 						return getdataservice.loadComponent($route.current.params);
-					}
+					},
+          logs: function(getdataservice, $route) {
+            return getdataservice.getLatest($route.current.params);
+          }
 				}
 			})
 			.otherwise({

@@ -1,14 +1,19 @@
 "use strict";
 
-app.controller('LogCtrl', ['statcalcservice', '$scope', 'component', '$routeParams','$filter', '$rootScope', function (statcalcservice, $scope, component, $routeParams, $filter, $rootScope) {
+app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$routeParams','$filter', '$rootScope', function (logs, statcalcservice, $scope, component, $routeParams, $filter, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.componentData = angular.fromJson(component.data.Content);
   Log.inputs = Log.componentData.inputs;
 
+  // load and parse log to edit when in edit ilog view
   Log.route = $routeParams.id;
+  if(angular.isDefinedOrNotNull(Log.route)){
+    Log.logData = angular.fromJson(logs.data);
+    Log.currentLog = angular.fromJson(Log.logData.content)[Log.route];
+  }
 
-  // SHOULD BE REPLACED WITH CORRECT BACKGROUND IMG PATH (maybe preloaded as input json)
+
   //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
   if(angular.isDefinedOrNotNull($rootScope.backgroundImageID) ){
     console.log('background is defined in rootscope ');
@@ -44,6 +49,17 @@ app.controller('LogCtrl', ['statcalcservice', '$scope', 'component', '$routePara
       Log.inputs[i].value = Log.formatDate(Log.inputs[i].data);
     }
   }
+
+  // populate log form fields if user is in edit log view
+  if(angular.isDefinedOrNotNull(Log.route)){
+    for(var i=0; i<Log.inputs.length; i++){
+      if(Log.inputs[i].type != "formula"){
+        Log.inputs[i].value = Log.currentLog.data[Log.inputs[i].id];
+      }
+    }
+  }
+
+
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
   Log.parseElements = function(expr, array){
