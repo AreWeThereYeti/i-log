@@ -1,15 +1,15 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
   <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
-    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>Pie</span>
     </div>
-    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.barchart">
       <span class="icon icon-bar"></span>
       <span > Bar</span>
     </div>
-    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8" ng-show="Rapport.dataList[0]">
       <span class="icon icon-grid"></span>
       <span>List</span>
     </div>

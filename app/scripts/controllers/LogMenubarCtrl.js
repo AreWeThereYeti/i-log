@@ -55,6 +55,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
     // build json object
     var d = new Date();
+    // divide getTime with 1000 to get it in unix(seconds instead og ms)
     var iLog = {"timestamp" : d.getTime(), "data" : {} };
 
     // checks if all required fields are filled, alerts and returns if not

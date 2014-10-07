@@ -241,7 +241,7 @@ angular.module('gyldendal.directives', ['d3'])
                 height = 500 - margin.top - margin.bottom;
 
               // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y").parse;
+              var parseDate = d3.time.format('%Y-%m-%dT%H:%M:%SZ').parse;
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
@@ -269,13 +269,13 @@ angular.module('gyldendal.directives', ['d3'])
                   "translate(" + margin.left + "," + margin.top + ")");
 
               // parse data.date if not parsed allready
-              if(!data.isParsed) {
+/*              if(!data.isParsed) {
                 for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date)
+                  data.data[i].date = parseDate(data.data[i].date);
                   data.data[i].close = +data.data[i].close;
                 }
                 data.isParsed = true;
-              }
+              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
@@ -359,13 +359,14 @@ angular.module('gyldendal.directives', ['d3'])
                 height = 500 - margin.top - margin.bottom;
 
               // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y").parse;
+              var parseDate = d3.time.format("%d-%b-%y");
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
               var y = d3.scale.linear().range([height, 0]);
 
               // Define the axes
+              // ticks can be formated through tickFormat()
               var xAxis = d3.svg.axis().scale(x)
                 .orient("bottom").ticks(6).tickSize(0);
 
@@ -386,14 +387,14 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed allready
-              if(!data.isParsed) {
+              // parse data.date if not parsed already
+/*              if(!data.isParsed) {
                 for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date)
+                  data.data[i].dates = parseDate(new Date(data.data[i].date));
                   data.data[i].close = +data.data[i].close;
                 }
                 data.isParsed = true;
-              }
+              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);

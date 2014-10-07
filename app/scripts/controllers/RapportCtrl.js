@@ -172,33 +172,22 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
 		}
 	];
 
+
+  // prepare graph data
 	Rapport.linedata =
   {
-    "ytitle": "Y-akse titel",
-    "xtitle": "X-akse titel",
-    "data":
-    [
-      {
-        "date": "1-May-12",
-        "close": 16
-      }, {
-        "date": "30-Apr-12",
-        "close": 20
-      }, {
-        "date": "27-Apr-12",
-        "close": 15
-      }, {
-        "date": "25-Apr-12",
-        "close": 20
-      }, {
-        "date": "19-Apr-12",
-        "close": 15
-      }, {
-        "date": "12-Apr-12",
-        "close": 5
-      }
-	  ]
+    "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
+    "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
+    "data": []
   };
+
+  for(var i = 0; i<Rapport.logs.length; i++){
+    var plot = {
+      "date": Rapport.logs[i].timestamp,
+      "close": Rapport.logs[i].data[2/*Rapport.dataGraph[0].chart.yAxis.inputID*/]
+    };
+    Rapport.linedata.data.push(plot);
+  }
 
 	//Test variable. If you see it when the app runs you are good to go
 	Rapport.testVar = 'We are up and running  on rapports overview -page!';
