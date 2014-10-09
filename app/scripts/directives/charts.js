@@ -82,8 +82,8 @@ angular.module('gyldendal.directives', ['d3'])
  										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-									x.domain(data.map(function(d) { return d.letter; }));
-									y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+									x.domain(data.map(function(d) { return d.label; }));
+									y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
 									svg.append("g")
 											.attr("class", "x axis")
@@ -120,17 +120,17 @@ angular.module('gyldendal.directives', ['d3'])
                 node.append("rect")
                   .attr("class", "bar")
                   .attr("transform", "translate( "+ 20 + "," + -20 + ")")
-                  .attr("x", function(d) { return x(d.letter); })
+                  .attr("x", function(d) { return x(d.label); })
                   .style("fill", "e6e6e6")
                   .attr("width", x.rangeBand())
-                  .attr("y", function(d) { return y(d.frequency); })
-                  .attr("height", function(d) { return height - y(d.frequency); });
+                  .attr("y", function(d) { return y(d.value); })
+                  .attr("height", function(d) { return height - y(d.value); });
 
                 node.append("text")
                   .attr("class", "bar-text")
-                  .attr("x", function(d) { return x(d.letter)+x.rangeBand()/2; })
-                  .attr("y", function(d) { return y(d.frequency); })
-                  .text(function(d) { return d.frequency})
+                  .attr("x", function(d) { return x(d.label)+x.rangeBand()/2; })
+                  .attr("y", function(d) { return y(d.value); })
+                  .text(function(d) { return d.value})
                   .style("text-anchor", "start");
 
 

@@ -28,23 +28,8 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
     }
   }
 
-	Rapport.data = [
-		{
-			"letter": "A",
-			"frequency": 5
-		}, {
-			"letter": "B",
-			"frequency": 20
-		}, {
-			"letter": "C",
-			"frequency": 10
-		}, {
-			"letter": "D",
-			"frequency": 40
-    }
-	];
-
-  /*Rapport.listdata = [
+// dummy data for testing
+  Rapport.dummy = [
     {
       "id":1,
       "type":"list",
@@ -94,13 +79,13 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
       {
         "domain":
         {
-          "input":null,
-          "title":"hej"
+          "input":2,
+          "title":"x-akse"
         },
         "value":
         {
-          "formula":"min formel",
-          "title":"hej2"
+          "formula":"SUM(ID2)+50",
+          "title":"SUM(ID2)+50"
         },
         "calculations":[
           {
@@ -146,7 +131,7 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         ]
       }
     }
-  ];*/
+  ];
 
 
 
@@ -171,7 +156,21 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
 			"value": 20
 		}
 	];
-
+  Rapport.data = [
+    {
+      "letter": "A",
+      "frequency": 5
+    }, {
+      "letter": "B",
+      "frequency": 20
+    }, {
+      "letter": "C",
+      "frequency": 10
+    }, {
+      "letter": "D",
+      "frequency": 40
+    }
+  ];
 
   // prepare graph data
 	Rapport.linedata =
@@ -191,6 +190,122 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
 
 	//Test variable. If you see it when the app runs you are good to go
 	Rapport.testVar = 'We are up and running  on rapports overview -page!';
+
+  // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
+  Rapport.parseElements = function(expr, array){
+    if(expr.search(/\,/)!=-1){
+
+      array.push($scope.$eval(expr.slice(0, expr.search(/\,/))));
+      Rapport.parseElements(expr.slice(expr.search(/\,/)+1, expr.length), array);
+    } else if(expr.length){
+      array.push($scope.$eval(expr.slice(0, expr.length)));
+      expr = "";
+    }
+    return array;
+  };
+
+
+  // function for parsing foumulas in charts
+  // takes a string formula and a single log entry as json
+  // only finds othe first ID in a formula at the moment.Needs to be able to find all IDs
+  Rapport.parseChartFormula = function(formula, log){
+
+    // finds and replaces "ID" references with corresponding number input fields
+    // !!NEEDS TO FIND ALL instances of ID !!!!
+      var exp = formula;
+      var regexp = "ID[0-9]+";
+      var re = new RegExp(regexp, "i");
+      var id = re.exec(formula)[0].slice(2);
+      exp = formula.replace(re.exec(formula)[0], log.data[id]);
+
+
+
+
+    // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
+    if(exp.search(/HIGHEST\(/g)!=-1){
+
+      if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/HIGHEST\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, statcalcservice.highest(num));
+      }else{
+        // HIGHEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for LOWEST formula. returns math.min(exp) only if all number fields are filled
+    if(exp.search(/LOWEST\(/g)!=-1){
+
+      if(exp.search(/LOWEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/LOWEST\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/LOWEST\(([^\(]+)\)/ig, statcalcservice.lowest(num));
+      }else{
+        // LOWEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
+    if(exp.search(/AVERAGE\(/g)!=-1){
+      if(exp.search(/AVERAGE\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/AVERAGE\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/AVERAGE\(([^\(]+)\)/ig, statcalcservice.average(num));
+      }else{
+        // AVERAGE function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
+    if(exp.search(/SUM\(/g)!=-1){
+      if(exp.search(/SUM\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/SUM\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/SUM\(([^\(]+)\)/ig, statcalcservice.sum(num));
+      }else{
+        // SUM function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+  // return expression evaluated with $eval
+  return $scope.$eval(exp);
+};
+
+  // prepare chart data
+  Rapport.chartdata = {
+    "ytitle": Rapport.dummy[1].chart.value.title,
+    "xtitle": Rapport.dummy[1].chart.domain.title,
+    "data": []
+
+  };
+  for(var i = 0; i<Rapport.logs.length; i++){
+    var plot = {
+      "label": Rapport.logs[i].data[Rapport.dummy[1].chart.domain.input],
+      "value": Rapport.parseChartFormula(Rapport.dummy[1].chart.value.formula,Rapport.logs[i])
+    };
+    Rapport.chartdata.data.push(plot);
+  }
+
 
   // Function for parsing column calculations in list view
 
