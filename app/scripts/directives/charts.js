@@ -82,8 +82,8 @@ angular.module('gyldendal.directives', ['d3'])
  										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-									x.domain(data.map(function(d) { return d.label; }));
-									y.domain([0, d3.max(data, function(d) { return d.value; })]);
+									x.domain(data.data.map(function(d) { return d.label; }));
+									y.domain([0, d3.max(data.data, function(d) { return d.value; })]);
 
 									svg.append("g")
 											.attr("class", "x axis")
@@ -96,7 +96,7 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("dy", "-.1em")
 											.style("background-color", "white")
 											.style("text-anchor", "end")
-											.text("Udfaldsrum")
+											.text(data.xtitle)
 											.style("fill", "000000");
 
 									svg.append("g")
@@ -108,12 +108,12 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
 											.attr("dy", ".71em")
 											.style("text-anchor", "end")
-											.text("Værdi")
+											.text(data.ytitle)
 											.style("fill", "000000");
 
 
                 var node = svg.selectAll(".bar")
-                  .data(data)
+                  .data(data.data)
                   .enter()
                   .append("g");
 
@@ -161,7 +161,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var colors = ['black', 'red'];
 
-							var colorscale = d3.scale.linear().domain([0,data.length]).range(colors);
+							var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
 
 							var arc = d3.svg.arc()
 								.innerRadius(0)
@@ -178,7 +178,7 @@ angular.module('gyldendal.directives', ['d3'])
 							var renderarcs = svg.append('g')
 								.attr('transform','translate(440,200)')
 								.selectAll('.arc')
-								.data(pie(data))
+								.data(pie(data.data))
 								.enter()
 								.append('g')
 								.style('stroke', 'white')

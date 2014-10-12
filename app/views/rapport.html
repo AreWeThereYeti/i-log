@@ -24,11 +24,11 @@
   </div>
 
   <div ng-if="Report.pane == 'pie'">
-    <d3-chart data="Rapport.chartdata.data" type="pie"></d3-chart>
+    <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
   </div>
 
   <div ng-if="Report.pane == 'bar'">
-    <d3-chart data="Rapport.chartdata.data" type="bar"></d3-chart>
+    <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
   </div>
 
   <div class="listview" ng-if="Report.pane == 'list'">
