@@ -1,69 +1,35 @@
 "use strict";
 
-app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function ($scope, report, statcalcservice) {
+app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcalcservice', function (component, logs, $scope, report, statcalcservice) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
-	Rapport.data = [
-		{
-			"letter": "A",
-			"frequency": 5
-		}, {
-			"letter": "B",
-			"frequency": 20
-		}, {
-			"letter": "C",
-			"frequency": 10
-		}, {
-			"letter": "D",
-			"frequency": 40
+  // populate Rapport.logs with all user logs for component
+  if(angular.fromJson(logs.data) != "Not found") {
+    Rapport.logs = angular.fromJson(logs.data.content);
+  } else {
+    // what happens if there is no logs?
+  }
+
+  // populate Rapport.component with all user logs for component
+  Rapport.component = angular.fromJson(component.data.Content);
+
+  Rapport.dataList = [];
+  Rapport.dataDiagram = [];
+  Rapport.dataGraph = [];
+
+  for(var i=0; i<Rapport.component.reports.length; i++){
+    if(Rapport.component.reports[i].type == "list"){
+      Rapport.dataList.push(Rapport.component.reports[i]);
+    } else if(Rapport.component.reports[i].type == "diagram"){
+      Rapport.dataDiagram.push(Rapport.component.reports[i]);
+    } else if(Rapport.component.reports[i].type == "graph"){
+      Rapport.dataGraph.push(Rapport.component.reports[i]);
     }
-	];
+  }
 
-  Rapport.dummylogs = [
-    {
-      "timestamp":1411645441874,
-      "data":
-      {
-        "1":"Noget tekst",
-        "2":28,
-        "3":"datetime",
-        "4":14,
-        "5":"test",
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    },
-    {
-      "timestamp":1411645646885,
-      "data":
-      {
-        "1":"Noget tekst2",
-        "2":10,
-        "3":"datetime",
-        "4":5,
-        "5":"test",
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    },
-    {
-      "timestamp":1411645441874,
-      "data":
-      {
-        "1":"Noget tekst3",
-        "2":8,
-        "3":"datetime",
-        "4":1,
-        "5":null,
-        "6":true,
-        "7":"LAAANG tekst"
-      }
-    }
-
-  ];
-
-  Rapport.listdata = [
+// dummy data for testing
+  Rapport.dummy = [
     {
       "id":1,
       "type":"list",
@@ -95,8 +61,7 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
           "formula":"AVERAGE*2",
           "unit":"km",
           "columns":[
-            "K2",
-            "K1"
+            "K2"
           ]
         }
       ]
@@ -114,13 +79,13 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
       {
         "domain":
         {
-          "input":null,
-          "title":"hej"
+          "input":2,
+          "title":"x-akse"
         },
         "value":
         {
-          "formula":"min formel",
-          "title":"hej2"
+          "formula":"SUM(ID2)+50",
+          "title":"SUM(ID2)+50"
         },
         "calculations":[
           {
@@ -191,37 +156,156 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
 			"value": 20
 		}
 	];
+  Rapport.data = [
+    {
+      "letter": "A",
+      "frequency": 5
+    }, {
+      "letter": "B",
+      "frequency": 20
+    }, {
+      "letter": "C",
+      "frequency": 10
+    }, {
+      "letter": "D",
+      "frequency": 40
+    }
+  ];
 
+  // prepare graph data
 	Rapport.linedata =
   {
-    "ytitle": "Y-akse titel",
-    "xtitle": "X-akse titel",
-    "data":
-    [
-      {
-        "date": "1-May-12",
-        "close": 16
-      }, {
-        "date": "30-Apr-12",
-        "close": 20
-      }, {
-        "date": "27-Apr-12",
-        "close": 15
-      }, {
-        "date": "25-Apr-12",
-        "close": 20
-      }, {
-        "date": "19-Apr-12",
-        "close": 15
-      }, {
-        "date": "12-Apr-12",
-        "close": 5
-      }
-	  ]
+    "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
+    "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
+    "data": []
   };
+
+  for(var i = 0; i<Rapport.logs.length; i++){
+    var plot = {
+      "date": Rapport.logs[i].timestamp,
+      "close": Rapport.logs[i].data[2/*Rapport.dataGraph[0].chart.yAxis.inputID*/]
+    };
+    Rapport.linedata.data.push(plot);
+  }
 
 	//Test variable. If you see it when the app runs you are good to go
 	Rapport.testVar = 'We are up and running  on rapports overview -page!';
+
+  // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
+  Rapport.parseElements = function(expr, array){
+    if(expr.search(/\,/)!=-1){
+
+      array.push($scope.$eval(expr.slice(0, expr.search(/\,/))));
+      Rapport.parseElements(expr.slice(expr.search(/\,/)+1, expr.length), array);
+    } else if(expr.length){
+      array.push($scope.$eval(expr.slice(0, expr.length)));
+      expr = "";
+    }
+    return array;
+  };
+
+
+  // function for parsing foumulas in charts
+  // takes a string formula and a single log entry as json
+  // only finds othe first ID in a formula at the moment.Needs to be able to find all IDs
+  Rapport.parseChartFormula = function(formula, log){
+
+    // finds and replaces "ID" references with corresponding number input fields
+    // !!NEEDS TO FIND ALL instances of ID !!!!
+      var exp = formula;
+      var regexp = "ID[0-9]+";
+      var re = new RegExp(regexp, "i");
+      var id = re.exec(formula)[0].slice(2);
+      exp = formula.replace(re.exec(formula)[0], log.data[id]);
+
+
+
+
+    // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
+    if(exp.search(/HIGHEST\(/g)!=-1){
+
+      if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/HIGHEST\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, statcalcservice.highest(num));
+      }else{
+        // HIGHEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for LOWEST formula. returns math.min(exp) only if all number fields are filled
+    if(exp.search(/LOWEST\(/g)!=-1){
+
+      if(exp.search(/LOWEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/LOWEST\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/LOWEST\(([^\(]+)\)/ig, statcalcservice.lowest(num));
+      }else{
+        // LOWEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
+    if(exp.search(/AVERAGE\(/g)!=-1){
+      if(exp.search(/AVERAGE\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/AVERAGE\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/AVERAGE\(([^\(]+)\)/ig, statcalcservice.average(num));
+      }else{
+        // AVERAGE function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
+    if(exp.search(/SUM\(/g)!=-1){
+      if(exp.search(/SUM\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/SUM\(/g, "");
+        var num = [];
+        num = Rapport.parseElements(func[0], num);
+        exp = exp.replace(/SUM\(([^\(]+)\)/ig, statcalcservice.sum(num));
+      }else{
+        // SUM function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+  // return expression evaluated with $eval
+  return $scope.$eval(exp);
+};
+
+  // prepare chart data
+  Rapport.chartdata = {
+    "ytitle": Rapport.dummy[1].chart.value.title,
+    "xtitle": Rapport.dummy[1].chart.domain.title,
+    "data": []
+
+  };
+  for(var i = 0; i<Rapport.logs.length; i++){
+    var plot = {
+      "label": Rapport.logs[i].data[Rapport.dummy[1].chart.domain.input],
+      "value": Rapport.parseChartFormula(Rapport.dummy[1].chart.value.formula,Rapport.logs[i])
+    };
+    Rapport.chartdata.data.push(plot);
+  }
+
 
   // Function for parsing column calculations in list view
 
@@ -230,12 +314,16 @@ app.controller('RapportCtrl', ['$scope', 'report', 'statcalcservice', function (
     var columnValues = [],
         exp = "";
 
+    // correct bug in builder: calculation.columns can be a string if it only has one value (should be array)
+    if(Object.prototype.toString.call( calculation.columns ) === "[object String]"){
+      calculation.columns = [calculation.columns];
+    }
     // determine if this column is used in formula. if not, return
     angular.forEach(calculation.columns, function(kID){
       if(kID == column.id){
 
         // gather all affected column entries in an array
-        angular.forEach(Rapport.dummylogs, function(ilog) {
+        angular.forEach(Rapport.logs, function(ilog) {
           columnValues.push(ilog.data[column.inputID]);
         });
       }

@@ -5,7 +5,7 @@
   <div class="content">
     <h2>Title</h2>
     <div class="inputcontainer">
-      <input type="text"/>
+      <input type="text" ng-model="title" />
     </div>
     <div class="grid content-inner">
       <div>
@@ -48,7 +48,7 @@
             </select>
           </div>
         </div>
-        <button class="btn" ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay" ng-click="createReport()">Gå Videre</button>
+        <button class="btn" ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay || !title" ng-click="createReport()">Gå Videre</button>
       </div>
     </div>
   </div>

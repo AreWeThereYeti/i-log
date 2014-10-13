@@ -18,10 +18,18 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 			$scope.dateTo =  new Date(($scope.toYear + '-' + $scope.toMonth.val + '-' + $scope.toDay)).getTime();
 		}
 
-    //If both are defined, contact server
-		if(angular.isDefined($scope.dateTo && $scope.dateFrom)){
+    //If both are defined as well as report title, contact server
+		if(angular.isDefined($scope.dateTo && $scope.dateFrom && $scope.title)){
       //debug message
-			$scope.data = $scope.dateTo + ' and ' + $scope.dateFrom;
+      $scope.data = [{
+        "title": $scope.title,
+        "dateFrom": $scope.dateFrom,
+        "dateTo": $scope.dateTo,
+        "created": new Date().getTime(),
+        "shared": false
+      }];
+
+      console.log($scope.data);
 		}
 	}
 

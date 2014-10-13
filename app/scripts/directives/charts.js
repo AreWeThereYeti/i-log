@@ -82,8 +82,8 @@ angular.module('gyldendal.directives', ['d3'])
  										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-									x.domain(data.map(function(d) { return d.letter; }));
-									y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+									x.domain(data.data.map(function(d) { return d.label; }));
+									y.domain([0, d3.max(data.data, function(d) { return d.value; })]);
 
 									svg.append("g")
 											.attr("class", "x axis")
@@ -96,7 +96,7 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("dy", "-.1em")
 											.style("background-color", "white")
 											.style("text-anchor", "end")
-											.text("Udfaldsrum")
+											.text(data.xtitle)
 											.style("fill", "000000");
 
 									svg.append("g")
@@ -108,29 +108,29 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
 											.attr("dy", ".71em")
 											.style("text-anchor", "end")
-											.text("Værdi")
+											.text(data.ytitle)
 											.style("fill", "000000");
 
 
                 var node = svg.selectAll(".bar")
-                  .data(data)
+                  .data(data.data)
                   .enter()
                   .append("g");
 
                 node.append("rect")
                   .attr("class", "bar")
                   .attr("transform", "translate( "+ 20 + "," + -20 + ")")
-                  .attr("x", function(d) { return x(d.letter); })
+                  .attr("x", function(d) { return x(d.label); })
                   .style("fill", "e6e6e6")
                   .attr("width", x.rangeBand())
-                  .attr("y", function(d) { return y(d.frequency); })
-                  .attr("height", function(d) { return height - y(d.frequency); });
+                  .attr("y", function(d) { return y(d.value); })
+                  .attr("height", function(d) { return height - y(d.value); });
 
                 node.append("text")
                   .attr("class", "bar-text")
-                  .attr("x", function(d) { return x(d.letter)+x.rangeBand()/2; })
-                  .attr("y", function(d) { return y(d.frequency); })
-                  .text(function(d) { return d.frequency})
+                  .attr("x", function(d) { return x(d.label)+x.rangeBand()/2; })
+                  .attr("y", function(d) { return y(d.value); })
+                  .text(function(d) { return d.value})
                   .style("text-anchor", "start");
 
 
@@ -161,7 +161,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var colors = ['black', 'red'];
 
-							var colorscale = d3.scale.linear().domain([0,data.length]).range(colors);
+							var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
 
 							var arc = d3.svg.arc()
 								.innerRadius(0)
@@ -178,7 +178,7 @@ angular.module('gyldendal.directives', ['d3'])
 							var renderarcs = svg.append('g')
 								.attr('transform','translate(440,200)')
 								.selectAll('.arc')
-								.data(pie(data))
+								.data(pie(data.data))
 								.enter()
 								.append('g')
 								.style('stroke', 'white')
@@ -241,7 +241,7 @@ angular.module('gyldendal.directives', ['d3'])
                 height = 500 - margin.top - margin.bottom;
 
               // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y").parse;
+              var parseDate = d3.time.format('%Y-%m-%dT%H:%M:%SZ').parse;
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
@@ -269,13 +269,13 @@ angular.module('gyldendal.directives', ['d3'])
                   "translate(" + margin.left + "," + margin.top + ")");
 
               // parse data.date if not parsed allready
-              if(!data.isParsed) {
+/*              if(!data.isParsed) {
                 for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date)
+                  data.data[i].date = parseDate(data.data[i].date);
                   data.data[i].close = +data.data[i].close;
                 }
                 data.isParsed = true;
-              }
+              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
@@ -359,13 +359,14 @@ angular.module('gyldendal.directives', ['d3'])
                 height = 500 - margin.top - margin.bottom;
 
               // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y").parse;
+              var parseDate = d3.time.format("%d-%b-%y");
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
               var y = d3.scale.linear().range([height, 0]);
 
               // Define the axes
+              // ticks can be formated through tickFormat()
               var xAxis = d3.svg.axis().scale(x)
                 .orient("bottom").ticks(6).tickSize(0);
 
@@ -386,14 +387,14 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed allready
-              if(!data.isParsed) {
+              // parse data.date if not parsed already
+/*              if(!data.isParsed) {
                 for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date)
+                  data.data[i].dates = parseDate(new Date(data.data[i].date));
                   data.data[i].close = +data.data[i].close;
                 }
                 data.isParsed = true;
-              }
+              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);

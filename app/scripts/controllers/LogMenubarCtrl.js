@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$location', function (getdataservice, $rootScope, $scope, $location) {
+app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope', '$scope', '$location', function ($routeParams, getdataservice, $rootScope, $scope, $location) {
   //Save reference to controller in order to avoid reference soup
   var LogMenubar = this;
 
@@ -27,10 +27,35 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
 
   };
 
+  //Delete log
+  LogMenubar.delete = function(){
+    if (confirm('Er du sikker på du vil slette denne log?')) {
+      if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
+        getdataservice.getLatest()
+          .then(function(data){
+            var iLogs = angular.fromJson(data.data.content);
+            iLogs.splice($scope.$parent.Log.route,1);
+            getdataservice.updateLog(iLogs, data.data.objectID)
+              .then(function(data){
+                // on success go to logs view
+                $rootScope.introPrompt = false;
+                $location.path('logs');
+              });
+          }, function(error){
+            console.log(error);
+          });
+      } else {
+        $location.path('logs');
+        return;
+      }
+    }
+  };
+
   LogMenubar.saveLog = function(){
 
     // build json object
     var d = new Date();
+    // divide getTime with 1000 to get it in unix(seconds instead og ms)
     var iLog = {"timestamp" : d.getTime(), "data" : {} };
 
     // checks if all required fields are filled, alerts and returns if not
@@ -69,13 +94,28 @@ app.controller('LogMenubarCtrl', ['getdataservice', '$rootScope', '$scope', '$lo
           alert("Error: "+err);
         });
 
-    }else{
+    } else if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
+      // edit log at index $scope.$parent.Log.route
+      getdataservice.getLatest()
+        .then(function(data){
+          var iLogs = angular.fromJson(data.data.content);
+          iLogs[$scope.$parent.Log.route] = iLog;
+          getdataservice.updateLog(iLogs, data.data.objectID)
+            .then(function(data){
+              // on success go to logs view
+              $rootScope.introPrompt = false;
+              $location.path('logs');            });
+        }, function(error){
+          console.log(error);
+        });
+
+
+    } else {
       // prior ilogs exist so use updateEntry
       getdataservice.getLatest()
         .then(function(data){
           var iLogs = angular.fromJson(data.data.content);
           iLogs.push(iLog);
-          console.log(" new log array: "+iLogs);
           getdataservice.updateLog(iLogs, data.data.objectID)
             .then(function(data){
               // on success go to logs view

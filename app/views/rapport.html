@@ -1,34 +1,34 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
   <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
-    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>Pie</span>
     </div>
-    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.barchart">
       <span class="icon icon-bar"></span>
       <span > Bar</span>
     </div>
-    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8" ng-show="Rapport.dataList[0]">
       <span class="icon icon-grid"></span>
       <span>List</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.scatterPlot">
       <span class="icon icon-dots"></span>
       <span >graph dotted</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8">
+    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.connectedGraph">
       <span class="icon icon-line"></span>
       <span>linie</span>
     </div>
   </div>
 
   <div ng-if="Report.pane == 'pie'">
-    <d3-chart data="Rapport.piedata" type="pie"></d3-chart>
+    <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
   </div>
 
   <div ng-if="Report.pane == 'bar'">
-    <d3-chart data="Rapport.data" type="bar"></d3-chart>
+    <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
   </div>
 
   <div class="listview" ng-if="Report.pane == 'list'">
@@ -38,19 +38,19 @@
     <!-- List view Header-->
     <div class="grid list-head" >
       <span class="col-1-4 first"></span>
-      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">{{column.label}}</span>
+      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
     </div>
 
-    <div class="grid list-content" ng-repeat="ilog in Rapport.dummylogs track by $index">
+    <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
       <span class="col-1-4 first">{{$index+1}}</span>
-      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">
+      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{ilog.data[column.inputID]}}
       </span>
     </div>
 
-    <div class="grid list.calculations" ng-repeat="calculation in Rapport.listdata[0].calculations">
+    <div class="grid list.calculations" ng-repeat="calculation in Rapport.dataList[0].calculations">
       <span class="col-1-4">{{calculation.label}}</span>
-      <span class="col-1-8" ng-repeat="column in Rapport.listdata[0].columns">
+      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{Rapport.listFormula(calculation, column)}}
       </span>
     </div>
