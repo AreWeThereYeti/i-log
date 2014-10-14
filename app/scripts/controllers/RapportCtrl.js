@@ -28,7 +28,7 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
     }
   }
 
-// dummy data for testing
+// dummy component data for testing
   Rapport.dummy = [
     {
       "id":1,

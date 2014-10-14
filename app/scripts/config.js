@@ -49,7 +49,7 @@ var app = angular.module('app', [
 				controllerAs: 'RapportOverview',
 				resolve: {
 					reports: function(getdataservice, $route) {
-						return getdataservice.getAllReports($route.current.params);
+
 					}
 				}
 			})
@@ -59,7 +59,7 @@ var app = angular.module('app', [
 				controllerAs: 'Rapport',
 				resolve: {
 					report: function(getdataservice, $route) {
-						return getdataservice.getReport($route.current.params);
+
 					},
           component: function(getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);

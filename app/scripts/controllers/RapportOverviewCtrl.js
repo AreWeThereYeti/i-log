@@ -4,7 +4,38 @@ app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,fun
 	//Save reference to controller in order to avoid reference soup
 	var RapportOverview = this;
 
-	RapportOverview.reports = reports.data.reports;
+	RapportOverview.reports = [
+      {
+        "from" : "1321009871",
+        "to" : "1356174671",
+        "title" : "Report1",
+        "shared" : true
+      },
+      {
+        "from" : "1321009871",
+        "to" : "1354360271",
+        "title" : "Report2",
+        "shared" : false
+      },
+      {
+        "from" : "1321009871",
+        "to" : "1356952271",
+        "title" : "Report3",
+        "shared" : true
+      },
+      {
+        "from" : "1321009871",
+        "to" : "1356174671",
+        "title" : "Report4",
+        "shared" : true
+      },
+      {
+        "from" : "1321009871",
+        "to" : "1355483471",
+        "title" : "Report5",
+        "shared" : true
+      }
+    ];
 
     var test;
 
