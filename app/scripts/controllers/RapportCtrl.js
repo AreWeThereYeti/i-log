@@ -84,8 +84,8 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         },
         "value":
         {
-          "formula":"SUM(ID2)+50",
-          "title":"SUM(ID2)+50"
+          "formula":"SUM(ID2)+ID50",
+          "title":"SUM(ID2)+ID50"
         },
         "calculations":[
           {
@@ -134,44 +134,6 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
   ];
 
 
-
-	Rapport.piedata = [
-		{
-			"label": "Den første",
-			"value": 5
-		}, {
-			"label": "Awesome",
-			"value": 20
-		}, {
-			"label": "Awesome",
-			"value": 10
-		}, {
-			"label": "Nummer",
-			"value": 40
-		}, {
-			"label": "AwesomeAwesomeAwesome",
-			"value": 5
-		}, {
-			"label": "AwesomeAwesome",
-			"value": 20
-		}
-	];
-  Rapport.data = [
-    {
-      "letter": "A",
-      "frequency": 5
-    }, {
-      "letter": "B",
-      "frequency": 20
-    }, {
-      "letter": "C",
-      "frequency": 10
-    }, {
-      "letter": "D",
-      "frequency": 40
-    }
-  ];
-
   // prepare graph data
 	Rapport.linedata =
   {
@@ -211,13 +173,16 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
   Rapport.parseChartFormula = function(formula, log){
 
     // finds and replaces "ID" references with corresponding number input fields
-    // !!NEEDS TO FIND ALL instances of ID !!!!
-      var exp = formula;
-      var regexp = "ID[0-9]+";
-      var re = new RegExp(regexp, "i");
-      var id = re.exec(formula)[0].slice(2);
-      exp = formula.replace(re.exec(formula)[0], log.data[id]);
+    // prepare regex
+    var exp = formula;
+    var regexp = "ID[0-9]+";
+    var re = new RegExp(regexp, "i");
 
+    // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+    while(exp.search(re) != -1) {
+      var id = re.exec(exp)[0].slice(2);
+      exp = exp.replace(re.exec(exp)[0], log.data[id]);
+    }
 
 
 
