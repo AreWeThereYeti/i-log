@@ -50,7 +50,7 @@ include('php/mads/core.php');
           <div class="spinner-container container2">
             <div class="circle1"></div>
             <div class="circle2"></div>
-            <div class="circle3"></div>Ω
+            <div class="circle3"></div>
             <div class="circle4"></div>
           </div>
           <div class="spinner-container container3">
