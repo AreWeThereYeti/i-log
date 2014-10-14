@@ -89,8 +89,8 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         },
         "calculations":[
           {
-            "label":"calcTitel",
-            "formula":"calc1",
+            "label":"SUM(ID2)+ID50",
+            "formula":"SUM(ID2)+ID50",
             "unit":"m"
           }
         ]
@@ -119,13 +119,13 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         },
         "calculations":[
           {
-            "label":"Sum af 1 + 2",
-            "formula":"SUM(1+2)",
+            "label":"SUM(ID2)",
+            "formula":"SUM(ID2)",
             "unit":"m"
           },
           {
-            "label":"Sum af 3 + 4",
-            "formula":"SUM(3+4)",
+            "label":"AVERAGE(ID2)",
+            "formula":"AVERAGE(ID2)",
             "unit":"km"
           }
         ]
@@ -169,7 +169,6 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
 
   // function for parsing foumulas in charts
   // takes a string formula and a single log entry as json
-  // only finds othe first ID in a formula at the moment.Needs to be able to find all IDs
   Rapport.parseChartFormula = function(formula, log){
 
     // finds and replaces "ID" references with corresponding number input fields
@@ -272,8 +271,118 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
   }
 
 
-  // Function for parsing column calculations in list view
 
+  // Function for parsing calculations in chart/graph view
+  Rapport.chartFormula = function(calculation, logs){
+
+    // prepare regex to find and replace "ID" references with corresponding number input fields
+    var exp = calculation.formula;
+    var regexp = "ID[0-9]+";
+    var re = new RegExp(regexp, "i");
+
+    // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
+    if(exp.search(/SUM\(/g)!=-1){
+      if(exp.search(/SUM\(([^\(]+)(?=\))/i)!=-1){
+        // extract the content of the formula expression as an array
+        var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/SUM\(/g, "");
+        var num = [];
+        for(var i = 0; i<logs.length; i++) {
+          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          while (func[0].search(re) != -1) {
+            var id = re.exec(func[0])[0].slice(2);
+            func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
+          }
+         // parseElements evaluates each element before pushing it to array
+         num = Rapport.parseElements(func[0], num);
+        }
+        exp = exp.replace(/SUM\(([^\(]+)\)/ig, statcalcservice.sum(num));
+      }else{
+        // SUM function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
+    if(exp.search(/HIGHEST\(/g)!=-1){
+
+      if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/HIGHEST\(/g, "");
+        var num = [];
+        for(var i = 0; i<logs.length; i++) {
+          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          while (func[0].search(re) != -1) {
+            var id = re.exec(func[0])[0].slice(2);
+            func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
+          }
+          // parseElements evaluates each element before pushing it to array
+          num = Rapport.parseElements(func[0], num);
+        }        exp = exp.replace(/HIGHEST\(([^\(]+)\)/ig, statcalcservice.highest(num));
+      }else{
+        // HIGHEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for LOWEST formula. returns math.min(exp) only if all number fields are filled
+    if(exp.search(/LOWEST\(/g)!=-1){
+
+      if(exp.search(/LOWEST\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/LOWEST\(/g, "");
+        var num = [];
+        for(var i = 0; i<logs.length; i++) {
+          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          while (func[0].search(re) != -1) {
+            var id = re.exec(func[0])[0].slice(2);
+            func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
+          }
+          // parseElements evaluates each element before pushing it to array
+          num = Rapport.parseElements(func[0], num);
+        }        exp = exp.replace(/LOWEST\(([^\(]+)\)/ig, statcalcservice.lowest(num));
+      }else{
+        // LOWEST function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
+    if(exp.search(/AVERAGE\(/g)!=-1){
+      if(exp.search(/AVERAGE\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/AVERAGE\(/g, "");
+        var num = [];
+        for(var i = 0; i<logs.length; i++) {
+          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          while (func[0].search(re) != -1) {
+            var id = re.exec(func[0])[0].slice(2);
+            func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
+          }
+          // parseElements evaluates each element before pushing it to array
+          num = Rapport.parseElements(func[0], num);
+        }        exp = exp.replace(/AVERAGE\(([^\(]+)\)/ig, statcalcservice.average(num));
+      }else{
+        // AVERAGE function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
+    // return expression evaluated with $eval
+    return $scope.$eval(exp);
+  };
+
+
+
+  // Function for parsing column calculations in list view
   Rapport.listFormula = function(calculation, column){
 
     var columnValues = [],
