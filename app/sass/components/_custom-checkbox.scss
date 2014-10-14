@@ -14,12 +14,10 @@
     border: 3px solid #FFF;
     box-shadow: 0 0 0 2px #000;
     vertical-align: sub;
-
-  }
-
-  label:before {
     border-radius: 8px;
+
   }
+
   label {
     display: block;
     width: 100%;
@@ -34,5 +32,29 @@
     background-color: $backgroundcolor-orange;
     text-align: center;
     line-height: 15px;
+  }
+}
+
+.custom-checkbox{
+  input[type=checkbox] {
+    display: none;
+  }
+
+  label:before {
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-color: #FFF;
+    border: 4px solid white;
+    margin-bottom: 0px;
+    content: " ";
+
+  }
+
+  input[type=checkbox]:checked + label:before {
+    content: " ";
+    background-color: red;
+    display: block;
   }
 }

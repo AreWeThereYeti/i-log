@@ -19,9 +19,6 @@
     </div>
   </div>
 
-  <button ng-click="RapportOverview.click()">Click her for api test</button>
-  <button ng-click="RapportOverview.getAll()">Click her og test Get Latest</button>
-
   <!--item in reports-->
   <div class="listitem grid" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:reverse">
     <a ng-href="#/rapport/{{RapportOverview.testid}}">

@@ -457,16 +457,55 @@ h1 {
 
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
+  background-color: grey;
   padding: 0 2.5%;
 }
 /* line 9, ../sass/pages/_logs.scss */
+.log-content form {
+  padding-top: 20px;
+}
+/* line 13, ../sass/pages/_logs.scss */
 .log-content label {
+  font-weight: bold;
   display: block;
   padding-bottom: 10px;
 }
-/* line 14, ../sass/pages/_logs.scss */
+/* line 19, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 20px;
+}
+/* line 23, ../sass/pages/_logs.scss */
+.log-content input {
+  border: 0;
+  outline: 0;
+  height: 37px;
+  padding: 0 0px 0 10px;
+  margin-right: 5px;
+}
+/* line 31, ../sass/pages/_logs.scss */
+.log-content .dropdown {
+  width: 320px;
+  border-bottom: 3px solid #000;
+}
+/* line 35, ../sass/pages/_logs.scss */
+.log-content .dropdown select {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 300px;
+  height: 35px;
+  border-radius: 0px;
+  padding: 00px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0px;
+}
+/* line 49, ../sass/pages/_logs.scss */
+.log-content .dropdown:after {
+  display: inline-block;
+  content: "▼";
+  float: right;
+  line-height: 35px;
 }
 
 /* line 1, ../sass/pages/_report.scss */
@@ -622,19 +661,20 @@ h1 {
   float: left;
   color: #BFBFBF;
   border-color: #BFBFBF;
+  margin: 18px 2px;
 }
-/* line 13, ../sass/components/_menubar.scss */
+/* line 14, ../sass/components/_menubar.scss */
 .menubar .back [class*=" icon-"]:before {
   vertical-align: top;
   margin: 0;
 }
-/* line 19, ../sass/components/_menubar.scss */
+/* line 20, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 23, ../sass/components/_menubar.scss */
+/* line 24, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
@@ -642,12 +682,17 @@ h1 {
   vertical-align: top;
 }
 /* line 29, ../sass/components/_menubar.scss */
+.menubar ul li.divider {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* line 34, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 5px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 35, ../sass/components/_menubar.scss */
+/* line 40, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
@@ -655,11 +700,7 @@ h1 {
   vertical-align: middle;
 }
 
-/* line 1, ../sass/components/_list.scss */
-.list {
-  padding: 0 2.5%;
-}
-/* line 3, ../sass/components/_list.scss */
+/* line 2, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 2.5%;
@@ -667,11 +708,11 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 9, ../sass/components/_list.scss */
+/* line 8, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 12, ../sass/components/_list.scss */
+/* line 11, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -webkit-transition-property: color;
@@ -683,7 +724,7 @@ h1 {
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 20, ../sass/components/_list.scss */
+/* line 19, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 2.5%;
   cursor: pointer;
@@ -694,19 +735,19 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 29, ../sass/components/_list.scss */
+/* line 28, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
   line-height: 20px;
   height: 25px;
 }
-/* line 34, ../sass/components/_list.scss */
+/* line 33, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 40, ../sass/components/_list.scss */
+/* line 39, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -755,27 +796,46 @@ h1 {
   border: 3px solid #FFF;
   box-shadow: 0 0 0 2px #000;
   vertical-align: sub;
-}
-/* line 20, ../sass/components/_custom-checkbox.scss */
-.custom-radio label:before {
   border-radius: 8px;
 }
-/* line 23, ../sass/components/_custom-checkbox.scss */
+/* line 21, ../sass/components/_custom-checkbox.scss */
 .custom-radio label {
   display: block;
   width: 100%;
   margin-bottom: 0px;
 }
-/* line 28, ../sass/components/_custom-checkbox.scss */
+/* line 26, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:before {
   border-radius: 50%;
 }
-/* line 32, ../sass/components/_custom-checkbox.scss */
+/* line 30, ../sass/components/_custom-checkbox.scss */
 .custom-radio input[type=radio]:checked + label:before {
   content: "";
   background-color: #e04f2f;
   text-align: center;
   line-height: 15px;
+}
+
+/* line 39, ../sass/components/_custom-checkbox.scss */
+.custom-checkbox input[type=checkbox] {
+  display: none;
+}
+/* line 43, ../sass/components/_custom-checkbox.scss */
+.custom-checkbox label:before {
+  cursor: pointer;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: #FFF;
+  border: 4px solid white;
+  margin-bottom: 0px;
+  content: " ";
+}
+/* line 55, ../sass/components/_custom-checkbox.scss */
+.custom-checkbox input[type=checkbox]:checked + label:before {
+  content: " ";
+  background-color: red;
+  display: block;
 }
 
 /* line 1, ../sass/components/_buttons.scss */

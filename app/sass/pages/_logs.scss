@@ -3,15 +3,54 @@ h1{
 }
 
 .log-content{
-
+background-color: grey;
   padding: $base-padding;
 
+  form{
+    padding-top: 20px;
+  }
+
   label{
+    font-weight: bold;
     display: block;
     padding-bottom: 10px;
   }
 
   .input-field{
     padding-bottom: 20px;
+  }
+
+  input{
+    border: 0;
+    outline: 0;
+    height: 37px;
+    padding: 0 0px 0 10px;
+    margin-right: 5px;
+  }
+
+  .dropdown{
+    width: 320px;
+    border-bottom: 3px solid #000;
+
+    select{
+      background-color: rgba(0, 0, 0, 0);
+      outline: 0;
+      border: 0;
+      width: 300px;
+      height: 35px;
+      border-radius: 0px;
+      padding: 00px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin: 0px;
+    }
+
+
+    &:after{
+      display: inline-block;
+      content: "▼";
+      float: right;
+      line-height: 35px;
+    }
   }
 }
