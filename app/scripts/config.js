@@ -7,7 +7,8 @@ var app = angular.module('app', [
 	'd3',
 	'gyldendal.services',
 	'gyldendal.directives',
-  'gyldendal.filters'
+  'gyldendal.filters',
+	'angularSpinner'
 ])
 
 //	Configure module
@@ -26,7 +27,10 @@ var app = angular.module('app', [
 				resolve: {
           logs: function(getdataservice, $route) {
             return getdataservice.getLatest($route.current.params);
-          }
+          },
+					component: function(getdataservice, $route) {
+						return getdataservice.loadComponent($route.current.params);
+					},
 				}
 			})
 			.when('/logs', {

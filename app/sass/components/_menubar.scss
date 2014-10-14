@@ -10,6 +10,7 @@
     float: left;
     color: #BFBFBF;
     border-color: #BFBFBF;
+    margin: 18px 2px;
     [class*=" icon-"]:before{
       vertical-align: top;
       margin: 0;
@@ -25,6 +26,10 @@
       font-size: 30px;
       display: inline-block;
       vertical-align: top;
+      &.divider{
+        margin-left: 10px;
+        margin-right: 10px;
+      }
     }
     [class^="icon-"]:before, [class*=" icon-"]:before{
       margin: 0 5px 0 0px;

@@ -40,25 +40,7 @@ include('php/mads/core.php');
 
       <!--Spinner-->
       <div ng-show="$root.loadingView == true" class="spinner-backdrop">
-        <div  class="spinner">
-          <div class="spinner-container container1">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="circle4"></div>
-          </div>
-          <div class="spinner-container container2">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>Ω
-            <div class="circle4"></div>
-          </div>
-          <div class="spinner-container container3">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="circle4"></div>
-          </div>
+        <div us-spinner="{radius:15, width:4, length: 8}">
         </div>
       </div>
 
@@ -70,6 +52,7 @@ include('php/mads/core.php');
       <script src="scripts/libs/angular-resource.min.js"></script>
       <script src="scripts/libs/angular-route.min.js"></script>
       <script src="scripts/libs/math.js"></script>
+      <script src="scripts/libs/spin.min.js"></script>
 
       <!--config-->
       <script src="scripts/config.js"></script>
@@ -107,6 +90,7 @@ include('php/mads/core.php');
       <script src="scripts/directives/backImg.js"></script>
       <script src="scripts/directives/hideFilterDirective.js"></script>
       <script src="scripts/directives/globalCss.js"></script>
+      <script src="scripts/directives/angular-spinner.min.js"></script>
 
     </body>
 </html>
