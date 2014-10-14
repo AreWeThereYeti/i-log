@@ -40,7 +40,9 @@ include('php/mads/core.php');
 
       <!--Spinner-->
       <div ng-show="$root.loadingView == true" class="spinner-backdrop">
+
         <div us-spinner="{radius:15, width:4, length: 8}">
+
         </div>
       </div>
 
