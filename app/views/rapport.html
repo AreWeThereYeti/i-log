@@ -25,7 +25,7 @@
 
   <div ng-if="Report.pane == 'pie'">
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
-    <div class="chart-calc" ng-show = "true">
+    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
         <p>{{calculation.label}}</p>
@@ -36,7 +36,7 @@
 
   <div ng-if="Report.pane == 'bar'">
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
-    <div class="chart-calc" ng-show = "true">
+    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
         <p>{{calculation.label}}</p>
@@ -73,7 +73,7 @@
 
   <div ng-if="Report.pane == 'graph-dotted'">
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
-    <div class="chart-calc" ng-show = "true">
+    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[2].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataGrap -->
         <p>{{calculation.label}}</p>
@@ -84,7 +84,7 @@
 
   <div ng-if="Report.pane == 'graph-line'">
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
-    <div class="chart-calc" ng-show = "true">
+    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[2].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataGrap -->
         <p>{{calculation.label}}</p>
