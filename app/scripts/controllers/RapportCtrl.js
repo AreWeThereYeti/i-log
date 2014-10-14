@@ -134,44 +134,6 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
   ];
 
 
-
-	Rapport.piedata = [
-		{
-			"label": "Den første",
-			"value": 5
-		}, {
-			"label": "Awesome",
-			"value": 20
-		}, {
-			"label": "Awesome",
-			"value": 10
-		}, {
-			"label": "Nummer",
-			"value": 40
-		}, {
-			"label": "AwesomeAwesomeAwesome",
-			"value": 5
-		}, {
-			"label": "AwesomeAwesome",
-			"value": 20
-		}
-	];
-  Rapport.data = [
-    {
-      "letter": "A",
-      "frequency": 5
-    }, {
-      "letter": "B",
-      "frequency": 20
-    }, {
-      "letter": "C",
-      "frequency": 10
-    }, {
-      "letter": "D",
-      "frequency": 40
-    }
-  ];
-
   // prepare graph data
 	Rapport.linedata =
   {
@@ -220,8 +182,6 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
     while(exp.search(re) != -1) {
       var id = re.exec(exp)[0].slice(2);
       exp = exp.replace(re.exec(exp)[0], log.data[id]);
-      console.log(exp);
-
     }
 
 
