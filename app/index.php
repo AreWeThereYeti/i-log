@@ -22,6 +22,11 @@ include('php/mads/core.php');
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
       <title>I-log</title>
+
+      <script src="//use.typekit.net/ldl1xnu.js"></script>
+      <script>try{Typekit.load();}catch(e){}</script>
+
+
       <link rel="stylesheet" href="styles/main.css" />
 
         <style dynamic-css>

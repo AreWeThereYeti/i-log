@@ -585,7 +585,7 @@ h1 {
 }
 /* line 7, ../sass/components/_filterbar.scss */
 .filterbar div {
-  color: #e6e6e6;
+  color: white;
 }
 /* line 11, ../sass/components/_filterbar.scss */
 .filterbar .datefilter {
@@ -690,6 +690,18 @@ h1 {
   display: inline-block;
   vertical-align: middle;
 }
+/* line 46, ../sass/components/_menubar.scss */
+.menubar .icons .icon-question:before {
+  font-size: 24px;
+}
+/* line 51, ../sass/components/_menubar.scss */
+.menubar .circ {
+  margin-right: 12px;
+}
+/* line 53, ../sass/components/_menubar.scss */
+.menubar .circ :last-of-type {
+  margin-right: 0px;
+}
 
 /* line 2, ../sass/components/_list.scss */
 .list .listheader {
@@ -726,19 +738,24 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 28, ../sass/components/_list.scss */
+/* line 29, ../sass/components/_list.scss */
+.list .listitem .date {
+  font-weight: bold;
+}
+/* line 32, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
   line-height: 20px;
   height: 25px;
+  vertical-align: top;
 }
-/* line 35, ../sass/components/_list.scss */
+/* line 40, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 38, ../sass/components/_list.scss */
+/* line 43, ../sass/components/_list.scss */
 .list .listitem .circ span.edit {
   background-image: url("../images/pen.png");
   background-repeat: no-repeat;
@@ -752,7 +769,7 @@ h1 {
   vertical-align: middle;
   margin-top: 4px;
 }
-/* line 52, ../sass/components/_list.scss */
+/* line 57, ../sass/components/_list.scss */
 .list .listitem .circ span.trash {
   background-image: url("../images/trash.png");
   background-repeat: no-repeat;
@@ -766,7 +783,7 @@ h1 {
   vertical-align: middle;
   margin-top: 3px;
 }
-/* line 67, ../sass/components/_list.scss */
+/* line 72, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1016,9 +1033,10 @@ h1 {
 /* line 27, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
+  font-family: Franklin, sans-serif;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1029,27 +1047,27 @@ body {
   -o-transition: height 1s;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 48, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 54, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

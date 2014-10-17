@@ -42,5 +42,16 @@
     float: right;
     display: inline-block;
     vertical-align: middle;
+
+    .icon-question:before{
+      font-size: 24px;
+    }
+  }
+
+  .circ{
+    margin-right: 12px;
+    & :last-of-type{
+      margin-right: 0px;
+    }
   }
 }
