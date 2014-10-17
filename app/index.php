@@ -12,8 +12,12 @@ include('php/mads/core.php');
 //-->
 
 <!doctype html>
-<html lang="en" ng-app="app" ng-cloak>
+<html lang="en" id="ng-app" ng-app="app" ng-cloak>
     <head>
+
+    <!--[if lte IE 7]>
+          <script src="/path/to/json2.js"></script>
+        <![endif]-->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <meta name="viewport" content="width=device-width, maximum-scale=1.0" />

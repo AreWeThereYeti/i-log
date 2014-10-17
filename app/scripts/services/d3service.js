@@ -10,8 +10,6 @@ angular.module('d3', [])
 					$rootScope.$apply(function() { d.resolve($window.d3); });
 				}
 
-				console.log('Loading d3')
-
 				var scriptTag = $document[0].createElement('script');
 				scriptTag.type = 'text/javascript';
 				scriptTag.async = true;

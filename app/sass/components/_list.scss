@@ -30,9 +30,38 @@
       width: 25px;
       line-height: 20px;
       height: 25px;
+
+
       span{
         line-height: 20px;
         font-size: 12px;
+        &.edit{
+          background-image: url("../images/pen.png");
+          background-repeat: no-repeat;
+          width: 12px;
+          height: 12px;
+          background-size: 12px 12px;
+          display: block;
+          line-height: 35px;
+          text-align: center;
+          margin: auto;
+          vertical-align: middle;
+          margin-top: 4px;
+        }
+
+        &.trash{
+          background-image: url("../images/trash.png");
+          background-repeat: no-repeat;
+          width: 12px;
+          height: 15px;
+          background-size: 13px 15px;
+          display: block;
+          line-height: 35px;
+          text-align: center;
+          margin: auto;
+          vertical-align: middle;
+          margin-top: 3px;
+        }
       }
 
       [class^="icon-"]:before,

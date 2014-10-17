@@ -29,7 +29,6 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
         "shared": false
       }];
 
-      console.log($scope.data);
 		}
 	}
 

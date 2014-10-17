@@ -42,7 +42,6 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
                 $location.path('logs');
               });
           }, function(error){
-            console.log(error);
           });
       } else {
         $location.path('logs');
@@ -106,7 +105,6 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
               $rootScope.introPrompt = false;
               $location.path('logs');            });
         }, function(error){
-          console.log(error);
         });
 
 
@@ -122,7 +120,6 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
               $rootScope.introPrompt = false;
               $location.path('logs');            });
         }, function(error){
-          console.log(error);
         });
 
     }

@@ -12,7 +12,6 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
   if(LogsOverview.logEntries == "Not found"){
 
     // Debugging
-    console.log("no logs yet");
 
     // set ilog save method to "add"
     $rootScope.firstLogEntry = true;
@@ -55,7 +54,6 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
       if(newLogs.length){
         getdataservice.updateLog(newLogs, LogsOverview.logEntries.objectID)
         .then(function(isDeleted){
-          console.log(isDeleted);
           $location.path('/');
         });
       } else {
@@ -70,7 +68,6 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
     if (confirm('Er du sikker på du vil slette alle logs?')) {
       getdataservice.deleteAllLogs(LogsOverview.logEntries.objectID)
         .then(function(isDeleted){
-          console.log(isDeleted);
           $location.path('/');
         });
     }

@@ -5,7 +5,7 @@ app.controller('DialogCtrl', [ '$rootScope', function ($rootScope) {
 	var Dialog = this;
 
 	Dialog.openFormularDialog = function(){
-		console.log('openFormularDialog')
+
 	}
 
 	Dialog.closeDialog = function(){

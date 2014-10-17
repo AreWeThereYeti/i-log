@@ -29,7 +29,6 @@ angular.module('gyldendal.services', [])
                     $rootScope.listView = returndata.settings.listView;
                     $rootScope.mail = returndata.settings.mail;
                   }else{
-                    console.log("error on component data request. component data has not been loaded");
                   }
               });
 
@@ -98,7 +97,6 @@ angular.module('gyldendal.services', [])
               "content":        log
             }
           };
-          console.log("request: "+request);
 
           var promise = $http({
             cache: false,
@@ -111,12 +109,10 @@ angular.module('gyldendal.services', [])
           })
             .success(function (data, status, headers, config) {
               if (data !== null) {
-                console.log("response: "+JSON.stringify(data));
                 //returndata = angular.fromJson(data);
               }
             })
             .error(function(error){
-              console.log("err: "+JSON.stringify(error));
 
             });
 
@@ -132,7 +128,6 @@ angular.module('gyldendal.services', [])
             }
           };
 
-          console.log("request: "+request);
 
           var promise = $http({
             cache: false,
@@ -144,11 +139,8 @@ angular.module('gyldendal.services', [])
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
-                console.log("response: "+JSON.stringify(data));
             })
             .error(function(error){
-              console.log("err: "+JSON.stringify(error));
-
             });
 
            return promise;
@@ -170,7 +162,6 @@ angular.module('gyldendal.services', [])
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
-              console.log("delete: "+data);
             });
 
           return promise;
