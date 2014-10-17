@@ -706,9 +706,10 @@ h1 {
 
 /* line 1, ../sass/components/_list.scss */
 .list {
+  width: 100%;
   float: left;
 }
-/* line 3, ../sass/components/_list.scss */
+/* line 4, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
@@ -716,11 +717,11 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 9, ../sass/components/_list.scss */
+/* line 10, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 12, ../sass/components/_list.scss */
+/* line 13, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -moz-transition-property: color;
@@ -732,7 +733,7 @@ h1 {
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 20, ../sass/components/_list.scss */
+/* line 21, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -743,11 +744,11 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 30, ../sass/components/_list.scss */
+/* line 31, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 33, ../sass/components/_list.scss */
+/* line 34, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
@@ -755,12 +756,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 41, ../sass/components/_list.scss */
+/* line 42, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 44, ../sass/components/_list.scss */
+/* line 45, ../sass/components/_list.scss */
 .list .listitem .circ span.edit {
   background-image: url("../images/pen.png");
   background-repeat: no-repeat;
@@ -774,7 +775,7 @@ h1 {
   vertical-align: middle;
   margin-top: 4px;
 }
-/* line 58, ../sass/components/_list.scss */
+/* line 59, ../sass/components/_list.scss */
 .list .listitem .circ span.trash {
   background-image: url("../images/trash.png");
   background-repeat: no-repeat;
@@ -788,7 +789,7 @@ h1 {
   vertical-align: middle;
   margin-top: 3px;
 }
-/* line 73, ../sass/components/_list.scss */
+/* line 74, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -966,7 +967,6 @@ h1 {
 /* line 32, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
-  background: rgba(0, 0, 0, 0.4);
   top: 0;
   right: 0;
   bottom: 0;
