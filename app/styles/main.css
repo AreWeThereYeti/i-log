@@ -581,13 +581,14 @@ h1 {
   background-color: #e04f2f;
   line-height: 75px;
   padding: 0 25px;
+  float: left;
   border-top: 2px solid #b33f26;
 }
-/* line 7, ../sass/components/_filterbar.scss */
+/* line 8, ../sass/components/_filterbar.scss */
 .filterbar div {
   color: white;
 }
-/* line 11, ../sass/components/_filterbar.scss */
+/* line 12, ../sass/components/_filterbar.scss */
 .filterbar .datefilter {
   margin-left: -15px;
   position: absolute;
@@ -596,7 +597,7 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px #474747;
 }
-/* line 18, ../sass/components/_filterbar.scss */
+/* line 19, ../sass/components/_filterbar.scss */
 .filterbar .datefilter .arrow_box:after {
   margin-right: 14px;
   margin-bottom: 10px;
@@ -621,16 +622,16 @@ h1 {
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 27, ../sass/components/_filterbar.scss */
+/* line 28, ../sass/components/_filterbar.scss */
 .filterbar .datefilter div {
   color: #e04f2f;
   margin-left: 15px;
 }
-/* line 31, ../sass/components/_filterbar.scss */
+/* line 32, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 33, ../sass/components/_filterbar.scss */
+/* line 34, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
@@ -703,7 +704,11 @@ h1 {
   margin-right: 0px;
 }
 
-/* line 2, ../sass/components/_list.scss */
+/* line 1, ../sass/components/_list.scss */
+.list {
+  float: left;
+}
+/* line 3, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
@@ -711,11 +716,11 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 8, ../sass/components/_list.scss */
+/* line 9, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 11, ../sass/components/_list.scss */
+/* line 12, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -moz-transition-property: color;
@@ -727,7 +732,7 @@ h1 {
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 19, ../sass/components/_list.scss */
+/* line 20, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -738,11 +743,11 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 29, ../sass/components/_list.scss */
+/* line 30, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 32, ../sass/components/_list.scss */
+/* line 33, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 10px 5px;
   width: 25px;
@@ -750,12 +755,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 40, ../sass/components/_list.scss */
+/* line 41, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 43, ../sass/components/_list.scss */
+/* line 44, ../sass/components/_list.scss */
 .list .listitem .circ span.edit {
   background-image: url("../images/pen.png");
   background-repeat: no-repeat;
@@ -769,7 +774,7 @@ h1 {
   vertical-align: middle;
   margin-top: 4px;
 }
-/* line 57, ../sass/components/_list.scss */
+/* line 58, ../sass/components/_list.scss */
 .list .listitem .circ span.trash {
   background-image: url("../images/trash.png");
   background-repeat: no-repeat;
@@ -783,7 +788,7 @@ h1 {
   vertical-align: middle;
   margin-top: 3px;
 }
-/* line 72, ../sass/components/_list.scss */
+/* line 73, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -801,14 +806,41 @@ h1 {
   margin: 20px 1px;
   line-height: 35px;
   display: inline-block;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
-/* line 14, ../sass/components/_circle-icons.scss */
+/* line 18, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
   font-size: 16px;
+  color: #383838;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
-/* line 19, ../sass/components/_circle-icons.scss */
+/* line 29, ../sass/components/_circle-icons.scss */
+.circ:hover {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  color: #e04f2f;
+  border-color: #e04f2f;
+}
+/* line 36, ../sass/components/_circle-icons.scss */
+.circ:hover [class^="icon-"]:before,
+.circ:hover [class*=" icon-"]:before {
+  color: #e04f2f;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+/* line 46, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
 }
@@ -1040,34 +1072,50 @@ body {
 .collapsable {
   display: inline-block;
   overflow: hidden;
-  height: 0;
-  transition: height 1s;
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
-  -o-transition: height 1s;
+  vertical-align: top;
+  height: 7px;
+  margin-bottom: -3px;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+/* line 42, ../sass/main.scss */
+.collapsable .arrow_box {
+  opacity: 0;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-/* line 41, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
+  line-height: 75px;
+  clear: both;
+}
+/* line 55, ../sass/main.scss */
+.collapsable.showme .arrow_box {
+  opacity: 1;
 }
 
-/* line 45, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 55, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

@@ -50,7 +50,7 @@ include('php/mads/core.php');
       <!--Spinner-->
       <div ng-show="$root.loadingView == true" class="spinner-backdrop">
 
-        <div us-spinner="{radius:15, width:4, length: 8}">
+        <div us-spinner="{radius:25, width:2, length: 6, lines: 20}">
 
         </div>
       </div>

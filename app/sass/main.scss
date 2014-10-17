@@ -32,14 +32,29 @@ body{
 .collapsable {
   display: inline-block;
   overflow: hidden;
-  height: 0;
-  transition: height 1s;
-  -webkit-transition: height 1s;
-  -moz-transition: height 1s;
-  -o-transition: height 1s;
+  vertical-align: top;
+  height: 7px;
+  margin-bottom: -3px;
+  transition:         all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition:    all 0.2s;
+  -o-transition:      all 0.2s;
+  .arrow_box{
+    opacity: 0;
+    transition:         all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition:    all 0.2s;
+    -o-transition:      all 0.2s;
+  }
+
 }
 .collapsable.showme {
   height: 75px;
+  line-height: 75px;
+  clear: both;
+  .arrow_box{
+    opacity: 1;
+  }
 }
 
 h2{
