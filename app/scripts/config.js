@@ -44,7 +44,7 @@ var app = angular.module('app', [
 				}
 			})
 			.when('/rapporter', {
-				templateUrl: 'views/rapportoverview.html',
+				templateUrl: 'views/rapportOverview.html',
 				controller: 'RapportOverviewCtrl',
 				controllerAs: 'RapportOverview',
 				resolve: {
