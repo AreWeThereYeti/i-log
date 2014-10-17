@@ -30,7 +30,7 @@ var app = angular.module('app', [
           },
 					component: function(getdataservice, $route) {
 						return getdataservice.loadComponent($route.current.params);
-					},
+					}
 				}
 			})
 			.when('/logs', {

@@ -2,28 +2,6 @@ angular.module('gyldendal.services', [])
 		.factory('getdataservice', ['$http', '$location', '$rootScope', function($http, $location, $rootScope) {
 			var sdo= {
 
-				getLog: function () {
-					var promise = $http({cache: true, method: 'GET', url: 'http://www.mocky.io/v2/5423e3b2863063f90178efa3' }).success(function (data, status, headers, config) {
-
-
-					});
-					return promise;
-				},
-
-				getAllReports: function () {
-					var promise = $http({cache: false, method: 'GET', url: 'http://www.mocky.io/v2/54217262da4aeb4a070aabcf' }).success(function (data, status, headers, config) {
-
-					});
-					return promise;
-				},
-
-				getReport: function () {
-					var promise = $http({cache: false, method: 'GET', url: 'http://www.mocky.io/v2/541416bce37eca2c0a8e2dad' }).success(function (data, status, headers, config) {
-
-					});
-					return promise;
-                },
-
         loadComponent: function() {
 
             var ComponentID = '540025f23c5b5a07d0570c53';
@@ -35,10 +13,11 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: '/php/michael/load-component.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/michael/load-component.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
-                  if (data.Content !== null) {
+                  if (data.Content !== null && angular.isDefined(data.Content)) {
+
                     returndata = angular.fromJson(data.Content);
 
                     //set settings in rootscope
@@ -49,6 +28,8 @@ angular.module('gyldendal.services', [])
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;
                     $rootScope.mail = returndata.settings.mail;
+                  }else{
+                    console.log("error on component data request. component data has not been loaded");
                   }
               });
 
@@ -65,7 +46,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: '/php/mads/deleteEntry.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/mads/deleteEntry.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
               .success(function (data, status, headers, config) {
               if (data.Content !== null) {
@@ -89,7 +70,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: '/php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/mads/getLatestEntry.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
             })
             .success(function (data, status, headers, config) {
             if (data.Content !== null) {
@@ -125,7 +106,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: '/php/mads/addEntry.php/',
+            url: 'php/mads/addEntry.php/',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -159,7 +140,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: '/php/mads/updateEntry.php/',
+            url: 'php/mads/updateEntry.php/',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -185,7 +166,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: '/php/mads/deleteEntry.php/',
+            url: 'php/mads/deleteEntry.php/',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
