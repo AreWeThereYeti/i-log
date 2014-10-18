@@ -999,12 +999,51 @@ h1 {
   float: right;
 }
 
-/* line 27, ../sass/main.scss */
+/* line 4, ../sass/directives/_timepicker.scss */
+.timepicker .select {
+  width: 33.3%;
+  float: left;
+}
+/* line 9, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner {
+  border-bottom: 3px solid #000;
+  margin: 5px;
+}
+/* line 13, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner.left {
+  margin-left: 0px;
+}
+/* line 17, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner.right {
+  margin-right: 0px;
+}
+/* line 20, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner select {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 90px;
+  height: 35px;
+  border-radius: 0px;
+  padding: 00px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0px;
+}
+/* line 33, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner:after {
+  display: inline-block;
+  content: "▼";
+  float: right;
+  line-height: 35px;
+}
+
+/* line 28, ../sass/main.scss */
 body {
   height: 1000px;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1015,27 +1054,27 @@ body {
   -o-transition: height 1s;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 48, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 54, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

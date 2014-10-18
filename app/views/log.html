@@ -45,6 +45,12 @@
           <label for="log-input-{{input.id}}">{{input.label}}</label>
           <input type="text" id="log-input-{{input.id}}" class="formula" value="{{Log.parseFormula(input,$index)}}" ng-model="input.value" readonly>
         </div>
+
+        <div ng-switch-when="time">
+          <label for="log-input-{{input.id}}">{{input.label}}</label>
+          <input type="text" id="log-input-{{input.id}}" class="time-input" placeholder="{{input.data}}" ng-model="input.value">
+          <div time-picker></div>
+        </div>
       </div>
     </form>
   </div>
