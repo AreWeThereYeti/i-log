@@ -23,7 +23,10 @@ angular.module('gyldendal.services', [])
                     //set settings in rootscope
                     $rootScope.backgroundImageID = returndata.settings.backgroundImageID;
                     $rootScope.download = returndata.settings.download;
-                    $rootScope.canExport = returndata.settings.export;
+
+//	                  Breaks ie8. Need another name instead of .export
+//                    $rootScope.canExport = returndata.settings.export;
+
                     $rootScope.fontFamily = returndata.settings.fontFamily;
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;

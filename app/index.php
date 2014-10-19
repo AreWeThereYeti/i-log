@@ -15,11 +15,21 @@ include('php/mads/core.php');
 <html lang="en" id="ng-app" ng-app="app" ng-cloak>
     <head>
 
+
       <!--[if IE 8]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-sham.js"></script>
+
+          <script>
+            document.createElement('ng-include');
+            document.createElement('ng-pluralize');
+            document.createElement('d3-chart');
+          </script>
+
       <![endif]-->
+
+      <script src="scripts/libs/angular.js"></script>
+
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
       <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
@@ -61,7 +71,6 @@ include('php/mads/core.php');
       <div ng-view=""></div>
 
       <!--libs-->
-      <script src="scripts/libs/angular.min.js"></script>
       <script src="scripts/libs/angular-resource.min.js"></script>
       <script src="scripts/libs/angular-route.min.js"></script>
       <script src="scripts/libs/math.js"></script>
