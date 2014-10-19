@@ -17,7 +17,6 @@ angular.module('d3', [])
 
 				if(navigator.appVersion.indexOf("MSIE 8.0") != -1 ){
 					scriptTag.src = 'scripts/libs/r2d3.min.js';
-					alert('Developer note : Internet explorer 8 is detected. You can remove alert in d3service.js when working');
 				}
 
 				scriptTag.onreadystatechange = function () {

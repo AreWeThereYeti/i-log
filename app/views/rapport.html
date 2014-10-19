@@ -46,10 +46,6 @@
   </div>
 
   <div class="listview" ng-if="Report.pane == 'list'">
-    <!--if directive is of type list, the directive only clears the svg-->
-    <!--<d3-chart type="list"></d3-chart>-->
-
-    <!-- List view Header-->
     <div class="grid list-head" >
       <span class="col-1-4 first"></span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
