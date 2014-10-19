@@ -23,7 +23,7 @@ angular.module('gyldendal.services', [])
                     //set settings in rootscope
                     $rootScope.backgroundImageID = returndata.settings.backgroundImageID;
                     $rootScope.download = returndata.settings.download;
-                    $rootScope.export = returndata.settings.export;
+                    $rootScope.canExport = returndata.settings.export;
                     $rootScope.fontFamily = returndata.settings.fontFamily;
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;

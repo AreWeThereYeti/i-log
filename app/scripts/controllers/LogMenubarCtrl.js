@@ -28,7 +28,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
   };
 
   //Delete log
-  LogMenubar.delete = function(){
+  LogMenubar.deleteLog = function(){
     if (confirm('Er du sikker på du vil slette denne log?')) {
       if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
         getdataservice.getLatest()

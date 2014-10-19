@@ -47,7 +47,7 @@ app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdata
   }
 
   //Delete log
-  LogsOverview.delete = function(logIndex){
+  LogsOverview.deleteLog = function(logIndex){
     if (confirm('Er du sikker på du vil slette denne log?')) {
       var newLogs = angular.fromJson(LogsOverview.logEntries.content);
       newLogs.splice(logIndex,1);
