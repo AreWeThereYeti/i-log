@@ -8,7 +8,8 @@ var app = angular.module('app', [
 	'gyldendal.services',
 	'gyldendal.directives',
   'gyldendal.filters',
-	'angularSpinner'
+	'angularSpinner',
+		'ngAnimate'
 ])
 
 //	Configure module

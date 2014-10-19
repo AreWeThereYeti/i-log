@@ -575,6 +575,29 @@ h1 {
   color: #e04f2f;
 }
 
+/* line 1, ../sass/components/_animation.scss */
+.animate.ng-enter {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+/* line 7, ../sass/components/_animation.scss */
+.animate.ng-enter-active {
+  opacity: 1;
+}
+
+/* line 13, ../sass/components/_animation.scss */
+.animate.ng-leave {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+/* line 18, ../sass/components/_animation.scss */
+.animate.ng-leave-active {
+  opacity: 0;
+}
+
 /* line 1, ../sass/components/_filterbar.scss */
 .filterbar {
   width: 100%;
@@ -1062,13 +1085,13 @@ h1 {
   float: right;
 }
 
-/* line 27, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: Franklin, sans-serif;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1080,7 +1103,7 @@ body {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 .collapsable .arrow_box {
   opacity: 0;
   transition: all 0.2s;
@@ -1089,33 +1112,33 @@ body {
   -o-transition: all 0.2s;
 }
 
-/* line 51, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 75px;
   clear: both;
 }
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   opacity: 1;
 }
 
-/* line 60, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 64, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

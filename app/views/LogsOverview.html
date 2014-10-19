@@ -16,7 +16,7 @@
     </div>
 
     <!--item in logs-->
-    <div class="listitem" ng-repeat="log in LogsOverview.logs | logRange:LogsOverview.filterRange |orderBy:LogsOverview.predicate:reverse">
+    <div class="listitem animate" ng-repeat="log in LogsOverview.logs | logRange:LogsOverview.filterRange |orderBy:LogsOverview.predicate:reverse">
         <span class="col-1-8">
           <span class="date">{{log.timestamp | date:'dd-MM-yyyy'}}</span>
         </span>

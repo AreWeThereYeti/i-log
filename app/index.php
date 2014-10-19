@@ -71,6 +71,7 @@ include('php/mads/core.php');
       <!--libs-->
       <script src="scripts/libs/angular-resource.min.js"></script>
       <script src="scripts/libs/angular-route.min.js"></script>
+      <script src="http://code.angularjs.org/1.2.26/angular-animate.min.js"></script>
       <script src="scripts/libs/math.js"></script>
       <script src="scripts/libs/spin.min.js"></script>
 
