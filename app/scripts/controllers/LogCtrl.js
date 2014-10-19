@@ -19,6 +19,38 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     Log.backgroundImg = $rootScope.backgroundImageID;
   }
 
+  // ser variables for time input
+  Log.hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  Log.minutes = [];
+  Log.seconds = [];
+  Log.centiseconds = [];
+
+  for(var i = 0; i<60; i++){
+    Log.minutes.push(i);
+    Log.seconds.push(i);
+  }
+  for(var i = 0; i<100; i++){
+    Log.centiseconds.push(i);
+  }
+
+  // function for calculating time input field value in seconds
+  Log.calcTimeVal = function(obj){
+    var val = 0;
+    if (angular.isDefinedOrNotNull(obj.hh)){
+      val += 3600*obj.hh;
+    }
+    if (angular.isDefinedOrNotNull(obj.mm)){
+      val += 60*obj.mm;
+    }
+    if (angular.isDefinedOrNotNull(obj.ss)){
+      val += obj.ss;
+    }
+    if (angular.isDefinedOrNotNull(obj.cscs)){
+      val += obj.cscs / 100;
+    }
+    return val;
+  };
+
 
   //function for formating time in data input
   Log.formatDate = function(format){
@@ -38,7 +70,7 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
   for(var i=0; i<Log.inputs.length; i++){
-    if(Log.inputs[i].type == "number"){
+    if(Log.inputs[i].type == "number" || Log.inputs[i].type == "time"){
       Log.numFields.push(Log.inputs[i]);
     }
     if(Log.inputs[i].type == "checkbox"){
@@ -47,6 +79,11 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     if(Log.inputs[i].type == "data"){
       Log.inputs[i].value = Log.formatDate(Log.inputs[i].data);
     }
+
+    // for debugging
+    if(Log.inputs[i].type == "time"){
+      Log.inputs[i].data = "hh:mm:ss,cscs";
+    }
   }
 
   // populate log form fields if user is in edit log view
@@ -54,6 +91,25 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     for(var i=0; i<Log.inputs.length; i++){
       if(Log.inputs[i].type != "formula"){
         Log.inputs[i].value = Log.currentLog.data[Log.inputs[i].id];
+      }
+      if(Log.inputs[i].type == "time"){
+        // initialize time selects from input value
+        var val = Log.inputs[i].value;
+        if (Log.inputs[i].data.search('hh') != -1){
+          Log.inputs[i].hh = parseInt(val / 3600);
+          val = val % 3600;
+        }
+        if (Log.inputs[i].data.search('mm') != -1){
+          Log.inputs[i].mm = parseInt(val / 60);
+          val = val % 60;
+        }
+        if (Log.inputs[i].data.search('ss') != -1){
+          Log.inputs[i].ss = parseInt(val);
+          val = val -  Log.inputs[i].ss;
+        }
+        if (Log.inputs[i].data.search('cscs') != -1){
+          Log.inputs[i].cscs = Math.round(val*100);
+        }
       }
     }
   }

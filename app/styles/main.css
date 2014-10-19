@@ -1062,7 +1062,46 @@ h1 {
   float: right;
 }
 
-/* line 27, ../sass/main.scss */
+/* line 4, ../sass/directives/_timepicker.scss */
+.timepicker .select {
+  width: 33.3%;
+  float: left;
+}
+/* line 9, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner {
+  border-bottom: 3px solid #000;
+  margin: 5px;
+}
+/* line 13, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner.left {
+  margin-left: 0px;
+}
+/* line 17, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner.right {
+  margin-right: 0px;
+}
+/* line 20, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner select {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 90px;
+  height: 35px;
+  border-radius: 0px;
+  padding: 00px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0px;
+}
+/* line 33, ../sass/directives/_timepicker.scss */
+.timepicker .select-inner:after {
+  display: inline-block;
+  content: "▼";
+  float: right;
+  line-height: 35px;
+}
+
+/* line 28, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
   font-family: Franklin, sans-serif;
@@ -1072,6 +1111,7 @@ body {
 .collapsable {
   display: inline-block;
   overflow: hidden;
+<<<<<<< HEAD
   vertical-align: top;
   height: 7px;
   margin-bottom: -3px;
@@ -1090,6 +1130,16 @@ body {
 }
 
 /* line 51, ../sass/main.scss */
+=======
+  height: 0;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -o-transition: height 1s;
+}
+
+/* line 41, ../sass/main.scss */
+>>>>>>> feature/tidsinput
 .collapsable.showme {
   height: 75px;
   line-height: 75px;
@@ -1100,22 +1150,38 @@ body {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 /* line 60, ../sass/main.scss */
+=======
+/* line 45, ../sass/main.scss */
+>>>>>>> feature/tidsinput
 h2 {
   font-size: 30px;
 }
 
+<<<<<<< HEAD
 /* line 64, ../sass/main.scss */
+=======
+/* line 49, ../sass/main.scss */
+>>>>>>> feature/tidsinput
 a {
   color: #383838;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 /* line 69, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
 /* line 70, ../sass/main.scss */
+=======
+/* line 54, ../sass/main.scss */
+.active {
+  color: #e04f2f;
+}
+/* line 55, ../sass/main.scss */
+>>>>>>> feature/tidsinput
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
