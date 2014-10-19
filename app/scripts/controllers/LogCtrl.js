@@ -71,7 +71,7 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
   // extracts all input number fields in numFields array, such that ID1 => numFields[0]...
   Log.numFields = [];
   for(var i=0; i<Log.inputs.length; i++){
-    if(Log.inputs[i].type == "number"){
+    if(Log.inputs[i].type == "number" || Log.inputs[i].type == "time"){
       Log.numFields.push(Log.inputs[i]);
     }
     if(Log.inputs[i].type == "checkbox"){
@@ -80,6 +80,11 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     if(Log.inputs[i].type == "data"){
       Log.inputs[i].value = Log.formatDate(Log.inputs[i].data);
     }
+
+    // for debugging
+    if(Log.inputs[i].type == "time"){
+      Log.inputs[i].data = "hh:mm:ss,cscs";
+    }
   }
 
   // populate log form fields if user is in edit log view
@@ -87,6 +92,25 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     for(var i=0; i<Log.inputs.length; i++){
       if(Log.inputs[i].type != "formula"){
         Log.inputs[i].value = Log.currentLog.data[Log.inputs[i].id];
+      }
+      if(Log.inputs[i].type == "time"){
+        // initialize time selects from input value
+        var val = Log.inputs[i].value;
+        if (Log.inputs[i].data.search('hh') != -1){
+          Log.inputs[i].hh = parseInt(val / 3600);
+          val = val % 3600;
+        }
+        if (Log.inputs[i].data.search('mm') != -1){
+          Log.inputs[i].mm = parseInt(val / 60);
+          val = val % 60;
+        }
+        if (Log.inputs[i].data.search('ss') != -1){
+          Log.inputs[i].ss = parseInt(val);
+          val = val -  Log.inputs[i].ss;
+        }
+        if (Log.inputs[i].data.search('cscs') != -1){
+          Log.inputs[i].cscs = Math.round(val*100);
+        }
       }
     }
   }
