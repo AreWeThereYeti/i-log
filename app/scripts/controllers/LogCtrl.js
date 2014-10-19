@@ -20,6 +20,38 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     Log.backgroundImg = $rootScope.backgroundImageID;
   }
 
+  // ser variables for time input
+  Log.hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  Log.minutes = [];
+  Log.seconds = [];
+  Log.centiseconds = [];
+
+  for(var i = 0; i<60; i++){
+    Log.minutes.push(i);
+    Log.seconds.push(i);
+  }
+  for(var i = 0; i<100; i++){
+    Log.centiseconds.push(i);
+  }
+
+  // function for calculating time input field value in seconds
+  Log.calcTimeVal = function(obj){
+    var val = 0;
+    if (angular.isDefinedOrNotNull(obj.hh)){
+      val += 3600*obj.hh;
+    }
+    if (angular.isDefinedOrNotNull(obj.mm)){
+      val += 60*obj.mm;
+    }
+    if (angular.isDefinedOrNotNull(obj.ss)){
+      val += obj.ss;
+    }
+    if (angular.isDefinedOrNotNull(obj.cscs)){
+      val += obj.cscs / 100;
+    }
+    return val;
+  };
+
 
   //function for formating time in data input
   Log.formatDate = function(format){

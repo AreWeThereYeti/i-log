@@ -16,6 +16,7 @@ define('HTTP_AUTH_PWD', 'G2d4My82y18HT72K');
 // runs on to allow automatic determination of whether to use dev or production
 // API)
 define('HTTP_LOCAL_HOST', 'localhost:8888');
+//define('HTTP_LOCAL_HOST', 'jonasyazid.dk');
 
 // Define API endpoint URL
 define('USERDATA_API_URL', (stripos($_SERVER['HTTP_HOST'], HTTP_LOCAL_HOST) === false) ? 'http://userdata.gyldendal.dk/api/' : 'http://api.test.userdata.gyldendal.dk/api/');

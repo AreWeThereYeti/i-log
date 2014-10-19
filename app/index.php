@@ -67,7 +67,6 @@ include('php/mads/core.php');
       <script src="scripts/controllers/MainCtrl.js"></script>
       <script src="scripts/controllers/ReportMenubarCtrl.js"></script>
       <script src="scripts/controllers/DatePickerCtrl.js"></script>
-      <script src="scripts/controllers/TimePickerCtrl.js"></script>
       <script src="scripts/controllers/DialogCtrl.js"></script>
       <script src="scripts/controllers/LogMenubarCtrl.js"></script>
 
@@ -89,7 +88,6 @@ include('php/mads/core.php');
     <!--directives-->
       <script src="scripts/directives/charts.js"></script>
       <script src="scripts/directives/datepicker.js"></script>
-      <script src="scripts/directives/timepicker.js"></script>
       <script src="scripts/directives/dialog.js"></script>
       <script src="scripts/directives/backImg.js"></script>
       <script src="scripts/directives/hideFilterDirective.js"></script>
