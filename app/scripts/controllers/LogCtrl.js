@@ -84,6 +84,10 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     if(Log.inputs[i].type == "time"){
       Log.inputs[i].data = "hh:mm:ss,cscs";
     }
+    // for debugging
+/*    if(Log.inputs[i].type == "formula"){
+      Log.inputs[i].formula = "TIMEFORMAT(ID8, 'hh:mm:ss,cscs')";
+    }*/
   }
 
   // populate log form fields if user is in edit log view
@@ -220,6 +224,51 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
 
       }
     }
+
+    // Checks for TIMEFORMAT formula. returns math.sum(exp) only if all number fields are filled
+    if(exp.search(/TIMEFORMAT\(/g)!=-1){
+      if(exp.search(/TIMEFORMAT\(([^\(]+)(?=\))/i)!=-1){
+        var func = exp.match(/TIMEFORMAT\(([^\(]+)(?=\))/ig);
+        func[0] = func[0].replace(/TIMEFORMAT\(/g, "");
+
+        // if timeformat is incased in ', parseElements() breaks, so the following extracts and parses timeformat to format[0].
+        var format = func[0].match(/\'([^\(]+)(?=\')/ig);
+        format[0] = format[0].replace(/\'/ig, "");
+        func[0] = func[0].replace(/\'/ig, "");
+
+        var num = func[0].slice(0, func[0].search(/\,/));
+
+        // extract and replace elements in timeformat, num[1], ex relpace hh in 'hh:mm:ss' with hour value
+        var val = num;
+        if (format[0].search('hh') != -1){
+          format[0] = format[0].replace('hh', parseInt(val / 3600));
+          val = val % 3600;
+        }
+        if (format[0].search('mm') != -1){
+          format[0] = format[0].replace('mm', parseInt(val / 60));
+          val = val % 60;
+        }
+        if (format[0].search('ss') != -1){
+          format[0] = format[0].replace('ss', parseInt(val));
+          val = val - parseInt(val);
+        }
+        if (format[0].search('cscs') != -1){
+          format[0] = format[0].replace('cscs', Math.round(val*100));
+        }
+        exp = exp.replace(/TIMEFORMAT\(([^\(]+)\)/ig, format[0]);
+
+        // return formated time
+        Log.inputs[index].value = exp;
+        return exp;
+
+      }else{
+        // TIMEFORMAT function includes invalid parenthesises. ex  FUNC( (ID1*100), ID2)
+        // return either empty string or error
+        return exp;
+
+      }
+    }
+
     // evaluates and sets parsed string expression to input field value
     Log.inputs[index].value = $scope.$eval(exp);
 

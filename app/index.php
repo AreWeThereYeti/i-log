@@ -41,7 +41,7 @@ include('php/mads/core.php');
 
         <style dynamic-css>
             body {
-                font-family: {{$root.fontFamily || 'HelveticaNeue-Light'}};
+                font-family: {{$root.fontFamily}};
                 font-weight : 300;
             }
 
