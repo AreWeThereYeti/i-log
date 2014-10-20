@@ -53,4 +53,53 @@ background-color: #E9E9E9;
       line-height: 35px;
     }
   }
+
+  .dropdown-time {
+
+    .select-inner {
+      border-bottom: 3px solid #000;
+      width: 115px;
+      float: left;
+      margin: 5px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      select {
+        background-color: rgba(0, 0, 0, 0);
+        outline: 0;
+        border: 0;
+        width: 95px;
+        height: 35px;
+        border-radius: 0px;
+        padding: 00px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0px;
+      }
+
+      &:after {
+        display: inline-block;
+        content: "▼";
+        float: right;
+        line-height: 35px;
+      }
+
+
+    }
+
+    &:after {
+
+      display: block;
+      content: '';
+      clear: both;
+    }
+
+  }
+
 }

@@ -24,6 +24,7 @@
         <div class="dropdown" ng-switch-when="dropdown">
           <label for="log-input-{{input.id}}">{{input.label}}</label>
           <select id="log-input-{{input.id}}" required="{{input.required}}" ng-model="input.value">
+            <option value="">Vælg fra liste</option>
             <option ng-repeat="option in input.options" value="{{option}}">{{option}}</option>
           </select>
         </div>
@@ -46,36 +47,28 @@
           <input type="text" id="log-input-{{input.id}}" class="formula" value="{{Log.parseFormula(input,$index)}}" ng-model="input.value" readonly>
         </div>
 
-        <div ng-switch-when="time">
+        <div class="dropdown-time" ng-switch-when="time"  >
           <label for="log-input-{{input.id}}">{{input.label}}</label>
 
-          <div class="select" ng-show="{{input.data.search('hh') != -1}}">
-            <div class="select-inner left">
-              <select  ng-model="input.hh" ng-change="input.value = Log.calcTimeVal(input)" ng-options="hour as hour for hour in Log.hours track by hour" >
-                <option value="">Timer</option>
-              </select>
-            </div>
+          <div class="select-inner" ng-show="{{input.data.search('hh') != -1}}">
+            <select  ng-model="input.hh" ng-change="input.value = Log.calcTimeVal(input)" ng-options="hour as hour for hour in Log.hours track by hour" >
+              <option value="">Timer</option>
+            </select>
           </div>
-          <div class="select" ng-show="{{input.data.search('hh') != -1}}">
-            <div class="select-inner">
-              <select ng-model="input.mm"  ng-change="input.value = Log.calcTimeVal(input)" ng-options="minut as minut for minut in Log.minutes track by minut" >
-                <option value="">Minutter</option>
-              </select>
-            </div>
+          <div class="select-inner minut" ng-show="{{input.data.search('hh') != -1}}">
+            <select ng-model="input.mm"  ng-change="input.value = Log.calcTimeVal(input)" ng-options="minut as minut for minut in Log.minutes track by minut" >
+              <option value="">Minutter</option>
+            </select>
           </div>
-          <div class="select" ng-show="{{input.data.search('hh') != -1}}">
-            <div class="select-inner">
-              <select ng-model="input.ss" ng-change="input.value = Log.calcTimeVal(input)" ng-options="second as second for second in Log.seconds track by second" >
-                <option value="">Sekunder</option>
-              </select>
-            </div>
+          <div class="select-inner second" ng-show="{{input.data.search('hh') != -1}}">
+            <select ng-model="input.ss" ng-change="input.value = Log.calcTimeVal(input)" ng-options="second as second for second in Log.seconds track by second" >
+              <option value="">Sekunder</option>
+            </select>
           </div>
-          <div class="select" ng-show="{{input.data.search('hh') != -1}}">
-            <div class="select-inner right">
-              <select ng-model="input.cscs" ng-change="input.value = Log.calcTimeVal(input)" ng-options="cs as cs for cs in Log.centiseconds track by cs"  >
-                <option value="">Centisekunder</option>
-              </select>
-            </div>
+          <div class="select-inner ceti" ng-show="{{input.data.search('hh') != -1}}">
+            <select ng-model="input.cscs" ng-change="input.value = Log.calcTimeVal(input)" ng-options="cs as cs for cs in Log.centiseconds track by cs"  >
+              <option value="">Centisekunder</option>
+            </select>
           </div>
 
         </div>
