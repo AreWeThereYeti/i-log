@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 13, ../sass/reset/_reset.scss */
+/* line 1, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 24, ../sass/reset/_reset.scss */
+/* line 23, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 37, ../sass/reset/_reset.scss */
+/* line 36, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -148,32 +148,6 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
-  @-webkit-keyframes bouncedelay {
-    /* line 109, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      -webkit-transform: scale(0);
-    }
-
-    /* line 110, ../sass/_loader.scss */
-    40% {
-      -webkit-transform: scale(1);
-    }
-}
-
-  @keyframes bouncedelay {
-    /* line 114, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      transform: scale(0);
-      -webkit-transform: scale(0);
-    }
-
-    /* line 117, ../sass/_loader.scss */
-    40% {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-    }
-}
-
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -289,7 +263,24 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -297,7 +288,6 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -313,7 +303,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 29, ../sass/components/_fonts.scss */
+/* line 28, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -431,27 +421,25 @@ table {
   margin-left: 10px;
   margin-bottom: -2px;
   vertical-align: middle;
-  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -o-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
-  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
+  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 
@@ -494,7 +482,7 @@ h1 {
 }
 /* line 35, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   outline: 0;
   border: 0;
   width: 300px;
@@ -559,7 +547,7 @@ h1 {
   border-bottom: 2px solid #000;
   font-weight: bold;
 }
-/* line 51, ../sass/pages/_report.scss */
+/* line 50, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -636,27 +624,25 @@ h1 {
 .filterbar .datefilter .arrow_box:after {
   margin-right: 14px;
   margin-bottom: 10px;
-  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -o-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
-  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -o-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
-  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
+  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 /* line 28, ../sass/components/_filterbar.scss */
@@ -678,12 +664,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 0 25px;
-  background-color: white;
+  background-color: #ffffff;
   height: 75px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: white;
+  background-color: #ffffff;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar .back {
@@ -694,49 +680,46 @@ h1 {
 }
 /* line 14, ../sass/components/_menubar.scss */
 .menubar .back [class*=" icon-"]:before {
+  font-size: 38px;
   vertical-align: top;
   margin: 0;
 }
-/* line 20, ../sass/components/_menubar.scss */
+/* line 21, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 24, ../sass/components/_menubar.scss */
+/* line 25, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
   vertical-align: top;
 }
-/* line 29, ../sass/components/_menubar.scss */
+/* line 30, ../sass/components/_menubar.scss */
 .menubar ul li.divider {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 34, ../sass/components/_menubar.scss */
+/* line 35, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 40, ../sass/components/_menubar.scss */
+/* line 41, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 46, ../sass/components/_menubar.scss */
-.menubar .icons .icon-question:before {
-  font-size: 24px;
-}
-/* line 51, ../sass/components/_menubar.scss */
+/* line 49, ../sass/components/_menubar.scss */
 .menubar .circ {
   margin-right: 12px;
 }
-/* line 53, ../sass/components/_menubar.scss */
+/* line 51, ../sass/components/_menubar.scss */
 .menubar .circ :last-of-type {
   margin-right: 0px;
 }
@@ -761,13 +744,13 @@ h1 {
 /* line 13, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
-  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
+  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 /* line 21, ../sass/components/_list.scss */
@@ -787,7 +770,7 @@ h1 {
 }
 /* line 34, ../sass/components/_list.scss */
 .list .listitem .circ {
-  margin: 10px 5px;
+  margin: 15px 5px;
   width: 25px;
   line-height: 20px;
   height: 25px;
@@ -798,39 +781,11 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 45, ../sass/components/_list.scss */
-.list .listitem .circ span.edit {
-  background-image: url("../images/pen.png");
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 12px;
-  background-size: 12px 12px;
-  display: block;
-  line-height: 35px;
-  text-align: center;
-  margin: auto;
-  vertical-align: middle;
-  margin-top: 4px;
-}
-/* line 59, ../sass/components/_list.scss */
-.list .listitem .circ span.trash {
-  background-image: url("../images/trash.png");
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 15px;
-  background-size: 13px 15px;
-  display: block;
-  line-height: 35px;
-  text-align: center;
-  margin: auto;
-  vertical-align: middle;
-  margin-top: 3px;
-}
-/* line 75, ../sass/components/_list.scss */
+/* line 47, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
-  font-size: 12px;
+  font-size: 22px;
 }
 
 /* line 3, ../sass/components/_circle-icons.scss */
@@ -839,8 +794,6 @@ h1 {
   text-align: center;
   width: 35px;
   height: 35px;
-  border: 2px solid #383838;
-  border-radius: 50%;
   margin: 20px 1px;
   line-height: 35px;
   display: inline-block;
@@ -849,18 +802,18 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 19, ../sass/components/_circle-icons.scss */
+/* line 16, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
-  font-size: 16px;
+  font-size: 36px;
   color: #383838;
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 29, ../sass/components/_circle-icons.scss */
+/* line 27, ../sass/components/_circle-icons.scss */
 .circ:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -869,7 +822,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 37, ../sass/components/_circle-icons.scss */
+/* line 34, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -878,7 +831,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 46, ../sass/components/_circle-icons.scss */
+/* line 44, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
 }
@@ -953,9 +906,9 @@ h1 {
   cursor: pointer;
   margin: 0;
   color: #FFF;
-  -webkit-transition: all;
   -moz-transition: all;
   -o-transition: all;
+  -webkit-transition: all;
   transition: all;
 }
 /* line 11, ../sass/components/_buttons.scss */
@@ -968,7 +921,7 @@ h1 {
   color: black;
 }
 
-/* line 4, ../sass/directives/_dialog.scss */
+/* line 1, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -1075,7 +1028,7 @@ h1 {
 }
 /* line 51, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   outline: 0;
   border: 0;
   width: 90px;
