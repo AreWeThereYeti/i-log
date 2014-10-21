@@ -46,6 +46,22 @@
       font-weight: bold;
     }
   }
+  .chart-calc{
+    padding: 0 40px;
+
+    .chart-calc-element{
+      padding-top: 30px;
+
+      :first-child{
+        font-size: 18px;
+        padding-bottom: 10px;
+      }
+      :last-child{
+        font-size: 36px;
+      }
+    }
+  }
+
 
   .axis path,
   .axis line {
@@ -54,5 +70,20 @@
     stroke-width: 2;
     //shape-rendering: crispEdges;
 
+  }
+
+  .legend {
+    padding-top: 91px;
+
+    .legend-head {
+      font-size: 36px;
+    }
+    .legend-text  {
+      font-size: 24px;
+    }
+    .legend-percent {
+      font-size: 24px;
+      font-weight: bold;
+    }
   }
 }

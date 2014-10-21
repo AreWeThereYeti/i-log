@@ -44,7 +44,6 @@ angular.module('gyldendal.directives', ['d3'])
 						// -------------	D3 function for rendering bar ----------------
 						scope.renderbar = function(data) {
 
-
               // remove all previous items before render
 							svg.selectAll('*').remove();
 
@@ -148,8 +147,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 //---------------- D3 function for rendering pie chart----------------
 						scope.renderpie = function(data) {
-//						initialize base svg object on div.d3container
-              var svg = d3.select(".d3container");
+
 
 							// remove all previous items before render
 							svg.selectAll('*').remove();
@@ -161,7 +159,7 @@ angular.module('gyldendal.directives', ['d3'])
 								.append('svg')
                 .attr("class", "pie")
                 .style('width', '575px')
-								.style('height', '575px');
+								.style('height', '530px');
 
 							var text;
 
@@ -228,26 +226,57 @@ angular.module('gyldendal.directives', ['d3'])
 									return "translate(" + c[0] +"," + c[1]+ ")";
 								});
 
-              // legends
+
+              // legend
               var legend = d3.select(".d3container").append("svg")
                 .attr("class", "legend")
                 .attr("width", 200)
-                .attr("height", 200 * 2)
+                .attr("height", 530)
+                .append("text")
+                .attr("class", "legend-head")
+                .style("fill", "000000")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("dy", "0em")
+                .style("text-anchor", "start")
+                .text(data.xtitle)
+                .style("fill", "000000");
+
+
+
+              var legendContent = d3.select(".legend").append("svg")
+                .attr("class", "legend-content")
+                .attr("width", 200)
+                .attr("height", 400)
+                .attr("y", 25)
                 .selectAll("g")
                 .data(pie(data.data))
                 .enter().append("g")
-                .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+                .attr("transform", function(d, i) { return "translate(0," + i * 30 + ")"; });
 
-              legend.append("rect")
+
+              legendContent.append("rect")
                 .attr("width", 18)
-                .attr("height", 18)
+                .attr("height", 20)
                 .style("fill", function(d, i) { return colorscale(i); });
 
-              legend.append("text")
+              legendContent.append("text")
+                .attr("class", "legend-text")
                 .attr("x", 24)
-                .attr("y", 9)
+                .attr("y", 10)
                 .attr("dy", ".35em")
-                .text(function(d) { return d.data.label; });
+                .text(function(d){
+
+                  return d.data.label });
+
+              legendContent.append("text")
+                .attr("class", "legend-percent")
+                .attr("x", 100)
+                .attr("y", 10)
+                .attr("dy", ".35em")
+                .text(function(d){
+                  var per = ((d.endAngle - d.startAngle)/(2*Math.PI))*100;
+                  return " " + per.toFixed(1) + "%" });
 
 
 						};

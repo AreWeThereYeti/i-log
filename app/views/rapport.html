@@ -1,6 +1,6 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
-  <div class="grid reportsubmenu" ng-init="Report.pane = 'pie'">
+  <div class="grid reportsubmenu" ng-init="Report.pane = 'bar'">
     <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>Pie</span>
@@ -28,8 +28,8 @@
     <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
-        <p>{{calculation.label}}</p>
-        <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+        <div>{{calculation.label}}</div>
+        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -39,8 +39,8 @@
     <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
-        <p>{{calculation.label}}</p>
-        <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+        <div>{{calculation.label}}</div>
+        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -83,8 +83,8 @@
     <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[2].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataGrap -->
-        <p>{{calculation.label}}</p>
-        <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+        <div>{{calculation.label}}</div>
+        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>

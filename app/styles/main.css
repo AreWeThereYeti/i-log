@@ -600,12 +600,46 @@ h1 {
   border-bottom: 2px solid #000;
   font-weight: bold;
 }
-/* line 51, ../sass/pages/_report.scss */
+/* line 49, ../sass/pages/_report.scss */
+.report .chart-calc {
+  padding: 0 40px;
+}
+/* line 52, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element {
+  padding-top: 30px;
+}
+/* line 55, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element :first-child {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+/* line 59, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element :last-child {
+  font-size: 36px;
+}
+/* line 67, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: grey;
   stroke-width: 2;
+}
+/* line 75, ../sass/pages/_report.scss */
+.report .legend {
+  padding-top: 91px;
+}
+/* line 78, ../sass/pages/_report.scss */
+.report .legend .legend-head {
+  font-size: 36px;
+}
+/* line 81, ../sass/pages/_report.scss */
+.report .legend .legend-text {
+  font-size: 24px;
+}
+/* line 84, ../sass/pages/_report.scss */
+.report .legend .legend-percent {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* line 1, ../sass/components/_topheader.scss */
