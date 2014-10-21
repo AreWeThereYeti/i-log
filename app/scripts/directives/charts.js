@@ -11,7 +11,8 @@ angular.module('gyldendal.directives', ['d3'])
 					d3Service.d3().then(function(d3) {
 
 //						initialize base svg object on div.d3container
-						var svg = d3.select(".d3container");
+            var svg = d3.select(".d3container");
+
 
 						// Browser onresize event
 						window.onresize = function() {
@@ -42,7 +43,9 @@ angular.module('gyldendal.directives', ['d3'])
 
 						// -------------	D3 function for rendering bar ----------------
 						scope.renderbar = function(data) {
-							// remove all previous items before render
+
+
+              // remove all previous items before render
 							svg.selectAll('*').remove();
 
 							// If we don't pass any data, return out of the element
@@ -145,6 +148,8 @@ angular.module('gyldendal.directives', ['d3'])
 
 //---------------- D3 function for rendering pie chart----------------
 						scope.renderpie = function(data) {
+//						initialize base svg object on div.d3container
+              var svg = d3.select(".d3container");
 
 							// remove all previous items before render
 							svg.selectAll('*').remove();
@@ -154,8 +159,9 @@ angular.module('gyldendal.directives', ['d3'])
 
 							svg = d3.select(".d3container")
 								.append('svg')
-								.style('width', '100%')
-								.style('height', '375px');
+                .attr("class", "pie")
+                .style('width', '575px')
+								.style('height', '575px');
 
 							var text;
 
@@ -165,18 +171,18 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var arc = d3.svg.arc()
 								.innerRadius(0)
-								.outerRadius(150);
+								.outerRadius(200);
 
 							var arcOver = d3.svg.arc()
 								.innerRadius(0)
-								.outerRadius(150 + 10);
+								.outerRadius(200 + 10);
 
 							var pie = d3.layout.pie()
 								.value(function(d){ return d.value; });
 
 
 							var renderarcs = svg.append('g')
-								.attr('transform','translate(440,200)')
+								.attr('transform','translate(285,265)')
 								.selectAll('.arc')
 								.data(pie(data.data))
 								.enter()
@@ -221,6 +227,29 @@ angular.module('gyldendal.directives', ['d3'])
 									var c = arc.centroid(d);
 									return "translate(" + c[0] +"," + c[1]+ ")";
 								});
+
+              // legends
+              var legend = d3.select(".d3container").append("svg")
+                .attr("class", "legend")
+                .attr("width", 200)
+                .attr("height", 200 * 2)
+                .selectAll("g")
+                .data(pie(data.data))
+                .enter().append("g")
+                .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+              legend.append("rect")
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", function(d, i) { return colorscale(i); });
+
+              legend.append("text")
+                .attr("x", 24)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .text(function(d) { return d.data.label; });
+
+
 						};
 
 						//---------------- D3 function for rendering line chart----------------
