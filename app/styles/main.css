@@ -1191,10 +1191,10 @@ body {
   vertical-align: top;
   height: 7px;
   margin-bottom: -3px;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
+  transition: height 0.2s;
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  -o-transition: height 0.2s;
 }
 /* line 43, ../sass/main.scss */
 .collapsable .arrow_box {
@@ -1207,32 +1207,31 @@ body {
 
 /* line 52, ../sass/main.scss */
 .collapsable.showme {
-  margin-top: -5px;
   height: 75px;
   line-height: 75px;
   clear: both;
 }
-/* line 57, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   opacity: 1;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 71, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 72, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

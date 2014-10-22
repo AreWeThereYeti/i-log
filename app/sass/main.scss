@@ -36,10 +36,10 @@ body{
   vertical-align: top;
   height: 7px;
   margin-bottom: -3px;
-  transition:         all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition:    all 0.2s;
-  -o-transition:      all 0.2s;
+  transition:         height 0.2s;
+  -webkit-transition: height 0.2s;
+  -moz-transition:    height 0.2s;
+  -o-transition:      height 0.2s;
   .arrow_box{
     opacity: 0;
     transition:        opacity 0.2s;
@@ -50,7 +50,6 @@ body{
 
 }
 .collapsable.showme {
-  margin-top: -5px;
   height: 75px;
   line-height: 75px;
   clear: both;
