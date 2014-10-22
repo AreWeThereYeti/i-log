@@ -398,6 +398,11 @@ table {
   content: "p";
 }
 
+/* line 91, ../sass/components/_fonts.scss */
+.icon-share:before {
+  content: "z";
+}
+
 /* line 1, ../sass/components/_helpers.scss */
 .float-right {
   float: right;
