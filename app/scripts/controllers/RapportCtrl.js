@@ -84,8 +84,8 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         },
         "value":
         {
-          "formula":"SUM(ID2)+ID50",
-          "title":"SUM(ID2)+ID50"
+          "formula":"ID2%6",
+          "title":"SUM(ID2)+200"
         },
         "calculations":[
           {

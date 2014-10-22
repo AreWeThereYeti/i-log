@@ -21,7 +21,6 @@
 
   <!--item in reports-->
   <div class="listitem grid animate" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:reverse">
-    <a ng-href="#/rapport/{{RapportOverview.testid}}">
       <span class="col-1-8">
         <span class="date">{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
@@ -32,18 +31,20 @@
         <span>{{item.title}}</span>
       </span>
       <span class="col-1-8">
-        <span>{{item.shared}}</span>
+        <span ng-show="{{item.shared}}">Ja</span>
+        <span ng-hide="{{item.shared}}">Nej</span>
       </span>
       <span class="col-1-8">
         <div class="float-right">
-          <span class="circ">
-            <span class="icon icon-quicklook"></span>
-          </span>
+          <a ng-href="#/rapport/{{RapportOverview.testid}}">
+            <span class="circ">
+              <span class="icon icon-quicklook"></span>
+            </span>
+          </a>
           <span class="circ">
             <span class="icon icon-trash-bin" ng-click="LogsOverview.delete($index)"></span>
           </span>
         </div>
       </span>
-    </a>
   </div>
 </div>

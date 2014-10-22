@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 1, ../sass/reset/_reset.scss */
+/* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 23, ../sass/reset/_reset.scss */
+/* line 24, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 36, ../sass/reset/_reset.scss */
+/* line 37, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -148,6 +148,32 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
+  @-webkit-keyframes bouncedelay {
+    /* line 109, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      -webkit-transform: scale(0);
+    }
+
+    /* line 110, ../sass/_loader.scss */
+    40% {
+      -webkit-transform: scale(1);
+    }
+}
+
+  @keyframes bouncedelay {
+    /* line 114, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+    }
+
+    /* line 117, ../sass/_loader.scss */
+    40% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+}
+
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -263,24 +289,7 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
+
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -288,6 +297,7 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -303,7 +313,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 28, ../sass/components/_fonts.scss */
+/* line 29, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -421,25 +431,27 @@ table {
   margin-left: 10px;
   margin-bottom: -2px;
   vertical-align: middle;
+  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
+  -o-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
+  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
-  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 
@@ -451,23 +463,31 @@ h1 {
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
   background-color: #E9E9E9;
-  padding: 0 25px;
+  padding: 40px;
 }
-/* line 9, ../sass/pages/_logs.scss */
-.log-content form {
-  padding-top: 20px;
+/* line 12, ../sass/pages/_logs.scss */
+.log-content .no-padding {
+  padding-bottom: 0;
 }
-/* line 13, ../sass/pages/_logs.scss */
+/* line 15, ../sass/pages/_logs.scss */
 .log-content label {
   font-weight: bold;
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
-/* line 19, ../sass/pages/_logs.scss */
+/* line 21, ../sass/pages/_logs.scss */
 .log-content .input-field {
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
-/* line 23, ../sass/pages/_logs.scss */
+/* line 24, ../sass/pages/_logs.scss */
+.log-content .input-field:last-child {
+  padding-bottom: 0;
+}
+/* line 29, ../sass/pages/_logs.scss */
+.log-content textarea {
+  padding: 20px;
+}
+/* line 33, ../sass/pages/_logs.scss */
 .log-content input {
   border: 0;
   outline: 0;
@@ -475,14 +495,14 @@ h1 {
   padding: 0 0px 0 10px;
   margin-right: 5px;
 }
-/* line 31, ../sass/pages/_logs.scss */
+/* line 41, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 35, ../sass/pages/_logs.scss */
+/* line 45, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 300px;
@@ -493,12 +513,53 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 49, ../sass/pages/_logs.scss */
+/* line 59, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
+}
+/* line 69, ../sass/pages/_logs.scss */
+.log-content .dropdown-time .select-inner {
+  border-bottom: 3px solid #000;
+  width: 115px;
+  float: left;
+  margin: 5px;
+}
+/* line 75, ../sass/pages/_logs.scss */
+.log-content .dropdown-time .select-inner:first-of-type {
+  margin-left: 0;
+}
+/* line 79, ../sass/pages/_logs.scss */
+.log-content .dropdown-time .select-inner:last-of-type {
+  margin-right: 0;
+}
+/* line 83, ../sass/pages/_logs.scss */
+.log-content .dropdown-time .select-inner select {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  width: 95px;
+  height: 35px;
+  border-radius: 0px;
+  padding: 00px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0px;
+}
+/* line 96, ../sass/pages/_logs.scss */
+.log-content .dropdown-time .select-inner:after {
+  display: inline-block;
+  content: "▼";
+  float: right;
+  line-height: 35px;
+}
+/* line 106, ../sass/pages/_logs.scss */
+.log-content .dropdown-time:after {
+  display: block;
+  content: '';
+  clear: both;
 }
 
 /* line 1, ../sass/pages/_report.scss */
@@ -547,12 +608,46 @@ h1 {
   border-bottom: 2px solid #000;
   font-weight: bold;
 }
-/* line 50, ../sass/pages/_report.scss */
+/* line 49, ../sass/pages/_report.scss */
+.report .chart-calc {
+  padding: 0 40px;
+}
+/* line 52, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element {
+  padding-top: 30px;
+}
+/* line 55, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element :first-child {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+/* line 59, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element :last-child {
+  font-size: 36px;
+}
+/* line 67, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: grey;
   stroke-width: 2;
+}
+/* line 75, ../sass/pages/_report.scss */
+.report .legend {
+  padding-top: 91px;
+}
+/* line 78, ../sass/pages/_report.scss */
+.report .legend .legend-head {
+  font-size: 36px;
+}
+/* line 81, ../sass/pages/_report.scss */
+.report .legend .legend-text {
+  font-size: 24px;
+}
+/* line 85, ../sass/pages/_report.scss */
+.report .legend .legend-percent {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 /* line 1, ../sass/components/_topheader.scss */
@@ -575,25 +670,25 @@ h1 {
   color: #e04f2f;
 }
 
-/* line 1, ../sass/components/_animation.scss */
+/* line 2, ../sass/components/_animation.scss */
 .animate.ng-enter {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   opacity: 0;
 }
 
-/* line 7, ../sass/components/_animation.scss */
+/* line 8, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 13, ../sass/components/_animation.scss */
+/* line 14, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-/* line 18, ../sass/components/_animation.scss */
+/* line 19, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }
@@ -624,25 +719,27 @@ h1 {
 .filterbar .datefilter .arrow_box:after {
   margin-right: 14px;
   margin-bottom: 10px;
+  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
+  -o-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
+  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
+  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
-  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 /* line 28, ../sass/components/_filterbar.scss */
@@ -664,12 +761,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 0 25px;
-  background-color: #ffffff;
+  background-color: white;
   height: 75px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: #ffffff;
+  background-color: white;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar .back {
@@ -744,13 +841,13 @@ h1 {
 /* line 13, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
+  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
-  -webkit-transition-property: color;
   transition-property: color;
+  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 /* line 21, ../sass/components/_list.scss */
@@ -781,7 +878,7 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 47, ../sass/components/_list.scss */
+/* line 48, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -802,7 +899,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 16, ../sass/components/_circle-icons.scss */
+/* line 17, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
@@ -822,7 +919,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 34, ../sass/components/_circle-icons.scss */
+/* line 35, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -906,9 +1003,9 @@ h1 {
   cursor: pointer;
   margin: 0;
   color: #FFF;
+  -webkit-transition: all;
   -moz-transition: all;
   -o-transition: all;
-  -webkit-transition: all;
   transition: all;
 }
 /* line 11, ../sass/components/_buttons.scss */
@@ -921,7 +1018,7 @@ h1 {
   color: black;
 }
 
-/* line 1, ../sass/directives/_dialog.scss */
+/* line 4, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -1028,7 +1125,7 @@ h1 {
 }
 /* line 51, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 90px;
