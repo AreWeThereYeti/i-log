@@ -463,23 +463,31 @@ h1 {
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
   background-color: #E9E9E9;
-  padding: 0 25px;
+  padding: 40px;
 }
-/* line 9, ../sass/pages/_logs.scss */
-.log-content form {
-  padding-top: 20px;
+/* line 12, ../sass/pages/_logs.scss */
+.log-content .no-padding {
+  padding-bottom: 0;
 }
-/* line 13, ../sass/pages/_logs.scss */
+/* line 15, ../sass/pages/_logs.scss */
 .log-content label {
   font-weight: bold;
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
-/* line 19, ../sass/pages/_logs.scss */
+/* line 21, ../sass/pages/_logs.scss */
 .log-content .input-field {
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
-/* line 23, ../sass/pages/_logs.scss */
+/* line 24, ../sass/pages/_logs.scss */
+.log-content .input-field:last-child {
+  padding-bottom: 0;
+}
+/* line 29, ../sass/pages/_logs.scss */
+.log-content textarea {
+  padding: 20px;
+}
+/* line 33, ../sass/pages/_logs.scss */
 .log-content input {
   border: 0;
   outline: 0;
@@ -487,12 +495,12 @@ h1 {
   padding: 0 0px 0 10px;
   margin-right: 5px;
 }
-/* line 31, ../sass/pages/_logs.scss */
+/* line 41, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 35, ../sass/pages/_logs.scss */
+/* line 45, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -505,29 +513,29 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 49, ../sass/pages/_logs.scss */
+/* line 59, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 59, ../sass/pages/_logs.scss */
+/* line 69, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
   width: 115px;
   float: left;
   margin: 5px;
 }
-/* line 65, ../sass/pages/_logs.scss */
+/* line 75, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 69, ../sass/pages/_logs.scss */
+/* line 79, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 73, ../sass/pages/_logs.scss */
+/* line 83, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -540,14 +548,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 86, ../sass/pages/_logs.scss */
+/* line 96, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 96, ../sass/pages/_logs.scss */
+/* line 106, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
@@ -636,7 +644,7 @@ h1 {
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 84, ../sass/pages/_report.scss */
+/* line 85, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
@@ -769,49 +777,46 @@ h1 {
 }
 /* line 14, ../sass/components/_menubar.scss */
 .menubar .back [class*=" icon-"]:before {
+  font-size: 38px;
   vertical-align: top;
   margin: 0;
 }
-/* line 20, ../sass/components/_menubar.scss */
+/* line 21, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 24, ../sass/components/_menubar.scss */
+/* line 25, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
   vertical-align: top;
 }
-/* line 29, ../sass/components/_menubar.scss */
+/* line 30, ../sass/components/_menubar.scss */
 .menubar ul li.divider {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 34, ../sass/components/_menubar.scss */
+/* line 35, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 40, ../sass/components/_menubar.scss */
+/* line 41, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 46, ../sass/components/_menubar.scss */
-.menubar .icons .icon-question:before {
-  font-size: 24px;
-}
-/* line 51, ../sass/components/_menubar.scss */
+/* line 49, ../sass/components/_menubar.scss */
 .menubar .circ {
   margin-right: 12px;
 }
-/* line 53, ../sass/components/_menubar.scss */
+/* line 51, ../sass/components/_menubar.scss */
 .menubar .circ :last-of-type {
   margin-right: 0px;
 }
@@ -862,7 +867,7 @@ h1 {
 }
 /* line 34, ../sass/components/_list.scss */
 .list .listitem .circ {
-  margin: 10px 5px;
+  margin: 15px 5px;
   width: 25px;
   line-height: 20px;
   height: 25px;
@@ -873,39 +878,11 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 45, ../sass/components/_list.scss */
-.list .listitem .circ span.edit {
-  background-image: url("../images/pen.png");
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 12px;
-  background-size: 12px 12px;
-  display: block;
-  line-height: 35px;
-  text-align: center;
-  margin: auto;
-  vertical-align: middle;
-  margin-top: 4px;
-}
-/* line 59, ../sass/components/_list.scss */
-.list .listitem .circ span.trash {
-  background-image: url("../images/trash.png");
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 15px;
-  background-size: 13px 15px;
-  display: block;
-  line-height: 35px;
-  text-align: center;
-  margin: auto;
-  vertical-align: middle;
-  margin-top: 3px;
-}
-/* line 75, ../sass/components/_list.scss */
+/* line 48, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
-  font-size: 12px;
+  font-size: 22px;
 }
 
 /* line 3, ../sass/components/_circle-icons.scss */
@@ -914,8 +891,6 @@ h1 {
   text-align: center;
   width: 35px;
   height: 35px;
-  border: 2px solid #383838;
-  border-radius: 50%;
   margin: 20px 1px;
   line-height: 35px;
   display: inline-block;
@@ -924,18 +899,18 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 19, ../sass/components/_circle-icons.scss */
+/* line 17, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
-  font-size: 16px;
+  font-size: 36px;
   color: #383838;
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 29, ../sass/components/_circle-icons.scss */
+/* line 27, ../sass/components/_circle-icons.scss */
 .circ:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -944,7 +919,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 37, ../sass/components/_circle-icons.scss */
+/* line 35, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -953,7 +928,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 46, ../sass/components/_circle-icons.scss */
+/* line 44, ../sass/components/_circle-icons.scss */
 .circ span {
   line-height: 35px;
 }

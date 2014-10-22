@@ -4,20 +4,30 @@ h1{
 
 .log-content{
 background-color: #E9E9E9;
-  padding: $base-padding;
+  padding: 40px;
 
   form{
-    padding-top: 20px;
-  }
 
+  }
+  .no-padding{
+    padding-bottom: 0;
+  }
   label{
     font-weight: bold;
     display: block;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
 
   .input-field{
-    padding-bottom: 20px;
+    padding-bottom: 25px;
+
+    &:last-child {
+    padding-bottom: 0;
+    }
+  }
+
+  textarea {
+    padding: 20px;
   }
 
   input{

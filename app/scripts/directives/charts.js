@@ -44,6 +44,8 @@ angular.module('gyldendal.directives', ['d3'])
 						// -------------	D3 function for rendering bar ----------------
 						scope.renderbar = function(data) {
 
+              svg = d3.select(".d3container");
+
               // remove all previous items before render
 							svg.selectAll('*').remove();
 
@@ -148,6 +150,7 @@ angular.module('gyldendal.directives', ['d3'])
 //---------------- D3 function for rendering pie chart----------------
 						scope.renderpie = function(data) {
 
+              svg = d3.select(".d3container");
 
 							// remove all previous items before render
 							svg.selectAll('*').remove();
@@ -284,8 +287,10 @@ angular.module('gyldendal.directives', ['d3'])
 						//---------------- D3 function for rendering line chart----------------
 						scope.renderline = function(data) {
 
+              svg = d3.select(".d3container");
 
-							// remove all previous items before render
+
+              // remove all previous items before render
 							svg.selectAll('*').remove();
 
 							// If we don't pass any data, return out of the element
