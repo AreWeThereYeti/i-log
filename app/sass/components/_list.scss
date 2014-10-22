@@ -8,6 +8,11 @@
     background-color: #FFF;
     border-bottom: 1px solid #c8c8c8;
 
+    .active{
+      &:after {
+        border-top-color: #e04f2f;
+      }
+    }
     .reverse {
 
       &:after {
