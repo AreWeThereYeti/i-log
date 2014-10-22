@@ -30,7 +30,7 @@
         </div>
 
         <div ng-switch-when="largetext">
-          <label for="log-input-{{input.id}}" ng-show="{'no-padding': input.label != '' && input.label != null }">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-show="{{ input.label != '' && input.label != null }}">{{input.label}}</label>
           <textarea id="log-input-{{input.id}}" required="{{input.required}}" ng-model="input.value" style="height: {{input.height}}px; width: {{input.width}}px;">
             height: {{input.height}}
             width: {{input.width}}
