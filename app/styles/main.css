@@ -340,7 +340,7 @@ table {
 
 /* line 55, ../sass/components/_fonts.scss */
 .icon-disc:before {
-  content: "c";
+  content: "x";
 }
 
 /* line 58, ../sass/components/_fonts.scss */
@@ -720,7 +720,7 @@ h1 {
   margin-right: 12px;
 }
 /* line 51, ../sass/components/_menubar.scss */
-.menubar .circ :last-of-type {
+.menubar .circ:last-of-type {
   margin-right: 0px;
 }
 
