@@ -1,11 +1,12 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ 'logs', '$rootScope', '$location', 'getdataservice', '$scope', function (logs, $rootScope, $location, getdataservice, $scope) {
+app.controller('LogsOverviewCtrl', [ 'component', 'logs', '$rootScope', '$location', 'getdataservice', '$scope', function (component, logs, $rootScope, $location, getdataservice, $scope) {
 
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
 
   LogsOverview.logEntries = angular.fromJson(logs.data);
+  LogsOverview.componentData = angular.fromJson(component.data.Content);
 
   // check if there user has previous ilog entries
   // MAKE SURE "Not found" IS ALLWAYS THE RESPONSE WHEN NO ILOG HAS BEEN ADDED.
