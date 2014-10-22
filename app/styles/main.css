@@ -350,7 +350,7 @@ table {
 
 /* line 55, ../sass/components/_fonts.scss */
 .icon-disc:before {
-  content: "c";
+  content: "x";
 }
 
 /* line 58, ../sass/components/_fonts.scss */
@@ -817,7 +817,7 @@ h1 {
   margin-right: 12px;
 }
 /* line 51, ../sass/components/_menubar.scss */
-.menubar .circ :last-of-type {
+.menubar .circ:last-of-type {
   margin-right: 0px;
 }
 
@@ -882,7 +882,7 @@ h1 {
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 /* line 3, ../sass/components/_circle-icons.scss */
@@ -1162,18 +1162,18 @@ body {
   vertical-align: top;
   height: 7px;
   margin-bottom: -3px;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
+  transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
 }
 /* line 43, ../sass/main.scss */
 .collapsable .arrow_box {
   opacity: 0;
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
+  transition: opacity 0.2s;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
 }
 
 /* line 52, ../sass/main.scss */
