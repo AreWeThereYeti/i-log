@@ -1,6 +1,6 @@
 .menubar{
   width: 100%;
-  padding: $base-padding;
+  padding: 5px 25px;
   background-color: $backgroundcolor-white;
   height: 75px;
   &.reportmenu{
@@ -47,9 +47,11 @@
   }
 
   .circ{
-    margin-right: 12px;
     &:last-of-type{
       margin-right: 0px;
+    }
+    &.back{
+      margin-right: 15px;
     }
   }
 }
