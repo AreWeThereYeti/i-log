@@ -7,6 +7,20 @@
     height: 50px;
     background-color: #FFF;
     border-bottom: 1px solid #c8c8c8;
+
+    .reverse {
+
+      &:after {
+        margin-right: 14px;
+        margin-bottom: 10px;
+        @include transform-origin(50%, 40%);
+        @include transform(rotate(-180deg));
+        @include transition-property(all);
+        @include transition-duration(0.1s);
+        @include transition-timing-function(linear);
+      }
+    }
+
     span{
       cursor: pointer;
 

@@ -5,10 +5,10 @@
   <div class="list">
     <div class="listheader">
       <div class="col-1-8">
-        <span  ng-class="{active : LogsOverview.predicate == 'timestamp'}" ng-click="LogsOverview.predicate = 'timestamp'; reverse=!reverse">Dato</span>
+        <span  ng-class="{active : LogsOverview.predicate == 'timestamp', arrow_box : LogsOverview.predicate == 'timestamp', reverse : !reverse}" ng-click="LogsOverview.predicate = 'timestamp'; reverse=!reverse">Dato</span>
       </div>
       <div class="col-1-8">
-        <span ng-class="{active : LogsOverview.predicate == 'title'}" ng-click="LogsOverview.predicate = 'title'; reverse=!reverse">Titel</span>
+        <span  ng-class="{active : LogsOverview.predicate == 'title', arrow_box : LogsOverview.predicate == 'title', reverse : !reverse}" ng-click="LogsOverview.predicate = 'title'; reverse=!reverse">Titel</span>
       </div>
       <div class="col-3-4">
         <span></span>
