@@ -58,12 +58,13 @@
       </span>
     </div>
 
-    <div class="grid list.calculations active" ng-repeat="calculation in Rapport.dataList[0].calculations">
+    <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
       <span class="col-1-4">{{calculation.label}}</span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{Rapport.listFormula(calculation, column)}}
       </span>
     </div>
+
 
   </div>
 
