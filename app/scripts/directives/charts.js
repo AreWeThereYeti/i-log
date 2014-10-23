@@ -1,5 +1,5 @@
 angular.module('gyldendal.directives', ['d3'])
-		.directive('d3Chart', ['d3Service', '$window', function(d3Service, $window) {
+		.directive('d3Chart', ['$timeout', 'd3Service', '$window', function($timeout, d3Service, $window) {
 			return {
 				restrict: 'EA',
 				template: "<div class='d3container'></div>",
@@ -10,8 +10,6 @@ angular.module('gyldendal.directives', ['d3'])
 //					Load d3 service
 					d3Service.d3().then(function(d3) {
 
-//						initialize base svg object on div.d3container
-            var svg = d3.select(".d3container");
 
 
 						// Browser onresize event
@@ -25,19 +23,19 @@ angular.module('gyldendal.directives', ['d3'])
 							// ----------------Check for type and render accordingly ----------------
 						}, function() {
 							if(attrs.type == 'bar'){
-								scope.renderbar(scope.data);
+                $timeout(function(){scope.renderbar(scope.data);},10);
 							}
 							else if(attrs.type == 'pie'){
-								scope.renderpie(scope.data);
+                $timeout(function(){scope.renderpie(scope.data);},10);
 							}
 							else if(attrs.type == 'list'){
 								scope.renderlist();
 							}
 							else if(attrs.type == 'line'){
-								scope.renderline(scope.data);
+                $timeout(function(){scope.renderline(scope.data);},10);
 							}
               else if(attrs.type == 'dot'){
-                scope.renderdot(scope.data);
+                $timeout(function(){scope.renderdot(scope.data);},10);
               }
 						});
 
@@ -406,6 +404,8 @@ angular.module('gyldendal.directives', ['d3'])
 //---------------- D3 function for rendering dot chart----------------
 
             scope.renderdot = function(data) {
+//						initialize base svg object on div.d3container
+              var svg = d3.select(".d3container");
 
 
               // remove all previous items before render
