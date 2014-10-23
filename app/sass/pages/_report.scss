@@ -64,6 +64,17 @@
       }
     }
   }
+  .bar-value{
+    font-size: 18px;
+    color: $font-color-orange;
+  }
+  .bar-label{
+    font-size: 14px;
+  }
+  .domain-text{
+    font-size: 24px;
+    font-weight: bold;
+  }
 
 
   .axis path,
@@ -74,10 +85,7 @@
     //shape-rendering: crispEdges;
 
   }
-  .domain-text{
-    font-size: 24px;
-    font-weight: bold;
-  }
+
   .legend {
     padding-top: 91px;
 

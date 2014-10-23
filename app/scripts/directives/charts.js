@@ -58,11 +58,19 @@ angular.module('gyldendal.directives', ['d3'])
 										width = window.innerWidth - margin.left - margin.right,
 										height = 530 - margin.top - margin.bottom;
 
+                var barWidth = 80,
+                    barPadding = 20,
+                    barPaddingBottom = 100,
+                    heightInner = height-barPaddingBottom;
+
 								var x = d3.scale.ordinal()
 										.rangeRoundBands([0, width], .1);
 
 								var y = d3.scale.linear()
 										.range([height, 0]);
+
+                var yInner = d3.scale.linear()
+                  .range([heightInner, 0]);
 
 								var xAxis = d3.svg.axis()
 										.scale(x)
@@ -83,7 +91,7 @@ angular.module('gyldendal.directives', ['d3'])
  										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-									x.domain(data.data.map(function(d) { return d.label; }));
+									//x.domain(data.data.map(function(d) { return d.label; }));
 									y.domain([0, d3.max(data.data, function(d) { return d.value; })]);
 
 									svg.append("g")
@@ -107,7 +115,7 @@ angular.module('gyldendal.directives', ['d3'])
                       .attr("class", "domain-text")
 											.attr("transform", "translate("+width/2+",7)")
                       .style("text-anchor", "middle")
-											.text("Udfaldsrum")
+											.text(data.xtitle)
 											.style("fill", "#000000");
 
 									  svg.append("g")
@@ -136,27 +144,63 @@ angular.module('gyldendal.directives', ['d3'])
 											.style("fill", "000000");
 
 
-                var node = svg.selectAll(".bar")
+                var bar = svg.selectAll(".bar")
                   .data(data.data)
                   .enter()
                   .append("g");
 
-                node.append("rect")
+                bar.append("rect")
                   .attr("class", "bar")
-                  .attr("transform", "translate( "+ 20 + "," + -100 + ")")
-                  .attr("x", function(d) { return x(d.label); })
+                  .attr("transform", "translate( "+ 40 + "," + 0 + ")")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding); })
                   .style("fill", "#e6e6e6")
-                  .attr("width", 80)
-                  .attr("y", function(d) { return y(d.value); })
-                  .attr("height", function(d) { return height - y(d.value); });
+                  .attr("width", barWidth)
+                  .attr("y", function(d) { return y(d.value)/1.27; })
+                  .attr("height", function(d) { return (height-y(d.value))/(height/(height-barPaddingBottom)); });
 
-                node.append("text")
-                  .attr("class", "bar-text")
-                  .attr("x", function(d) { return x(d.label)+x.rangeBand()/2; })
+                bar.append("text")
+                  .attr("class", "bar-value")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
                   .style("fill", "#e04f2f")
-                  .attr("y", function(d) { return y(d.value); })
+                  .attr("y", function(d) {
+                                if(d.value==0){
+                                  return y(d.value) / (height / (height - barPaddingBottom));
+                                }else {
+                                  return 30 + y(d.value) / (height / (height - barPaddingBottom));
+                                }
+                              })
                   .text(function(d) { return d.value})
-                  .style("text-anchor", "start");
+                  .style("text-anchor", "middle");
+
+                bar.append("text")
+                  .attr("class", "bar-label")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
+                  .style("fill", "#000000")
+                  .attr("y", function(d,i) {
+
+                    if(i % 2){
+                      return height-25;
+                    }else {
+                      return height-55;
+                    }
+                  })
+                  .text(function(d) { return d.label})
+                  .style("text-anchor", "middle");
+
+                bar.append("rect")
+                  .attr("class", "bar-line")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
+                  .style("fill", "#e6e6e6")
+                  .attr("width", 2)
+                  .attr("height", function(d,i) {
+
+                    if(i % 2){
+                      return 45;
+                    }else {
+                      return 15;
+                    }
+                  })
+                  .attr("y", height-90 );
 
 
 							}
