@@ -660,26 +660,30 @@ h1 {
   font-size: 24px;
   font-weight: bold;
 }
-/* line 90, ../sass/pages/_report.scss */
+/* line 87, ../sass/pages/_report.scss */
+.report .dot-label {
+  font-size: 14px;
+}
+/* line 92, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: grey;
   stroke-width: 2;
 }
-/* line 98, ../sass/pages/_report.scss */
+/* line 100, ../sass/pages/_report.scss */
 .report .legend {
   padding-top: 91px;
 }
-/* line 101, ../sass/pages/_report.scss */
+/* line 103, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 104, ../sass/pages/_report.scss */
+/* line 106, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 108, ../sass/pages/_report.scss */
+/* line 110, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
