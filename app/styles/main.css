@@ -838,24 +838,29 @@ h1 {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 35, ../sass/components/_menubar.scss */
+/* line 34, ../sass/components/_menubar.scss */
+.menubar ul li:last-of-type {
+  font-size: 18px;
+  color: #cdcdcd;
+}
+/* line 39, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 41, ../sass/components/_menubar.scss */
+/* line 45, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 50, ../sass/components/_menubar.scss */
+/* line 54, ../sass/components/_menubar.scss */
 .menubar .circ:last-of-type {
   margin-right: 0px;
 }
-/* line 53, ../sass/components/_menubar.scss */
+/* line 57, ../sass/components/_menubar.scss */
 .menubar .circ.back {
   margin-right: 15px;
 }
