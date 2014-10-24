@@ -364,12 +364,10 @@ angular.module('gyldendal.directives', ['d3'])
 
 
               // Set the dimensions of the canvas / graph
-              var margin = {top: 20, right: 20, bottom: 30, left: 50},
-                width = 960 - margin.left - margin.right,
+              var margin = {top: 30, right: 40, bottom: 30, left: 40},
+                width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
-              // Parse the date / time
-              var parseDate = d3.time.format('%Y-%m-%dT%H:%M:%SZ').parse;
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
@@ -396,14 +394,6 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed allready
-/*              if(!data.isParsed) {
-                for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date);
-                  data.data[i].close = +data.data[i].close;
-                }
-                data.isParsed = true;
-              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
@@ -415,10 +405,10 @@ angular.module('gyldendal.directives', ['d3'])
                 // Add the valueline path.
               svg.append("path")
                 .attr("class", "line")
-                .attr("d", valueline(data.data))
+                .attr("d", valueline(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); })))
                 .style("fill", "none")
-                .style("stroke", "grey")
-                .style("stroke-width", 5);
+                .style("stroke", "#cccccc")
+                .style("stroke-width", 4);
 
 
               var node = svg.selectAll("g")
@@ -430,7 +420,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("class", "dot")
                 .attr("cx", function(d) { return x(d.date); })
                 .attr("cy", function(d) { return y(d.close); })
-                .attr("r", 12)
+                .attr("r", 10)
                 .style("fill", "red");
 
               node.append("text")
@@ -444,26 +434,59 @@ angular.module('gyldendal.directives', ['d3'])
                 svg.append("g")
                   .attr("class", "x axis")
                   .attr("transform", "translate(0," + height + ")")
-                  .call(xAxis)
+                  .call(xAxis);
+
+                svg.selectAll(".x")
+                  .append("g")
+                  .append("rect")
+                  .attr("class", "domain")
+                  .attr("width", 150)
+                  .attr("height", 30)
+                  .attr("transform", "translate("+(width-150)/2+",-15)")
+                  .style("fill", "#ffffff");
+
+                svg.selectAll(".x")
+                  .append("g")
                   .append("text")
-                  .attr("class", "axis-text")
-                  .style("fill", "000000")
-                  .attr("transform", "translate("+width/2+",0)")
+                  .attr("class", "domain-text")
+                  .attr("transform", "translate("+width/2+",7)")
                   .style("text-anchor", "middle")
                   .text(data.xtitle)
-                  .style("fill", "000000");
+                  .style("fill", "#000000");
+
 
                 // Add the Y Axis
                 svg.append("g")
                   .attr("class", "y axis")
-                  .call(yAxis)
+                  .call(yAxis);
+
+                svg.selectAll(".y")
+                  .append("g")
+                  .append("rect")
+                  .attr("class", "domain")
+                  .attr("width", 30)
+                  .attr("height", 200)
+                  .attr("transform", "translate(-15,"+(height-200)/2+")")
+                  .style("fill", "#ffffff");
+
+                svg.selectAll(".y")
+                  .append("g")
                   .append("text")
+                  .attr("class", "domain-text")
+                  .style("fill", "000000")
+                  .attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
+                  .attr("dy", ".71em")
+                  .style("text-anchor", "middle")
+                  .text(data.ytitle)
+                  .style("fill", "000000");
+
+/*                  .append("text")
                   .style("fill", "000000")
                   .attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
                   .attr("dy", ".71em")
                   .style("text-anchor", "middle")
                   .text(data.ytitle)
-                  .style("fill", "000000");
+                  .style("fill", "000000");*/
 
 
 						};
@@ -570,10 +593,23 @@ angular.module('gyldendal.directives', ['d3'])
               // Add the Y Axis
               svg.append("g")
                 .attr("class", "y axis")
-                .call(yAxis)
+                .call(yAxis);
+
+              svg.selectAll(".y")
+                .append("g")
+                .append("rect")
+                .attr("class", "domain")
+                .attr("width", 30)
+                .attr("height", 200)
+                .attr("transform", "translate(-15,"+(height-200)/2+")")
+                .style("fill", "#ffffff");
+
+              svg.selectAll(".y")
+                .append("g")
                 .append("text")
+                .attr("class", "domain-text")
                 .style("fill", "000000")
-                .attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
+                .attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
                 .attr("dy", ".71em")
                 .style("text-anchor", "middle")
                 .text(data.ytitle)
