@@ -839,7 +839,7 @@ h1 {
   margin-right: 10px;
 }
 /* line 34, ../sass/components/_menubar.scss */
-.menubar ul li:last-of-type {
+.menubar ul li.report-interval {
   font-size: 18px;
   color: #cdcdcd;
 }
