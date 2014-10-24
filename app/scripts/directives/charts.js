@@ -480,14 +480,6 @@ angular.module('gyldendal.directives', ['d3'])
                   .text(data.ytitle)
                   .style("fill", "000000");
 
-/*                  .append("text")
-                  .style("fill", "000000")
-                  .attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
-                  .attr("dy", ".71em")
-                  .style("text-anchor", "middle")
-                  .text(data.ytitle)
-                  .style("fill", "000000");*/
-
 
 						};
 
@@ -513,8 +505,6 @@ angular.module('gyldendal.directives', ['d3'])
                 width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
-              // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y").parse;
 
               // Set the ranges
               var x = d3.scale.ordinal()
@@ -540,20 +530,9 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed already
-/*              if(!data.isParsed) {
-                for(var i= 0;i<data.data.length;i++){
-                  data.data[i].dates = parseDate(new Date(data.data[i].date));
-                  data.data[i].close = +data.data[i].close;
-                }
-                data.isParsed = true;
-              }*/
 
-              // calculate a date before the min plot date to use as x-axis min scale
-              //var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
 
               // Scale the range of the data
-             // x.domain([minDate, d3.max(data.data, function(d) { return d.date; })]);
               y.domain([0, d3.max(data.data, function(d) { return d.close; })]);
 
               // Add the X Axis
@@ -632,10 +611,6 @@ angular.module('gyldendal.directives', ['d3'])
                 })
                 .text(function(d) { return d3.time.format('%e/%m')(new Date(d.date))})
                 .style("text-anchor", "end");
-
-
-
-
 
             }
 					});
