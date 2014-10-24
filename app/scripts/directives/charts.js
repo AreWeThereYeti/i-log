@@ -574,7 +574,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .style("fill", "000000");
 
               var node = svg.selectAll(".dot")
-                .data(data.data)
+                .data(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); }))
                 .enter()
                 .append("g");
 
