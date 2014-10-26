@@ -467,32 +467,36 @@ h1 {
 
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 130px);
   background-color: #E9E9E9;
   padding: 40px;
 }
-/* line 12, ../sass/pages/_logs.scss */
+/* line 16, ../sass/pages/_logs.scss */
 .log-content .no-padding {
   padding-bottom: 0;
 }
-/* line 15, ../sass/pages/_logs.scss */
+/* line 19, ../sass/pages/_logs.scss */
 .log-content label {
   font-weight: bold;
   display: block;
   padding-bottom: 15px;
 }
-/* line 21, ../sass/pages/_logs.scss */
+/* line 25, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 25px;
 }
-/* line 24, ../sass/pages/_logs.scss */
+/* line 28, ../sass/pages/_logs.scss */
 .log-content .input-field:last-child {
   padding-bottom: 0;
 }
-/* line 29, ../sass/pages/_logs.scss */
+/* line 33, ../sass/pages/_logs.scss */
 .log-content textarea {
   padding: 20px;
 }
-/* line 33, ../sass/pages/_logs.scss */
+/* line 37, ../sass/pages/_logs.scss */
 .log-content input {
   border: 0;
   outline: 0;
@@ -500,12 +504,12 @@ h1 {
   padding: 0 0px 0 10px;
   margin-right: 5px;
 }
-/* line 41, ../sass/pages/_logs.scss */
+/* line 45, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 45, ../sass/pages/_logs.scss */
+/* line 49, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -518,29 +522,29 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 59, ../sass/pages/_logs.scss */
+/* line 63, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 69, ../sass/pages/_logs.scss */
+/* line 73, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
   width: 115px;
   float: left;
   margin: 5px;
 }
-/* line 75, ../sass/pages/_logs.scss */
+/* line 79, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 79, ../sass/pages/_logs.scss */
+/* line 83, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 83, ../sass/pages/_logs.scss */
+/* line 87, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -553,14 +557,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 96, ../sass/pages/_logs.scss */
+/* line 100, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 106, ../sass/pages/_logs.scss */
+/* line 110, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
@@ -589,15 +593,22 @@ h1 {
   font-size: 20px;
 }
 /* line 20, ../sass/pages/_report.scss */
+.report .report-content {
+  overflow: auto;
+  height: calc(100% - 180px);
+  position: absolute;
+  background-color: white;
+}
+/* line 26, ../sass/pages/_report.scss */
 .report .listview {
   padding: 30px 40px;
 }
-/* line 24, ../sass/pages/_report.scss */
+/* line 30, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   padding-right: 1px;
   border-right: 2px solid black;
 }
-/* line 28, ../sass/pages/_report.scss */
+/* line 34, ../sass/pages/_report.scss */
 .report .listview span {
   text-align: center;
   text-transform: capitalize;
@@ -606,84 +617,84 @@ h1 {
   line-height: 40px;
   box-sizing: content-box;
 }
-/* line 38, ../sass/pages/_report.scss */
+/* line 44, ../sass/pages/_report.scss */
 .report .list-content {
   border-bottom: 1px solid #E5E5E5;
 }
-/* line 40, ../sass/pages/_report.scss */
+/* line 46, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 44, ../sass/pages/_report.scss */
+/* line 50, ../sass/pages/_report.scss */
 .report .list-content span.first {
   color: #bfbfbf;
   text-align: right;
   padding-right: 10px;
   margin-left: -10px;
 }
-/* line 54, ../sass/pages/_report.scss */
+/* line 60, ../sass/pages/_report.scss */
 .report .list-head {
   border-bottom: 2px solid #000;
 }
-/* line 57, ../sass/pages/_report.scss */
+/* line 63, ../sass/pages/_report.scss */
 .report .list-head span {
   font-weight: bold;
 }
-/* line 61, ../sass/pages/_report.scss */
+/* line 67, ../sass/pages/_report.scss */
 .report .chart-calc {
   padding: 0 40px;
 }
-/* line 64, ../sass/pages/_report.scss */
+/* line 70, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
   padding-top: 30px;
 }
-/* line 67, ../sass/pages/_report.scss */
+/* line 73, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 71, ../sass/pages/_report.scss */
+/* line 77, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 76, ../sass/pages/_report.scss */
+/* line 82, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 80, ../sass/pages/_report.scss */
+/* line 86, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 83, ../sass/pages/_report.scss */
+/* line 89, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
   font-weight: bold;
 }
-/* line 87, ../sass/pages/_report.scss */
+/* line 93, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 92, ../sass/pages/_report.scss */
+/* line 98, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: grey;
   stroke-width: 2;
 }
-/* line 100, ../sass/pages/_report.scss */
+/* line 106, ../sass/pages/_report.scss */
 .report .legend {
   padding-top: 91px;
 }
-/* line 103, ../sass/pages/_report.scss */
+/* line 109, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 106, ../sass/pages/_report.scss */
+/* line 112, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 110, ../sass/pages/_report.scss */
+/* line 116, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
@@ -867,10 +878,11 @@ h1 {
 
 /* line 1, ../sass/components/_list.scss */
 .list {
+  overflow: auto;
   width: 100%;
   float: left;
 }
-/* line 4, ../sass/components/_list.scss */
+/* line 5, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
@@ -878,11 +890,11 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 12, ../sass/components/_list.scss */
+/* line 13, ../sass/components/_list.scss */
 .list .listheader .active:after {
   border-top-color: #e04f2f;
 }
-/* line 18, ../sass/components/_list.scss */
+/* line 19, ../sass/components/_list.scss */
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
@@ -909,11 +921,11 @@ h1 {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 29, ../sass/components/_list.scss */
+/* line 30, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 32, ../sass/components/_list.scss */
+/* line 33, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -webkit-transition-property: color;
@@ -925,7 +937,7 @@ h1 {
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 40, ../sass/components/_list.scss */
+/* line 41, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -936,11 +948,11 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 50, ../sass/components/_list.scss */
+/* line 51, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 53, ../sass/components/_list.scss */
+/* line 54, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 15px 5px;
   width: 25px;
@@ -948,12 +960,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 61, ../sass/components/_list.scss */
+/* line 62, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 67, ../sass/components/_list.scss */
+/* line 68, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1229,9 +1241,10 @@ h1 {
 body {
   background-color: #E9E9E9;
   font-family: Franklin, sans-serif;
+  overflow: hidden;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 .collapsable {
   display: inline-block;
   overflow: hidden;
@@ -1243,7 +1256,7 @@ body {
   -moz-transition: height 0.2s;
   -o-transition: height 0.2s;
 }
-/* line 43, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 .collapsable .arrow_box {
   opacity: 0;
   transition: opacity 0.2s;
@@ -1252,33 +1265,33 @@ body {
   -o-transition: opacity 0.2s;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
   line-height: 75px;
   clear: both;
 }
-/* line 56, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .collapsable.showme .arrow_box {
   opacity: 1;
 }
 
-/* line 61, ../sass/main.scss */
+/* line 62, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 65, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 71, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }

@@ -17,6 +17,12 @@
       }
     }
   }
+  .report-content{
+    overflow: auto;
+    height: calc(100% - 180px); // not supported in IE8
+    position: absolute;
+    background-color: white;
+  }
   .listview{
 
     padding: 30px 40px;
