@@ -57,5 +57,5 @@ app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,fun
 
   //Test variable. If you see it when the app runs you are good to go
 	RapportOverview.testVar = 'We are up and running  on rapports overview -page!';
-	RapportOverview.testid = 24;
+	RapportOverview.testid = 0;
 }]);

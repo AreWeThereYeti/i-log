@@ -23,12 +23,11 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
       //debug message
       $scope.data = [{
         "title": $scope.title,
-        "dateFrom": $scope.dateFrom,
-        "dateTo": $scope.dateTo,
+        "from": $scope.dateFrom,
+        "to": $scope.dateTo,
         "created": new Date().getTime(),
         "shared": false
       }];
-
 		}
 	}
 

@@ -18,6 +18,9 @@
     }
   }
   .listview{
+
+    padding: 30px 40px;
+
     span:first-of-type{
       padding-right: 1px;
       border-right: 2px solid black;
@@ -33,14 +36,20 @@
   }
 
   .list-content{
-    border: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    &:last-of-type{
+      border-bottom: none;
+
+    }
     span.first{
       color: #bfbfbf;
       text-align: right;
       padding-right: 10px;
       margin-left: -10px;
+
     }
   }
+
 
   .list-head{
     border-bottom: 2px solid #000;
@@ -64,7 +73,20 @@
       }
     }
   }
-
+  .bar-value{
+    font-size: 18px;
+    color: $font-color-orange;
+  }
+  .bar-label{
+    font-size: 14px;
+  }
+  .domain-text{
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .dot-label{
+    font-size: 14px;
+  }
 
   .axis path,
   .axis line {

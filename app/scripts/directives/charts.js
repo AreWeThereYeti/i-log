@@ -1,5 +1,5 @@
 angular.module('gyldendal.directives', ['d3'])
-		.directive('d3Chart', ['d3Service', '$window', function(d3Service, $window) {
+		.directive('d3Chart', ['$timeout', 'd3Service', '$window', function($timeout, d3Service, $window) {
 			return {
 				restrict: 'EA',
 				template: "<div class='d3container'></div>",
@@ -10,8 +10,6 @@ angular.module('gyldendal.directives', ['d3'])
 //					Load d3 service
 					d3Service.d3().then(function(d3) {
 
-//						initialize base svg object on div.d3container
-            var svg = d3.select(".d3container");
 
 
 						// Browser onresize event
@@ -25,19 +23,19 @@ angular.module('gyldendal.directives', ['d3'])
 							// ----------------Check for type and render accordingly ----------------
 						}, function() {
 							if(attrs.type == 'bar'){
-								scope.renderbar(scope.data);
+                $timeout(function(){scope.renderbar(scope.data);},10);
 							}
 							else if(attrs.type == 'pie'){
-								scope.renderpie(scope.data);
+                $timeout(function(){scope.renderpie(scope.data);},10);
 							}
 							else if(attrs.type == 'list'){
 								scope.renderlist();
 							}
 							else if(attrs.type == 'line'){
-								scope.renderline(scope.data);
+                $timeout(function(){scope.renderline(scope.data);},10);
 							}
               else if(attrs.type == 'dot'){
-                scope.renderdot(scope.data);
+                $timeout(function(){scope.renderdot(scope.data);},10);
               }
 						});
 
@@ -56,15 +54,23 @@ angular.module('gyldendal.directives', ['d3'])
 
 							function draw(data) {
 
-								var margin = {top: 20, right: 20, bottom: 30, left: 60},
-										width = 860 - margin.left - margin.right,
-										height = 500 - margin.top - margin.bottom;
+								var margin = {top: 30, right: 40, bottom: 30, left: 40},
+										width = window.innerWidth - margin.left - margin.right,
+										height = 530 - margin.top - margin.bottom;
+
+                var barWidth = 80,
+                    barPadding = 20,
+                    barPaddingBottom = 100,
+                    heightInner = height-barPaddingBottom;
 
 								var x = d3.scale.ordinal()
 										.rangeRoundBands([0, width], .1);
 
 								var y = d3.scale.linear()
 										.range([height, 0]);
+
+                var yInner = d3.scale.linear()
+                  .range([heightInner, 0]);
 
 								var xAxis = d3.svg.axis()
 										.scale(x)
@@ -85,57 +91,116 @@ angular.module('gyldendal.directives', ['d3'])
  										.append("g")
 										.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-									x.domain(data.data.map(function(d) { return d.label; }));
+									//x.domain(data.data.map(function(d) { return d.label; }));
 									y.domain([0, d3.max(data.data, function(d) { return d.value; })]);
 
 									svg.append("g")
 											.attr("class", "x axis")
 											.attr("transform", "translate( 0," + height + ")")
 											.call(xAxis)
-											.style("fill", "e6e6e6")
-											.append("text")
-											.style("fill", "000000")
-											.attr("transform", "translate("+width/2+","+20+")")
-											.attr("dy", "-.1em")
-											.style("background-color", "white")
-											.style("text-anchor", "end")
-											.text(data.xtitle)
-											.style("fill", "000000");
+											.style("fill", "e6e6e6");
 
-									svg.append("g")
+                   svg.selectAll(".x")
+                      .append("g")
+                      .append("rect")
+                      .attr("class", "domain")
+                      .attr("width", 150)
+                      .attr("height", 30)
+                      .attr("transform", "translate("+(width-150)/2+",-15)")
+                      .style("fill", "#ffffff");
+
+                    svg.selectAll(".x")
+                      .append("g")
+                      .append("text")
+                      .attr("class", "domain-text")
+											.attr("transform", "translate("+width/2+",7)")
+                      .style("text-anchor", "middle")
+											.text(data.xtitle)
+											.style("fill", "#000000");
+
+									  svg.append("g")
 											.attr("class", "y axis")
 											.style("fill", "e6e6e6")
-											.call(yAxis)
-											.append("text")
-											.style("fill", "000000")
-											.attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
+											.call(yAxis);
+
+                    svg.selectAll(".y")
+                      .append("g")
+                      .append("rect")
+                      .attr("class", "domain")
+                      .attr("width", 30)
+                      .attr("height", 200)
+                      .attr("transform", "translate(-15,"+(height-200)/2+")")
+                      .style("fill", "#ffffff");
+
+                    svg.selectAll(".y")
+                      .append("g")
+                      .append("text")
+                      .attr("class", "domain-text")
+                      .style("fill", "000000")
+											.attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
 											.attr("dy", ".71em")
-											.style("text-anchor", "end")
+											.style("text-anchor", "middle")
 											.text(data.ytitle)
 											.style("fill", "000000");
 
 
-                var node = svg.selectAll(".bar")
+                var bar = svg.selectAll(".bar")
                   .data(data.data)
                   .enter()
                   .append("g");
 
-                node.append("rect")
+                bar.append("rect")
                   .attr("class", "bar")
-                  .attr("transform", "translate( "+ 20 + "," + -20 + ")")
-                  .attr("x", function(d) { return x(d.label); })
+                  .attr("transform", "translate( "+ 40 + "," + 0 + ")")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding); })
                   .style("fill", "#e6e6e6")
-                  .attr("width", x.rangeBand())
-                  .attr("y", function(d) { return y(d.value); })
-                  .attr("height", function(d) { return height - y(d.value); });
+                  .attr("width", barWidth)
+                  .attr("y", function(d) { return y(d.value)/1.27; })
+                  .attr("height", function(d) { return (height-y(d.value))/(height/(height-barPaddingBottom)); });
 
-                node.append("text")
-                  .attr("class", "bar-text")
-                  .attr("x", function(d) { return x(d.label)+x.rangeBand()/2; })
+                bar.append("text")
+                  .attr("class", "bar-value")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
                   .style("fill", "#e04f2f")
-                  .attr("y", function(d) { return y(d.value); })
+                  .attr("y", function(d) {
+                                if(d.value==0){
+                                  return y(d.value) / (height / (height - barPaddingBottom));
+                                }else {
+                                  return 30 + y(d.value) / (height / (height - barPaddingBottom));
+                                }
+                              })
                   .text(function(d) { return d.value})
-                  .style("text-anchor", "start");
+                  .style("text-anchor", "middle");
+
+                bar.append("text")
+                  .attr("class", "bar-label")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
+                  .style("fill", "#000000")
+                  .attr("y", function(d,i) {
+
+                    if(i % 2){
+                      return height-25;
+                    }else {
+                      return height-55;
+                    }
+                  })
+                  .text(function(d) { return d.label})
+                  .style("text-anchor", "middle");
+
+                bar.append("rect")
+                  .attr("class", "bar-line")
+                  .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
+                  .style("fill", "#e6e6e6")
+                  .attr("width", 2)
+                  .attr("height", function(d,i) {
+
+                    if(i % 2){
+                      return 45;
+                    }else {
+                      return 15;
+                    }
+                  })
+                  .attr("y", height-90 );
 
 
 							}
@@ -299,12 +364,10 @@ angular.module('gyldendal.directives', ['d3'])
 
 
               // Set the dimensions of the canvas / graph
-              var margin = {top: 20, right: 20, bottom: 30, left: 50},
-                width = 960 - margin.left - margin.right,
+              var margin = {top: 30, right: 40, bottom: 30, left: 40},
+                width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
-              // Parse the date / time
-              var parseDate = d3.time.format('%Y-%m-%dT%H:%M:%SZ').parse;
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
@@ -331,14 +394,6 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed allready
-/*              if(!data.isParsed) {
-                for(var i= 0;i<data.data.length;i++){
-                  data.data[i].date = parseDate(data.data[i].date);
-                  data.data[i].close = +data.data[i].close;
-                }
-                data.isParsed = true;
-              }*/
 
               // calculate a date before the min plot date to use as x-axis min scale
               var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
@@ -350,10 +405,10 @@ angular.module('gyldendal.directives', ['d3'])
                 // Add the valueline path.
               svg.append("path")
                 .attr("class", "line")
-                .attr("d", valueline(data.data))
+                .attr("d", valueline(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); })))
                 .style("fill", "none")
-                .style("stroke", "grey")
-                .style("stroke-width", 5);
+                .style("stroke", "#cccccc")
+                .style("stroke-width", 4);
 
 
               var node = svg.selectAll("g")
@@ -365,7 +420,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("class", "dot")
                 .attr("cx", function(d) { return x(d.date); })
                 .attr("cy", function(d) { return y(d.close); })
-                .attr("r", 12)
+                .attr("r", 10)
                 .style("fill", "red");
 
               node.append("text")
@@ -379,22 +434,47 @@ angular.module('gyldendal.directives', ['d3'])
                 svg.append("g")
                   .attr("class", "x axis")
                   .attr("transform", "translate(0," + height + ")")
-                  .call(xAxis)
+                  .call(xAxis);
+
+                svg.selectAll(".x")
+                  .append("g")
+                  .append("rect")
+                  .attr("class", "domain")
+                  .attr("width", 150)
+                  .attr("height", 30)
+                  .attr("transform", "translate("+(width-150)/2+",-15)")
+                  .style("fill", "#ffffff");
+
+                svg.selectAll(".x")
+                  .append("g")
                   .append("text")
-                  .attr("class", "axis-text")
-                  .style("fill", "000000")
-                  .attr("transform", "translate("+width/2+",0)")
+                  .attr("class", "domain-text")
+                  .attr("transform", "translate("+width/2+",7)")
                   .style("text-anchor", "middle")
                   .text(data.xtitle)
-                  .style("fill", "000000");
+                  .style("fill", "#000000");
+
 
                 // Add the Y Axis
                 svg.append("g")
                   .attr("class", "y axis")
-                  .call(yAxis)
+                  .call(yAxis);
+
+                svg.selectAll(".y")
+                  .append("g")
+                  .append("rect")
+                  .attr("class", "domain")
+                  .attr("width", 30)
+                  .attr("height", 200)
+                  .attr("transform", "translate(-15,"+(height-200)/2+")")
+                  .style("fill", "#ffffff");
+
+                svg.selectAll(".y")
+                  .append("g")
                   .append("text")
+                  .attr("class", "domain-text")
                   .style("fill", "000000")
-                  .attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
+                  .attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
                   .attr("dy", ".71em")
                   .style("text-anchor", "middle")
                   .text(data.ytitle)
@@ -406,6 +486,8 @@ angular.module('gyldendal.directives', ['d3'])
 //---------------- D3 function for rendering dot chart----------------
 
             scope.renderdot = function(data) {
+//						initialize base svg object on div.d3container
+              var svg = d3.select(".d3container");
 
 
               // remove all previous items before render
@@ -414,32 +496,30 @@ angular.module('gyldendal.directives', ['d3'])
               // If we don't pass any data, return out of the element
               if (!data) return;
 
-
+              // set dimensions of dot
+              var dotRadius = 5,
+                  dotPadding = 10;
 
               // Set the dimensions of the canvas / graph
-              var margin = {top: 20, right: 20, bottom: 30, left: 50},
-                width = 960 - margin.left - margin.right,
+              var margin = {top: 30, right: 40, bottom: 60, left: 40},
+                width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
-              // Parse the date / time
-              var parseDate = d3.time.format("%d-%b-%y");
 
               // Set the ranges
-              var x = d3.time.scale().range([0, width]);
+              var x = d3.scale.ordinal()
+                .rangeRoundBands([0, width], .1);
+              //var x = d3.time.scale().range([0, width]);
               var y = d3.scale.linear().range([height, 0]);
 
               // Define the axes
               // ticks can be formated through tickFormat()
               var xAxis = d3.svg.axis().scale(x)
-                .orient("bottom").ticks(6).tickSize(0);
+                .orient("bottom").ticks(0).tickSize(0);
 
               var yAxis = d3.svg.axis().scale(y)
                 .orient("left").ticks(0).tickSize(0);
 
-              // Define the line
-              var valueline = d3.svg.line()
-                .x(function(d) { return x(d.date); })
-                .y(function(d) { return y(d.close); });
 
               // Adds the svg canvas
               svg = d3.select(".d3container")
@@ -450,42 +530,10 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-              // parse data.date if not parsed already
-/*              if(!data.isParsed) {
-                for(var i= 0;i<data.data.length;i++){
-                  data.data[i].dates = parseDate(new Date(data.data[i].date));
-                  data.data[i].close = +data.data[i].close;
-                }
-                data.isParsed = true;
-              }*/
 
-              // calculate a date before the min plot date to use as x-axis min scale
-              var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
 
               // Scale the range of the data
-              x.domain([minDate, d3.max(data.data, function(d) { return d.date; })]);
               y.domain([0, d3.max(data.data, function(d) { return d.close; })]);
-
-
-
-              var node = svg.selectAll("g")
-                .data(data.data)
-                .enter()
-                .append("g");
-
-              node.append("circle")
-                .attr("class", "dot")
-                .attr("cx", function(d) { return x(d.date); })
-                .attr("cy", function(d) { return y(d.close); })
-                .attr("r", 12)
-                .style("fill", "red");
-
-              node.append("text")
-                .attr("x", function(d) { return x(d.date); })
-                .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { return d.close })
-                .style("text-anchor", "middle");
-
 
               // Add the X Axis
               svg.append("g")
@@ -493,9 +541,9 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis)
                 .append("text")
-                .attr("class", "axis-text")
+                .attr("class", "domain-text")
                 .style("fill", "000000")
-                .attr("transform", "translate("+width/2+", 30)")
+                .attr("transform", "translate("+width/2+", 55)")
                 .style("text-anchor", "middle")
                 .text(data.xtitle)
                 .style("fill", "000000");
@@ -503,17 +551,69 @@ angular.module('gyldendal.directives', ['d3'])
               // Add the Y Axis
               svg.append("g")
                 .attr("class", "y axis")
-                .call(yAxis)
+                .call(yAxis);
+
+              svg.selectAll(".y")
+                .append("g")
+                .append("rect")
+                .attr("class", "domain")
+                .attr("width", 30)
+                .attr("height", 200)
+                .attr("transform", "translate(-15,"+(height-200)/2+")")
+                .style("fill", "#ffffff");
+
+              svg.selectAll(".y")
+                .append("g")
                 .append("text")
+                .attr("class", "domain-text")
                 .style("fill", "000000")
-                .attr("transform", "translate(0,"+ height/2 +") rotate(-90)")
+                .attr("transform", "translate(-10,"+ height/2 +") rotate(-90)")
                 .attr("dy", ".71em")
                 .style("text-anchor", "middle")
                 .text(data.ytitle)
                 .style("fill", "000000");
 
+              var node = svg.selectAll(".dot")
+                .data(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); }))
+                .enter()
+                .append("g");
+
+              node.append("circle")
+                .attr("class", "dot")
+                .attr("transform", "translate(40,0)")
+                .attr("cx", function(d,i) { return i*(2*dotRadius+dotPadding); })
+                .attr("cy", function(d) { return y(d.close); })
+                .attr("r", dotRadius)
+                .style("fill", "red");
+
+              node.append("text")
+                .attr("class", "dot-value")
+                .attr("transform", "translate(40,0)")
+                .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
+                .attr("y", function(d) { return y(d.close)+30; })
+                .text(function(d) { return d.close })
+                .style("text-anchor", "middle");
+
+              node.append("rect")
+                .attr("class", "dot-background")
+                .attr("transform", "translate(40,0)")
+                .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding)-7; })
+                .style("fill", "#ffffff")
+                .attr("width", 18)
+                .attr("height", 40)
+                .attr("y", height -20 );
+
+              node.append("text")
+                .attr("class", "dot-label")
+                //.attr("transform","translate(40,0)")
+                .attr("transform", function(d,i) {
+                  return "rotate(-90) translate(" + (-height+6) +"," + (i*(2*dotRadius+dotPadding)+47) + ")"
+                })
+                .text(function(d) { return d3.time.format('%e/%m')(new Date(d.date))})
+                .style("text-anchor", "end");
 
             }
 					});
 				}};
 		}]);
+

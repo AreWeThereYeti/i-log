@@ -1,6 +1,6 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
-  <div class="grid reportsubmenu" ng-init="Report.pane = 'bar'">
+  <div class="grid reportsubmenu" ng-init="Report.pane = 'graph-dotted'">
     <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>Pie</span>
@@ -17,7 +17,7 @@
       <span class="icon icon-dots"></span>
       <span >graph dotted</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.connectedGraph">
+    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="!Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
       <span class="icon icon-line"></span>
       <span>linie</span>
     </div>
@@ -58,10 +58,17 @@
       </span>
     </div>
 
-    <div class="grid list.calculations active" ng-repeat="calculation in Rapport.dataList[0].calculations">
+    <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
       <span class="col-1-4">{{calculation.label}}</span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{Rapport.listFormula(calculation, column)}}
+      </span>
+    </div>
+
+    <div class="grid list-content" >
+      <span class="col-1-4"></span>
+      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
+
       </span>
     </div>
 

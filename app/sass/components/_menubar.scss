@@ -31,6 +31,10 @@
         margin-left: 10px;
         margin-right: 10px;
       }
+      &.report-interval{
+        font-size: 18px;
+        color: #cdcdcd;
+      }
     }
     [class^="icon-"]:before, [class*=" icon-"]:before{
       margin: 0 10px 0 0px;

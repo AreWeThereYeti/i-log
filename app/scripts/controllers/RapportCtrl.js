@@ -103,7 +103,7 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
       "views":
       {
         "scatterPlot":true,
-        "connectedGraph":false
+        "connectedGraph":true
       },
       "chart":
       {
@@ -115,7 +115,7 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
         "yAxis":
         {
           "inputID":"3",
-          "title":"Y-akse label som jeg har valgt"
+          "title":"Y-akse label"
         },
         "calculations":[
           {
