@@ -21,9 +21,12 @@
           <div class="circ">
               <span class="icon icon-trash-bin"></span>
           </div>
-          <div class="circ">
+          <div class="circ" ng-click="Share = !Share">
             <span class="icon icon-share"></span>
           </div>
       </div>
+  </div>
+  <div ng-show="Share">
+    <h1>sharing menu</h1>
   </div>
 </div>
