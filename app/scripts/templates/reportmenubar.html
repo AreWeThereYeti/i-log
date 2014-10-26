@@ -1,32 +1,49 @@
-<div class="menubar reportmenu grid">
-  <div class="col-3-4">
-    <ul>
-      <li>
-        <a href="#/rapporter">
-        <span class="back circ">
-          <span class="icon icon-arrow">
+<div class="menubar reportmenu">
+  <div class="grid">
+    <div class="col-3-4">
+      <ul>
+        <li>
+          <a href="#/rapporter">
+          <span class="back circ">
+            <span class="icon icon-arrow">
+            </span>
           </span>
-        </span>
-        </a>
-      </li>
-      <li>Title på i log</li>
-      <li class="report-interval"> ({{ReportMenubar.currentReport.from * 1000 | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.to * 1000 | date:'dd-MM-yyyy'}})</li>
-    </ul>
-  </div>
-  <div class="icons col-1-4">
+          </a>
+        </li>
+        <li>Title på i log</li>
+        <li class="report-interval"> ({{ReportMenubar.currentReport.from * 1000 | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.to * 1000 | date:'dd-MM-yyyy'}})</li>
+      </ul>
+    </div>
+    <div class="icons col-1-4">
       <div class="float-right">
-          <div class="circ">
-              <span class="icon icon-speech"></span>
-          </div>
-          <div class="circ">
-              <span class="icon icon-trash-bin"></span>
-          </div>
-          <div class="circ" ng-click="Share = !Share">
-            <span class="icon icon-share"></span>
-          </div>
+        <div class="circ">
+          <span class="icon icon-speech"></span>
+        </div>
+        <div class="circ">
+          <span class="icon icon-trash-bin"></span>
+        </div>
+        <div class="circ" ng-click="Share = !Share">
+         <span class="icon icon-share"></span>
+        </div>
       </div>
+    </div>
   </div>
-  <div ng-show="Share">
-    <h1>sharing menu</h1>
+  <div ng-show="Share" class="ngdialog animate">
+    <div class="ngdialog-content">
+      <div sclass="share grid">
+        <div class="header">
+          <h1>sharing menu</h1>
+        </div>
+        <div class="content">
+          <div class="content-inner">
+            <div>
+              <p>
+                sharing body content
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
