@@ -426,8 +426,8 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
 
     }
 
-    // return expression evaluated with $eval
-    return $scope.$eval(exp)+" "+calculation.unit;
+    // return expression evaluated with $eval rounded to two decimals
+    return (Math.round($scope.$eval(exp)* 100)/100)+" "+calculation.unit;
   };
 
 

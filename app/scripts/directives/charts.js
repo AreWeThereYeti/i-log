@@ -169,7 +169,7 @@ angular.module('gyldendal.directives', ['d3'])
                                   return 30 + y(d.value) / (height / (height - barPaddingBottom));
                                 }
                               })
-                  .text(function(d) { return d.value})
+                  .text(function(d) { return ((Math.round(d.value)* 100)/100)})
                   .style("text-anchor", "middle");
 
                 bar.append("text")
@@ -578,22 +578,6 @@ angular.module('gyldendal.directives', ['d3'])
                 .enter()
                 .append("g");
 
-              node.append("circle")
-                .attr("class", "dot")
-                .attr("transform", "translate(40,0)")
-                .attr("cx", function(d,i) { return i*(2*dotRadius+dotPadding); })
-                .attr("cy", function(d) { return y(d.close); })
-                .attr("r", dotRadius)
-                .style("fill", "red");
-
-              node.append("text")
-                .attr("class", "dot-value")
-                .attr("transform", "translate(40,0)")
-                .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
-                .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { return d.close })
-                .style("text-anchor", "middle");
-
               node.append("rect")
                 .attr("class", "dot-background")
                 .attr("transform", "translate(40,0)")
@@ -611,6 +595,22 @@ angular.module('gyldendal.directives', ['d3'])
                 })
                 .text(function(d) { return d3.time.format('%e/%m')(new Date(d.date))})
                 .style("text-anchor", "end");
+
+              node.append("circle")
+                .attr("class", "dot")
+                .attr("transform", "translate(40,0)")
+                .attr("cx", function(d,i) { return i*(2*dotRadius+dotPadding); })
+                .attr("cy", function(d) { return y(d.close); })
+                .attr("r", dotRadius)
+                .style("fill", "red");
+
+              node.append("text")
+                .attr("class", "dot-value")
+                .attr("transform", "translate(40,0)")
+                .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
+                .attr("y", function(d) { return y(d.close)+30; })
+                .text(function(d) { return d.close })
+                .style("text-anchor", "middle");
 
             }
 					});

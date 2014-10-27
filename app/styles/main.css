@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 1, ../sass/reset/_reset.scss */
+/* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 23, ../sass/reset/_reset.scss */
+/* line 24, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 36, ../sass/reset/_reset.scss */
+/* line 37, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -148,6 +148,32 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
+  @-webkit-keyframes bouncedelay {
+    /* line 109, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      -webkit-transform: scale(0);
+    }
+
+    /* line 110, ../sass/_loader.scss */
+    40% {
+      -webkit-transform: scale(1);
+    }
+}
+
+  @keyframes bouncedelay {
+    /* line 114, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+    }
+
+    /* line 117, ../sass/_loader.scss */
+    40% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+}
+
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -263,24 +289,7 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
+
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -288,6 +297,7 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -303,7 +313,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 28, ../sass/components/_fonts.scss */
+/* line 29, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -526,25 +536,27 @@ table {
   margin-left: 10px;
   margin-bottom: -2px;
   vertical-align: middle;
+  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
+  -o-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
+  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
-  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 
@@ -600,7 +612,7 @@ h1 {
 }
 /* line 50, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 300px;
@@ -635,7 +647,7 @@ h1 {
 }
 /* line 89, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 95px;
@@ -684,22 +696,27 @@ h1 {
 /* line 20, ../sass/pages/_report.scss */
 .report .report-content {
   overflow: auto;
+  width: 100%;
   height: calc(100% - 180px);
+  height: 80% \9;
   position: absolute;
   background-color: white;
 }
-/* line 26, ../sass/pages/_report.scss */
+/* line 28, ../sass/pages/_report.scss */
 .report .listview {
   width: 100%;
   padding: 30px 40px;
 }
-/* line 30, ../sass/pages/_report.scss */
+/* line 32, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   padding-right: 1px;
   border-right: 2px solid black;
 }
-/* line 34, ../sass/pages/_report.scss */
+/* line 36, ../sass/pages/_report.scss */
 .report .listview span {
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
   text-align: center;
   text-transform: capitalize;
   border-right: 1px solid #E5E5E5;
@@ -707,84 +724,96 @@ h1 {
   line-height: 40px;
   box-sizing: content-box;
 }
-/* line 44, ../sass/pages/_report.scss */
+/* line 49, ../sass/pages/_report.scss */
 .report .list-content {
   border-bottom: 1px solid #E5E5E5;
 }
-/* line 46, ../sass/pages/_report.scss */
+/* line 51, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 50, ../sass/pages/_report.scss */
+/* line 55, ../sass/pages/_report.scss */
 .report .list-content span.first {
+  font-size: 18px;
   color: #bfbfbf;
   text-align: right;
-  padding-right: 10px;
-  margin-left: -10px;
+  padding-right: 20px;
+  margin-left: -19px;
 }
-/* line 60, ../sass/pages/_report.scss */
+/* line 63, ../sass/pages/_report.scss */
+.report .list-content span.calc {
+  font-size: 14px;
+  text-align: right;
+  padding-right: 20px;
+  margin-left: -19px;
+}
+/* line 74, ../sass/pages/_report.scss */
 .report .list-head {
   border-bottom: 2px solid #000;
 }
-/* line 63, ../sass/pages/_report.scss */
+/* line 77, ../sass/pages/_report.scss */
 .report .list-head span {
   font-weight: bold;
 }
-/* line 67, ../sass/pages/_report.scss */
+/* line 81, ../sass/pages/_report.scss */
 .report .chart-calc {
-  padding: 0 40px;
+  padding: 30px 40px 145px 40px;
 }
-/* line 70, ../sass/pages/_report.scss */
+/* line 84, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
+  padding-top: 35px;
+}
+/* line 86, ../sass/pages/_report.scss */
+.report .chart-calc .chart-calc-element:first-of-type {
   padding-top: 30px;
 }
-/* line 73, ../sass/pages/_report.scss */
+/* line 89, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 77, ../sass/pages/_report.scss */
+/* line 93, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 82, ../sass/pages/_report.scss */
+/* line 98, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 86, ../sass/pages/_report.scss */
+/* line 102, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 89, ../sass/pages/_report.scss */
+/* line 105, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
   font-weight: bold;
 }
-/* line 93, ../sass/pages/_report.scss */
+/* line 109, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 97, ../sass/pages/_report.scss */
+/* line 114, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: grey;
   stroke-width: 2;
 }
-/* line 106, ../sass/pages/_report.scss */
+/* line 122, ../sass/pages/_report.scss */
 .report .legend {
   padding-top: 91px;
 }
-/* line 109, ../sass/pages/_report.scss */
+/* line 125, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 112, ../sass/pages/_report.scss */
+/* line 128, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 116, ../sass/pages/_report.scss */
+/* line 132, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
@@ -810,25 +839,25 @@ h1 {
   color: #e04f2f;
 }
 
-/* line 1, ../sass/components/_animation.scss */
+/* line 2, ../sass/components/_animation.scss */
 .animate.ng-enter {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   opacity: 0;
 }
 
-/* line 7, ../sass/components/_animation.scss */
+/* line 8, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 13, ../sass/components/_animation.scss */
+/* line 14, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-/* line 18, ../sass/components/_animation.scss */
+/* line 19, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }
@@ -859,25 +888,27 @@ h1 {
 .filterbar .datefilter .arrow_box:after {
   margin-right: 14px;
   margin-bottom: 10px;
+  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
+  -o-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
+  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
+  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
-  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 /* line 28, ../sass/components/_filterbar.scss */
@@ -899,12 +930,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 5px 25px;
-  background-color: #ffffff;
+  background-color: white;
   height: 80px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: #ffffff;
+  background-color: white;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar .back {
@@ -1026,22 +1057,24 @@ h1 {
   overflow: auto;
   width: 100%;
   height: calc(100% - 200px);
+  height: 80% \9;
   float: left;
   transition: top 0.2s;
   -webkit-transition: top 0.2s;
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 12, ../sass/components/_list.scss */
+/* line 13, ../sass/components/_list.scss */
 .list.no-filter {
   top: 137px;
   height: calc(100% - 137px);
+  height: 80% \9;
   transition: top 0.2s;
   -webkit-transition: top 0.2s;
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 22, ../sass/components/_list.scss */
+/* line 24, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
@@ -1049,52 +1082,54 @@ h1 {
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
 }
-/* line 30, ../sass/components/_list.scss */
+/* line 32, ../sass/components/_list.scss */
 .list .listheader .active:after {
   border-top-color: #e04f2f;
 }
-/* line 36, ../sass/components/_list.scss */
+/* line 38, ../sass/components/_list.scss */
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
+  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
+  -o-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
+  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
+  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
-  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 47, ../sass/components/_list.scss */
+/* line 49, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 50, ../sass/components/_list.scss */
+/* line 52, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
+  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
-  -webkit-transition-property: color;
   transition-property: color;
+  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 58, ../sass/components/_list.scss */
+/* line 60, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -1105,11 +1140,11 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 68, ../sass/components/_list.scss */
+/* line 70, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 71, ../sass/components/_list.scss */
+/* line 73, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 15px 5px;
   width: 25px;
@@ -1117,12 +1152,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 79, ../sass/components/_list.scss */
+/* line 81, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 84, ../sass/components/_list.scss */
+/* line 87, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1144,7 +1179,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 18, ../sass/components/_circle-icons.scss */
+/* line 19, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
@@ -1164,7 +1199,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 36, ../sass/components/_circle-icons.scss */
+/* line 37, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -1248,9 +1283,9 @@ h1 {
   cursor: pointer;
   margin: 0;
   color: #FFF;
+  -webkit-transition: all;
   -moz-transition: all;
   -o-transition: all;
-  -webkit-transition: all;
   transition: all;
 }
 /* line 11, ../sass/components/_buttons.scss */
@@ -1263,7 +1298,7 @@ h1 {
   color: black;
 }
 
-/* line 1, ../sass/directives/_dialog.scss */
+/* line 4, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -1370,7 +1405,7 @@ h1 {
 }
 /* line 52, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select, .share .content .select-inner select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 90px;

@@ -19,7 +19,9 @@
   }
   .report-content{
     overflow: auto;
+    width: 100%;
     height: calc(100% - 180px); // not supported in IE8
+    height: 80% \9;
     position: absolute;
     background-color: white;
   }
@@ -32,6 +34,9 @@
       border-right: 2px solid black;
     }
     span {
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
       text-align: center;
       text-transform: capitalize;
       border-right: 1px solid #E5E5E5;
@@ -48,12 +53,21 @@
 
     }
     span.first{
+      font-size: 18px;
       color: #bfbfbf;
       text-align: right;
-      padding-right: 10px;
-      margin-left: -10px;
+      padding-right: 20px;
+      margin-left: -19px;
 
     }
+    span.calc{
+      font-size: 14px;
+      text-align: right;
+      padding-right: 20px;
+      margin-left: -19px;
+
+    }
+
   }
 
 
@@ -65,11 +79,13 @@
     }
   }
   .chart-calc{
-    padding: 0 40px;
+    padding: 30px 40px 145px 40px;
 
     .chart-calc-element{
-      padding-top: 30px;
-
+      padding-top: 35px;
+      &:first-of-type{
+        padding-top: 30px;
+      }
       :first-child{
         font-size: 18px;
         padding-bottom: 10px;
