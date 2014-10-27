@@ -54,7 +54,7 @@ include('php/mads/core.php');
     <body ng-controller="MainCtrl as Main">
 
     <div class="topheader">
-      <h1><span class="gyldendal">Gyldendal |</span> <span class="ilog">I-log</span> debug :Path is : {{$root.showSection}}</h1>
+      <h1><span class="gyldendal">Gyldendal |</span> <span class="ilog">I-log</span></h1>
     </div>
 
       <!--Spinner-->

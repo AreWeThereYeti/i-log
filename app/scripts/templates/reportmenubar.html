@@ -8,39 +8,49 @@
             <span class="icon icon-arrow">
             </span>
           </span>
-          </a>
-        </li>
-        <li>Title på i log</li>
-        <li class="report-interval"> ({{ReportMenubar.currentReport.from * 1000 | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.to * 1000 | date:'dd-MM-yyyy'}})</li>
-      </ul>
-    </div>
-    <div class="icons col-1-4">
-      <div class="float-right">
-        <div class="circ">
-          <span class="icon icon-speech"></span>
-        </div>
-        <div class="circ">
-          <span class="icon icon-trash-bin"></span>
-        </div>
-        <div class="circ" ng-click="Share = !Share">
-         <span class="icon icon-share"></span>
-        </div>
+        </span>
+        </a>
+      </li>
+      <li>{{ReportMenubar.currentReport.title}}</li>
+      <li class="report-interval"> ({{ReportMenubar.currentReport.from * 1000 | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.to * 1000 | date:'dd-MM-yyyy'}})</li>
+    </ul>
+  </div>
+  <div class="icons col-1-4">
+    <div class="float-right">
+      <div class="circ">
+        <span class="icon icon-speech"></span>
+      </div>
+      <div class="circ">
+        <span class="icon icon-trash-bin"></span>
+      </div>
+      <div class="circ" ng-click="Share = !Share">
+       <span class="icon icon-share"></span>
       </div>
     </div>
+  </div>
   </div>
   <div ng-show="Share" class="ngdialog">
     <div class="ngdialog-content">
       <div  class="share grid">
         <div class="header">
-          <h1>sharing menu</h1>
+          <ul>
+            <li class="icon icon-share-nocirkel">Del med lærer</li>
+            <li class="icon icon-download">Pdf</li>
+            <li class="icon icon-mail">Mail</li>
+          </ul>
         </div>
         <div class="content">
-          <div class="content-inner">
-            <div>
-              <p>
-                Vil du melde en fejl eller en uhensigtsmæssighed?
-                <br>
-              </p>
+          <div class="grid">
+            <span class="label">Send kopi til kollega</span>
+            <div class="col-3-4">
+              <div class="select-inner left">
+                <select name="År" class="">
+                  <option value="lærer1">lærer1</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-1-4">
+              <button class="btn">send</button>
             </div>
           </div>
         </div>

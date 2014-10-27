@@ -3,7 +3,11 @@ h1{
 }
 
 .log-content{
-background-color: #E9E9E9;
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+  height: calc(100% - 130px);
+  background-color: #E9E9E9;
   padding: 40px;
 
   form{
