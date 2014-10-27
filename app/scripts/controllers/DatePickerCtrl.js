@@ -6,12 +6,19 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 	$scope.month = DateService.month;
 	$scope.day = DateService.day;
 
+
+	var d = new Date();
+	$scope.toYear = d.getFullYear()
+	$scope.toMonth= d.getMonth();
+	$scope.toDay  = d.getDate()
+
   //On create report click
 	$scope.createReport = function(){
     //Check if "from date " is defined
 		if(angular.isDefined($scope.fromYear && $scope.fromMonth && $scope.fromDay)){
 			$scope.dateFrom =  new Date(($scope.fromYear + '-' + $scope.fromMonth.val + '-' + $scope.fromDay)).getTime();
 		}
+
 
     //Check if "to date" is defined
 		if(angular.isDefined($scope.toYear && $scope.toMonth && $scope.toDay)){
