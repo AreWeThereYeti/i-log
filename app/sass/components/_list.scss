@@ -1,7 +1,24 @@
 .list{
+  position: absolute;
+  top: 200px;
   overflow: auto;
   width: 100%;
+  height: calc(100% - 200px);
   float: left;
+  transition:         top 0.2s;
+  -webkit-transition: top 0.2s;
+  -moz-transition:    top 0.2s;
+  -o-transition:      top 0.2s;
+  &.no-filter{
+    top: 137px;
+    height: calc(100% - 137px);
+    transition:         top 0.2s;
+    -webkit-transition: top 0.2s;
+    -moz-transition:    top 0.2s;
+    -o-transition:      top 0.2s;
+
+  }
+
   .listheader{
     line-height: 50px;
     padding: $base-padding;
