@@ -1027,6 +1027,16 @@ h1 {
   margin-right: 15px;
 }
 
+/* line 121, ../sass/components/_menubar.scss */
+[class^="icon-"]:hover a,
+[class*=" icon-"]:hover a {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  color: #e04f2f;
+}
+
 /* line 1, ../sass/components/_list.scss */
 .list {
   position: absolute;
