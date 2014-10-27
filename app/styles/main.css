@@ -591,48 +591,49 @@ h1 {
   height: 37px;
   padding: 0 0px 0 10px;
   margin-right: 5px;
+  font-size: 18px;
 }
-/* line 45, ../sass/pages/_logs.scss */
+/* line 46, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 49, ../sass/pages/_logs.scss */
+/* line 50, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
   background-color: transparent;
   outline: 0;
   border: 0;
   width: 300px;
   height: 35px;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 00px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  margin: 0px;
+  margin: 0;
 }
-/* line 63, ../sass/pages/_logs.scss */
+/* line 64, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 73, ../sass/pages/_logs.scss */
+/* line 74, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
   width: 115px;
   float: left;
   margin: 5px;
 }
-/* line 79, ../sass/pages/_logs.scss */
+/* line 80, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 83, ../sass/pages/_logs.scss */
+/* line 84, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 87, ../sass/pages/_logs.scss */
+/* line 88, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   background-color: transparent;
   outline: 0;
@@ -645,14 +646,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 100, ../sass/pages/_logs.scss */
+/* line 101, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 110, ../sass/pages/_logs.scss */
+/* line 111, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
