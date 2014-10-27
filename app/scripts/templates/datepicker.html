@@ -1,18 +1,18 @@
 <div class="datepicker grid">
   <div class="header">
-    <h1>Opret ny rapport1</h1>
+    <h1>Opret ny rapport</h1>
   </div>
   <div class="content">
-    <h2>Title</h2>
+    <h2 class="label">Title</h2>
     <div class="inputcontainer">
       <input type="text" ng-model="title" />
     </div>
     <div class="content-inner">
       <div class="grid">
-        <h3>Dato fra</h3>
+        <h2 class="label">Dato fra</h2>
         <div class="select">
           <div class="select-inner left">
-            <select  ng-init="'fromYear = year[0]'" ng-change="update()" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
+            <select ng-init="'fromYear = year[0]'" ng-change="update()" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
             </select>
           </div>
         </div>
@@ -30,15 +30,22 @@
         </div>
       </div>
       <div class="grid">
+        <h2 class="label">Dato til</h2>
         <div class="col-1-3">
-          <input type="text"/>
+          <span class="first">År</span>
+          <input class="first" ng-model="toYear" placeholder="År, fx 2014" type="text"/>
         </div>
         <div class="col-1-3">
-          <input type="text"/>
+          <span>Måned</span>
+          <input ng-model="toMonth" placeholder="Måned, fx 04" type="text"/>
         </div>
         <div class="col-1-3">
-          <input type="text"/>
+          <span>Dato</span>
+          <input ng-model="toDay" placeholder="Dag, fx 24" type="text"/>
         </div>
+      </div>
+      <div class="grid">
+        <button class="btn" ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay || !title" ng-click="createReport()">Gå Videre</button>
       </div>
       <!--<div class="grid">
         <h3>Dato til</h3>
@@ -60,7 +67,6 @@
             </select>
           </div>
         </div>
-        <button class="btn" ng-disabled="!fromYear || !fromMonth || !fromDay || !toYear || !toMonth || !toDay || !title" ng-click="createReport()">Gå Videre</button>
       </div>-->
     </div>
   </div>
