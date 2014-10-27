@@ -567,32 +567,33 @@ h1 {
   overflow: auto;
   width: 100%;
   height: calc(100% - 130px);
+  height: 80% \9;
   background-color: #E9E9E9;
   padding: 40px;
 }
-/* line 16, ../sass/pages/_logs.scss */
+/* line 17, ../sass/pages/_logs.scss */
 .log-content .no-padding {
   padding-bottom: 0;
 }
-/* line 19, ../sass/pages/_logs.scss */
+/* line 20, ../sass/pages/_logs.scss */
 .log-content label {
   font-weight: bold;
   display: block;
   padding-bottom: 15px;
 }
-/* line 25, ../sass/pages/_logs.scss */
+/* line 26, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 25px;
 }
-/* line 28, ../sass/pages/_logs.scss */
+/* line 29, ../sass/pages/_logs.scss */
 .log-content .input-field:last-child {
   padding-bottom: 0;
 }
-/* line 33, ../sass/pages/_logs.scss */
+/* line 34, ../sass/pages/_logs.scss */
 .log-content textarea {
   padding: 20px;
 }
-/* line 37, ../sass/pages/_logs.scss */
+/* line 38, ../sass/pages/_logs.scss */
 .log-content input {
   border: 0;
   outline: 0;
@@ -601,12 +602,12 @@ h1 {
   margin-right: 5px;
   font-size: 18px;
 }
-/* line 46, ../sass/pages/_logs.scss */
+/* line 47, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 50, ../sass/pages/_logs.scss */
+/* line 51, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
   background-color: transparent;
   outline: 0;
@@ -619,29 +620,29 @@ h1 {
   -moz-appearance: none;
   margin: 0;
 }
-/* line 65, ../sass/pages/_logs.scss */
+/* line 66, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 75, ../sass/pages/_logs.scss */
+/* line 76, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
   width: 115px;
   float: left;
   margin: 5px;
 }
-/* line 81, ../sass/pages/_logs.scss */
+/* line 82, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 85, ../sass/pages/_logs.scss */
+/* line 86, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 89, ../sass/pages/_logs.scss */
+/* line 90, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   background-color: transparent;
   outline: 0;
@@ -654,14 +655,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 102, ../sass/pages/_logs.scss */
+/* line 103, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 112, ../sass/pages/_logs.scss */
+/* line 113, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
