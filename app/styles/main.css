@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 13, ../sass/reset/_reset.scss */
+/* line 1, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 24, ../sass/reset/_reset.scss */
+/* line 23, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 37, ../sass/reset/_reset.scss */
+/* line 36, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -148,32 +148,6 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
-  @-webkit-keyframes bouncedelay {
-    /* line 109, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      -webkit-transform: scale(0);
-    }
-
-    /* line 110, ../sass/_loader.scss */
-    40% {
-      -webkit-transform: scale(1);
-    }
-}
-
-  @keyframes bouncedelay {
-    /* line 114, ../sass/_loader.scss */
-    0%, 80%, 100% {
-      transform: scale(0);
-      -webkit-transform: scale(0);
-    }
-
-    /* line 117, ../sass/_loader.scss */
-    40% {
-      transform: scale(1);
-      -webkit-transform: scale(1);
-    }
-}
-
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -289,7 +263,24 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -297,7 +288,6 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -313,7 +303,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 29, ../sass/components/_fonts.scss */
+/* line 28, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -413,6 +403,106 @@ table {
   content: "z";
 }
 
+/* line 100, ../sass/components/_fonts.scss */
+.icon-bar:before {
+  content: "b";
+}
+
+/* line 103, ../sass/components/_fonts.scss */
+.icon-dots:before {
+  content: "d";
+}
+
+/* line 106, ../sass/components/_fonts.scss */
+.icon-grid:before {
+  content: "g";
+}
+
+/* line 109, ../sass/components/_fonts.scss */
+.icon-line:before {
+  content: "h";
+}
+
+/* line 112, ../sass/components/_fonts.scss */
+.icon-logs:before {
+  content: "i";
+}
+
+/* line 115, ../sass/components/_fonts.scss */
+.icon-piechart:before {
+  content: "j";
+}
+
+/* line 118, ../sass/components/_fonts.scss */
+.icon-reports:before {
+  content: "o";
+}
+
+/* line 121, ../sass/components/_fonts.scss */
+.icon-filter:before {
+  content: "f";
+}
+
+/* line 124, ../sass/components/_fonts.scss */
+.icon-edit:before {
+  content: "e";
+}
+
+/* line 127, ../sass/components/_fonts.scss */
+.icon-trash-bin:before {
+  content: "m";
+}
+
+/* line 130, ../sass/components/_fonts.scss */
+.icon-plus:before {
+  content: "k";
+}
+
+/* line 133, ../sass/components/_fonts.scss */
+.icon-quicklook:before {
+  content: "l";
+}
+
+/* line 136, ../sass/components/_fonts.scss */
+.icon-speech:before {
+  content: "p";
+}
+
+/* line 139, ../sass/components/_fonts.scss */
+.icon-arrow:before {
+  content: "a";
+}
+
+/* line 142, ../sass/components/_fonts.scss */
+.icon-disc:before {
+  content: "x";
+}
+
+/* line 145, ../sass/components/_fonts.scss */
+.icon-icons:before {
+  content: "n";
+}
+
+/* line 148, ../sass/components/_fonts.scss */
+.icon-share:before {
+  content: "z";
+}
+
+/* line 151, ../sass/components/_fonts.scss */
+.icon-mail:before {
+  content: "c";
+}
+
+/* line 154, ../sass/components/_fonts.scss */
+.icon-share-nocirkel:before {
+  content: "q";
+}
+
+/* line 157, ../sass/components/_fonts.scss */
+.icon-download:before {
+  content: "r";
+}
+
 /* line 1, ../sass/components/_helpers.scss */
 .float-right {
   float: right;
@@ -436,27 +526,25 @@ table {
   margin-left: 10px;
   margin-bottom: -2px;
   vertical-align: middle;
-  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -o-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
-  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
+  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 
@@ -503,50 +591,51 @@ h1 {
   height: 37px;
   padding: 0 0px 0 10px;
   margin-right: 5px;
+  font-size: 18px;
 }
-/* line 45, ../sass/pages/_logs.scss */
+/* line 46, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 49, ../sass/pages/_logs.scss */
+/* line 50, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   outline: 0;
   border: 0;
   width: 300px;
   height: 35px;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 00px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  margin: 0px;
+  margin: 0;
 }
-/* line 63, ../sass/pages/_logs.scss */
+/* line 65, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 73, ../sass/pages/_logs.scss */
+/* line 75, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
   width: 115px;
   float: left;
   margin: 5px;
 }
-/* line 79, ../sass/pages/_logs.scss */
+/* line 81, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 83, ../sass/pages/_logs.scss */
+/* line 85, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 87, ../sass/pages/_logs.scss */
+/* line 89, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   outline: 0;
   border: 0;
   width: 95px;
@@ -557,14 +646,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 100, ../sass/pages/_logs.scss */
+/* line 102, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 110, ../sass/pages/_logs.scss */
+/* line 112, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
@@ -601,6 +690,7 @@ h1 {
 }
 /* line 26, ../sass/pages/_report.scss */
 .report .listview {
+  width: 100%;
   padding: 30px 40px;
 }
 /* line 30, ../sass/pages/_report.scss */
@@ -675,7 +765,7 @@ h1 {
 .report .dot-label {
   font-size: 14px;
 }
-/* line 98, ../sass/pages/_report.scss */
+/* line 97, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -720,25 +810,25 @@ h1 {
   color: #e04f2f;
 }
 
-/* line 2, ../sass/components/_animation.scss */
+/* line 1, ../sass/components/_animation.scss */
 .animate.ng-enter {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   opacity: 0;
 }
 
-/* line 8, ../sass/components/_animation.scss */
+/* line 7, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 14, ../sass/components/_animation.scss */
+/* line 13, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-/* line 19, ../sass/components/_animation.scss */
+/* line 18, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }
@@ -769,27 +859,25 @@ h1 {
 .filterbar .datefilter .arrow_box:after {
   margin-right: 14px;
   margin-bottom: 10px;
-  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -o-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
-  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -o-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
-  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
+  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 /* line 28, ../sass/components/_filterbar.scss */
@@ -811,12 +899,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 5px 25px;
-  background-color: white;
+  background-color: #ffffff;
   height: 80px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: white;
+  background-color: #ffffff;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar .back {
@@ -854,24 +942,79 @@ h1 {
   font-size: 18px;
   color: #cdcdcd;
 }
-/* line 39, ../sass/components/_menubar.scss */
+/* line 40, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 45, ../sass/components/_menubar.scss */
+/* line 46, ../sass/components/_menubar.scss */
+.menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:hover:before {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  color: #e04f2f;
+  border-color: #e04f2f;
+}
+/* line 57, ../sass/components/_menubar.scss */
+.menubar .share .content {
+  padding: 15px 25px;
+}
+/* line 61, ../sass/components/_menubar.scss */
+.menubar .share .content .label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #a0a0a0;
+  text-transform: uppercase;
+}
+/* line 67, ../sass/components/_menubar.scss */
+.menubar .share .content select {
+  font-size: 18px;
+}
+/* line 70, ../sass/components/_menubar.scss */
+.menubar .share .content .btn {
+  font-size: 18px;
+  margin-top: 5px;
+}
+/* line 76, ../sass/components/_menubar.scss */
+.menubar .share ul {
+  padding: 0 25px;
+}
+/* line 78, ../sass/components/_menubar.scss */
+.menubar .share ul li:hover {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  color: #e04f2f;
+}
+/* line 86, ../sass/components/_menubar.scss */
+.menubar .share ul li {
+  font-size: 18px;
+}
+/* line 90, ../sass/components/_menubar.scss */
+.menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:before {
+  margin: 0 10px 0 20px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+/* line 95, ../sass/components/_menubar.scss */
+.menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:first-of-type:before {
+  margin-left: 0px;
+}
+/* line 101, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 54, ../sass/components/_menubar.scss */
+/* line 110, ../sass/components/_menubar.scss */
 .menubar .circ:last-of-type {
   margin-right: 0px;
 }
-/* line 57, ../sass/components/_menubar.scss */
+/* line 113, ../sass/components/_menubar.scss */
 .menubar .circ.back {
   margin-right: 15px;
 }
@@ -914,27 +1057,25 @@ h1 {
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
-  -webkit-transform-origin: 50% 40%;
   -moz-transform-origin: 50% 40%;
   -ms-transform-origin: 50% 40%;
-  -o-transform-origin: 50% 40%;
+  -webkit-transform-origin: 50% 40%;
   transform-origin: 50% 40%;
-  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -o-transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
-  -webkit-transition-property: all;
   -moz-transition-property: all;
   -o-transition-property: all;
+  -webkit-transition-property: all;
   transition-property: all;
-  -webkit-transition-duration: 0.1s;
   -moz-transition-duration: 0.1s;
   -o-transition-duration: 0.1s;
+  -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
 /* line 47, ../sass/components/_list.scss */
@@ -944,13 +1085,13 @@ h1 {
 /* line 50, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
-  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
+  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 /* line 58, ../sass/components/_list.scss */
@@ -981,7 +1122,7 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 85, ../sass/components/_list.scss */
+/* line 84, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1003,7 +1144,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 19, ../sass/components/_circle-icons.scss */
+/* line 18, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
@@ -1023,7 +1164,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 37, ../sass/components/_circle-icons.scss */
+/* line 36, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -1107,9 +1248,9 @@ h1 {
   cursor: pointer;
   margin: 0;
   color: #FFF;
-  -webkit-transition: all;
   -moz-transition: all;
   -o-transition: all;
+  -webkit-transition: all;
   transition: all;
 }
 /* line 11, ../sass/components/_buttons.scss */
@@ -1122,7 +1263,7 @@ h1 {
   color: black;
 }
 
-/* line 4, ../sass/directives/_dialog.scss */
+/* line 1, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -1172,64 +1313,64 @@ h1 {
 }
 
 /* line 3, ../sass/directives/_datepicker.scss */
-.datepicker, .error {
+.datepicker, .error, .share {
   border-top: 5px solid #000;
   border-bottom: 5px solid #FFF;
 }
 /* line 7, ../sass/directives/_datepicker.scss */
-.datepicker .header, .error .header {
+.datepicker .header, .error .header, .share .header {
   background-color: #ffffff;
   width: 100%;
 }
 /* line 10, ../sass/directives/_datepicker.scss */
-.datepicker .header h1, .error .header h1 {
+.datepicker .header h1, .error .header h1, .share .header h1 {
   color: #000000;
   font-size: 24px;
   padding: 15px 20px;
 }
 /* line 16, ../sass/directives/_datepicker.scss */
-.datepicker .content, .error .content {
-  background-color: #E2E2E2;
+.datepicker .content, .error .content, .share .content {
+  background-color: #e9e9e9;
 }
 /* line 18, ../sass/directives/_datepicker.scss */
-.datepicker .content h2, .error .content h2 {
+.datepicker .content h2, .error .content h2, .share .content h2 {
   padding: 30px 0px 10px 20px;
   text-transform: uppercase;
   font-size: 14px;
   color: #383838;
 }
-/* line 24, ../sass/directives/_datepicker.scss */
-.datepicker .content .inputcontainer, .datepicker .content .content-inner, .error .content .inputcontainer, .error .content .content-inner {
+/* line 25, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer, .datepicker .content .content-inner, .error .content .inputcontainer, .error .content .content-inner, .share .content .inputcontainer, .share .content .content-inner {
   overflow: auto;
   padding: 15px 20px;
 }
-/* line 27, ../sass/directives/_datepicker.scss */
-.datepicker .content .inputcontainer input, .datepicker .content .content-inner input, .error .content .inputcontainer input, .error .content .content-inner input {
+/* line 28, ../sass/directives/_datepicker.scss */
+.datepicker .content .inputcontainer input, .datepicker .content .content-inner input, .error .content .inputcontainer input, .error .content .content-inner input, .share .content .inputcontainer input, .share .content .content-inner input {
   width: 100%;
   height: 40px;
   border: 0;
 }
-/* line 33, ../sass/directives/_datepicker.scss */
-.datepicker .content .select, .error .content .select {
+/* line 34, ../sass/directives/_datepicker.scss */
+.datepicker .content .select, .error .content .select, .share .content .select {
   width: 33.3%;
   float: left;
 }
-/* line 40, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner, .error .content .select-inner {
+/* line 41, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner, .error .content .select-inner, .share .content .select-inner {
   border-bottom: 3px solid #000;
   margin: 5px;
 }
-/* line 44, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner.left, .error .content .select-inner.left {
+/* line 45, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.left, .error .content .select-inner.left, .share .content .select-inner.left {
   margin-left: 0px;
 }
-/* line 48, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner.right, .error .content .select-inner.right {
+/* line 49, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner.right, .error .content .select-inner.right, .share .content .select-inner.right {
   margin-right: 0px;
 }
-/* line 51, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner select, .error .content .select-inner select {
-  background-color: rgba(0, 0, 0, 0);
+/* line 52, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner select, .error .content .select-inner select, .share .content .select-inner select {
+  background-color: transparent;
   outline: 0;
   border: 0;
   width: 90px;
@@ -1240,15 +1381,15 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 64, ../sass/directives/_datepicker.scss */
-.datepicker .content .select-inner:after, .error .content .select-inner:after {
+/* line 66, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner:after, .error .content .select-inner:after, .share .content .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 72, ../sass/directives/_datepicker.scss */
-.datepicker .content .btn, .error .content .btn {
+/* line 74, ../sass/directives/_datepicker.scss */
+.datepicker .content .btn, .error .content .btn, .share .content .btn {
   margin-top: 20px;
   float: right;
 }

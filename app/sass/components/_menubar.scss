@@ -36,12 +36,68 @@
         color: #cdcdcd;
       }
     }
+
     [class^="icon-"]:before, [class*=" icon-"]:before{
       margin: 0 10px 0 0px;
       font-size: 20px;
       vertical-align: middle;
     }
+
+    [class^="icon-"]:before, [class*=" icon-"]:hover:before {
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      color: #e04f2f;
+      border-color: #e04f2f;
+    }
   }
+
+  .share{
+    .content{
+      padding: 15px 25px;
+
+
+      .label{
+        font-size: 14px;
+        font-weight: bold;
+        color: #a0a0a0;
+        text-transform: uppercase;
+      }
+      select{
+        font-size: 18px;
+      }
+      .btn{
+        font-size: 18px;
+        margin-top: 5px;
+      }
+    }
+
+    ul{
+      padding: $base-padding;
+      li:hover{
+        transition: all 0.2s;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        color: #e04f2f;
+      }
+
+      li{
+        font-size: 18px;
+      }
+
+      [class^="icon-"]:before, [class*=" icon-"]:before{
+        margin: 0 10px 0 20px;
+        font-size: 20px;
+        vertical-align: middle;
+      }
+      [class^="icon-"]:before, [class*=" icon-"]:first-of-type:before {
+        margin-left: 0px;
+      }
+    }
+  }
+
   .icons{
     height: 75px;
     float: right;
