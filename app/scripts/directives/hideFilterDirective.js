@@ -7,10 +7,9 @@ angular.module('gyldendal.directives')
         $rootScope.filter = true;
 
         angular.element(element).bind("scroll", function() {
-          if(this.scrollTop >= 30) {
+          console.log("list scroll val: "+this.scrollTop);
+          if(this.scrollTop > 50) {
             $rootScope.filter = false;
-          } else {
-            $rootScope.filter = true;
           }
           scope.$apply();
         });
