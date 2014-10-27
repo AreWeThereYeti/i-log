@@ -1,7 +1,7 @@
 <div ng-controller="MenubarCtrl as Menubar" class="menubar" ng-include="'scripts/templates/menubar.html'"></div>
-<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar collapsable"  scroll ng-class="{'showme': $root.filter}" ng-include="'scripts/templates/filterbar.html'"></div>
+<div ng-controller="FilterbarCtrl as Filterbar" class="filterbar collapsable" ng-class="{'showme': $root.filter}" ng-include="'scripts/templates/filterbar.html'"></div>
 
-<div class="list">
+<div class="list" ng-class="{'no-filter': !$root.filter}" scroll>
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
