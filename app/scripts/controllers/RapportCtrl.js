@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcalcservice', function (component, logs, $scope, report, statcalcservice) {
+app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'report', 'statcalcservice', function ($routeParams, component, logs, $scope, report, statcalcservice) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
@@ -26,6 +26,51 @@ app.controller('RapportCtrl', ['component', 'logs', '$scope', 'report', 'statcal
     } else if(Rapport.component.reports[i].type == "graph"){
       Rapport.dataGraph.push(Rapport.component.reports[i]);
     }
+  }
+
+  //dummy report array as it should look after parsing
+  Rapport.reports = [
+    {
+      created: 1414162814519,
+      "from" : "1321009871",
+      "to" : "1356174671",
+      "title" : "Report1",
+      "shared" : true
+    },
+    {
+      created: 1414162814519,
+      "from" : "1321009871",
+      "to" : "1354360271",
+      "title" : "Report2",
+      "shared" : false
+    },
+    {
+      created: 1414162814519,
+      "from" : "1321009871",
+      "to" : "1356952271",
+      "title" : "Report3",
+      "shared" : true
+    },
+    {
+      created: 1414162814519,
+      "from" : "1321009871",
+      "to" : "1356174671",
+      "title" : "Report4",
+      "shared" : true
+    },
+    {
+      created: 1414162814519,
+      "from" : "1321009871",
+      "to" : "1355483471",
+      "title" : "Report5",
+      "shared" : true
+    }
+  ];
+
+// set current report to dummy report with index = route.id
+  Rapport.route = $routeParams.id;
+  if(angular.isDefinedOrNotNull(Rapport.route)){
+    Rapport.currentReport = Rapport.reports[Rapport.route];
   }
 
 // dummy component data for testing
