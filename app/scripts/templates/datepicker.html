@@ -13,18 +13,21 @@
         <div class="select">
           <div class="select-inner left">
             <select ng-init="'fromYear = year[0]'" ng-change="update()" ng-model="fromYear" ng-options="year as year for year in year track by year" name="År">
+              <option value="">År</option>
             </select>
           </div>
         </div>
         <div class="select">
           <div class="select-inner">
             <select ng-model="fromMonth"  ng-change="update()" ng-options="u as u.month for u in month track by u.val" name="Maaned" >
+              <option value="">Måned</option>
             </select>
           </div>
         </div>
         <div class="select">
           <div class="select-inner right">
             <select ng-model="fromDay" ng-options="day as day for day in day track by day" name="Dag" >
+              <option value="">Dag</option>
             </select>
           </div>
         </div>
@@ -33,15 +36,15 @@
         <h2 class="label">Dato til</h2>
         <div class="col-1-3">
           <span class="first">År</span>
-          <input class="first" ng-model="toYear" placeholder="År, fx 2014" type="text"/>
+          <input class="first" ng-model="toYear" placeholder="fx 2014" type="text"/>
         </div>
         <div class="col-1-3">
           <span>Måned</span>
-          <input ng-model="toMonth" placeholder="Måned, fx 04" type="text"/>
+          <input ng-model="toMonth" placeholder="fx 04" type="text"/>
         </div>
         <div class="col-1-3">
-          <span>Dato</span>
-          <input ng-model="toDay" placeholder="Dag, fx 24" type="text"/>
+          <span>Dag</span>
+          <input ng-model="toDay" placeholder="fx 24" type="text"/>
         </div>
       </div>
       <div class="grid">
