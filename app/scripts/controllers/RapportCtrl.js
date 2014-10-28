@@ -98,7 +98,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
           "unit":"km",
           "columns":[
 
-            "K2"
+            "K2,K1"
           ]
         },
         {
@@ -439,7 +439,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
     }
     // determine if this column is used in formula. if not, return
     angular.forEach(calculation.columns, function(kID){
-      if(kID == column.id){
+      if(kID.search(column.id) != -1){
 
         // gather all affected column entries in an array
         angular.forEach(Rapport.logs, function(ilog) {
