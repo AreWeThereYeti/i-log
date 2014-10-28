@@ -986,7 +986,7 @@ h1 {
 /* line 35, ../sass/components/_menubar.scss */
 .menubar ul li.report-interval {
   font-size: 18px;
-  color: #cdcdcd;
+  color: #969696;
 }
 /* line 41, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {

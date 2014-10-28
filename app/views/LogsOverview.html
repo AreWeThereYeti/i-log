@@ -17,9 +17,9 @@
     <!--item in logs-->
     <div class="listitem animate" ng-repeat="log in LogsOverview.logs | logRange:LogsOverview.filterRange |orderBy:LogsOverview.predicate:reverse">
         <span class="col-1-8">
-          <span class="date">{{log.timestamp | date:'dd-MM-yyyy'}}</span>
+          <span class="date" ng-class="{active : LogsOverview.predicate == 'timestamp'}">{{log.timestamp | date:'dd-MM-yyyy'}}</span>
         </span>
-        <span class="col-6-8">
+        <span class="col-6-8" ng-class="{active : LogsOverview.predicate == 'id'}">
           <span class="">#{{log.id}} {{LogsOverview.componentData.title}}</span>
         </span>
         <span class="col-1-8">

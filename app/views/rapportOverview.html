@@ -21,15 +21,15 @@
   <!--item in reports-->
   <div class="listitem grid animate" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:reverse">
       <span class="col-1-8">
-        <span class="date">{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'from'}">{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-8">
-        <span class="date">{{item.to * 1000 | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'to'}">{{item.to * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
-      <span class="col-1-2">
+      <span class="col-1-2" ng-class="{active : RapportOverview.predicate == 'title'}">
         <span>{{item.title}}</span>
       </span>
-      <span class="col-1-8">
+      <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'shared'}">
         <span ng-show="{{item.shared}}">Ja</span>
         <span ng-hide="{{item.shared}}">Nej</span>
       </span>
