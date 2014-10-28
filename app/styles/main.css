@@ -931,10 +931,14 @@ h1 {
   margin-left: 15px;
 }
 /* line 32, ../sass/components/_filterbar.scss */
+.filterbar .datefilter label {
+  color: #383838;
+}
+/* line 35, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 34, ../sass/components/_filterbar.scss */
+/* line 37, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
@@ -1085,12 +1089,13 @@ h1 {
   height: calc(100% - 200px);
   height: 80% \9;
   float: left;
+  font-size: 14px;
   transition: top 0.2s;
   -webkit-transition: top 0.2s;
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 14, ../sass/components/_list.scss */
+/* line 15, ../sass/components/_list.scss */
 .list.no-filter {
   top: 137px;
   height: calc(100% - 137px);
@@ -1100,19 +1105,20 @@ h1 {
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 25, ../sass/components/_list.scss */
+/* line 26, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
   height: 50px;
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
+  font-size: 18px;
 }
-/* line 33, ../sass/components/_list.scss */
+/* line 35, ../sass/components/_list.scss */
 .list .listheader .active:after {
   border-top-color: #e04f2f;
 }
-/* line 39, ../sass/components/_list.scss */
+/* line 41, ../sass/components/_list.scss */
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
@@ -1139,11 +1145,11 @@ h1 {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 50, ../sass/components/_list.scss */
+/* line 52, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 53, ../sass/components/_list.scss */
+/* line 55, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -webkit-transition-property: color;
@@ -1155,7 +1161,7 @@ h1 {
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 61, ../sass/components/_list.scss */
+/* line 63, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -1166,11 +1172,11 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 71, ../sass/components/_list.scss */
+/* line 73, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 74, ../sass/components/_list.scss */
+/* line 76, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 15px 5px;
   width: 25px;
@@ -1178,12 +1184,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 82, ../sass/components/_list.scss */
+/* line 84, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 88, ../sass/components/_list.scss */
+/* line 90, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1256,7 +1262,7 @@ h1 {
   margin-right: 10px;
   left: 0;
   border: 3px solid #FFF;
-  box-shadow: 0 0 0 2px #000;
+  box-shadow: 0 0 0 2px #383838;
   vertical-align: sub;
   border-radius: 8px;
 }

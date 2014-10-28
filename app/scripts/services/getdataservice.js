@@ -21,13 +21,16 @@ angular.module('gyldendal.services', [])
                     returndata = angular.fromJson(data.Content);
 
                     //set settings in rootscope
-                    $rootScope.backgroundImageID = returndata.settings.backgroundImageID;
                     $rootScope.download = returndata.settings.download;
+                    $rootScope.canExport = returndata.settings.exportEnabled;
 
-//	                  Breaks ie8. Need another name instead of .export
-//                    $rootScope.canExport = returndata.settings.export;
+                    // hardcoded the test api url for testing. remove 'test' for release
+                    $rootScope.backgroundImageID = 'http://bridge.test.components.gyldendal.dk/api/Media/Get/'+returndata.settings.backgroundImageID;
 
+                    // fontFamily is set to franklin and list font to the font defined in settings
+                    $rootScope.listFamily = returndata.settings.fontFamily;
                     $rootScope.fontFamily = "Franklin, sans-serif"; // returndata.settings.fontFamily;
+
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;
                     $rootScope.mail = returndata.settings.mail;
@@ -82,6 +85,7 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
+
         addNewLog: function(log) {
 
           //Needs userID and Component id

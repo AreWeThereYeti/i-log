@@ -26,13 +26,13 @@ var app = angular.module('app', [
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
-          logs: function(getdataservice, $route) {
+          logs: function (getdataservice, $route) {
             return getdataservice.getLatest($route.current.params);
           },
-					component: function(getdataservice, $route) {
-						return getdataservice.loadComponent($route.current.params);
-					}
-				}
+          component: function (getdataservice, $route) {
+            return getdataservice.loadComponent($route.current.params);
+          }
+        }
 			})
 			.when('/logs', {
 				templateUrl: 'views/LogsOverview.html',
