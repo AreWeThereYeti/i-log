@@ -27,7 +27,7 @@ angular.module('gyldendal.services', [])
 //	                  Breaks ie8. Need another name instead of .export
 //                    $rootScope.canExport = returndata.settings.export;
 
-                    $rootScope.fontFamily = returndata.settings.fontFamily;
+                    $rootScope.fontFamily = "Franklin, sans-serif"; // returndata.settings.fontFamily;
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;
                     $rootScope.mail = returndata.settings.mail;
