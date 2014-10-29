@@ -453,22 +453,6 @@ table {
   -ms-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
-  -moz-transform-origin: 50% 40%;
-  -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
-  transform-origin: 50% 40%;
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
 }
 
 /* line 1, ../sass/pages/_logs.scss */
@@ -478,6 +462,7 @@ h1 {
 
 /* line 5, ../sass/pages/_logs.scss */
 .log-content {
+  box-shadow: 0px 2px 6px black;
   position: absolute;
   overflow: auto;
   width: 100%;
@@ -486,29 +471,31 @@ h1 {
   background-color: #E9E9E9;
   padding: 40px;
 }
-/* line 17, ../sass/pages/_logs.scss */
+/* line 18, ../sass/pages/_logs.scss */
 .log-content .no-padding {
   padding-bottom: 0;
 }
-/* line 20, ../sass/pages/_logs.scss */
+/* line 21, ../sass/pages/_logs.scss */
 .log-content label {
+  font-size: 18px;
   font-weight: bold;
   display: block;
   padding-bottom: 15px;
 }
-/* line 26, ../sass/pages/_logs.scss */
+/* line 28, ../sass/pages/_logs.scss */
 .log-content .input-field {
   padding-bottom: 25px;
 }
-/* line 29, ../sass/pages/_logs.scss */
+/* line 31, ../sass/pages/_logs.scss */
 .log-content .input-field:last-child {
   padding-bottom: 0;
 }
-/* line 34, ../sass/pages/_logs.scss */
+/* line 36, ../sass/pages/_logs.scss */
 .log-content textarea {
+  font-size: 18px;
   padding: 20px;
 }
-/* line 38, ../sass/pages/_logs.scss */
+/* line 41, ../sass/pages/_logs.scss */
 .log-content input {
   border: 0;
   outline: 0;
@@ -517,13 +504,14 @@ h1 {
   margin-right: 5px;
   font-size: 18px;
 }
-/* line 47, ../sass/pages/_logs.scss */
+/* line 50, ../sass/pages/_logs.scss */
 .log-content .dropdown {
   width: 320px;
   border-bottom: 3px solid #000;
 }
-/* line 51, ../sass/pages/_logs.scss */
+/* line 54, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
+  font-size: 18px;
   background-color: transparent;
   outline: 0;
   border: 0;
@@ -535,34 +523,35 @@ h1 {
   -moz-appearance: none;
   margin: 0;
 }
-/* line 66, ../sass/pages/_logs.scss */
+/* line 70, ../sass/pages/_logs.scss */
 .log-content .dropdown:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 76, ../sass/pages/_logs.scss */
+/* line 80, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner {
   border-bottom: 3px solid #000;
-  width: 115px;
+  width: 150px;
   float: left;
   margin: 5px;
 }
-/* line 82, ../sass/pages/_logs.scss */
+/* line 86, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:first-of-type {
   margin-left: 0;
 }
-/* line 86, ../sass/pages/_logs.scss */
+/* line 90, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:last-of-type {
   margin-right: 0;
 }
-/* line 90, ../sass/pages/_logs.scss */
+/* line 94, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
+  font-size: 18px;
   background-color: transparent;
   outline: 0;
   border: 0;
-  width: 95px;
+  width: 130px;
   height: 35px;
   border-radius: 0px;
   padding: 00px;
@@ -570,14 +559,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 103, ../sass/pages/_logs.scss */
+/* line 108, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner:after {
   display: inline-block;
   content: "▼";
   float: right;
   line-height: 35px;
 }
-/* line 113, ../sass/pages/_logs.scss */
+/* line 118, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
@@ -788,52 +777,54 @@ h1 {
   color: white;
 }
 /* line 12, ../sass/components/_filterbar.scss */
-.filterbar .datefilter {
-  margin-left: -15px;
-  position: absolute;
-  width: 200px;
-  z-index: 5;
-  background-color: #FFF;
-  box-shadow: 0px 0px 10px 0px #474747;
+.filterbar .dateheader {
+  z-index: 201;
+  color: #e04f2f;
 }
-/* line 19, ../sass/components/_filterbar.scss */
-.filterbar .datefilter .arrow_box:after {
-  margin-right: 14px;
-  margin-bottom: 10px;
-  -moz-transform-origin: 50% 40%;
-  -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
-  transform-origin: 50% 40%;
+/* line 16, ../sass/components/_filterbar.scss */
+.filterbar .dateheader.arrow_box:after {
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
+  margin-bottom: 10px;
 }
-/* line 28, ../sass/components/_filterbar.scss */
-.filterbar .datefilter div {
-  color: #e04f2f;
-  margin-left: 15px;
+/* line 22, ../sass/components/_filterbar.scss */
+.filterbar .datefilter {
+  margin-left: -15px;
+  position: absolute;
+  width: 200px;
+  z-index: 200;
+  padding-top: 35px;
+  margin-top: -60px;
+  background-color: #FFF;
+  box-shadow: 0px 0px 10px 0px #474747;
 }
 /* line 32, ../sass/components/_filterbar.scss */
+.filterbar .datefilter .dato {
+  margin-bottom: -15px;
+}
+/* line 35, ../sass/components/_filterbar.scss */
+.filterbar .datefilter div {
+  margin-bottom: -15px;
+  color: #e04f2f;
+}
+/* line 39, ../sass/components/_filterbar.scss */
+.filterbar .datefilter label {
+  color: #383838;
+}
+/* line 42, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 34, ../sass/components/_filterbar.scss */
+/* line 44, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
+}
+/* line 47, ../sass/components/_filterbar.scss */
+.filterbar .datefilter ul li:last-of-type {
+  padding-bottom: 15px;
 }
 
 /* line 1, ../sass/components/_menubar.scss */
@@ -882,7 +873,7 @@ h1 {
 /* line 35, ../sass/components/_menubar.scss */
 .menubar ul li.report-interval {
   font-size: 18px;
-  color: #cdcdcd;
+  color: #969696;
 }
 /* line 41, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
@@ -981,12 +972,13 @@ h1 {
   height: calc(100% - 200px);
   height: 80% \9;
   float: left;
+  font-size: 14px;
   transition: top 0.2s;
   -webkit-transition: top 0.2s;
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 14, ../sass/components/_list.scss */
+/* line 15, ../sass/components/_list.scss */
 .list.no-filter {
   top: 137px;
   height: calc(100% - 137px);
@@ -996,48 +988,33 @@ h1 {
   -moz-transition: top 0.2s;
   -o-transition: top 0.2s;
 }
-/* line 25, ../sass/components/_list.scss */
+/* line 26, ../sass/components/_list.scss */
 .list .listheader {
   line-height: 50px;
   padding: 0 25px;
   height: 50px;
   background-color: #FFF;
   border-bottom: 1px solid #c8c8c8;
+  font-size: 18px;
 }
-/* line 33, ../sass/components/_list.scss */
+/* line 35, ../sass/components/_list.scss */
 .list .listheader .active:after {
   border-top-color: #e04f2f;
 }
-/* line 39, ../sass/components/_list.scss */
+/* line 41, ../sass/components/_list.scss */
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
-  -moz-transform-origin: 50% 40%;
-  -ms-transform-origin: 50% 40%;
-  -webkit-transform-origin: 50% 40%;
-  transform-origin: 50% 40%;
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   transform: rotate(-180deg);
-  -moz-transition-property: all;
-  -o-transition-property: all;
-  -webkit-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
 }
-/* line 50, ../sass/components/_list.scss */
+/* line 48, ../sass/components/_list.scss */
 .list .listheader span {
   cursor: pointer;
 }
-/* line 53, ../sass/components/_list.scss */
+/* line 51, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
   -moz-transition-property: color;
@@ -1049,7 +1026,7 @@ h1 {
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
-/* line 61, ../sass/components/_list.scss */
+/* line 59, ../sass/components/_list.scss */
 .list .listitem {
   padding: 0 25px;
   cursor: pointer;
@@ -1060,11 +1037,15 @@ h1 {
   width: 100%;
   float: left;
 }
-/* line 71, ../sass/components/_list.scss */
+/* line 69, ../sass/components/_list.scss */
+.list .listitem .title:hover {
+  text-decoration: underline;
+}
+/* line 72, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 74, ../sass/components/_list.scss */
+/* line 75, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 15px 5px;
   width: 25px;
@@ -1072,12 +1053,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 82, ../sass/components/_list.scss */
+/* line 83, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 87, ../sass/components/_list.scss */
+/* line 88, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1135,7 +1116,7 @@ h1 {
 
 /* line 1, ../sass/components/_custom-checkbox.scss */
 .custom-radio {
-  margin-left: 0px !important;
+  margin-left: 0px;
 }
 /* line 3, ../sass/components/_custom-checkbox.scss */
 .custom-radio input[type=radio] {
@@ -1150,7 +1131,7 @@ h1 {
   margin-right: 10px;
   left: 0;
   border: 3px solid #FFF;
-  box-shadow: 0 0 0 2px #000;
+  box-shadow: 0 0 0 2px #383838;
   vertical-align: sub;
   border-radius: 8px;
 }
@@ -1190,7 +1171,7 @@ h1 {
 /* line 55, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox input[type=checkbox]:checked + label:before {
   content: " ";
-  background-color: red;
+  background-color: #dc4320;
   display: block;
 }
 
@@ -1236,14 +1217,17 @@ h1 {
 }
 /* line 14, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content {
-  z-index: 1;
-  position: relative;
+  z-index: 1000;
+  position: absolute;
+  left: calc(100% - 425px);
+  left: 57% \9;
   width: 400px;
   -webkit-backface-visibility: hidden;
   float: right;
+  top: 114px;
   text-align: left;
 }
-/* line 22, ../sass/directives/_dialog.scss */
+/* line 25, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-content .create-report .arrow_box:after {
   border-top-color: transparent;
   border-bottom-color: #000000;
@@ -1251,14 +1235,22 @@ h1 {
   left: 255px;
   position: relative;
 }
-/* line 32, ../sass/directives/_dialog.scss */
+/* line 37, ../sass/directives/_dialog.scss */
+.ngdialog .third .arrow_box:after {
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  margin-top: -2px;
+  left: 367px;
+  position: relative;
+}
+/* line 46, ../sass/directives/_dialog.scss */
 .ngdialog .ngdialog-overlay {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 0;
+  z-index: 000;
   display: block;
   width: 100%;
   height: 100%;
@@ -1429,7 +1421,7 @@ body {
 /* line 53, ../sass/main.scss */
 .collapsable.showme {
   height: 75px;
-  line-height: 75px;
+  line-height: 70px;
   clear: both;
 }
 /* line 57, ../sass/main.scss */

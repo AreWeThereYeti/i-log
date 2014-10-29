@@ -14,10 +14,4 @@
   margin-bottom: -2px;
   vertical-align: middle;
   @include transform(rotate(0deg));
-  @include transform-origin(50%, 40%);
-  @include transition-property(all);
-  @include transition-duration(0.1s);
-  @include transition-timing-function(linear);
-
-
 }

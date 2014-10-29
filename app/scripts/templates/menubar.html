@@ -14,9 +14,9 @@
         </a>
       </div>
       <div ng-click="$root.filter = !$root.filter" class="circ">
-        <span class="icon icon-filter"></span>
+        <span ng-class="{active : $root.filter }" class="icon icon-filter"></span>
       </div>
-      <div class="circ">
+      <div ng-click="Menubar.openError()" class="circ">
         <span class="icon icon-question"></span>
       </div>
     </div>
@@ -24,13 +24,13 @@
   <div ng-if="$root.showSection == '/rapporter'" class="icons col-1-4">
     <div class="float-right">
       <div ng-click="Menubar.createReport()" class="circ ">
-        <span class="icon icon-plus"></span>
+        <span ng-class="{active : $root.dialog == 'create report' }" class="icon icon-plus"></span>
       </div>
       <div ng-click="$root.filter = !$root.filter" class="circ">
-        <span class="icon icon-filter"></span>
+        <span ng-class="{active : $root.filter }" class="icon icon-filter"></span>
       </div>
       <div ng-click="Menubar.openError()" class="circ">
-        <span class="icon icon-question"></span>
+        <span ng-class="{active : $root.dialog == 'error' }" class="icon icon-question"></span>
       </div>
     </div>
   </div>

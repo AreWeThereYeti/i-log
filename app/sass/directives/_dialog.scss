@@ -12,11 +12,14 @@
   -webkit-overflow-scrolling: touch;
   z-index: 10000;
   .ngdialog-content {
-    z-index: 1;
-    position: relative;
+    z-index: 1000;
+    position: absolute;
+    left: calc(100% - 425px);
+    left: 57% \9;// needs better IE8 fix
     width: 400px;
     -webkit-backface-visibility: hidden;
     float: right;
+    top: 114px;
     text-align: left;
     .create-report{
       .arrow_box:after{
@@ -29,13 +32,24 @@
     }
 
   }
+
+  .third{
+    .arrow_box:after{
+      border-top-color: rgba(0, 0, 0, 0);
+      border-bottom-color: #000;
+      margin-top: -2px;
+      left: 367px;
+      position: relative;
+    }
+  }
+
   .ngdialog-overlay {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 0;
+    z-index: 000;
     display: block;
     width: 100%;
     height: 100%;

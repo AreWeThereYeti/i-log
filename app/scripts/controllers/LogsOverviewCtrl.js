@@ -4,6 +4,9 @@ app.controller('LogsOverviewCtrl', [ 'component', 'logs', '$rootScope', '$locati
 
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
+  // intial active sort
+  LogsOverview.predicate = 'timestamp';
+  LogsOverview.reverse = false;
 
   LogsOverview.logEntries = angular.fromJson(logs.data);
   LogsOverview.componentData = angular.fromJson(component.data.Content);

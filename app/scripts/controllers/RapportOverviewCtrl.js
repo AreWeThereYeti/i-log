@@ -37,19 +37,10 @@ app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,fun
       }
     ];
 
-    var test;
+  // intial active sort
+  RapportOverview.predicate = 'from';
+  RapportOverview.reverse = false;
 
-    RapportOverview.click = function(){
-      test = getdataservice.loadComponent()
-        .then(function(data){
-        });
-    };
-
-  RapportOverview.getAll = function(){
-    test = getdataservice.getLatest()
-      .then(function(data){
-      });
-    };
 
   $scope.changeRange = function(range){
     RapportOverview.filterRange = range;

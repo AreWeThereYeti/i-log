@@ -44,7 +44,9 @@ include('php/mads/core.php');
                 font-family: {{$root.fontFamily}};
                 font-weight : 300;
             }
-
+            select, input, textarea {
+              font-family: {{$root.fontFamily}};
+            }
             p{
                 font-size : {{$root.fontSize || 13}}px;
             }

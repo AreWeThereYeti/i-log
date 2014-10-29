@@ -4,19 +4,22 @@
       <span class="arrow_box"></span>
       <div date-picker></div>
     </div>
-    <div ng-if="$root.dialog == 'error'" class="error animate">
-      <div class="header">
-        <h1>Opret ny rapport</h1>
-      </div>
-      <div class="content">
-        <div class="content-inner">
-          <div>
-            <p>
-              Vil du melde en fejl eller en uhensigtsmæssighed?
-              <br>
-              Klik på knappen for at gå videre til vores supportformular (åbner i nyt vindue).
-            </p>
-            <button class="btn" ng-click="Dialog.openFormularDialog()">Åben supportformular</button>
+    <div ng-if="$root.dialog == 'error'" class=" animate third">
+      <span class="arrow_box"></span>
+      <div class="error grid">
+        <div class="header">
+          <h1>Opret ny rapport</h1>
+        </div>
+        <div class="content">
+          <div class="content-inner">
+            <div>
+              <p>
+                Vil du melde en fejl eller en uhensigtsmæssighed?
+                <br>
+                Klik på knappen for at gå videre til vores supportformular (åbner i nyt vindue).
+              </p>
+              <button class="btn" ng-click="Dialog.openFormularDialog()">Åben supportformular</button>
+            </div>
           </div>
         </div>
       </div>
