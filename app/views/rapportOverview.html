@@ -27,7 +27,7 @@
         <span class="date" ng-class="{active : RapportOverview.predicate == 'to'}">{{item.to * 1000 | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-2" ng-class="{active : RapportOverview.predicate == 'title'}">
-        <span>{{item.title}}</span>
+        <a ng-href="#/rapport/{{$index}}"><span class="title">{{item.title}}</span></a>
       </span>
       <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'shared'}">
         <span ng-show="{{item.shared}}">Ja</span>

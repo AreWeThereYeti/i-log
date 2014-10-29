@@ -1173,10 +1173,14 @@ h1 {
   float: left;
 }
 /* line 73, ../sass/components/_list.scss */
+.list .listitem .title:hover {
+  text-decoration: underline;
+}
+/* line 76, ../sass/components/_list.scss */
 .list .listitem .date {
   font-weight: bold;
 }
-/* line 76, ../sass/components/_list.scss */
+/* line 79, ../sass/components/_list.scss */
 .list .listitem .circ {
   margin: 15px 5px;
   width: 25px;
@@ -1184,12 +1188,12 @@ h1 {
   height: 25px;
   vertical-align: top;
 }
-/* line 84, ../sass/components/_list.scss */
+/* line 87, ../sass/components/_list.scss */
 .list .listitem .circ span {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 90, ../sass/components/_list.scss */
+/* line 93, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;

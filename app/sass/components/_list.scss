@@ -70,6 +70,9 @@
     width: 100%;
     float: left;
 
+    .title:hover{
+      text-decoration: underline;
+    }
     .date{
       font-weight: bold;
     }
