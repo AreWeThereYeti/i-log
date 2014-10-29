@@ -14,7 +14,7 @@
   .ngdialog-content {
     z-index: 1;
     position: absolute;
-    left: call(100% - 425px);
+    left: calc(100% - 425px);
     left: 57% \9;// needs better IE8 fix
     width: 400px;
     -webkit-backface-visibility: hidden;
