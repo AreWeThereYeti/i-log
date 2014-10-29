@@ -9,8 +9,8 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 
 	var d = new Date();
 	$scope.toYear = d.getFullYear()
-	$scope.toMonth= d.getMonth();
-	$scope.toDay  = d.getDate()
+	$scope.toMonth= DateService.month[d.getMonth()];
+	$scope.toDay  = d.getDate();
 
   //On create report click
 	$scope.createReport = function(){

@@ -1263,6 +1263,7 @@ h1 {
 .datepicker, .error, .share {
   border-top: 5px solid #000;
   border-bottom: 5px solid #FFF;
+  box-shadow: 0px 0px 10px 0px #474747;
 }
 /* line 7, ../sass/directives/_datepicker.scss */
 .datepicker .header, .error .header, .share .header {
