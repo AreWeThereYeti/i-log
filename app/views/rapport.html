@@ -13,7 +13,7 @@
       <span class="icon icon-grid"></span>
       <span>{{Rapport.currentReport.title}}</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="!Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
+    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
       <span class="icon icon-line"></span>
       <span>Forbundet graf</span>
     </div>
@@ -25,9 +25,9 @@
 
   <div class="report-content" ng-if="Report.pane == 'pie'">
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
         <div>{{calculation.label}}</div>
         <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
@@ -36,9 +36,9 @@
 
   <div class="report-content" ng-if="Report.pane == 'bar'">
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[1].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
         <div>{{calculation.label}}</div>
         <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
@@ -76,9 +76,9 @@
 
   <div class="report-content" ng-if="Report.pane == 'graph-dotted'">
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[2].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataGrap -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <p>{{calculation.label}}</p>
         <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
       </div>
@@ -87,9 +87,9 @@
 
   <div class="report-content" ng-if="Report.pane == 'graph-line'">
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dummy[1].chart.calculations || !Rapport.dummy[1].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dummy[2].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataGrap -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <div>{{calculation.label}}</div>
         <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>

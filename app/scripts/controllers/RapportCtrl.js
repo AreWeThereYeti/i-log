@@ -74,7 +74,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
   }
 
 // dummy component data for testing
-  Rapport.dummy = [
+  /*Rapport.dummy = [
     {
       "id":1,
       "type":"list",
@@ -177,7 +177,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
       }
     }
   ];
-
+*/
 
   // prepare graph data
 	Rapport.linedata =
@@ -190,13 +190,11 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
   for(var i = 0; i<Rapport.logs.length; i++){
     var plot = {
       "date": Rapport.logs[i].timestamp,
-      "close": Rapport.logs[i].data[2/*Rapport.dataGraph[0].chart.yAxis.inputID*/]
+      "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
     };
     Rapport.linedata.data.push(plot);
   }
 
-	//Test variable. If you see it when the app runs you are good to go
-	Rapport.testVar = 'We are up and running  on rapports overview -page!';
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
   Rapport.parseElements = function(expr, array){
@@ -302,15 +300,15 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
 
   // prepare chart data
   Rapport.chartdata = {
-    "ytitle": Rapport.dummy[1].chart.value.title,
-    "xtitle": Rapport.dummy[1].chart.domain.title,
+    "ytitle": Rapport.dataDiagram[0].chart.value.title,
+    "xtitle": Rapport.dataDiagram[0].chart.domain.title,
     "data": []
 
   };
   for(var i = 0; i<Rapport.logs.length; i++){
     var plot = {
-      "label": Rapport.logs[i].data[Rapport.dummy[1].chart.domain.input],
-      "value": Rapport.parseChartFormula(Rapport.dummy[1].chart.value.formula,Rapport.logs[i])
+      "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
+      "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula,Rapport.logs[i])
     };
     Rapport.chartdata.data.push(plot);
   }
