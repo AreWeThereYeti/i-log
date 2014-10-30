@@ -14,7 +14,6 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
   }
 
 
-  //Log.backgroundImg = 'http://imageserver.moviepilot.com/i-m-not-too-optimistic-because-directors-and-producers-don-t-look-at-our-articles-so-i-don-t-know-how-i-ll-feel-i-ll-still-go-to-the-movie.jpeg';
   if(angular.isDefinedOrNotNull($rootScope.backgroundImageID) ){
     Log.backgroundImg = $rootScope.backgroundImageID;
   }

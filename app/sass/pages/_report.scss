@@ -104,7 +104,6 @@
   }
   .domain-text{
     font-size: 24px;
-    font-weight: bold;
   }
   .dot-label{
     font-size: 14px;
@@ -113,7 +112,7 @@
   .axis path,
   .axis line {
     fill: none;
-    stroke: grey;
+    stroke: #e5e5e5;
     stroke-width: 2;
     //shape-rendering: crispEdges;
 

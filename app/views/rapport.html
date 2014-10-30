@@ -27,7 +27,7 @@
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div>{{calculation.label}}</div>
         <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
@@ -38,7 +38,7 @@
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations"> <!-- Rapport.dummy for testing should be changed to Rapport.dataDiagram -->
+      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div>{{calculation.label}}</div>
         <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>

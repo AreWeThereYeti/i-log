@@ -63,7 +63,18 @@ angular.module('gyldendal.directives', ['d3'])
                     barPaddingBottom = 100,
                     heightInner = height-barPaddingBottom;
 
-								var x = d3.scale.ordinal()
+                // get dimensions of axis labels
+                var lengthX = "",
+                    lengthY = "";
+
+                if(angular.isDefinedOrNotNull(data.xtitle)){
+                  lengthX = data.xtitle.length;
+                }
+                if(angular.isDefinedOrNotNull(data.ytitle)){
+                  lengthY = data.ytitle.length;
+                }
+
+                var x = d3.scale.ordinal()
 										.rangeRoundBands([0, width], .1);
 
 								var y = d3.scale.linear()
@@ -98,15 +109,15 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("class", "x axis")
 											.attr("transform", "translate( 0," + height + ")")
 											.call(xAxis)
-											.style("fill", "e6e6e6");
+											.style("fill", "#e6e6e6");
 
                    svg.selectAll(".x")
                       .append("g")
                       .append("rect")
                       .attr("class", "domain")
-                      .attr("width", 150)
+                      .attr("width", lengthX*13)
                       .attr("height", 30)
-                      .attr("transform", "translate("+(width-150)/2+",-15)")
+                      .attr("transform", "translate("+(width-(lengthX*13))/2+",-15)")
                       .style("fill", "#ffffff");
 
                     svg.selectAll(".x")
@@ -116,11 +127,11 @@ angular.module('gyldendal.directives', ['d3'])
 											.attr("transform", "translate("+width/2+",7)")
                       .style("text-anchor", "middle")
 											.text(data.xtitle)
-											.style("fill", "#000000");
+											.style("fill", "#383838");
 
 									  svg.append("g")
 											.attr("class", "y axis")
-											.style("fill", "e6e6e6")
+											.style("fill", "#e6e6e6")
 											.call(yAxis);
 
                     svg.selectAll(".y")
@@ -128,20 +139,20 @@ angular.module('gyldendal.directives', ['d3'])
                       .append("rect")
                       .attr("class", "domain")
                       .attr("width", 30)
-                      .attr("height", 200)
-                      .attr("transform", "translate(-15,"+(height-200)/2+")")
+                      .attr("height", lengthY*16)
+                      .attr("transform", "translate(-15,"+(height-(lengthY*16))/2+")")
                       .style("fill", "#ffffff");
 
                     svg.selectAll(".y")
                       .append("g")
                       .append("text")
                       .attr("class", "domain-text")
-                      .style("fill", "000000")
+                      .style("fill", "#383838")
 											.attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
 											.attr("dy", ".71em")
 											.style("text-anchor", "middle")
 											.text(data.ytitle)
-											.style("fill", "000000");
+											.style("fill", "#383838");
 
 
                 var bar = svg.selectAll(".bar")
@@ -175,7 +186,7 @@ angular.module('gyldendal.directives', ['d3'])
                 bar.append("text")
                   .attr("class", "bar-label")
                   .attr("x", function(d,i) { return i*(barWidth+barPadding)+barWidth; })
-                  .style("fill", "#000000")
+                  .style("fill", "#383838")
                   .attr("y", function(d,i) {
 
                     if(i % 2){
@@ -368,6 +379,15 @@ angular.module('gyldendal.directives', ['d3'])
                 width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
+              // get dimensions of axis labels
+              var lengthX = "",
+                lengthY = "";
+              if(angular.isDefinedOrNotNull(data.xtitle)){
+                lengthX = data.xtitle.length;
+              }
+              if(angular.isDefinedOrNotNull(data.ytitle)){
+                lengthY = data.ytitle.length;
+              }
 
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
@@ -407,7 +427,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("class", "line")
                 .attr("d", valueline(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); })))
                 .style("fill", "none")
-                .style("stroke", "#cccccc")
+                .style("stroke", "#bcbcbc")
                 .style("stroke-width", 4);
 
 
@@ -421,13 +441,14 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("cx", function(d) { return x(d.date); })
                 .attr("cy", function(d) { return y(d.close); })
                 .attr("r", 10)
-                .style("fill", "red");
+                .style("fill", "#dc4320");
 
               node.append("text")
                 .attr("x", function(d) { return x(d.date); })
                 .attr("y", function(d) { return y(d.close)+30; })
                 .text(function(d) { return d.close })
-                .style("text-anchor", "middle");
+                .style("text-anchor", "middle")
+                .style("fill", "#383838");
 
 
                 // Add the X Axis
@@ -440,9 +461,9 @@ angular.module('gyldendal.directives', ['d3'])
                   .append("g")
                   .append("rect")
                   .attr("class", "domain")
-                  .attr("width", 150)
+                  .attr("width", lengthX*13)
                   .attr("height", 30)
-                  .attr("transform", "translate("+(width-150)/2+",-15)")
+                  .attr("transform", "translate("+(width-(lengthX*13))/2+",-15)")
                   .style("fill", "#ffffff");
 
                 svg.selectAll(".x")
@@ -452,7 +473,7 @@ angular.module('gyldendal.directives', ['d3'])
                   .attr("transform", "translate("+width/2+",7)")
                   .style("text-anchor", "middle")
                   .text(data.xtitle)
-                  .style("fill", "#000000");
+                  .style("fill", "#383838");
 
 
                 // Add the Y Axis
@@ -465,20 +486,20 @@ angular.module('gyldendal.directives', ['d3'])
                   .append("rect")
                   .attr("class", "domain")
                   .attr("width", 30)
-                  .attr("height", 200)
-                  .attr("transform", "translate(-15,"+(height-200)/2+")")
+                  .attr("height", lengthY*13)
+                  .attr("transform", "translate(-15,"+(height-(lengthY*13))/2+")")
                   .style("fill", "#ffffff");
 
                 svg.selectAll(".y")
                   .append("g")
                   .append("text")
                   .attr("class", "domain-text")
-                  .style("fill", "000000")
+                  .style("fill", "#383838")
                   .attr("transform", "translate(-7,"+ height/2 +") rotate(-90)")
                   .attr("dy", ".71em")
                   .style("text-anchor", "middle")
                   .text(data.ytitle)
-                  .style("fill", "000000");
+                  .style("fill", "#383838");
 
 
 						};
@@ -505,6 +526,12 @@ angular.module('gyldendal.directives', ['d3'])
                 width = window.innerWidth - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
+              // get dimensions of axis labels
+              var lengthY = "";
+
+              if(angular.isDefinedOrNotNull(data.ytitle)){
+                lengthY = data.ytitle.length;
+              }
 
               // Set the ranges
               var x = d3.scale.ordinal()
@@ -542,11 +569,11 @@ angular.module('gyldendal.directives', ['d3'])
                 .call(xAxis)
                 .append("text")
                 .attr("class", "domain-text")
-                .style("fill", "000000")
+                .style("fill", "#383838")
                 .attr("transform", "translate("+width/2+", 55)")
                 .style("text-anchor", "middle")
                 .text(data.xtitle)
-                .style("fill", "000000");
+                .style("fill", "#383838");
 
               // Add the Y Axis
               svg.append("g")
@@ -558,20 +585,20 @@ angular.module('gyldendal.directives', ['d3'])
                 .append("rect")
                 .attr("class", "domain")
                 .attr("width", 30)
-                .attr("height", 200)
-                .attr("transform", "translate(-15,"+(height-200)/2+")")
+                .attr("height", lengthY*13)
+                .attr("transform", "translate(-15,"+(height-(lengthY*13))/2+")")
                 .style("fill", "#ffffff");
 
               svg.selectAll(".y")
                 .append("g")
                 .append("text")
                 .attr("class", "domain-text")
-                .style("fill", "000000")
+                .style("fill", "#383838")
                 .attr("transform", "translate(-10,"+ height/2 +") rotate(-90)")
                 .attr("dy", ".71em")
                 .style("text-anchor", "middle")
                 .text(data.ytitle)
-                .style("fill", "000000");
+                .style("fill", "#383838");
 
               var node = svg.selectAll(".dot")
                 .data(data.data.sort(function(a, b) { return d3.ascending(a.date, b.date); }))
@@ -602,7 +629,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("cx", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("cy", function(d) { return y(d.close); })
                 .attr("r", dotRadius)
-                .style("fill", "red");
+                .style("fill", "#dc4320");
 
               node.append("text")
                 .attr("class", "dot-value")
@@ -610,7 +637,9 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("y", function(d) { return y(d.close)+30; })
                 .text(function(d) { return d.close })
-                .style("text-anchor", "middle");
+                .style("text-anchor", "middle")
+                .style("fill", "#383838");
+
 
             }
 					});

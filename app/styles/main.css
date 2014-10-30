@@ -700,32 +700,31 @@ h1 {
 /* line 105, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
-  font-weight: bold;
 }
-/* line 109, ../sass/pages/_report.scss */
+/* line 108, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 114, ../sass/pages/_report.scss */
+/* line 113, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
-  stroke: grey;
+  stroke: #e5e5e5;
   stroke-width: 2;
 }
-/* line 122, ../sass/pages/_report.scss */
+/* line 121, ../sass/pages/_report.scss */
 .report .legend {
   padding-top: 91px;
 }
-/* line 125, ../sass/pages/_report.scss */
+/* line 124, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 128, ../sass/pages/_report.scss */
+/* line 127, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 132, ../sass/pages/_report.scss */
+/* line 131, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
