@@ -119,7 +119,9 @@
   }
 
   .legend {
-    padding-top: 91px;
+    top: 91px;
+    overflow: visible;
+    position: relative;
 
     .legend-head {
       font-size: 36px;
