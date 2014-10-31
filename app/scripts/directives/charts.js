@@ -242,9 +242,9 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var text;
 
-							var colors = ['black', 'red'];
-
-							var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
+							var colors = ["#e42b41", "#a965dd", "#2be435", "#dcdd65", "#2be4de", "#ffe40f", "#e4902b", "#65a6dd", "#2b4fe4", "#e4902b", "#65ddb2", "#e4532b", "#e4902b", "#632be4", "#2be435", "#2be4c0", "#2b8de4", "#e42bca", "#e42b8c", "#fa2114"];
+              var colorscale = d3.scale.ordinal().range(colors);
+							//var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
 
 							var arc = d3.svg.arc()
 								.innerRadius(0)
