@@ -47,26 +47,26 @@
 
   <div class="listview report-content" ng-if="Report.pane == 'list'">
     <div class="grid list-head" >
-      <span class="col-1-4 first"></span>
+      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
     </div>
 
     <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
-      <span class="col-1-4 first">{{$index+1}}</span>
+      <span class="first" ng-style="{width: Rapport.newWidth}">{{$index+1}}</span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{ilog.data[column.inputID]}}
       </span>
     </div>
 
     <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
-      <span class="col-1-4 calc">{{calculation.label}}</span>
+      <span class="first calc" ng-style="{width: Rapport.newWidth}">{{calculation.label}}</span>
       <span class="col-1-8 calc" ng-repeat="column in Rapport.dataList[0].columns">
         {{Rapport.listFormula(calculation, column)}}
       </span>
     </div>
 
     <div class="grid list-content" >
-      <span class="col-1-4"></span>
+      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
 
       </span>
