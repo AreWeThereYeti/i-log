@@ -594,18 +594,19 @@ h1 {
   line-height: 50px;
   height: 50px;
   background-color: #f8f8f8;
+  box-shadow: 0px 1px 11px -4px #383838;
 }
-/* line 9, ../sass/pages/_report.scss */
+/* line 10, ../sass/pages/_report.scss */
 .report .reportsubmenu .col-1-8 {
   cursor: pointer;
 }
-/* line 12, ../sass/pages/_report.scss */
+/* line 13, ../sass/pages/_report.scss */
 .report .reportsubmenu .col-1-8 .icon:before {
   vertical-align: middle;
   margin: 0 5px 0 0px;
   font-size: 20px;
 }
-/* line 20, ../sass/pages/_report.scss */
+/* line 21, ../sass/pages/_report.scss */
 .report .report-content {
   overflow: auto;
   width: 100%;
@@ -614,18 +615,21 @@ h1 {
   position: absolute;
   background-color: white;
 }
-/* line 28, ../sass/pages/_report.scss */
+/* line 29, ../sass/pages/_report.scss */
 .report .listview {
   width: 100%;
   padding: 30px 40px;
+  box-shadow: 0px 2px 6px white;
 }
-/* line 32, ../sass/pages/_report.scss */
+/* line 34, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
+  z-index: 1;
   padding-right: 1px;
-  border-right: 2px solid black;
+  border-right: 2px solid #383838;
 }
-/* line 36, ../sass/pages/_report.scss */
+/* line 39, ../sass/pages/_report.scss */
 .report .listview span {
+  color: #383838;
   font-size: 14px;
   overflow: hidden;
   white-space: nowrap;
@@ -636,15 +640,20 @@ h1 {
   line-height: 40px;
   box-sizing: content-box;
 }
-/* line 49, ../sass/pages/_report.scss */
+/* line 51, ../sass/pages/_report.scss */
+.report .listview span.calc {
+  color: #e04f2f;
+}
+/* line 58, ../sass/pages/_report.scss */
 .report .list-content {
+  z-index: 0;
   border-bottom: 1px solid #E5E5E5;
 }
-/* line 51, ../sass/pages/_report.scss */
+/* line 61, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 55, ../sass/pages/_report.scss */
+/* line 65, ../sass/pages/_report.scss */
 .report .list-content span.first {
   font-size: 18px;
   color: #bfbfbf;
@@ -652,81 +661,82 @@ h1 {
   padding-right: 20px;
   margin-left: -19px;
 }
-/* line 63, ../sass/pages/_report.scss */
+/* line 74, ../sass/pages/_report.scss */
 .report .list-content span.calc {
   font-size: 14px;
   text-align: right;
   padding-right: 20px;
   margin-left: -19px;
 }
-/* line 74, ../sass/pages/_report.scss */
+/* line 85, ../sass/pages/_report.scss */
 .report .list-head {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #383838;
 }
-/* line 77, ../sass/pages/_report.scss */
+/* line 88, ../sass/pages/_report.scss */
 .report .list-head span {
+  color: #383838;
   font-weight: bold;
 }
-/* line 81, ../sass/pages/_report.scss */
+/* line 93, ../sass/pages/_report.scss */
 .report .chart-calc {
   padding: 30px 40px 145px 40px;
 }
-/* line 84, ../sass/pages/_report.scss */
+/* line 96, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
   padding-top: 35px;
 }
-/* line 86, ../sass/pages/_report.scss */
+/* line 98, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element:first-of-type {
   padding-top: 30px;
 }
-/* line 89, ../sass/pages/_report.scss */
+/* line 101, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 93, ../sass/pages/_report.scss */
+/* line 105, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 98, ../sass/pages/_report.scss */
+/* line 110, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 102, ../sass/pages/_report.scss */
+/* line 114, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 105, ../sass/pages/_report.scss */
+/* line 117, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
 }
-/* line 108, ../sass/pages/_report.scss */
+/* line 120, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 113, ../sass/pages/_report.scss */
+/* line 125, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: #e5e5e5;
   stroke-width: 2;
 }
-/* line 121, ../sass/pages/_report.scss */
+/* line 133, ../sass/pages/_report.scss */
 .report .legend {
-  top: 91px;
+  top: 61px;
   overflow: visible;
   position: relative;
 }
-/* line 126, ../sass/pages/_report.scss */
+/* line 138, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 129, ../sass/pages/_report.scss */
+/* line 141, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 133, ../sass/pages/_report.scss */
+/* line 145, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;

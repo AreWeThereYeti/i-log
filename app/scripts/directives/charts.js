@@ -313,13 +313,13 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("height", 530)
                 .append("text")
                 .attr("class", "legend-head")
-                .style("fill", "000000")
+                .style("fill", "#383838")
                 .attr("x", 0)
                 .attr("y", 30)
                 .attr("dy", "0em")
                 .style("text-anchor", "start")
                 .text(data.xtitle)
-                .style("fill", "000000");
+                .style("fill", "#383838");
 
 
 
@@ -344,6 +344,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("x", 24)
                 .attr("y", 10)
                 .attr("dy", ".35em")
+                .style("fill", "#383838")
                 .text(function(d){
 
                   return d.data.label });
@@ -353,6 +354,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("x", 100)
                 .attr("y", 10)
                 .attr("dy", ".35em")
+                .style("fill", "#383838")
                 .text(function(d){
                   var per = ((d.endAngle - d.startAngle)/(2*Math.PI))*100;
                   return " " + per.toFixed(1) + "%" });

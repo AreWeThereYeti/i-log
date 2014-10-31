@@ -5,6 +5,7 @@
     line-height: 50px;
     height: 50px;
     background-color: #f8f8f8;
+    box-shadow: 0px 1px 11px -4px #383838;
 
     .col-1-8{
       cursor: pointer;
@@ -28,12 +29,15 @@
   .listview{
     width: 100%;
     padding: 30px 40px;
+    box-shadow: 0px 2px 6px white;
 
     span:first-of-type{
+      z-index: 1;
       padding-right: 1px;
-      border-right: 2px solid black;
+      border-right: 2px solid #383838;
     }
     span {
+      color: #383838;
       font-size: 14px;
       overflow: hidden;
       white-space: nowrap;
@@ -44,15 +48,22 @@
       line-height: 40px;
       box-sizing: content-box;
     }
+    span.calc{
+      color: #e04f2f;
+    }
+
+
   }
 
   .list-content{
+    z-index: 0;
     border-bottom: 1px solid #E5E5E5;
     &:last-of-type{
       border-bottom: none;
 
     }
     span.first{
+
       font-size: 18px;
       color: #bfbfbf;
       text-align: right;
@@ -72,9 +83,10 @@
 
 
   .list-head{
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #383838;
 
     span{
+      color: #383838;
       font-weight: bold;
     }
   }
@@ -119,7 +131,7 @@
   }
 
   .legend {
-    top: 91px;
+    top: 61px;
     overflow: visible;
     position: relative;
 
