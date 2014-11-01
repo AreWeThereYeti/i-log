@@ -1,23 +1,23 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
   <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
-    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.piechart" >
+    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>{{Rapport.currentReport.title}}</span>
     </div>
-    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="col-1-8" ng-show="Rapport.dataDiagram[0].views.barchart">
+    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
       <span class="icon icon-bar"></span>
       <span>{{Rapport.currentReport.title}}</span>
     </div>
-    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="col-1-8" ng-show="Rapport.dataList[0]">
+    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
       <span class="icon icon-grid"></span>
       <span>{{Rapport.currentReport.title}}</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
+    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
       <span class="icon icon-line"></span>
       <span>Forbundet graf</span>
     </div>
-    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="col-1-8" ng-show="Rapport.dataGraph[0].views.scatterPlot">
+    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
       <span class="icon icon-dots"></span>
       <span >Punktgraf</span>
     </div>
@@ -47,28 +47,27 @@
 
   <div class="listview report-content" ng-if="Report.pane == 'list'">
     <div class="grid list-head" >
-      <span class="col-1-4 first"></span>
+      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
     </div>
 
     <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
-      <span class="col-1-4 first">{{$index+1}}</span>
+      <span class="first" ng-style="{width: Rapport.newWidth}">{{$index+1}}</span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
         {{ilog.data[column.inputID]}}
       </span>
     </div>
 
     <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
-      <span class="col-1-4 calc">{{calculation.label}}</span>
-      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
-        {{Rapport.listFormula(calculation, column)}}
+      <span class="first calc" ng-style="{width: Rapport.newWidth}">{{calculation.label}}</span>
+      <span class="col-1-8 calc" ng-repeat="column in Rapport.dataList[0].columns">
+        <p class="text-center">{{Rapport.listFormula(calculation, column)}}</p>
       </span>
     </div>
 
     <div class="grid list-content" >
-      <span class="col-1-4"></span>
+      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
       <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
-
       </span>
     </div>
 

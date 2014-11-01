@@ -423,7 +423,16 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
     return $scope.$eval(exp);
   };
 
-
+  // set width of list view's first column
+  if(Rapport.dataList[0].calculations.length) {
+    var labelLength = 0;
+    angular.forEach(Rapport.dataList[0].calculations, function(calc) {
+      if(calc.label.length >labelLength){
+        labelLength = calc.label.length;
+      }
+    });
+    Rapport.newWidth = (labelLength*10)+"px";
+  }
 
   // Function for parsing column calculations in list view
   Rapport.listFormula = function(calculation, column){

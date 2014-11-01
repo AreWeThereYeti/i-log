@@ -242,7 +242,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var text;
 
-							var colors = ["#e42b41", "#a965dd", "#2be435", "#dcdd65", "#2be4de", "#ffe40f", "#e4902b", "#65a6dd", "#2b4fe4", "#e4902b", "#65ddb2", "#e4532b", "#e4902b", "#632be4", "#2be435", "#2be4c0", "#2b8de4", "#e42bca", "#e42b8c", "#fa2114"];
+							var colors = ["#e42b41", "#a965dd", "#2be435", "#dcdd65", "#2be4de", "#ffe40f", "#65a6dd", "#2b4fe4", "#e4902b", "#65ddb2", "#e4532b", "#632be4", "#2be435", "#2be4c0", "#2b8de4", "#e42bca", "#e42b8c", "#fa2114"];
               var colorscale = d3.scale.ordinal().range(colors);
 							//var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
 
@@ -313,13 +313,13 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("height", 530)
                 .append("text")
                 .attr("class", "legend-head")
-                .style("fill", "000000")
+                .style("fill", "#383838")
                 .attr("x", 0)
                 .attr("y", 30)
                 .attr("dy", "0em")
                 .style("text-anchor", "start")
                 .text(data.xtitle)
-                .style("fill", "000000");
+                .style("fill", "#383838");
 
 
 
@@ -344,6 +344,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("x", 24)
                 .attr("y", 10)
                 .attr("dy", ".35em")
+                .style("fill", "#383838")
                 .text(function(d){
 
                   return d.data.label });
@@ -353,6 +354,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("x", 100)
                 .attr("y", 10)
                 .attr("dy", ".35em")
+                .style("fill", "#383838")
                 .text(function(d){
                   var per = ((d.endAngle - d.startAngle)/(2*Math.PI))*100;
                   return " " + per.toFixed(1) + "%" });
