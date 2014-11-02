@@ -80,11 +80,11 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
     }
 
     // for debugging
-    if(Log.inputs[i].type == "time"){
+    /*    if(Log.inputs[i].type == "time"){
       Log.inputs[i].data = "hh:mm:ss,cscs";
     }
     // for debugging
-/*    if(Log.inputs[i].type == "formula"){
+   if(Log.inputs[i].type == "formula"){
       Log.inputs[i].formula = "TIMEFORMAT(ID8, 'hh:mm:ss,cscs')";
     }*/
   }
