@@ -6,6 +6,10 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 	$scope.month = DateService.month;
 	$scope.day = DateService.day;
 
+	$scope.update = function(index){
+		console.log($scope.year[index])
+		$scope.fromYear = $scope.year[index]
+	}
 
 	var d = new Date();
 	$scope.toYear = d.getFullYear()
