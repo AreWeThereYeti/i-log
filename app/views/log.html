@@ -55,17 +55,17 @@
               <option value="">Timer</option>
             </select>
           </div>
-          <div class="select-inner minut" ng-show="{{input.data.search('hh') != -1}}">
+          <div class="select-inner minut" ng-show="{{input.data.search('mm') != -1}}">
             <select ng-model="input.mm"  ng-change="input.value = Log.calcTimeVal(input)" ng-options="minut as minut for minut in Log.minutes track by minut" >
               <option value="">Minutter</option>
             </select>
           </div>
-          <div class="select-inner second" ng-show="{{input.data.search('hh') != -1}}">
+          <div class="select-inner second" ng-show="{{input.data.search('ss') != -1}}">
             <select ng-model="input.ss" ng-change="input.value = Log.calcTimeVal(input)" ng-options="second as second for second in Log.seconds track by second" >
               <option value="">Sekunder</option>
             </select>
           </div>
-          <div class="select-inner ceti" ng-show="{{input.data.search('hh') != -1}}">
+          <div class="select-inner ceti" ng-show="{{input.data.search('cscs') != -1}}">
             <select ng-model="input.cscs" ng-change="input.value = Log.calcTimeVal(input)" ng-options="cs as cs for cs in Log.centiseconds track by cs"  >
               <option value="">Centisekunder</option>
             </select>
