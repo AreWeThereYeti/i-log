@@ -31,16 +31,22 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
   LogMenubar.deleteLog = function(){
     if (confirm('Er du sikker på du vil slette denne log?')) {
       if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
-        getdataservice.getLatest()
+        getdataservice.getList()
           .then(function(data){
-            var iLogs = angular.fromJson(data.data.content);
-            iLogs.splice($scope.$parent.Log.route,1);
-            getdataservice.updateLog(iLogs, data.data.objectID)
-              .then(function(data){
-                // on success go to logs view
-                $rootScope.introPrompt = false;
-                $location.path('logs');
+            if(angular.isDefinedOrNotNull(data.data) && data.data.length) {
+              angular.forEach(data.data, function (entry) {
+                if (entry.componentSubType == null || entry.componentSubType == "") {
+                  var iLogs = angular.fromJson(entry.content);
+                  iLogs.splice($scope.$parent.Log.route,1);
+                  getdataservice.updateLog(iLogs, entry.objectID)
+                    .then(function (data) {
+                      // on success go to logs view
+                      $rootScope.introPrompt = false;
+                      $location.path('logs');
+                    });
+                }
               });
+            }
           }, function(error){
           });
       } else {
@@ -95,30 +101,44 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
     } else if(angular.isDefinedOrNotNull($scope.$parent.Log.route)){
       // edit log at index $scope.$parent.Log.route
-      getdataservice.getLatest()
+
+      getdataservice.getList()
         .then(function(data){
-          var iLogs = angular.fromJson(data.data.content);
-          iLogs[$scope.$parent.Log.route] = iLog;
-          getdataservice.updateLog(iLogs, data.data.objectID)
-            .then(function(data){
-              // on success go to logs view
-              $rootScope.introPrompt = false;
-              $location.path('logs');            });
+          if(angular.isDefinedOrNotNull(data.data) && data.data.length) {
+            angular.forEach(data.data, function (entry) {
+              if (entry.componentSubType == null || entry.componentSubType == "") {
+                var iLogs = angular.fromJson(entry.content);
+                iLogs[$scope.$parent.Log.route] = iLog;
+                getdataservice.updateLog(iLogs, entry.objectID)
+                  .then(function (data) {
+                    // on success go to logs view
+                    $rootScope.introPrompt = false;
+                    $location.path('logs');
+                  });
+              }
+            });
+          }
         }, function(error){
         });
 
-
     } else {
       // prior ilogs exist so use updateEntry
-      getdataservice.getLatest()
+      getdataservice.getList()
         .then(function(data){
-          var iLogs = angular.fromJson(data.data.content);
-          iLogs.push(iLog);
-          getdataservice.updateLog(iLogs, data.data.objectID)
-            .then(function(data){
-              // on success go to logs view
-              $rootScope.introPrompt = false;
-              $location.path('logs');            });
+          if(angular.isDefinedOrNotNull(data.data) && data.data.length) {
+            angular.forEach(data.data, function (entry) {
+              if (entry.componentSubType == null || entry.componentSubType == "") {
+                var iLogs = angular.fromJson(entry.content);
+                iLogs.push(iLog);
+                getdataservice.updateLog(iLogs, entry.objectID)
+                  .then(function (data) {
+                    // on success go to logs view
+                    $rootScope.introPrompt = false;
+                    $location.path('logs');
+                  });
+              }
+            });
+          }
         }, function(error){
         });
 

@@ -26,8 +26,8 @@ var app = angular.module('app', [
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
-          logs: function (getdataservice, $route) {
-            return getdataservice.getLatest($route.current.params);
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
           },
           component: function (getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);
@@ -39,8 +39,8 @@ var app = angular.module('app', [
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
-          logs: function(getdataservice, $route) {
-            return getdataservice.getLatest($route.current.params);
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
           },
           component: function(getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);
@@ -52,9 +52,9 @@ var app = angular.module('app', [
 				controller: 'RapportOverviewCtrl',
 				controllerAs: 'RapportOverview',
 				resolve: {
-					reports: function(getdataservice, $route) {
-
-					}
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
+          }
 				}
 			})
 			.when('/rapport/:id', {
@@ -62,14 +62,11 @@ var app = angular.module('app', [
 				controller: 'RapportCtrl',
 				controllerAs: 'Rapport',
 				resolve: {
-					report: function(getdataservice, $route) {
-
-					},
           component: function(getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);
           },
-          logs: function(getdataservice, $route) {
-            return getdataservice.getLatest($route.current.params);
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
           }
 				}
 			})
@@ -81,8 +78,8 @@ var app = angular.module('app', [
           component: function(getdataservice, $route) {
             return getdataservice.loadComponent($route.current.params);
           },
-          logs: function(getdataservice, $route) {
-            return getdataservice.getLatest($route.current.params);
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
           }
         }
       })
@@ -94,8 +91,8 @@ var app = angular.module('app', [
 					component: function(getdataservice, $route) {
 						return getdataservice.loadComponent($route.current.params);
 					},
-          logs: function(getdataservice, $route) {
-            return getdataservice.getLatest($route.current.params);
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
           }
 				}
 			})
