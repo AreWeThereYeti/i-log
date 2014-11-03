@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ 'component', 'logs', '$rootScope', '$location', 'getdataservice', '$scope', function (component, logs, $rootScope, $location, getdataservice, $scope) {
+app.controller('LogsOverviewCtrl', [ 'entries', 'component', '$rootScope', '$location', 'getdataservice', '$scope', function (entries, component, $rootScope, $location, getdataservice, $scope) {
 
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
@@ -8,11 +8,22 @@ app.controller('LogsOverviewCtrl', [ 'component', 'logs', '$rootScope', '$locati
   LogsOverview.predicate = 'timestamp';
   LogsOverview.reverse = false;
 
-  LogsOverview.logEntries = angular.fromJson(logs.data);
+  // find logEntries in entry list
+  if(angular.isDefinedOrNotNull(entries.data) && entries.data.length) {
+    angular.forEach(entries.data, function (entry) {
+      if (entry.componentSubType == null || entry.componentSubType == ""){
+        LogsOverview.logEntries = entry;
+      }
+    });
+  }else {
+    LogsOverview.logEntries = "Not found";
+  }
+
   LogsOverview.componentData = angular.fromJson(component.data.Content);
 
+
+
   // check if there user has previous ilog entries
-  // MAKE SURE "Not found" IS ALLWAYS THE RESPONSE WHEN NO ILOG HAS BEEN ADDED.
   if(LogsOverview.logEntries == "Not found"){
 
     // Debugging

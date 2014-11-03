@@ -21,17 +21,17 @@
   <!--item in reports-->
   <div class="listitem grid animate" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:!reverse">
       <span class="col-1-8">
-        <span class="date" ng-class="{active : RapportOverview.predicate == 'from'}">{{item.from * 1000 | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'from'}">{{item.content.from | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-8">
-        <span class="date" ng-class="{active : RapportOverview.predicate == 'to'}">{{item.to * 1000 | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'to'}">{{item.content.to | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-2" ng-class="{active : RapportOverview.predicate == 'title'}">
         <a ng-href="#/rapport/{{$index}}"><span class="title">{{item.title}}</span></a>
       </span>
       <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'shared'}">
-        <span ng-show="{{item.shared}}">Ja</span>
-        <span ng-hide="{{item.shared}}">Nej</span>
+        <span ng-show="{{item.content.shared}}">Ja</span>
+        <span ng-hide="{{item.content.shared}}">Nej</span>
       </span>
       <span class="col-1-8">
         <div class="float-right">
@@ -41,7 +41,7 @@
             </span>
           </a>
           <span class="circ">
-            <span class="icon icon-trash-bin" ng-click="LogsOverview.delete($index)"></span>
+            <span class="icon icon-trash-bin" ng-click="RapportOverview.deleteReport(item.objectID)"></span>
           </span>
         </div>
       </span>

@@ -12,7 +12,7 @@
         </a>
       </li>
       <li>{{ReportMenubar.currentReport.title}}</li>
-      <li class="report-interval"> ({{ReportMenubar.currentReport.from * 1000 | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.to * 1000 | date:'dd-MM-yyyy'}})</li>
+      <li class="report-interval"> ({{ReportMenubar.currentReport.content.from | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.content.to | date:'dd-MM-yyyy'}})</li>
     </ul>
   </div>
   <div class="icons col-1-4">

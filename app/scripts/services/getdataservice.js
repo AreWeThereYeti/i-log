@@ -85,7 +85,71 @@ angular.module('gyldendal.services', [])
 
           return promise;
         },
+        getList: function() {
 
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+
+          var returndata;
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'GET',
+            url: 'php/mads/getList.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+          })
+            .success(function (data, status, headers, config) {
+              if (data.Content !== null) {
+                returndata = angular.fromJson(data.Content);
+              }
+            });
+
+          return promise;
+        },
+        addNewReport: function(report) {
+
+          //Needs userID and Component id
+          var UserID = 'mort088k';
+          var ComponentID = '540025f23c5b5a07d0570c53';
+
+          var returndata;
+
+          var request = {
+            "componentEntry": {
+              "userID":         UserID,
+              "componentID":    ComponentID,
+              "componentType":  "i-log",
+              "componentSubType": "rapport",
+              "productID":      1111111111111,
+              "title":          report.title,
+              "content":        angular.toJson(report.data),
+              "readOnly": false
+            }
+          };
+
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            method: 'POST',
+            url: 'php/mads/addEntry.php',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+              if (data !== null) {
+                //returndata = angular.fromJson(data);
+              }
+            })
+            .error(function(error){
+
+            });
+
+          return promise;
+        },
         addNewLog: function(log) {
 
           //Needs userID and Component id
@@ -152,7 +216,7 @@ angular.module('gyldendal.services', [])
 
            return promise;
         },
-        deleteAllLogs: function(objectId) {
+        deleteEntry: function(objectId) {
 
           // objectID of the entry to delete
           var request = {

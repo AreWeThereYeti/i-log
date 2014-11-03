@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$routeParams','$filter', '$rootScope', function (logs, statcalcservice, $scope, component, $routeParams, $filter, $rootScope) {
+app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', '$routeParams','$filter', '$rootScope', function (entries, statcalcservice, $scope, component, $routeParams, $filter, $rootScope) {
 	//Save reference to controller in order to avoid reference soup
 	var Log = this;
   Log.componentData = angular.fromJson(component.data.Content);
@@ -9,8 +9,15 @@ app.controller('LogCtrl', ['logs', 'statcalcservice', '$scope', 'component', '$r
   // load and parse log to edit when in edit ilog view
   Log.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(Log.route)){
-    Log.logData = angular.fromJson(logs.data);
-    Log.currentLog = angular.fromJson(Log.logData.content)[Log.route];
+    // find logEntries in entry list
+    if(angular.isDefinedOrNotNull(entries.data) && entries.data.length) {
+      angular.forEach(entries.data, function (entry) {
+        if (entry.componentSubType == null || entry.componentSubType == ""){
+          Log.logEntries = entry;
+        }
+      });
+    }
+    Log.currentLog = angular.fromJson(Log.logEntries.content)[Log.route];
   }
 
 

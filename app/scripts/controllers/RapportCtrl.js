@@ -1,17 +1,26 @@
 "use strict";
 
-app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'report', 'statcalcservice', function ($routeParams, component, logs, $scope, report, statcalcservice) {
+app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries', 'statcalcservice', function ($routeParams, component, $scope, entries, statcalcservice) {
 	//Save reference to controller in order to avoid reference soup
 	var Rapport = this;
 
-  // populate Rapport.logs with all user logs for component
-  if(angular.fromJson(logs.data) != "Not found") {
-    Rapport.logs = angular.fromJson(logs.data.content);
-  } else {
-    // what happens if there is no logs?
+  Rapport.reports = [];
+
+  // populate Rapport.logs with all user logs and Rapport.reports wit all reports
+  if(angular.isDefinedOrNotNull(entries.data) && entries.data.length) {
+    angular.forEach(entries.data, function (entry) {
+      if (entry.componentSubType == null || entry.componentSubType == ""){
+        Rapport.logs = angular.fromJson(entry.content);
+      }else if(entry.componentSubType == "rapport"){
+        var report = entry;
+        report.content = angular.fromJson(entry.content);
+        Rapport.reports.push(report);
+      }
+    });
+  }else {
+    LogsOverview.logEntries = "Not found";
   }
 
-  // populate Rapport.component with all user logs for component
   Rapport.component = angular.fromJson(component.data.Content);
 
   Rapport.dataList = [];
@@ -28,6 +37,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
     }
   }
 
+/*
   //dummy report array as it should look after parsing
   Rapport.reports = [
     {
@@ -66,6 +76,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', 'logs', '$scope', 'r
       "shared" : true
     }
   ];
+*/
 
 // set current report to dummy report with index = route.id
   Rapport.route = $routeParams.id;

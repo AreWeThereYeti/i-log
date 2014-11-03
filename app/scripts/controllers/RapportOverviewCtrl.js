@@ -1,43 +1,23 @@
 "use strict";
 
-app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,function ($scope,reports, getdataservice) {
+app.controller('RapportOverviewCtrl', [ '$route', '$scope','entries','getdataservice' ,function ($route, $scope, entries, getdataservice) {
 	//Save reference to controller in order to avoid reference soup
 	var RapportOverview = this;
+  RapportOverview.reports = [];
 
-	RapportOverview.reports = [
-      {
-        "from" : "1321009871",
-        "to" : "1356174671",
-        "title" : "Report1",
-        "shared" : true
-      },
-      {
-        "from" : "1321009871",
-        "to" : "1354360271",
-        "title" : "Report2",
-        "shared" : false
-      },
-      {
-        "from" : "1321009871",
-        "to" : "1356952271",
-        "title" : "Report3",
-        "shared" : true
-      },
-      {
-        "from" : "1321009871",
-        "to" : "1356174671",
-        "title" : "Report4",
-        "shared" : true
-      },
-      {
-        "from" : "1321009871",
-        "to" : "1355483471",
-        "title" : "Report5",
-        "shared" : true
+  // find logEntries in entry list
+  if(angular.isDefinedOrNotNull(entries.data) && entries.data.length) {
+    angular.forEach(entries.data, function (entry) {
+      if (entry.componentSubType == "rapport"){
+        var report = entry;
+        report.content = angular.fromJson(entry.content);
+        RapportOverview.reports.push(report);
       }
-    ];
+    });
+  }
 
-  // intial active sort
+
+  // initial active sort
   RapportOverview.predicate = 'from';
   RapportOverview.reverse = false;
 
@@ -46,7 +26,13 @@ app.controller('RapportOverviewCtrl', [ '$scope','reports','getdataservice' ,fun
     RapportOverview.filterRange = range;
   };
 
-  //Test variable. If you see it when the app runs you are good to go
-	RapportOverview.testVar = 'We are up and running  on rapports overview -page!';
-	RapportOverview.testid = 0;
+  RapportOverview.deleteReport = function(reportID){
+    if (confirm('Er du sikker på du vil slette denne log?')) {
+
+        getdataservice.deleteEntry(reportID)
+          .then(function(isDeleted){
+            $route.reload();
+          });
+    }
+  };
 }]);

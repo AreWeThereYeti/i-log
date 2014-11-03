@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, DateService) {
+app.controller('DatePickerCtrl', ['$route', 'getdataservice', '$scope','DateService' ,function ($route, getdataservice, $scope, DateService) {
 //	Ctrl uses scope in order to use it in directive
 	$scope.year = DateService.year;
 	$scope.month = DateService.month;
@@ -12,7 +12,7 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 	}
 
 	var d = new Date();
-	$scope.toYear = d.getFullYear()
+	$scope.toYear = d.getFullYear();
 	$scope.toMonth= DateService.month[d.getMonth()];
 	$scope.toDay  = d.getDate();
 
@@ -31,14 +31,31 @@ app.controller('DatePickerCtrl', ['$scope','DateService' ,function ($scope, Date
 
     //If both are defined as well as report title, contact server
 		if(angular.isDefined($scope.dateTo && $scope.dateFrom && $scope.title)){
-      //debug message
-      $scope.data = [{
+      //ready report
+      var reportData = {
         "title": $scope.title,
-        "from": $scope.dateFrom,
-        "to": $scope.dateTo,
-        "created": new Date().getTime(),
-        "shared": false
-      }];
+        "data":
+          {
+            "from": $scope.dateFrom,
+            "to": $scope.dateTo,
+            "created": new Date().getTime(),
+            "shared": false
+          }
+      };
+console.log( reportData);
+      //save report
+
+      getdataservice.addNewReport(reportData)
+        .then(function(data){
+          // on success reload report view
+          console.log("report saved");
+          $route.reload();
+        }, function(err){
+          // on err
+          alert("Error: "+err);
+        });
+
+
 		}
 	}
 

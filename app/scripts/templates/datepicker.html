@@ -28,13 +28,13 @@
         </div>
         <div class="select">
           <div class="select-inner">
-            <div ng-class="{active : dropDown == 'month'}" class="dropdown_header" ng-click="dropDown = 'month'">{{fromMonth || "Måned"}}</div>
+            <div ng-class="{active : dropDown == 'month'}" class="dropdown_header" ng-click="dropDown = 'month'">{{fromMonth.month || "Måned"}}</div>
             <div ng-show="dropDown == 'month'" ng-class="{dropdown_content : dropDown == 'month'}" class="col-1-8">
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="month in month" >
                     <input id="checkfrom{{month.month}}{{$index}}" type="radio" name="check" value="checkfrom{{month.month}}{{$index}}" >
-                    <label for="checkfrom{{month.month}}{{$index}}" ng-click="$parent.fromMonth = $parent.month[$index].month; $parent.dropDown = ''">{{month.month}}</label>
+                    <label for="checkfrom{{month.month}}{{$index}}" ng-click="$parent.fromMonth = $parent.month[$index]; $parent.dropDown = ''">{{month.month}}</label>
                   </div>
                 </li>
               </ul>
@@ -111,7 +111,7 @@
         </div>
       </div>
       <div class="grid">
-        <button class="btn" ng-click="createReport()">Gå Videre</button>
+        <button class="btn" ng-click="createReport();">Gå Videre</button>
       </div>
     </div>
   </div>
