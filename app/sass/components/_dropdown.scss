@@ -25,6 +25,10 @@
 
     &.active{
       z-index: 201;
+
+      &:after{
+        content: "▲";
+      }
     }
   }
 
