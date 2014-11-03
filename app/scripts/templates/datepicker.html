@@ -17,12 +17,13 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="year in year" >
-                    <input id="checkfrom{{year}}{{$index}}" type="radio" name="check" value="checkfrom{{year}}{{$index}}" >
+                    <input id="checkfrom{{year}}{{$index}}" type="radio" name="check" value="true" >
                     <label for="checkfrom{{year}}{{$index}}" ng-click="$parent.fromYear = $parent.year[$index]; $parent.dropDown = ''">{{year}}</label>
                   </div>
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'year'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
         <div class="select">
@@ -38,6 +39,7 @@
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'month'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
         <div class="select">
@@ -53,6 +55,7 @@
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'day'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
       </div>
@@ -71,6 +74,7 @@
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'toYear'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
         <div class="select">
@@ -86,6 +90,7 @@
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'toMonth'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
         <div class="select">
@@ -101,6 +106,7 @@
                 </li>
               </ul>
             </div>
+            <div ng-show="dropDown == 'toDay'" ng-click="dropDown =''" class="datepicker-overlay"></div>
           </div>
         </div>
       </div>

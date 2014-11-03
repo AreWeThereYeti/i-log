@@ -3,15 +3,15 @@
   <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
     <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
-      <span>{{Rapport.currentReport.title}}</span>
+      <span>{{Rapport.dataDiagram[0].title}}</span>
     </div>
     <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
       <span class="icon icon-bar"></span>
-      <span>{{Rapport.currentReport.title}}</span>
+      <span>{{Rapport.dataDiagram[0].title}}</span>
     </div>
     <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
       <span class="icon icon-grid"></span>
-      <span>{{Rapport.currentReport.title}}</span>
+      <span>{{Rapport.dataList[0].title}}</span>
     </div>
     <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
       <span class="icon icon-line"></span>
