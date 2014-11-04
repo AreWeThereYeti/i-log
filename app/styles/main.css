@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 1, ../sass/reset/_reset.scss */
+/* line 13, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,7 +22,7 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-/* line 23, ../sass/reset/_reset.scss */
+/* line 24, ../sass/reset/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -43,7 +43,7 @@ blockquote, q {
   quotes: none;
 }
 
-/* line 36, ../sass/reset/_reset.scss */
+/* line 37, ../sass/reset/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -58,8 +58,8 @@ table {
 
 /* line 1, ../sass/_grid.scss */
 * {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -148,6 +148,32 @@ table {
   background-color: rgba(255, 255, 255, 0.71);
   width: 100%;
   height: 100%;
+  @-webkit-keyframes bouncedelay {
+    /* line 109, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      -webkit-transform: scale(0);
+    }
+
+    /* line 110, ../sass/_loader.scss */
+    40% {
+      -webkit-transform: scale(1);
+    }
+}
+
+  @keyframes bouncedelay {
+    /* line 114, ../sass/_loader.scss */
+    0%, 80%, 100% {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+    }
+
+    /* line 117, ../sass/_loader.scss */
+    40% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+}
+
 }
 /* line 8, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
@@ -263,24 +289,7 @@ table {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
 }
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-}
+
 @font-face {
   font-family: "ilog";
   src: url("../fonts/ilog.eot");
@@ -288,6 +297,7 @@ table {
   font-weight: normal;
   font-style: normal;
 }
+
 /* line 14, ../sass/components/_fonts.scss */
 [data-icon]:before {
   font-family: "ilog" !important;
@@ -303,7 +313,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 28, ../sass/components/_fonts.scss */
+/* line 29, ../sass/components/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "ilog" !important;
@@ -454,9 +464,10 @@ table {
   margin-left: 10px;
   margin-bottom: -2px;
   vertical-align: middle;
+  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   transform: rotate(0deg);
 }
 
@@ -520,7 +531,7 @@ h1 {
 /* line 56, ../sass/pages/_logs.scss */
 .log-content .dropdown select {
   font-size: 18px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 300px;
@@ -629,7 +640,7 @@ h1 {
 /* line 163, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   font-size: 18px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   width: 130px;
@@ -807,7 +818,7 @@ h1 {
 .report .dot-label {
   font-size: 14px;
 }
-/* line 135, ../sass/pages/_report.scss */
+/* line 136, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
@@ -854,25 +865,25 @@ h1 {
   color: #e04f2f;
 }
 
-/* line 1, ../sass/components/_animation.scss */
+/* line 2, ../sass/components/_animation.scss */
 .animate.ng-enter {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   opacity: 0;
 }
 
-/* line 7, ../sass/components/_animation.scss */
+/* line 8, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 13, ../sass/components/_animation.scss */
+/* line 14, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-/* line 18, ../sass/components/_animation.scss */
+/* line 19, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }
@@ -898,9 +909,10 @@ h1 {
 }
 /* line 18, ../sass/components/_filterbar.scss */
 .filterbar .dateheader.arrow_box:after {
+  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
   margin-bottom: 10px;
 }
@@ -946,12 +958,12 @@ h1 {
 .menubar {
   width: 100%;
   padding: 5px 25px;
-  background-color: #ffffff;
+  background-color: white;
   height: 80px;
 }
 /* line 6, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
-  background-color: #ffffff;
+  background-color: white;
 }
 /* line 9, ../sass/components/_menubar.scss */
 .menubar .back {
@@ -1120,9 +1132,10 @@ h1 {
 .list .listheader .reverse:after {
   margin-right: 14px;
   margin-bottom: 10px;
+  -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
-  -webkit-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 /* line 48, ../sass/components/_list.scss */
@@ -1132,13 +1145,13 @@ h1 {
 /* line 51, ../sass/components/_list.scss */
 .list .listheader span:hover {
   color: #e04f2f;
+  -webkit-transition-property: color;
   -moz-transition-property: color;
   -o-transition-property: color;
-  -webkit-transition-property: color;
   transition-property: color;
+  -webkit-transition-duration: 0.2s;
   -moz-transition-duration: 0.2s;
   -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
 }
 /* line 59, ../sass/components/_list.scss */
@@ -1173,7 +1186,7 @@ h1 {
   line-height: 20px;
   font-size: 12px;
 }
-/* line 88, ../sass/components/_list.scss */
+/* line 89, ../sass/components/_list.scss */
 .list .listitem .circ [class^="icon-"]:before,
 .list .listitem .circ [class*=" icon-"]:before {
   line-height: 22px;
@@ -1195,7 +1208,7 @@ h1 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
 }
-/* line 18, ../sass/components/_circle-icons.scss */
+/* line 19, ../sass/components/_circle-icons.scss */
 .circ [class^="icon-"]:before,
 .circ [class*=" icon-"]:before {
   line-height: 33px;
@@ -1215,7 +1228,7 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 36, ../sass/components/_circle-icons.scss */
+/* line 37, ../sass/components/_circle-icons.scss */
 .circ:hover [class^="icon-"]:before,
 .circ:hover [class*=" icon-"]:before {
   color: #e04f2f;
@@ -1247,7 +1260,7 @@ h1 {
   left: 0;
   border: 3px solid #FFF;
   box-shadow: 0 0 0 2px #383838;
-  vertical-align: baseline;
+  vertical-align: text-bottom;
   border-radius: 8px;
 }
 /* line 21, ../sass/components/_custom-checkbox.scss */
@@ -1299,9 +1312,9 @@ h1 {
   cursor: pointer;
   margin: 0;
   color: #FFF;
+  -webkit-transition: all;
   -moz-transition: all;
   -o-transition: all;
-  -webkit-transition: all;
   transition: all;
 }
 /* line 11, ../sass/components/_buttons.scss */
@@ -1314,7 +1327,7 @@ h1 {
   color: black;
 }
 
-/* line 1, ../sass/directives/_dialog.scss */
+/* line 4, ../sass/directives/_dialog.scss */
 .ngdialog,
 .ngdialog *,
 .ngdialog *:before,
@@ -1352,7 +1365,7 @@ h1 {
 }
 /* line 37, ../sass/directives/_dialog.scss */
 .ngdialog .third .arrow_box:after {
-  border-top-color: transparent;
+  border-top-color: rgba(0, 0, 0, 0);
   border-bottom-color: #000;
   margin-top: -2px;
   left: 367px;
@@ -1481,7 +1494,7 @@ h1 {
 }
 /* line 96, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select, .share .content .select-inner select {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   outline: 0;
   border: 0;
   font-size: 16px;
