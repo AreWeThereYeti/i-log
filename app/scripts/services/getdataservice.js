@@ -20,6 +20,9 @@ angular.module('gyldendal.services', [])
 
                     returndata = angular.fromJson(data.Content);
 
+                    //set productID
+                    $rootScope.productID = data.Owner.ProductID;
+                    console.log($rootScope.productID);
                     //set settings in rootscope
                     $rootScope.download = returndata.settings.download;
                     $rootScope.canExport = returndata.settings.exportEnabled;
@@ -79,7 +82,7 @@ angular.module('gyldendal.services', [])
               "componentID":    ComponentID,
               "componentType":  "i-log",
               "componentSubType": "rapport",
-              "productID":      1111111111111,
+              "productID":      $rootScope.productID,
               "title":          report.title,
               "content":        angular.toJson(report.data),
               "readOnly": false
@@ -120,7 +123,7 @@ angular.module('gyldendal.services', [])
               "componentID":    ComponentID,
               "componentType":  "i-log",
               "componentSubType": null,
-              "productID":      1111111111111,
+              "productID":      $rootScope.productID,
               "title":          "some title",
               "content":        log,
               "readOnly": false

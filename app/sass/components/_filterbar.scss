@@ -30,7 +30,9 @@
     margin-top: -60px;
     background-color: #FFF;
     box-shadow: 0px 0px 10px 0px #474747;
-
+    .custom-radio label:before {
+      vertical-align: baseline;
+    }
     .dato{
       margin-bottom: -15px;
     }
