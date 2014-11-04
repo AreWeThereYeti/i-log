@@ -4,8 +4,11 @@ angular.module('gyldendal.services', [])
 
         loadComponent: function() {
 
-            var ComponentID = '540025f23c5b5a07d0570c53';
-            var returndata;
+          //finds userID and Component id in url
+          if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
+            $rootScope.userID = $location.search().userID;
+            $rootScope.componentID = $location.search().componentID;
+          }
 
             var promise = $http({
               cache: false,
@@ -13,7 +16,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: 'php/michael/load-component.php?componentID=' + '540025f23c5b5a07d0570c53' /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/michael/load-component.php?componentID=' + $rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null && angular.isDefined(data.Content)) {
@@ -45,11 +48,11 @@ angular.module('gyldendal.services', [])
 
         getList: function() {
 
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-
-          var returndata;
+          //finds userID and Component id in url
+          if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
+            $rootScope.userID = $location.search().userID;
+            $rootScope.componentID = $location.search().componentID;
+          }
 
           var promise = $http({
             cache: false,
@@ -57,7 +60,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getList.php?userID=' + UserID + '&componentID=' + ComponentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/mads/getList.php?userID=' + $rootScope.userID + '&componentID=' + $rootScope.componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data.Content !== null) {
@@ -69,16 +72,10 @@ angular.module('gyldendal.services', [])
         },
         addNewReport: function(report) {
 
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-
-          var returndata;
-
           var request = {
             "componentEntry": {
-              "userID":         UserID,
-              "componentID":    ComponentID,
+              "userID":         $rootScope.userID,
+              "componentID":    $rootScope.componentID,
               "componentType":  "i-log",
               "componentSubType": "rapport",
               "productID":      $rootScope.productID,
@@ -99,7 +96,6 @@ angular.module('gyldendal.services', [])
           })
             .success(function (data, status, headers, config) {
               if (data !== null) {
-                //returndata = angular.fromJson(data);
               }
             })
             .error(function(error){
@@ -110,16 +106,10 @@ angular.module('gyldendal.services', [])
         },
         addNewLog: function(log) {
 
-          //Needs userID and Component id
-          var UserID = 'mort088k';
-          var ComponentID = '540025f23c5b5a07d0570c53';
-
-          var returndata;
-
           var request = {
             "componentEntry": {
-              "userID":         UserID,
-              "componentID":    ComponentID,
+              "userID":         $rootScope.userID,
+              "componentID":    $rootScope.componentID,
               "componentType":  "i-log",
               "componentSubType": null,
               "productID":      $rootScope.productID,
