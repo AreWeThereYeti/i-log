@@ -6,17 +6,19 @@ angular.module('gyldendal.services', [])
 
           //finds userID and Component id in url
           if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
-            $rootScope.userID = $location.search().userID;
-            $rootScope.componentID = $location.search().componentID;
+            localStorage.userID =  $location.search().userID;
+            localStorage.componentID =  $location.search().componentID;
           }
+          var componentID = localStorage.componentID;
 
-            var promise = $http({
+
+          var promise = $http({
               cache: false,
               headers: {
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: 'php/michael/load-component.php?componentID=' + $rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null && angular.isDefined(data.Content)) {
@@ -50,9 +52,11 @@ angular.module('gyldendal.services', [])
 
           //finds userID and Component id in url
           if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
-            $rootScope.userID = $location.search().userID;
-            $rootScope.componentID = $location.search().componentID;
+            localStorage.userID =  $location.search().userID;
+            localStorage.componentID =  $location.search().componentID;
           }
+          var userID = localStorage.userID;
+          var componentID = localStorage.componentID;
 
           var promise = $http({
             cache: false,
@@ -60,7 +64,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getList.php?userID=' + $rootScope.userID + '&componentID=' + $rootScope.componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data.Content !== null) {
@@ -72,10 +76,14 @@ angular.module('gyldendal.services', [])
         },
         addNewReport: function(report) {
 
+          var userID = localStorage.userID;
+          var componentID = localStorage.componentID;
+
+
           var request = {
             "componentEntry": {
-              "userID":         $rootScope.userID,
-              "componentID":    $rootScope.componentID,
+              "userID":         userID,
+              "componentID":    componentID,
               "componentType":  "i-log",
               "componentSubType": "rapport",
               "productID":      $rootScope.productID,
@@ -106,10 +114,13 @@ angular.module('gyldendal.services', [])
         },
         addNewLog: function(log) {
 
+          var userID = localStorage.userID;
+          var componentID = localStorage.componentID;
+
           var request = {
             "componentEntry": {
-              "userID":         $rootScope.userID,
-              "componentID":    $rootScope.componentID,
+              "userID":         userID,
+              "componentID":    componentID,
               "componentType":  "i-log",
               "componentSubType": null,
               "productID":      $rootScope.productID,
