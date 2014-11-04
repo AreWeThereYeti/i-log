@@ -22,7 +22,6 @@ angular.module('gyldendal.services', [])
 
                     //set productID
                     $rootScope.productID = data.Owner.ProductID;
-                    console.log($rootScope.productID);
                     //set settings in rootscope
                     $rootScope.download = returndata.settings.download;
                     $rootScope.canExport = returndata.settings.exportEnabled;
