@@ -93,7 +93,17 @@ $dialog-padding : 15px 20px;
       &.right{
         margin-right: 0px;
       }
-      select{
+      .dropdown_content {
+        max-height: 300px;
+        overflow: auto;
+      }
+      .dropdown_header {
+        line-height: 40px;
+        &.active{
+          background-color: white;
+        }
+      }
+        select{
         background-color: rgba(0, 0, 0, 0);
         outline: 0;
         border: 0;

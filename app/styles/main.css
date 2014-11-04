@@ -1493,6 +1493,19 @@ h1 {
   margin-right: 0px;
 }
 /* line 96, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner .dropdown_content, .error .content .select-inner .dropdown_content, .share .content .select-inner .dropdown_content {
+  max-height: 300px;
+  overflow: auto;
+}
+/* line 100, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner .dropdown_header, .error .content .select-inner .dropdown_header, .share .content .select-inner .dropdown_header {
+  line-height: 40px;
+}
+/* line 102, ../sass/directives/_datepicker.scss */
+.datepicker .content .select-inner .dropdown_header.active, .error .content .select-inner .dropdown_header.active, .share .content .select-inner .dropdown_header.active {
+  background-color: white;
+}
+/* line 106, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select, .share .content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -1506,12 +1519,12 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 118, ../sass/directives/_datepicker.scss */
+/* line 128, ../sass/directives/_datepicker.scss */
 .datepicker .content .btn, .error .content .btn, .share .content .btn {
   margin: 20px 0;
   float: right;
 }
-/* line 123, ../sass/directives/_datepicker.scss */
+/* line 133, ../sass/directives/_datepicker.scss */
 .datepicker .datepicker-overlay, .error .datepicker-overlay, .share .datepicker-overlay {
   position: fixed;
   top: 0;
