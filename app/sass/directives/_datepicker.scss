@@ -22,7 +22,7 @@ $dialog-padding : 15px 20px;
       overflow: auto;
       padding: 0 20px;
       input {
-        font-family: 'franklin-gothic-urw', 'arial';
+        font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
         font-size: 18px;
         outline: 0;
         width: 100%;
@@ -128,7 +128,7 @@ $dialog-padding : 15px 20px;
     }
 
     .btn{
-      font-family: 'franklin-gothic-urw', 'arial';
+      font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
       font-size: 18px;
       margin: 20px 0;
       float: right;

@@ -1,31 +1,31 @@
 <div class="ngdialog" ng-cloak>
   <div class="grid">
-    <div ng-class="{dateheader : Date}" class="arrow_box dato" ng-click="Date = !Date">Dato</div>
+    <div ng-class="{dateheader : Date}" class="arrow_box dato" ng-click="Date = !Date">{{Filterbar.label || "Dato"}}</div>
     <div ng-class="{datefilter : Date}" class="col-1-8">
       <ul ng-show="Date" ng-click="Date = !Date">
         <li>
           <div class="custom-radio">
-            <input id="check1" type="radio" name="check" value="check1" ng-click="Filterbar.changeRange(1)">
+            <input id="check1" type="radio" name="check" value="check1" ng-click="Filterbar.changeRange(1); Date = !Date; Filterbar.label = 'I dag'">
             <label for="check1">I dag</label>
           </div>
           <div class="custom-radio">
-            <input id="check2" type="radio" name="check" value="check2" ng-click="Filterbar.changeRange(2)">
+            <input id="check2" type="radio" name="check" value="check2" ng-click="Filterbar.changeRange(2); Date = !Date; Filterbar.label = 'I går'">
             <label for="check2">I går</label>
           </div>
           <div class="custom-radio">
-            <input id="check3" type="radio" name="check" value="check3" ng-click="Filterbar.changeRange(7)">
+            <input id="check3" type="radio" name="check" value="check3" ng-click="Filterbar.changeRange(7); Date = !Date; Filterbar.label = 'Seneste uge'">
             <label for="check3">Seneste uge</label>
           </div>
           <div class="custom-radio">
-            <input id="check4" type="radio" name="check" value="check4" ng-click="Filterbar.changeRange(30)">
+            <input id="check4" type="radio" name="check" value="check4" ng-click="Filterbar.changeRange(30); Date = !Date; Filterbar.label = 'Seneste måned'">
             <label for="check4">Seneste måned</label>
           </div>
           <div class="custom-radio">
-            <input id="check5" type="radio" name="check" value="check5" ng-click="Filterbar.changeRange(365)">
+            <input id="check5" type="radio" name="check" value="check5" ng-click="Filterbar.changeRange(365); Date = !Date; Filterbar.label = 'Seneste år'">
             <label for="check5">Seneste år</label>
           </div>
           <div class="custom-radio">
-            <input id="check6" type="radio" name="check" value="check6" ng-click="Filterbar.changeRange(null)">
+            <input id="check6" type="radio" name="check" value="check6" ng-click="Filterbar.changeRange(null); Date = !Date; Filterbar.label = 'Alle'">
             <label for="check6">Alle</label>
           </div>
         </li>

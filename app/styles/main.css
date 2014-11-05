@@ -1423,7 +1423,7 @@ h1 {
 }
 /* line 24, ../sass/directives/_datepicker.scss */
 .datepicker .content .inputcontainer input, .datepicker .content .content-inner input, .error .content .inputcontainer input, .error .content .content-inner input, .share .content .inputcontainer input, .share .content .content-inner input {
-  font-family: 'franklin-gothic-urw', 'arial';
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 18px;
   outline: 0;
   width: 100%;
@@ -1527,7 +1527,7 @@ h1 {
 }
 /* line 130, ../sass/directives/_datepicker.scss */
 .datepicker .content .btn, .error .content .btn, .share .content .btn {
-  font-family: 'franklin-gothic-urw', 'arial';
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 18px;
   margin: 20px 0;
   float: right;
@@ -1617,7 +1617,7 @@ h1 {
 /* line 31, ../sass/main.scss */
 body {
   background-color: #E9E9E9;
-  font-family: Franklin, sans-serif;
+  font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   overflow: hidden;
 }
 

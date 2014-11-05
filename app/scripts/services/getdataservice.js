@@ -36,7 +36,7 @@ angular.module('gyldendal.services', [])
 
                     // fontFamily is set to franklin and list font to the font defined in settings
                     $rootScope.listFamily = returndata.settings.fontFamily;
-                    $rootScope.fontFamily = "Franklin, sans-serif"; // returndata.settings.fontFamily;
+                    $rootScope.fontFamily = "'franklin-gothic-urw', helvetica, arial, sans-serif"; // returndata.settings.fontFamily;
 
                     $rootScope.fontSize = returndata.settings.fontSize;
                     $rootScope.listView = returndata.settings.listView;
