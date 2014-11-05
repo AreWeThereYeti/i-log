@@ -145,29 +145,30 @@ table {
 .spinner-backdrop {
   position: absolute;
   display: block;
-  background-color: rgba(255, 255, 255, 0.71);
+  background-color: #E9E9E9;
+  z-index: 5;
   width: 100%;
   height: 100%;
   @-webkit-keyframes bouncedelay {
-    /* line 109, ../sass/_loader.scss */
+    /* line 110, ../sass/_loader.scss */
     0%, 80%, 100% {
       -webkit-transform: scale(0);
     }
 
-    /* line 110, ../sass/_loader.scss */
+    /* line 111, ../sass/_loader.scss */
     40% {
       -webkit-transform: scale(1);
     }
 }
 
   @keyframes bouncedelay {
-    /* line 114, ../sass/_loader.scss */
+    /* line 115, ../sass/_loader.scss */
     0%, 80%, 100% {
       transform: scale(0);
       -webkit-transform: scale(0);
     }
 
-    /* line 117, ../sass/_loader.scss */
+    /* line 118, ../sass/_loader.scss */
     40% {
       transform: scale(1);
       -webkit-transform: scale(1);
@@ -175,7 +176,7 @@ table {
 }
 
 }
-/* line 8, ../sass/_loader.scss */
+/* line 9, ../sass/_loader.scss */
 .spinner-backdrop .spinner {
   width: 30px;
   height: 30px;
@@ -185,7 +186,7 @@ table {
   top: calc(50% - 15px);
   margin-top: 9px;
 }
-/* line 18, ../sass/_loader.scss */
+/* line 19, ../sass/_loader.scss */
 .spinner-backdrop .container1 > div, .spinner-backdrop .container2 > div, .spinner-backdrop .container3 > div {
   width: 6px;
   height: 6px;
@@ -198,93 +199,93 @@ table {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-/* line 32, ../sass/_loader.scss */
+/* line 33, ../sass/_loader.scss */
 .spinner-backdrop .spinner .spinner-container {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 38, ../sass/_loader.scss */
+/* line 39, ../sass/_loader.scss */
 .spinner-backdrop .container2 {
   -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg);
 }
-/* line 43, ../sass/_loader.scss */
+/* line 44, ../sass/_loader.scss */
 .spinner-backdrop .container3 {
   -webkit-transform: rotateZ(90deg);
   transform: rotateZ(90deg);
 }
-/* line 48, ../sass/_loader.scss */
+/* line 49, ../sass/_loader.scss */
 .spinner-backdrop .circle1 {
   top: 0;
   left: 0;
 }
-/* line 49, ../sass/_loader.scss */
+/* line 50, ../sass/_loader.scss */
 .spinner-backdrop .circle2 {
   top: 0;
   right: 0;
 }
-/* line 50, ../sass/_loader.scss */
+/* line 51, ../sass/_loader.scss */
 .spinner-backdrop .circle3 {
   right: 0;
   bottom: 0;
 }
-/* line 51, ../sass/_loader.scss */
+/* line 52, ../sass/_loader.scss */
 .spinner-backdrop .circle4 {
   left: 0;
   bottom: 0;
 }
-/* line 53, ../sass/_loader.scss */
+/* line 54, ../sass/_loader.scss */
 .spinner-backdrop .container2 .circle1 {
   -webkit-animation-delay: -1.1s;
   animation-delay: -1.1s;
 }
-/* line 58, ../sass/_loader.scss */
+/* line 59, ../sass/_loader.scss */
 .spinner-backdrop .container3 .circle1 {
   -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
 }
-/* line 63, ../sass/_loader.scss */
+/* line 64, ../sass/_loader.scss */
 .spinner-backdrop .container1 .circle2 {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
-/* line 68, ../sass/_loader.scss */
+/* line 69, ../sass/_loader.scss */
 .spinner-backdrop .container2 .circle2 {
   -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
-/* line 73, ../sass/_loader.scss */
+/* line 74, ../sass/_loader.scss */
 .spinner-backdrop .container3 .circle2 {
   -webkit-animation-delay: -0.7s;
   animation-delay: -0.7s;
 }
-/* line 78, ../sass/_loader.scss */
+/* line 79, ../sass/_loader.scss */
 .spinner-backdrop .container1 .circle3 {
   -webkit-animation-delay: -0.6s;
   animation-delay: -0.6s;
 }
-/* line 83, ../sass/_loader.scss */
+/* line 84, ../sass/_loader.scss */
 .spinner-backdrop .container2 .circle3 {
   -webkit-animation-delay: -0.5s;
   animation-delay: -0.5s;
 }
-/* line 88, ../sass/_loader.scss */
+/* line 89, ../sass/_loader.scss */
 .spinner-backdrop .container3 .circle3 {
   -webkit-animation-delay: -0.4s;
   animation-delay: -0.4s;
 }
-/* line 93, ../sass/_loader.scss */
+/* line 94, ../sass/_loader.scss */
 .spinner-backdrop .container1 .circle4 {
   -webkit-animation-delay: -0.3s;
   animation-delay: -0.3s;
 }
-/* line 98, ../sass/_loader.scss */
+/* line 99, ../sass/_loader.scss */
 .spinner-backdrop .container2 .circle4 {
   -webkit-animation-delay: -0.2s;
   animation-delay: -0.2s;
 }
-/* line 103, ../sass/_loader.scss */
+/* line 104, ../sass/_loader.scss */
 .spinner-backdrop .container3 .circle4 {
   -webkit-animation-delay: -0.1s;
   animation-delay: -0.1s;
@@ -1415,8 +1416,6 @@ h1 {
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
-  -webkit-animation: ngdialog-fadein 0.5s;
-  animation: ngdialog-fadein 0.5s;
 }
 
 /* line 3, ../sass/directives/_datepicker.scss */
