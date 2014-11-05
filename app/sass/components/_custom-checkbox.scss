@@ -19,12 +19,19 @@
   }
 
   label {
+    cursor: pointer;
     display: block;
     width: 100%;
     margin-bottom: 0px;
+    &:hover{
+      &:before {
+        background-color: gray;
+      }
+    }
   }
   label:before {
     border-radius: 50%;
+
   }
 
   input[type=radio]:checked + label:before {

@@ -629,15 +629,11 @@ h1 {
   font-size: 18px;
   padding-bottom: 0;
 }
-/* line 156, ../sass/pages/_logs.scss */
-.log-content .dropdown-time .select-inner .dropdown_content label:hover {
-  color: #e04f2f;
-}
-/* line 159, ../sass/pages/_logs.scss */
+/* line 157, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner .dropdown_content label.active {
   color: #e04f2f;
 }
-/* line 163, ../sass/pages/_logs.scss */
+/* line 161, ../sass/pages/_logs.scss */
 .log-content .dropdown-time .select-inner select {
   font-size: 18px;
   background-color: rgba(0, 0, 0, 0);
@@ -651,13 +647,13 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 178, ../sass/pages/_logs.scss */
+/* line 176, ../sass/pages/_logs.scss */
 .log-content .dropdown-time:after {
   display: block;
   content: '';
   clear: both;
 }
-/* line 186, ../sass/pages/_logs.scss */
+/* line 184, ../sass/pages/_logs.scss */
 .log-content .log-overlay {
   position: fixed;
   top: 0;
@@ -1281,15 +1277,20 @@ h1 {
 }
 /* line 21, ../sass/components/_custom-checkbox.scss */
 .custom-radio label {
+  cursor: pointer;
   display: block;
   width: 100%;
   margin-bottom: 0px;
 }
-/* line 26, ../sass/components/_custom-checkbox.scss */
+/* line 27, ../sass/components/_custom-checkbox.scss */
+.custom-radio label:hover:before {
+  background-color: gray;
+}
+/* line 32, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:before {
   border-radius: 50%;
 }
-/* line 30, ../sass/components/_custom-checkbox.scss */
+/* line 37, ../sass/components/_custom-checkbox.scss */
 .custom-radio input[type=radio]:checked + label:before {
   content: "";
   background-color: #e04f2f;
@@ -1297,11 +1298,11 @@ h1 {
   line-height: 15px;
 }
 
-/* line 39, ../sass/components/_custom-checkbox.scss */
+/* line 46, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox input[type=checkbox] {
   display: none;
 }
-/* line 43, ../sass/components/_custom-checkbox.scss */
+/* line 50, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox label:before {
   cursor: pointer;
   display: block;
@@ -1312,7 +1313,7 @@ h1 {
   margin-bottom: 0px;
   content: " ";
 }
-/* line 55, ../sass/components/_custom-checkbox.scss */
+/* line 62, ../sass/components/_custom-checkbox.scss */
 .custom-checkbox input[type=checkbox]:checked + label:before {
   content: " ";
   background-color: #dc4320;
@@ -1586,22 +1587,23 @@ h1 {
   position: relative;
   display: inline-block;
   line-height: 35px;
+  cursor: pointer;
 }
-/* line 26, ../sass/components/_dropdown.scss */
+/* line 27, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header:after {
   display: inline-block;
   content: "▼";
   float: right;
 }
-/* line 32, ../sass/components/_dropdown.scss */
+/* line 33, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active {
   z-index: 201;
 }
-/* line 35, ../sass/components/_dropdown.scss */
+/* line 36, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active:after {
   content: "▲";
 }
-/* line 41, ../sass/components/_dropdown.scss */
+/* line 42, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content {
   margin-left: -15px;
   position: absolute;
@@ -1612,22 +1614,22 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px #474747;
 }
-/* line 51, ../sass/components/_dropdown.scss */
+/* line 52, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 55, ../sass/components/_dropdown.scss */
+/* line 56, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content label {
   color: #383838;
   font-size: 12px;
 }
-/* line 60, ../sass/components/_dropdown.scss */
+/* line 61, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li {
   margin-left: 20px;
   line-height: 50px;
 }
-/* line 63, ../sass/components/_dropdown.scss */
+/* line 64, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li:last-of-type {
   padding-bottom: 15px;
 }
@@ -1668,25 +1670,26 @@ body {
 }
 /* line 60, ../sass/main.scss */
 .collapsable.showme .arrow_box {
+  cursor: pointer;
   opacity: 1;
 }
 
-/* line 65, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 a {
   color: #383838;
   text-decoration: none;
 }
 
-/* line 74, ../sass/main.scss */
+/* line 75, ../sass/main.scss */
 .active {
   color: #e04f2f;
 }
-/* line 75, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .active[class*=" icon-"]:before, .active a {
   color: #e04f2f;
 }
