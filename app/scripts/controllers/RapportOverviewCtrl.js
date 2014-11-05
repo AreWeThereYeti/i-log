@@ -27,7 +27,7 @@ app.controller('RapportOverviewCtrl', [ '$route', '$scope','entries','getdataser
   };
 
   RapportOverview.deleteReport = function(reportID){
-    if (confirm('Er du sikker på du vil slette denne log?')) {
+    if (confirm('Er du sikker på du vil slette denne rapport?')) {
 
         getdataservice.deleteEntry(reportID)
           .then(function(isDeleted){

@@ -11,7 +11,11 @@
         </span>
         </a>
       </li>
-      <li>{{ReportMenubar.currentReport.title}}</li>
+      <li>
+        <a href="#/rapporter">
+          {{ReportMenubar.currentReport.title}}
+        </a>
+      </li>
       <li class="report-interval"> ({{ReportMenubar.currentReport.content.from | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.content.to | date:'dd-MM-yyyy'}})</li>
     </ul>
   </div>
