@@ -34,6 +34,7 @@ h1{
   }
 
   textarea {
+    border: none;
     font-size: 18px;
     padding: 20px;
   }
@@ -158,6 +159,7 @@ h1{
           color: $font-color-orange;
         }
       }
+
       select {
         font-size: 18px;
         background-color: rgba(0, 0, 0, 0);
