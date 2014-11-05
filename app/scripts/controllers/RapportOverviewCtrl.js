@@ -18,7 +18,7 @@ app.controller('RapportOverviewCtrl', [ '$route', '$scope','entries','getdataser
 
 
   // initial active sort
-  RapportOverview.predicate = 'from';
+  RapportOverview.predicate = 'content.from';
   RapportOverview.reverse = false;
 
 

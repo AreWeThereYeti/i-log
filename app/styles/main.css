@@ -897,17 +897,23 @@ h1 {
   float: left;
   border-top: 2px solid #b33f26;
   font-size: 18px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* line 10, ../sass/components/_filterbar.scss */
+/* line 16, ../sass/components/_filterbar.scss */
 .filterbar div {
   color: white;
 }
-/* line 14, ../sass/components/_filterbar.scss */
+/* line 20, ../sass/components/_filterbar.scss */
 .filterbar .dateheader {
   z-index: 201;
   color: #e04f2f;
 }
-/* line 18, ../sass/components/_filterbar.scss */
+/* line 24, ../sass/components/_filterbar.scss */
 .filterbar .dateheader.arrow_box:after {
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
@@ -916,7 +922,7 @@ h1 {
   transform: rotate(-180deg);
   margin-bottom: 10px;
 }
-/* line 24, ../sass/components/_filterbar.scss */
+/* line 30, ../sass/components/_filterbar.scss */
 .filterbar .datefilter {
   margin-left: -15px;
   position: absolute;
@@ -927,33 +933,33 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px #474747;
 }
-/* line 33, ../sass/components/_filterbar.scss */
+/* line 39, ../sass/components/_filterbar.scss */
 .filterbar .datefilter .custom-radio label:before {
   vertical-align: baseline;
 }
-/* line 36, ../sass/components/_filterbar.scss */
+/* line 42, ../sass/components/_filterbar.scss */
 .filterbar .datefilter .dato {
   margin-bottom: -15px;
 }
-/* line 39, ../sass/components/_filterbar.scss */
+/* line 45, ../sass/components/_filterbar.scss */
 .filterbar .datefilter div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 43, ../sass/components/_filterbar.scss */
+/* line 49, ../sass/components/_filterbar.scss */
 .filterbar .datefilter label {
   color: #383838;
 }
-/* line 46, ../sass/components/_filterbar.scss */
+/* line 52, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 48, ../sass/components/_filterbar.scss */
+/* line 54, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
 }
-/* line 51, ../sass/components/_filterbar.scss */
+/* line 57, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li:last-of-type {
   padding-bottom: 15px;
 }
@@ -964,55 +970,61 @@ h1 {
   padding: 5px 25px;
   background-color: white;
   height: 80px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* line 6, ../sass/components/_menubar.scss */
+/* line 13, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
   background-color: white;
 }
-/* line 9, ../sass/components/_menubar.scss */
+/* line 16, ../sass/components/_menubar.scss */
 .menubar .back {
   float: left;
   color: #BFBFBF;
   border-color: #BFBFBF;
   margin: 18px 2px;
 }
-/* line 14, ../sass/components/_menubar.scss */
+/* line 21, ../sass/components/_menubar.scss */
 .menubar .back [class*=" icon-"]:before {
   font-size: 38px;
   vertical-align: top;
   margin: 0;
   color: #9b9b9b;
 }
-/* line 22, ../sass/components/_menubar.scss */
+/* line 29, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 26, ../sass/components/_menubar.scss */
+/* line 33, ../sass/components/_menubar.scss */
 .menubar ul li {
   cursor: pointer;
   font-size: 30px;
   display: inline-block;
   vertical-align: top;
 }
-/* line 31, ../sass/components/_menubar.scss */
+/* line 38, ../sass/components/_menubar.scss */
 .menubar ul li.divider {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 35, ../sass/components/_menubar.scss */
+/* line 42, ../sass/components/_menubar.scss */
 .menubar ul li.report-interval {
   font-size: 18px;
   color: #969696;
 }
-/* line 41, ../sass/components/_menubar.scss */
+/* line 48, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 47, ../sass/components/_menubar.scss */
+/* line 54, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:hover:before {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1021,31 +1033,31 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 58, ../sass/components/_menubar.scss */
+/* line 65, ../sass/components/_menubar.scss */
 .menubar .share .content {
   padding: 15px 25px;
 }
-/* line 62, ../sass/components/_menubar.scss */
+/* line 69, ../sass/components/_menubar.scss */
 .menubar .share .content .label {
   font-size: 14px;
   font-weight: bold;
   color: #a0a0a0;
   text-transform: uppercase;
 }
-/* line 68, ../sass/components/_menubar.scss */
+/* line 75, ../sass/components/_menubar.scss */
 .menubar .share .content select {
   font-size: 18px;
 }
-/* line 71, ../sass/components/_menubar.scss */
+/* line 78, ../sass/components/_menubar.scss */
 .menubar .share .content .btn {
   font-size: 18px;
   margin-top: 5px;
 }
-/* line 77, ../sass/components/_menubar.scss */
+/* line 84, ../sass/components/_menubar.scss */
 .menubar .share ul {
   padding: 0 25px;
 }
-/* line 79, ../sass/components/_menubar.scss */
+/* line 86, ../sass/components/_menubar.scss */
 .menubar .share ul li:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1053,37 +1065,37 @@ h1 {
   -o-transition: all 0.2s;
   color: #e04f2f;
 }
-/* line 87, ../sass/components/_menubar.scss */
+/* line 94, ../sass/components/_menubar.scss */
 .menubar .share ul li {
   font-size: 18px;
 }
-/* line 91, ../sass/components/_menubar.scss */
+/* line 98, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:before {
   margin: 0 10px 0 20px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 96, ../sass/components/_menubar.scss */
+/* line 103, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:first-of-type:before {
   margin-left: 0px;
 }
-/* line 102, ../sass/components/_menubar.scss */
+/* line 109, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 111, ../sass/components/_menubar.scss */
+/* line 118, ../sass/components/_menubar.scss */
 .menubar .circ:last-of-type {
   margin-right: 0px;
 }
-/* line 114, ../sass/components/_menubar.scss */
+/* line 121, ../sass/components/_menubar.scss */
 .menubar .circ.back {
   margin-right: 15px;
 }
 
-/* line 122, ../sass/components/_menubar.scss */
+/* line 129, ../sass/components/_menubar.scss */
 [class^="icon-"]:hover a,
 [class*=" icon-"]:hover a {
   transition: all 0.2s;
@@ -1552,16 +1564,22 @@ h1 {
 .select-inner {
   border-bottom: 3px solid #000;
   margin: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* line 5, ../sass/components/_dropdown.scss */
+/* line 11, ../sass/components/_dropdown.scss */
 .select-inner.left {
   margin-left: 0px;
 }
-/* line 9, ../sass/components/_dropdown.scss */
+/* line 15, ../sass/components/_dropdown.scss */
 .select-inner.right {
   margin-right: 0px;
 }
-/* line 13, ../sass/components/_dropdown.scss */
+/* line 19, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header {
   width: 100%;
   display: inline-block;
@@ -1569,21 +1587,21 @@ h1 {
   display: inline-block;
   line-height: 35px;
 }
-/* line 20, ../sass/components/_dropdown.scss */
+/* line 26, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header:after {
   display: inline-block;
   content: "▼";
   float: right;
 }
-/* line 26, ../sass/components/_dropdown.scss */
+/* line 32, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active {
   z-index: 201;
 }
-/* line 29, ../sass/components/_dropdown.scss */
+/* line 35, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active:after {
   content: "▲";
 }
-/* line 35, ../sass/components/_dropdown.scss */
+/* line 41, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content {
   margin-left: -15px;
   position: absolute;
@@ -1594,22 +1612,22 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px #474747;
 }
-/* line 45, ../sass/components/_dropdown.scss */
+/* line 51, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 49, ../sass/components/_dropdown.scss */
+/* line 55, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content label {
   color: #383838;
   font-size: 12px;
 }
-/* line 54, ../sass/components/_dropdown.scss */
+/* line 60, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li {
   margin-left: 20px;
   line-height: 50px;
 }
-/* line 57, ../sass/components/_dropdown.scss */
+/* line 63, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li:last-of-type {
   padding-bottom: 15px;
 }

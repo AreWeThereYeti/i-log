@@ -5,31 +5,31 @@
   <!--header-->
   <div class="listheader grid">
     <div class="col-1-8">
-      <span ng-class="{active : RapportOverview.predicate == 'from', arrow_box : RapportOverview.predicate == 'from', reverse : reverse}" ng-click="RapportOverview.predicate = 'from'; reverse = fromReverse; fromReverse=!fromReverse; toReverse=false; titleReverse=false; sharedReverse=false">Fra dato</span>
+      <span ng-class="{active : RapportOverview.predicate == 'content.from', arrow_box : RapportOverview.predicate == 'content.from', reverse : reverse}" ng-click="RapportOverview.predicate = 'content.from'; reverse = fromReverse; fromReverse=!fromReverse; toReverse=false; titleReverse=false; sharedReverse=false">Fra dato</span>
     </div>
     <div class="col-1-8">
-      <span ng-class="{active : RapportOverview.predicate == 'to', arrow_box : RapportOverview.predicate == 'to', reverse : reverse}" ng-click="RapportOverview.predicate = 'to';  reverse = toReverse; toReverse=!toReverse; fromReverse=false; titleReverse=false; sharedReverse=falsee">Til dato</span>
+      <span ng-class="{active : RapportOverview.predicate == 'content.to', arrow_box : RapportOverview.predicate == 'content.to', reverse : reverse}" ng-click="RapportOverview.predicate = 'content.to';  reverse = toReverse; toReverse=!toReverse; fromReverse=false; titleReverse=false; sharedReverse=falsee">Til dato</span>
     </div>
     <div class="col-1-2">
       <span ng-class="{active : RapportOverview.predicate == 'title', arrow_box : RapportOverview.predicate == 'title', reverse : reverse}" ng-click="RapportOverview.predicate = 'title';  reverse = titleReverse; titleReverse=!titleReverse; toReverse=false; fromReverse=false; sharedReverse=false">Titel</span>
     </div>
     <div class="col-1-4">
-      <span ng-class="{active : RapportOverview.predicate == 'shared', arrow_box : RapportOverview.predicate == 'shared', reverse : reverse}" ng-click="RapportOverview.predicate = 'shared';  reverse = sharedReverse; sharedReverse=!sharedReverse; toReverse=false; fromReverse=false; titleReverse=false">Delt</span>
+      <span ng-class="{active : RapportOverview.predicate == 'content.shared', arrow_box : RapportOverview.predicate == 'content.shared', reverse : reverse}" ng-click="RapportOverview.predicate = 'content.shared';  reverse = sharedReverse; sharedReverse=!sharedReverse; toReverse=false; fromReverse=false; titleReverse=false">Delt</span>
     </div>
   </div>
 
   <!--item in reports-->
   <div class="listitem grid animate" ng-repeat="item in RapportOverview.reports | reportRange:RapportOverview.filterRange |orderBy:RapportOverview.predicate:!reverse">
       <span class="col-1-8">
-        <span class="date" ng-class="{active : RapportOverview.predicate == 'from'}">{{item.content.from | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'content.from'}">{{item.content.from | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-8">
-        <span class="date" ng-class="{active : RapportOverview.predicate == 'to'}">{{item.content.to | date:'dd-MM-yyyy'}}</span>
+        <span class="date" ng-class="{active : RapportOverview.predicate == 'content.to'}">{{item.content.to | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-2" ng-class="{active : RapportOverview.predicate == 'title'}">
         <a ng-href="#/rapport/{{$index}}"><span class="title">{{item.title}}</span></a>
       </span>
-      <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'shared'}">
+      <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'content.shared'}">
         <span ng-show="{{item.content.shared}}">Ja</span>
         <span ng-hide="{{item.content.shared}}">Nej</span>
       </span>

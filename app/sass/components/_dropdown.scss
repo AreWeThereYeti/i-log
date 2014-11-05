@@ -1,6 +1,12 @@
 .select-inner {
   border-bottom: 3px solid #000;
   margin: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &.left{
     margin-left: 0px;
