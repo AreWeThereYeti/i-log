@@ -98,9 +98,11 @@ $dialog-padding : 15px 20px;
       .dropdown_content {
         max-height: 300px;
         overflow: auto;
+        font-size: 18px;
       }
       .dropdown_header {
         line-height: 40px;
+        font-size: 18px;
         &.active{
           background-color: white;
         }

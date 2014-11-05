@@ -930,33 +930,29 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
-/* line 39, ../sass/components/_filterbar.scss */
-.filterbar .datefilter .custom-radio label:before {
-  vertical-align: baseline;
-}
-/* line 42, ../sass/components/_filterbar.scss */
+/* line 40, ../sass/components/_filterbar.scss */
 .filterbar .datefilter .dato {
   margin-bottom: -15px;
 }
-/* line 45, ../sass/components/_filterbar.scss */
+/* line 43, ../sass/components/_filterbar.scss */
 .filterbar .datefilter div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 49, ../sass/components/_filterbar.scss */
+/* line 47, ../sass/components/_filterbar.scss */
 .filterbar .datefilter label {
   color: #383838;
 }
-/* line 52, ../sass/components/_filterbar.scss */
+/* line 50, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 54, ../sass/components/_filterbar.scss */
+/* line 52, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
 }
-/* line 57, ../sass/components/_filterbar.scss */
+/* line 55, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li:last-of-type {
   padding-bottom: 15px;
 }
@@ -1287,9 +1283,9 @@ h1 {
   height: 16px;
   margin-right: 10px;
   left: 0;
-  border: 3px solid #FFF;
+  border: 0px solid #FFF;
   box-shadow: 0 0 0 2px #383838;
-  vertical-align: text-bottom;
+  vertical-align: baseline;
   border-radius: 8px;
 }
 /* line 21, ../sass/components/_custom-checkbox.scss */
@@ -1530,16 +1526,18 @@ h1 {
 .datepicker .content .select-inner .dropdown_content, .error .content .select-inner .dropdown_content, .share .content .select-inner .dropdown_content {
   max-height: 300px;
   overflow: auto;
+  font-size: 18px;
 }
-/* line 102, ../sass/directives/_datepicker.scss */
+/* line 103, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner .dropdown_header, .error .content .select-inner .dropdown_header, .share .content .select-inner .dropdown_header {
   line-height: 40px;
+  font-size: 18px;
 }
-/* line 104, ../sass/directives/_datepicker.scss */
+/* line 106, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner .dropdown_header.active, .error .content .select-inner .dropdown_header.active, .share .content .select-inner .dropdown_header.active {
   background-color: white;
 }
-/* line 108, ../sass/directives/_datepicker.scss */
+/* line 110, ../sass/directives/_datepicker.scss */
 .datepicker .content .select-inner select, .error .content .select-inner select, .share .content .select-inner select {
   background-color: rgba(0, 0, 0, 0);
   outline: 0;
@@ -1553,14 +1551,14 @@ h1 {
   -moz-appearance: none;
   margin: 0px;
 }
-/* line 130, ../sass/directives/_datepicker.scss */
+/* line 132, ../sass/directives/_datepicker.scss */
 .datepicker .content .btn, .error .content .btn, .share .content .btn {
   font-family: "franklin-gothic-urw", helvetica, arial, sans-serif;
   font-size: 18px;
   margin: 20px 0;
   float: right;
 }
-/* line 137, ../sass/directives/_datepicker.scss */
+/* line 139, ../sass/directives/_datepicker.scss */
 .datepicker .datepicker-overlay, .error .datepicker-overlay, .share .datepicker-overlay {
   position: fixed;
   top: 0;
@@ -1635,7 +1633,7 @@ h1 {
 /* line 56, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content label {
   color: #383838;
-  font-size: 12px;
+  font-size: 18px;
 }
 /* line 61, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li {
