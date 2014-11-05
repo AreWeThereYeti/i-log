@@ -869,18 +869,18 @@ h1 {
   opacity: 0;
 }
 
-/* line 8, ../sass/components/_animation.scss */
+/* line 9, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 14, ../sass/components/_animation.scss */
+/* line 15, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-/* line 19, ../sass/components/_animation.scss */
+/* line 21, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }

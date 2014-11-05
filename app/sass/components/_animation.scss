@@ -1,21 +1,24 @@
-.animate.ng-enter
-{
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  opacity:0;
+.animate {
+  &.ng-enter {
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    opacity: 0;
+  }
 }
-.animate.ng-enter-active
-{
-  opacity:1;
-}
+  .animate {
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
 
-
-.animate.ng-leave
-{
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+.animate {
+  &.ng-leave {
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
 }
-.animate.ng-leave-active
-{
-  opacity:0;
+  .animate{
+    &.ng-leave-active{
+    opacity:0;
+  }
 }
