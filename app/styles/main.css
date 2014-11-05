@@ -703,18 +703,23 @@ h1 {
   background-color: white;
 }
 /* line 31, ../sass/pages/_report.scss */
+.report .report-content .d3container {
+  width: 100%;
+  height: 530px;
+}
+/* line 36, ../sass/pages/_report.scss */
 .report .listview {
   width: 100%;
   padding: 30px 40px;
   box-shadow: 0px 2px 6px white;
 }
-/* line 36, ../sass/pages/_report.scss */
+/* line 41, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   z-index: 1;
   padding-right: 1px;
   border-right: 2px solid #383838;
 }
-/* line 41, ../sass/pages/_report.scss */
+/* line 46, ../sass/pages/_report.scss */
 .report .listview span {
   color: #383838;
   font-size: 14px;
@@ -727,21 +732,21 @@ h1 {
   line-height: 40px;
   box-sizing: content-box;
 }
-/* line 53, ../sass/pages/_report.scss */
+/* line 58, ../sass/pages/_report.scss */
 .report .listview span.calc {
   color: #e04f2f;
 }
-/* line 60, ../sass/pages/_report.scss */
+/* line 65, ../sass/pages/_report.scss */
 .report .list-content {
   z-index: 0;
   border-bottom: 1px solid #E5E5E5;
   margin-top: -1px;
 }
-/* line 64, ../sass/pages/_report.scss */
+/* line 69, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 68, ../sass/pages/_report.scss */
+/* line 73, ../sass/pages/_report.scss */
 .report .list-content span.first {
   width: 25%;
   float: left;
@@ -751,91 +756,91 @@ h1 {
   padding-right: 20px;
   margin-left: -19px;
 }
-/* line 78, ../sass/pages/_report.scss */
+/* line 83, ../sass/pages/_report.scss */
 .report .list-content span.calc {
   color: #e04f2f;
   font-size: 14px;
   text-align: right;
 }
-/* line 84, ../sass/pages/_report.scss */
+/* line 89, ../sass/pages/_report.scss */
 .report .list-content span {
   margin-top: 1px;
   margin-bottom: -1px;
 }
-/* line 92, ../sass/pages/_report.scss */
+/* line 97, ../sass/pages/_report.scss */
 .report .list-head {
   border-bottom: 2px solid #383838;
 }
-/* line 95, ../sass/pages/_report.scss */
+/* line 100, ../sass/pages/_report.scss */
 .report .list-head span {
   color: #383838;
   font-weight: bold;
 }
-/* line 99, ../sass/pages/_report.scss */
+/* line 104, ../sass/pages/_report.scss */
 .report .list-head span.first {
   width: 25%;
   float: left;
 }
-/* line 104, ../sass/pages/_report.scss */
+/* line 109, ../sass/pages/_report.scss */
 .report .chart-calc {
   padding: 30px 40px 145px 40px;
 }
-/* line 107, ../sass/pages/_report.scss */
+/* line 112, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
   padding-top: 35px;
 }
-/* line 109, ../sass/pages/_report.scss */
+/* line 114, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element:first-of-type {
   padding-top: 30px;
 }
-/* line 112, ../sass/pages/_report.scss */
+/* line 117, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 116, ../sass/pages/_report.scss */
+/* line 121, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 121, ../sass/pages/_report.scss */
+/* line 126, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 125, ../sass/pages/_report.scss */
+/* line 130, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 128, ../sass/pages/_report.scss */
+/* line 133, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
 }
-/* line 131, ../sass/pages/_report.scss */
+/* line 136, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 136, ../sass/pages/_report.scss */
+/* line 141, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: #e5e5e5;
   stroke-width: 2;
 }
-/* line 144, ../sass/pages/_report.scss */
+/* line 149, ../sass/pages/_report.scss */
 .report .legend {
   top: 61px;
   overflow: visible;
   position: relative;
 }
-/* line 149, ../sass/pages/_report.scss */
+/* line 154, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 152, ../sass/pages/_report.scss */
+/* line 157, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 156, ../sass/pages/_report.scss */
+/* line 161, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;

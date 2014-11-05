@@ -2,7 +2,6 @@ angular.module('gyldendal.directives', ['d3'])
 		.directive('d3Chart', ['$timeout', 'd3Service', '$window', function($timeout, d3Service, $window) {
 			return {
 				restrict: 'EA',
-				template: "<div class='d3container'></div>",
 				scope: {
 					data: '=' // bi-directional data-binding
 				},
@@ -379,7 +378,7 @@ angular.module('gyldendal.directives', ['d3'])
               // Set the dimensions of the canvas / graph
               var margin = {top: 30, right: 40, bottom: 30, left: 40},
                 width = window.innerWidth - margin.left - margin.right,
-                height = 500 - margin.top - margin.bottom;
+                height = 530 - margin.top - margin.bottom;
 
               // get dimensions of axis labels
               var lengthX = "",
@@ -526,7 +525,7 @@ angular.module('gyldendal.directives', ['d3'])
               // Set the dimensions of the canvas / graph
               var margin = {top: 30, right: 40, bottom: 60, left: 40},
                 width = window.innerWidth - margin.left - margin.right,
-                height = 500 - margin.top - margin.bottom;
+                height = 530 - margin.top - margin.bottom;
 
               // get dimensions of axis labels
               var lengthY = "";

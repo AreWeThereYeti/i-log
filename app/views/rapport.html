@@ -24,6 +24,7 @@
   </div>
 
   <div class="report-content" ng-if="Report.pane == 'pie'">
+    <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
@@ -35,6 +36,7 @@
   </div>
 
   <div class="report-content" ng-if="Report.pane == 'bar'">
+    <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
@@ -74,6 +76,7 @@
   </div>
 
   <div class="report-content" ng-if="Report.pane == 'graph-dotted'">
+    <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
@@ -85,6 +88,7 @@
   </div>
 
   <div class="report-content" ng-if="Report.pane == 'graph-line'">
+    <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
