@@ -7,9 +7,8 @@ app.controller('DatePickerCtrl', ['$route', 'getdataservice', '$scope','DateServ
 	$scope.day = DateService.day;
 
 	$scope.update = function(index){
-		console.log($scope.year[index])
-		$scope.fromYear = $scope.year[index]
-	}
+		$scope.fromYear = $scope.year[index];
+	};
 
 	var d = new Date();
 	$scope.toYear = d.getFullYear();
@@ -42,13 +41,11 @@ app.controller('DatePickerCtrl', ['$route', 'getdataservice', '$scope','DateServ
             "shared": false
           }
       };
-console.log( reportData);
       //save report
 
       getdataservice.addNewReport(reportData)
         .then(function(data){
           // on success reload report view
-          console.log("report saved");
           $route.reload();
         }, function(err){
           // on err
