@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ 'entries', 'component', '$rootScope', '$location', 'getdataservice', '$scope', function (entries, component, $rootScope, $location, getdataservice, $scope) {
+app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootScope', '$location', 'getdataservice', '$scope', function ($timeout, entries, component, $rootScope, $location, getdataservice, $scope) {
 
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
@@ -42,11 +42,18 @@ app.controller('LogsOverviewCtrl', [ 'entries', 'component', '$rootScope', '$loc
 
     // promt "no logs has been entered go to ilog view"
     if(angular.isUndefined($rootScope.introPrompt)){
-      if (confirm("Gå direkte til indtastningssiden")) {
-
-        $rootScope.introPrompt = false;
-        $location.path('log');
-      }
+      $timeout(function () {
+        if (confirm("Gå direkte til indtastningssiden")) {
+          $rootScope.introPrompt = false;
+          $location.path('log');
+        }
+      },500);
+/*      angular.element(document).ready(function () {
+        if (confirm("Gå direkte til indtastningssiden")) {
+          $rootScope.introPrompt = false;
+          $location.path('log');
+        }
+      });*/
     }
     $rootScope.introPrompt = false;
 
