@@ -1,7 +1,7 @@
 .animate {
-  &.ng-enter {
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+  &.ng-enter{
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
     opacity: 0;
   }
 }
@@ -13,8 +13,8 @@
 
 .animate {
   &.ng-leave {
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
   }
 }
   .animate{

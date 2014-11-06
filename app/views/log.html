@@ -26,7 +26,7 @@
           <div class="select">
             <div class="select-inner">
               <div ng-class="{active : dropDown == input.id}" class="dropdown_header" ng-click="dropDown = input.id">{{input.value || "Vælg fra liste"}}</div>
-              <div ng-show="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="col-1-8">
+              <div ng-if="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="option in input.options" >
@@ -65,7 +65,7 @@
           <div class="dropdown-hour" ng-show="{{input.data.search('hh') != -1}}">
             <div class="select-inner" >
               <div ng-class="{active : dropDown == input.id}" class="dropdown_header" ng-click="dropDown = input.id" >{{input.hh|| "Timer"}}</div>
-              <div ng-show="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="col-1-8">
+              <div ng-if="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="hour in Log.hours" >
@@ -83,7 +83,7 @@
           <div class="dropdown-minute" ng-show="{{input.data.search('mm') != -1}}">
             <div class="select-inner minut" >
               <div ng-class="{active : dropDown == input.id+'minute'}" class="dropdown_header" ng-click="dropDown = input.id+'minute'" >{{input.mm || "Minutter"}}</div>
-              <div ng-show="dropDown == input.id+'minute'" ng-class="{dropdown_content : dropDown == input.id+'minute'}" class="col-1-8">
+              <div ng-if="dropDown == input.id+'minute'" ng-class="{dropdown_content : dropDown == input.id+'minute'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="minute in Log.minutes" >
@@ -101,7 +101,7 @@
           <div class="dropdown-second" ng-show="{{input.data.search('ss') != -1}}">
             <div class="select-inner second" >
               <div ng-class="{active : dropDown == input.id+'second'}" class="dropdown_header" ng-click="dropDown = input.id+'second'" >{{input.ss || "Sekunder"}}</div>
-              <div ng-show="dropDown == input.id+'second'" ng-class="{dropdown_content : dropDown == input.id+'second'}" class="col-1-8">
+              <div ng-if="dropDown == input.id+'second'" ng-class="{dropdown_content : dropDown == input.id+'second'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="second in Log.seconds" >
@@ -119,7 +119,7 @@
           <div class="dropdown-centi" ng-show="{{input.data.search('cscs') != -1}}">
             <div class="select-inner ceti" >
               <div ng-class="{active : dropDown == input.id+'ceti'}" class="dropdown_header" ng-click="dropDown = input.id+'ceti'" >{{input.cscs || "Centisekunder"}}</div>
-              <div ng-show="dropDown == input.id+'ceti'" ng-class="{dropdown_content : dropDown == input.id+'ceti'}" class="col-1-8">
+              <div ng-if="dropDown == input.id+'ceti'" ng-class="{dropdown_content : dropDown == input.id+'ceti'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="ceti in Log.centiseconds" >

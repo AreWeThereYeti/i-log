@@ -1,7 +1,7 @@
 <div class="ngdialog" ng-cloak>
-  <div class="grid">
+  <div class="grid" >
     <div ng-class="{dateheader : Date}" class="arrow_box dato" ng-click="Date = !Date">{{Filterbar.label || "Dato"}}</div>
-    <div ng-class="{datefilter : Date}" class="col-1-8">
+    <div ng-class="{datefilter : Date}" class="col-1-8 animate" ng-if="Date">
       <ul ng-show="Date" ng-click="Date = !Date">
         <li>
           <div class="custom-radio">

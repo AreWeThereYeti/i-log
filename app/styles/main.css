@@ -864,8 +864,8 @@ h1 {
 
 /* line 2, ../sass/components/_animation.scss */
 .animate.ng-enter {
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
   opacity: 0;
 }
 
@@ -876,8 +876,8 @@ h1 {
 
 /* line 15, ../sass/components/_animation.scss */
 .animate.ng-leave {
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 /* line 21, ../sass/components/_animation.scss */
@@ -947,12 +947,12 @@ h1 {
 .filterbar .datefilter ul {
   width: 215px;
 }
-/* line 52, ../sass/components/_filterbar.scss */
+/* line 53, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li {
   margin-left: 15px;
   line-height: 50px;
 }
-/* line 55, ../sass/components/_filterbar.scss */
+/* line 56, ../sass/components/_filterbar.scss */
 .filterbar .datefilter ul li:last-of-type {
   padding-bottom: 15px;
 }
@@ -1663,14 +1663,13 @@ body {
   -webkit-transition: height 0.2s;
   -moz-transition: height 0.2s;
   -o-transition: height 0.2s;
-}
-/* line 47, ../sass/main.scss */
-.collapsable .arrow_box {
-  opacity: 0;
-  transition: opacity 0.2s;
-  -webkit-transition: opacity 0.2s;
-  -moz-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s;
+  /*  .arrow_box{
+      opacity: 0;
+      transition:        opacity 0.2s;
+      -webkit-transition:opacity 0.2s;
+      -moz-transition:   opacity 0.2s;
+      -o-transition:     opacity 0.2s;
+    }*/
 }
 
 /* line 56, ../sass/main.scss */
