@@ -25,18 +25,18 @@
           <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label===''}">{{input.label}}</label>
           <div class="select">
             <div class="select-inner">
-              <div ng-class="{active : dropDown == input.id}" class="dropdown_header" ng-click="dropDown = input.id">{{input.value || "Vælg fra liste"}}</div>
-              <div ng-if="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="animate col-1-8">
+              <div ng-class="{active : Log.dropDown == input.id}" class="dropdown_header" ng-click="Log.dropDown = input.id">{{input.value || "Vælg fra liste"}}</div>
+              <div ng-if="Log.dropDown == input.id" ng-class="{dropdown_content : Log.dropDown == input.id}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="option in input.options" >
                       <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" >
-                      <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.value = input.options[$index]; $parent.dropDown = ''">{{option}}</label>
+                      <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.value = input.options[$index]; Log.dropDown = ''">{{option}}</label>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div ng-show="dropDown == input.id" ng-click="dropDown =''" class="log-overlay"></div>
+              <div ng-show="Log.dropDown == input.id" ng-click="Log.dropDown =''" class="log-overlay"></div>
             </div>
           </div>
         </div>
@@ -64,72 +64,72 @@
 
           <div class="dropdown-hour" ng-show="{{input.data.search('hh') != -1}}">
             <div class="select-inner" >
-              <div ng-class="{active : dropDown == input.id}" class="dropdown_header" ng-click="dropDown = input.id" >{{input.hh|| "Timer"}}</div>
-              <div ng-if="dropDown == input.id" ng-class="{dropdown_content : dropDown == input.id}" class="animate col-1-8">
+              <div ng-class="{active : Log.dropDown == input.id}" class="dropdown_header" ng-click="Log.dropDown = input.id" >{{input.hh|| "Timer"}}</div>
+              <div ng-if="Log.dropDown == input.id" ng-class="{dropdown_content : Log.dropDown == input.id}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="hour in Log.hours" >
                       <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" >
-                      <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.hh = Log.hours[$index]; input.value = Log.calcTimeVal(input); $parent.dropDown = ''">{{hour}}</label>
+                      <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.hh = Log.hours[$index]; input.value = Log.calcTimeVal(input); Log.dropDown = ''">{{hour}}</label>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div ng-show="dropDown == input.id" ng-click="dropDown =''" class="log-overlay"></div>
+              <div ng-show="Log.dropDown == input.id" ng-click="Log.dropDown =''" class="log-overlay"></div>
             </div>
             <span class="measure">t.</span>
           </div>
 
           <div class="dropdown-minute" ng-show="{{input.data.search('mm') != -1}}">
             <div class="select-inner minut" >
-              <div ng-class="{active : dropDown == input.id+'minute'}" class="dropdown_header" ng-click="dropDown = input.id+'minute'" >{{input.mm || "Minutter"}}</div>
-              <div ng-if="dropDown == input.id+'minute'" ng-class="{dropdown_content : dropDown == input.id+'minute'}" class="animate col-1-8">
+              <div ng-class="{active : Log.dropDown == input.id+'minute'}" class="dropdown_header" ng-click="Log.dropDown = input.id+'minute'" >{{input.mm || "Minutter"}}</div>
+              <div ng-if="Log.dropDown == input.id+'minute'" ng-class="{dropdown_content : Log.dropDown == input.id+'minute'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="minute in Log.minutes" >
                       <input id="log-checkfrom-{{input.id+'minute'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'minute'}}{{$index}}" >
-                      <label for="log-checkfrom-{{input.id+'minute'}}{{$index}}" ng-click="input.mm = Log.minutes[$index]; input.value = Log.calcTimeVal(input); $parent.dropDown = ''">{{minute}}</label>
+                      <label for="log-checkfrom-{{input.id+'minute'}}{{$index}}" ng-click="input.mm = Log.minutes[$index]; input.value = Log.calcTimeVal(input); Log.dropDown = ''">{{minute}}</label>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div ng-show="dropDown == input.id+'minute'" ng-click="dropDown =''" class="log-overlay"></div>
+              <div ng-show="Log.dropDown == input.id+'minute'" ng-click="Log.dropDown =''" class="log-overlay"></div>
             </div>
             <span class="measure">min.</span>
           </div>
 
           <div class="dropdown-second" ng-show="{{input.data.search('ss') != -1}}">
             <div class="select-inner second" >
-              <div ng-class="{active : dropDown == input.id+'second'}" class="dropdown_header" ng-click="dropDown = input.id+'second'" >{{input.ss || "Sekunder"}}</div>
-              <div ng-if="dropDown == input.id+'second'" ng-class="{dropdown_content : dropDown == input.id+'second'}" class="animate col-1-8">
+              <div ng-class="{active : Log.dropdown == input.id+'second'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'second'" >{{input.ss || "Sekunder"}}</div>
+              <div ng-if="Log.dropdown == input.id+'second'" ng-class="{dropdown_content : Log.dropdown == input.id+'second'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="second in Log.seconds" >
                       <input id="log-checkfrom-{{input.id+'second'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'second'}}{{$index}}" >
-                      <label for="log-checkfrom-{{input.id+'second'}}{{$index}}" ng-click="input.ss = Log.seconds[$index]; input.value = Log.calcTimeVal(input); $parent.dropDown = ''">{{second}}</label>
+                      <label for="log-checkfrom-{{input.id+'second'}}{{$index}}" ng-click="input.ss = Log.seconds[$index]; input.value = Log.calcTimeVal(input); Log.dropdown = ''">{{second}}</label>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div ng-show="dropDown == input.id+'second'" ng-click="dropDown =''" class="log-overlay"></div>
+              <div ng-show="Log.dropdown == input.id+'second'" ng-click="Log.dropdown =''" class="log-overlay"></div>
             </div>
             <span class="measure">sek.</span>
           </div>
 
           <div class="dropdown-centi" ng-show="{{input.data.search('cscs') != -1}}">
             <div class="select-inner ceti" >
-              <div ng-class="{active : dropDown == input.id+'ceti'}" class="dropdown_header" ng-click="dropDown = input.id+'ceti'" >{{input.cscs || "Centisekunder"}}</div>
-              <div ng-if="dropDown == input.id+'ceti'" ng-class="{dropdown_content : dropDown == input.id+'ceti'}" class="animate col-1-8">
+              <div ng-class="{active : Log.dropdown == input.id+'ceti'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'ceti'" >{{input.cscs || "Centisekunder"}}</div>
+              <div ng-if="Log.dropdown == input.id+'ceti'" ng-class="{dropdown_content : Log.dropdown == input.id+'ceti'}" class="animate col-1-8">
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="ceti in Log.centiseconds" >
                       <input id="log-checkfrom-{{input.id+'ceti'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'ceti'}}{{$index}}" >
-                      <label for="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-click="input.cscs = Log.centiseconds[$index]; input.value = Log.calcTimeVal(input); $parent.dropDown = ''">{{ceti}}</label>
+                      <label for="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-click="input.cscs = Log.centiseconds[$index]; input.value = Log.calcTimeVal(input); Log.dropdown = ''">{{ceti}}</label>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div ng-show="dropDown == input.id+'ceti'" ng-click="dropDown =''" class="log-overlay"></div>
+              <div ng-show="Log.dropdown == input.id+'ceti'" ng-click="Log.dropdown =''" class="log-overlay"></div>
             </div>
             <span class="measure">cs.</span>
           </div>

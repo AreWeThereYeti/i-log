@@ -869,18 +869,18 @@ h1 {
   opacity: 0;
 }
 
-/* line 9, ../sass/components/_animation.scss */
+/* line 11, ../sass/components/_animation.scss */
 .animate.ng-enter-active {
   opacity: 1;
 }
 
-/* line 15, ../sass/components/_animation.scss */
+/* line 18, ../sass/components/_animation.scss */
 .animate.ng-leave {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
-/* line 21, ../sass/components/_animation.scss */
+/* line 26, ../sass/components/_animation.scss */
 .animate.ng-leave-active {
   opacity: 0;
 }
@@ -1283,7 +1283,7 @@ h1 {
   height: 16px;
   margin-right: 10px;
   left: 0;
-  border: 0px solid #FFF;
+  border: 3px solid #FFF;
   box-shadow: 0 0 0 2px #383838;
   vertical-align: baseline;
   border-radius: 8px;
@@ -1297,7 +1297,7 @@ h1 {
 }
 /* line 27, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:hover:before {
-  background-color: gray;
+  background-color: #9b9b9b;
 }
 /* line 32, ../sass/components/_custom-checkbox.scss */
 .custom-radio label:before {
@@ -1390,7 +1390,7 @@ h1 {
   border-top-color: transparent;
   border-bottom-color: #000000;
   margin-top: -2px;
-  left: 255px;
+  left: 310px;
   position: relative;
 }
 /* line 37, ../sass/directives/_dialog.scss */
