@@ -1283,14 +1283,14 @@ h1 {
 .custom-radio label:before {
   content: "";
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   margin-right: 10px;
   left: 0;
   border: 3px solid #FFF;
-  box-shadow: 0 0 0 2px #383838;
-  vertical-align: baseline;
-  border-radius: 8px;
+  box-shadow: 0 0 0 1px #383838;
+  vertical-align: text-top;
+  box-sizing: border-box;
 }
 /* line 21, ../sass/components/_custom-checkbox.scss */
 .custom-radio label {
@@ -1645,7 +1645,7 @@ h1 {
 }
 /* line 61, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li {
-  margin-left: 20px;
+  margin-left: 16px;
   line-height: 50px;
 }
 /* line 64, ../sass/components/_dropdown.scss */
