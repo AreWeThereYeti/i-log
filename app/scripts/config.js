@@ -9,7 +9,7 @@ var app = angular.module('app', [
 	'gyldendal.directives',
   'gyldendal.filters',
 	'angularSpinner',
-		'ngAnimate'
+	'ngAnimate'
 ])
 
 //	Configure module
