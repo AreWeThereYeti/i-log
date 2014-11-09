@@ -1388,12 +1388,12 @@ h1 {
 .ngdialog .ngdialog-content {
   z-index: 1000;
   position: absolute;
-  left: calc(100% - 425px);
+  left: calc(100% - 424px);
   left: 57% \9;
   width: 400px;
   -webkit-backface-visibility: hidden;
   float: right;
-  top: 114px;
+  top: 64px;
   text-align: left;
 }
 /* line 25, ../sass/directives/_dialog.scss */
