@@ -109,6 +109,9 @@ h1{
       float: left;
       margin: 10px 20px 10px 10px;
     }
+    label{
+      padding-bottom: 0;
+    }
     .select-inner {
       border-bottom: none;
       width: 150px;
@@ -127,7 +130,7 @@ h1{
         border-bottom: 3px solid #383838;
         font-size: 18px;
         color: #383838;
-        line-height: 37px;
+        line-height: 40px;
 
         &.active{
           background-color: #ffffff;
@@ -142,7 +145,7 @@ h1{
 
       .dropdown_content {
         color: #383838;
-        width: 175px;
+        width: 180px;
         padding-top: 45px;
         max-height: 300px;
         overflow: auto;
@@ -187,7 +190,7 @@ h1{
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 000;
+    z-index: 1;
     display: block;
     width: 100%;
     height: 100%;

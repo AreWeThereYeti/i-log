@@ -4,11 +4,14 @@
     transition: opacity 0.2s;
     opacity: 0;
   }
+
+
 }
   .animate {
     &.ng-enter-active {
       opacity: 1;
     }
+
   }
 
 .animate {
@@ -16,9 +19,12 @@
     -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
   }
+
+
 }
   .animate{
     &.ng-leave-active{
     opacity:0;
   }
+
 }
