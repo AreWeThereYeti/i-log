@@ -671,27 +671,35 @@ h1 {
 .report {
   background-color: #FFF;
 }
-/* line 3, ../sass/pages/_report.scss */
+/* line 4, ../sass/pages/_report.scss */
+.report .reportmenu {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 6;
+}
+/* line 9, ../sass/pages/_report.scss */
 .report .reportsubmenu {
   padding: 0 25px;
   line-height: 50px;
   height: 50px;
   background-color: #f8f8f8;
-  box-shadow: 0px 1px 11px -4px #383838;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 5;
 }
-/* line 10, ../sass/pages/_report.scss */
+/* line 18, ../sass/pages/_report.scss */
 .report .reportsubmenu .report-type {
   float: left;
   cursor: pointer;
   padding-right: 20px;
 }
-/* line 15, ../sass/pages/_report.scss */
+/* line 23, ../sass/pages/_report.scss */
 .report .reportsubmenu .report-type .icon:before {
   vertical-align: middle;
   margin: 0 5px 0 0px;
   font-size: 20px;
 }
-/* line 23, ../sass/pages/_report.scss */
+/* line 31, ../sass/pages/_report.scss */
 .report .report-content {
   overflow: auto;
   width: 100%;
@@ -700,24 +708,24 @@ h1 {
   position: absolute;
   background-color: white;
 }
-/* line 31, ../sass/pages/_report.scss */
+/* line 39, ../sass/pages/_report.scss */
 .report .report-content .d3container {
   width: 100%;
   height: 530px;
 }
-/* line 36, ../sass/pages/_report.scss */
+/* line 44, ../sass/pages/_report.scss */
 .report .listview {
   width: 100%;
   padding: 30px 40px;
   box-shadow: 0px 2px 6px white;
 }
-/* line 41, ../sass/pages/_report.scss */
+/* line 49, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   z-index: 1;
   padding-right: 1px;
   border-right: 2px solid #383838;
 }
-/* line 46, ../sass/pages/_report.scss */
+/* line 54, ../sass/pages/_report.scss */
 .report .listview span {
   color: #383838;
   font-size: 14px;
@@ -730,21 +738,21 @@ h1 {
   line-height: 40px;
   box-sizing: content-box;
 }
-/* line 58, ../sass/pages/_report.scss */
+/* line 66, ../sass/pages/_report.scss */
 .report .listview span.calc {
   color: #e04f2f;
 }
-/* line 65, ../sass/pages/_report.scss */
+/* line 73, ../sass/pages/_report.scss */
 .report .list-content {
   z-index: 0;
   border-bottom: 1px solid #E5E5E5;
   margin-top: -1px;
 }
-/* line 69, ../sass/pages/_report.scss */
+/* line 77, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 73, ../sass/pages/_report.scss */
+/* line 81, ../sass/pages/_report.scss */
 .report .list-content span.first {
   width: 25%;
   float: left;
@@ -754,91 +762,91 @@ h1 {
   padding-right: 20px;
   margin-left: -19px;
 }
-/* line 83, ../sass/pages/_report.scss */
+/* line 91, ../sass/pages/_report.scss */
 .report .list-content span.calc {
   color: #e04f2f;
   font-size: 14px;
   text-align: right;
 }
-/* line 89, ../sass/pages/_report.scss */
+/* line 97, ../sass/pages/_report.scss */
 .report .list-content span {
   margin-top: 1px;
   margin-bottom: -1px;
 }
-/* line 97, ../sass/pages/_report.scss */
+/* line 105, ../sass/pages/_report.scss */
 .report .list-head {
   border-bottom: 2px solid #383838;
 }
-/* line 100, ../sass/pages/_report.scss */
+/* line 108, ../sass/pages/_report.scss */
 .report .list-head span {
   color: #383838;
   font-weight: bold;
 }
-/* line 104, ../sass/pages/_report.scss */
+/* line 112, ../sass/pages/_report.scss */
 .report .list-head span.first {
   width: 25%;
   float: left;
 }
-/* line 109, ../sass/pages/_report.scss */
+/* line 117, ../sass/pages/_report.scss */
 .report .chart-calc {
   padding: 30px 40px 145px 40px;
 }
-/* line 112, ../sass/pages/_report.scss */
+/* line 120, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
   padding-top: 35px;
 }
-/* line 114, ../sass/pages/_report.scss */
+/* line 122, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element:first-of-type {
   padding-top: 30px;
 }
-/* line 117, ../sass/pages/_report.scss */
+/* line 125, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 121, ../sass/pages/_report.scss */
+/* line 129, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 126, ../sass/pages/_report.scss */
+/* line 134, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 130, ../sass/pages/_report.scss */
+/* line 138, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 133, ../sass/pages/_report.scss */
+/* line 141, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
 }
-/* line 136, ../sass/pages/_report.scss */
+/* line 144, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 140, ../sass/pages/_report.scss */
+/* line 148, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: #e5e5e5;
   stroke-width: 2;
 }
-/* line 149, ../sass/pages/_report.scss */
+/* line 157, ../sass/pages/_report.scss */
 .report .legend {
   top: 61px;
   overflow: visible;
   position: relative;
 }
-/* line 154, ../sass/pages/_report.scss */
+/* line 162, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 157, ../sass/pages/_report.scss */
+/* line 165, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 161, ../sass/pages/_report.scss */
+/* line 169, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
@@ -970,32 +978,35 @@ h1 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 5;
 }
-/* line 13, ../sass/components/_menubar.scss */
+/* line 16, ../sass/components/_menubar.scss */
 .menubar.reportmenu {
   background-color: #ffffff;
 }
-/* line 16, ../sass/components/_menubar.scss */
+/* line 19, ../sass/components/_menubar.scss */
 .menubar .back {
   float: left;
   color: #BFBFBF;
   border-color: #BFBFBF;
   margin: 18px 2px;
 }
-/* line 21, ../sass/components/_menubar.scss */
+/* line 24, ../sass/components/_menubar.scss */
 .menubar .back [class*=" icon-"]:before {
   font-size: 38px;
   vertical-align: top;
   margin: 0;
   color: #9b9b9b;
 }
-/* line 29, ../sass/components/_menubar.scss */
+/* line 32, ../sass/components/_menubar.scss */
 .menubar ul {
   line-height: 70px;
   vertical-align: middle;
   display: inline-block;
 }
-/* line 33, ../sass/components/_menubar.scss */
+/* line 36, ../sass/components/_menubar.scss */
 .menubar ul li {
   line-height: 63px;
   cursor: pointer;
@@ -1003,25 +1014,25 @@ h1 {
   display: inline-block;
   vertical-align: top;
 }
-/* line 39, ../sass/components/_menubar.scss */
+/* line 42, ../sass/components/_menubar.scss */
 .menubar ul li.divider {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 43, ../sass/components/_menubar.scss */
+/* line 46, ../sass/components/_menubar.scss */
 .menubar ul li.report-interval {
   padding-left: 10px;
   font-size: 18px;
   color: #969696;
   vertical-align: baseline;
 }
-/* line 52, ../sass/components/_menubar.scss */
+/* line 55, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:before {
   margin: 0 10px 0 0px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 58, ../sass/components/_menubar.scss */
+/* line 61, ../sass/components/_menubar.scss */
 .menubar ul [class^="icon-"]:before, .menubar ul [class*=" icon-"]:hover:before {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1030,31 +1041,31 @@ h1 {
   color: #e04f2f;
   border-color: #e04f2f;
 }
-/* line 69, ../sass/components/_menubar.scss */
+/* line 72, ../sass/components/_menubar.scss */
 .menubar .share .content {
   padding: 15px 25px;
 }
-/* line 73, ../sass/components/_menubar.scss */
+/* line 76, ../sass/components/_menubar.scss */
 .menubar .share .content .label {
   font-size: 14px;
   font-weight: bold;
   color: #a0a0a0;
   text-transform: uppercase;
 }
-/* line 79, ../sass/components/_menubar.scss */
+/* line 82, ../sass/components/_menubar.scss */
 .menubar .share .content select {
   font-size: 18px;
 }
-/* line 82, ../sass/components/_menubar.scss */
+/* line 85, ../sass/components/_menubar.scss */
 .menubar .share .content .btn {
   font-size: 18px;
   margin-top: 5px;
 }
-/* line 88, ../sass/components/_menubar.scss */
+/* line 91, ../sass/components/_menubar.scss */
 .menubar .share ul {
   padding: 0 25px;
 }
-/* line 90, ../sass/components/_menubar.scss */
+/* line 93, ../sass/components/_menubar.scss */
 .menubar .share ul li:hover {
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
@@ -1062,36 +1073,36 @@ h1 {
   -o-transition: all 0.2s;
   color: #e04f2f;
 }
-/* line 98, ../sass/components/_menubar.scss */
+/* line 101, ../sass/components/_menubar.scss */
 .menubar .share ul li {
   font-size: 18px;
 }
-/* line 102, ../sass/components/_menubar.scss */
+/* line 105, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:before {
   margin: 0 10px 0 20px;
   font-size: 20px;
   vertical-align: middle;
 }
-/* line 107, ../sass/components/_menubar.scss */
+/* line 110, ../sass/components/_menubar.scss */
 .menubar .share ul [class^="icon-"]:before, .menubar .share ul [class*=" icon-"]:first-of-type:before {
   margin-left: 0px;
 }
-/* line 113, ../sass/components/_menubar.scss */
+/* line 116, ../sass/components/_menubar.scss */
 .menubar .icons {
   height: 75px;
   float: right;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 122, ../sass/components/_menubar.scss */
+/* line 125, ../sass/components/_menubar.scss */
 .menubar .circ:last-of-type {
   margin-right: 0px;
 }
-/* line 125, ../sass/components/_menubar.scss */
+/* line 128, ../sass/components/_menubar.scss */
 .menubar .circ.back {
   margin-right: 15px;
 }
-/* line 129, ../sass/components/_menubar.scss */
+/* line 132, ../sass/components/_menubar.scss */
 .menubar .report-overlay {
   position: fixed;
   top: 0;
@@ -1105,7 +1116,7 @@ h1 {
   -webkit-backface-visibility: hidden;
 }
 
-/* line 146, ../sass/components/_menubar.scss */
+/* line 149, ../sass/components/_menubar.scss */
 [class^="icon-"]:hover a,
 [class*=" icon-"]:hover a {
   transition: all 0.2s;
