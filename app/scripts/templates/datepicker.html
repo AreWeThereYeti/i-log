@@ -17,8 +17,8 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="year in year" >
-                    <input id="checkfrom{{year}}{{$index}}" type="radio" name="check" value="checkfrom{{year}}{{$index}}" >
-                    <label for="checkfrom{{year}}{{$index}}" ng-click="$parent.$parent.fromYear = $parent.$parent.year[$index]; $scope.dropDown = ''">{{year}}</label>
+                    <input id="checkfrom{{$paret.$paret.year}}{{$index}}" type="radio" name="check" value="checkfrom{{$paret.$paret.year}}{{$index}}" ng-checked="fromYear == year">
+                    <label for="checkfrom{{$paret.$paret.year}}{{$index}}" ng-click="$parent.$parent.fromYear = $parent.$parent.year[$index]; $scope.dropDown = ''">{{year}}</label>
                   </div>
                 </li>
               </ul>
@@ -33,7 +33,7 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="month in month" >
-                    <input id="checkfrom{{month.month}}{{$index}}" type="radio" name="check" value="checkfrom{{month.month}}{{$index}}" >
+                    <input id="checkfrom{{month.month}}{{$index}}" type="radio" name="check" value="checkfrom{{month.month}}{{$index}}" ng-checked="fromMonth.month == month.month" >
                     <label for="checkfrom{{month.month}}{{$index}}" ng-click="$parent.$parent.fromMonth = $parent.$parent.month[$index]; $scope.dropDown = ''">{{month.month}}</label>
                   </div>
                 </li>
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="day in day" >
-                    <input id="checkfrom{{day}}{{$index}}" type="radio" name="check" value="checkfrom{{day}}{{$index}}" >
+                    <input id="checkfrom{{day}}{{$index}}" type="radio" name="check" value="checkfrom{{day}}{{$index}}" ng-checked="fromDay == day">
                     <label for="checkfrom{{day}}{{$index}}" ng-click="$parent.$parent.fromDay= $parent.$parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
                   </div>
                 </li>
@@ -68,7 +68,7 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="year in year" >
-                    <input id="checkto{{year}}{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" >
+                    <input id="checkto{{year}}{{$index}}" type="radio" name="check" value="checkto{{year}}{{$index}}" ng-checked="toYear == year">
                     <label for="checkto{{year}}{{$index}}" ng-click="$parent.$parent.toYear= $parent.$parent.year[$index]; $scope.dropDown = ''">{{year}}</label>
                   </div>
                 </li>
@@ -84,7 +84,7 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="month in month" >
-                    <input id="checkto{{month.month}}{{$index}}" type="radio" name="check" value="checkto{{month.month}}{{$index}}" >
+                    <input id="checkto{{month.month}}{{$index}}" type="radio" name="check" value="checkto{{month.month}}{{$index}}" ng-checked="toMonth.month == month.month">
                     <label for="checkto{{month.month}}{{$index}}" ng-click="$parent.$parent.toMonth= $parent.$parent.month[$index]; $scope.dropDown = ''">{{month.month}}</label>
                   </div>
                 </li>
@@ -100,7 +100,7 @@
               <ul>
                 <li>
                   <div class="custom-radio" ng-repeat="day in day" >
-                    <input id="checkto{{day}}{{$index}}" type="radio" name="check" value="checkto{{day}}{{$index}}" >
+                    <input id="checkto{{day}}{{$index}}" type="radio" name="check" value="checkto{{day}}{{$index}}" ng-checked="toDay == day">
                     <label for="checkto{{day}}{{$index}}" ng-click="$parent.$parent.toDay= $parent.$parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
                   </div>
                 </li>

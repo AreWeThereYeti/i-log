@@ -5,27 +5,27 @@
       <ul >
         <li>
           <div class="custom-radio">
-            <input id="check1" type="radio" name="check" value="check1" ng-click="Filterbar.changeRange(1);  Filterbar.label = 'I dag'; Filterbar.Date = !Filterbar.Date;">
+            <input id="check1" type="radio" name="check" value="check1" ng-checked="Filterbar.label == 'I dag'" ng-click="Filterbar.changeRange(1);  Filterbar.label = 'I dag'; Filterbar.Date = !Filterbar.Date;">
             <label for="check1">I dag</label>
           </div>
           <div class="custom-radio">
-            <input id="check2" type="radio" name="check" value="check2" ng-click="Filterbar.changeRange(2); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'I går'">
+            <input id="check2" type="radio" name="check" value="check2" ng-checked="Filterbar.label == 'I går'" ng-click="Filterbar.changeRange(2); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'I går'">
             <label for="check2">I går</label>
           </div>
           <div class="custom-radio">
-            <input id="check3" type="radio" name="check" value="check3" ng-click="Filterbar.changeRange(7); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste uge'">
+            <input id="check3" type="radio" name="check" value="check3" ng-checked="Filterbar.label == 'Seneste uge'" ng-click="Filterbar.changeRange(7); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste uge'">
             <label for="check3">Seneste uge</label>
           </div>
           <div class="custom-radio">
-            <input id="check4" type="radio" name="check" value="check4" ng-click="Filterbar.changeRange(30); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste måned'">
+            <input id="check4" type="radio" name="check" value="check4" ng-checked="Filterbar.label == 'Seneste måned'"  ng-click="Filterbar.changeRange(30); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste måned'">
             <label for="check4">Seneste måned</label>
           </div>
           <div class="custom-radio">
-            <input id="check5" type="radio" name="check" value="check5" ng-click="Filterbar.changeRange(365); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste år'">
+            <input id="check5" type="radio" name="check" value="check5" ng-checked="Filterbar.label == 'Seneste år'" ng-click="Filterbar.changeRange(365); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Seneste år'">
             <label for="check5">Seneste år</label>
           </div>
           <div class="custom-radio">
-            <input id="check6" type="radio" name="check" value="check6" ng-click="Filterbar.changeRange(null); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Alle'">
+            <input id="check6" type="radio" name="check" value="check6" ng-checked="Filterbar.label == 'Alle'" ng-click="Filterbar.changeRange(null); Filterbar.Date = !Filterbar.Date; Filterbar.label = 'Alle'">
             <label for="check6">Alle</label>
           </div>
         </li>

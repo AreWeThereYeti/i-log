@@ -30,7 +30,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="option in input.options" >
-                      <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" >
+                      <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" ng-checked="input.value == option">
                       <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.value = input.options[$index]; Log.dropDown = ''">{{option}}</label>
                     </div>
                   </li>
@@ -69,7 +69,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="hour in Log.hours" >
-                      <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" >
+                      <input id="log-checkfrom-{{input.id}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id}}{{$index}}" ng-checked="input.hh == hour">
                       <label for="log-checkfrom-{{input.id}}{{$index}}" ng-click="input.hh = Log.hours[$index]; input.value = Log.calcTimeVal(input); Log.dropDown = ''">{{hour}}</label>
                     </div>
                   </li>
@@ -87,7 +87,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="minute in Log.minutes" >
-                      <input id="log-checkfrom-{{input.id+'minute'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'minute'}}{{$index}}" >
+                      <input id="log-checkfrom-{{input.id+'minute'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'minute'}}{{$index}}" ng-checked="input.mm == minute">
                       <label for="log-checkfrom-{{input.id+'minute'}}{{$index}}" ng-click="input.mm = Log.minutes[$index]; input.value = Log.calcTimeVal(input); Log.dropDown = ''">{{minute}}</label>
                     </div>
                   </li>
@@ -105,7 +105,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="second in Log.seconds" >
-                      <input id="log-checkfrom-{{input.id+'second'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'second'}}{{$index}}" >
+                      <input id="log-checkfrom-{{input.id+'second'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'second'}}{{$index}}" ng-checked="input.ss == second">
                       <label for="log-checkfrom-{{input.id+'second'}}{{$index}}" ng-click="input.ss = Log.seconds[$index]; input.value = Log.calcTimeVal(input); Log.dropdown = ''">{{second}}</label>
                     </div>
                   </li>
@@ -123,7 +123,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="ceti in Log.centiseconds" >
-                      <input id="log-checkfrom-{{input.id+'ceti'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'ceti'}}{{$index}}" >
+                      <input id="log-checkfrom-{{input.id+'ceti'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-checked="input.cscs == ceti">
                       <label for="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-click="input.cscs = Log.centiseconds[$index]; input.value = Log.calcTimeVal(input); Log.dropdown = ''">{{ceti}}</label>
                     </div>
                   </li>
