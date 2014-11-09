@@ -52,6 +52,9 @@ var app = angular.module('app', [
 				controller: 'RapportOverviewCtrl',
 				controllerAs: 'RapportOverview',
 				resolve: {
+          component: function(getdataservice, $route) {
+            return getdataservice.loadComponent($route.current.params);
+          },
           entries: function (getdataservice, $route) {
             return getdataservice.getList($route.current.params);
           }
