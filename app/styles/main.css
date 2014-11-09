@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 1, ../sass/reset/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -417,6 +416,16 @@ table {
 /* line 99, ../sass/components/_fonts.scss */
 .icon-share:before {
   content: "v";
+}
+
+/* line 102, ../sass/components/_fonts.scss */
+.icon-triangle:before {
+  content: "k";
+}
+
+/* line 105, ../sass/components/_fonts.scss */
+.icon-triangle-up:before {
+  content: "l";
 }
 
 /* line 1, ../sass/components/_helpers.scss */
@@ -1597,19 +1606,23 @@ h1 {
 }
 /* line 27, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header:after {
+  font-family: "ilog" !important;
   display: inline-block;
-  content: "▼";
+  content: "k";
   float: right;
+  font-size: 12px;
 }
-/* line 33, ../sass/components/_dropdown.scss */
+/* line 35, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active {
   z-index: 201;
 }
-/* line 36, ../sass/components/_dropdown.scss */
+/* line 38, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_header.active:after {
-  content: "▲";
+  font-family: "ilog" !important;
+  content: "l";
+  font-size: 12px;
 }
-/* line 42, ../sass/components/_dropdown.scss */
+/* line 46, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content {
   margin-left: -15px;
   position: absolute;
@@ -1620,22 +1633,22 @@ h1 {
   background-color: #FFF;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
-/* line 52, ../sass/components/_dropdown.scss */
+/* line 56, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content div {
   margin-bottom: -15px;
   color: #e04f2f;
 }
-/* line 56, ../sass/components/_dropdown.scss */
+/* line 60, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content label {
   color: #383838;
   font-size: 18px;
 }
-/* line 61, ../sass/components/_dropdown.scss */
+/* line 65, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li {
   margin-left: 16px;
   line-height: 50px;
 }
-/* line 64, ../sass/components/_dropdown.scss */
+/* line 68, ../sass/components/_dropdown.scss */
 .select-inner .dropdown_content ul li:last-of-type {
   padding-bottom: 15px;
 }

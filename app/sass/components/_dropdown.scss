@@ -25,16 +25,20 @@
     cursor: pointer;
 
     &:after{
+      font-family: "ilog" !important;
       display: inline-block;
-      content: "▼";
+      content: "k";
       float: right;
+      font-size: 12px;
     }
 
     &.active{
       z-index: 201;
 
       &:after{
-        content: "▲";
+        font-family: "ilog" !important;
+        content: "l";
+        font-size: 12px;
       }
     }
   }
