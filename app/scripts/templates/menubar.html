@@ -1,15 +1,15 @@
 <div class="grid">
   <div class="col-3-4">
     <ul>
-      <li ng-class="{active : $root.showSection == '/logs' || $root.showSection == '/' }" class="icon icon-logs"><a href="#/logs" >Mine logs</a></li>
+      <li ng-class="{active : $root.showSection == '/logs' || $root.showSection == '/' }" class="icon icon-logs"><a href="/logs" >Mine logs</a></li>
       <li class="divider"> | </li>
-      <li ng-class="{active : $root.showSection == '/rapporter'}" class="icon icon-reports"><a href="#/rapporter">Mine rapporter</a></li>
+      <li ng-class="{active : $root.showSection == '/rapporter'}" class="icon icon-reports"><a href="/rapporter">Mine rapporter</a></li>
     </ul>
   </div>
   <div ng-if="$root.showSection == '/logs' || $root.showSection == '/'" class="icons col-1-4">
     <div class="float-right">
       <div class="circ" ng-click="go('/log')">
-        <a href="#/log">
+        <a href="/log">
           <span class="icon icon-plus"></span>
         </a>
       </div>

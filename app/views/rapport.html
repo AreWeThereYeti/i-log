@@ -1,5 +1,5 @@
 <div class="report">
-  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
+  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'/scripts/templates/reportmenubar.html'"></div>
   <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
     <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>

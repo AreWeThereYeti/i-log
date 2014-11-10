@@ -18,7 +18,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: '/php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null && angular.isDefined(data.Content)) {
@@ -64,7 +64,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: '/php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data.Content !== null) {
@@ -99,7 +99,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/addEntry.php',
+            url: '/php/mads/addEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -137,7 +137,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/addEntry.php',
+            url: '/php/mads/addEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -168,7 +168,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/updateEntry.php',
+            url: '/php/mads/updateEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {
@@ -191,7 +191,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'POST',
-            url: 'php/mads/deleteEntry.php',
+            url: '/php/mads/deleteEntry.php',
             data: angular.toJson(request)
           })
             .success(function (data, status, headers, config) {

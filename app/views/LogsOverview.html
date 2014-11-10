@@ -20,11 +20,11 @@
           <span class="date" ng-class="{active : LogsOverview.predicate == 'timestamp'}">{{log.timestamp | date:'dd-MM-yyyy'}}</span>
         </span>
         <span class="col-6-8" ng-class="{active : LogsOverview.predicate == 'id'}">
-          <a ng-href="#/log/{{log.id}}"><span class="title">#{{log.id}} {{LogsOverview.componentData.title}}</span></a>
+          <a ng-href="/log/{{log.id}}"><span class="title">#{{log.id}} {{LogsOverview.componentData.title}}</span></a>
         </span>
         <span class="col-1-8">
           <div class="float-right">
-            <a ng-href="#/log/{{log.id}}">
+            <a ng-href="/log/{{log.id}}">
               <span class="circ">
                 <span class="icon icon-edit"></span>
               </span>
