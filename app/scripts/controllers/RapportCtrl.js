@@ -44,6 +44,15 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     Rapport.currentReport = Rapport.reports[Rapport.route];
   }
 
+  // filter logs so Rapport.logs only contains the logs in the current report interval
+  var logsInReportInterval =  [];
+  angular.forEach(Rapport.logs, function(log){
+    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= Rapport.currentReport.content.to){
+      logsInReportInterval.push(log);
+    }
+  });
+  Rapport.logs = logsInReportInterval;
+
 
   // prepare graph data
 	Rapport.linedata =
