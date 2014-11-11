@@ -40,7 +40,7 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     // set save method to "update"
     $rootScope.firstLogEntry = false;
 
-    // promt "no logs has been entered go to ilog view"
+/*    // promt "no logs has been entered go to ilog view"
     if(angular.isUndefined($rootScope.introPrompt)){
       $timeout(function () {
         if (confirm("Gå direkte til indtastningssiden")) {
@@ -48,13 +48,8 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
           $location.path('log');
         }
       },500);
-/*      angular.element(document).ready(function () {
-        if (confirm("Gå direkte til indtastningssiden")) {
-          $rootScope.introPrompt = false;
-          $location.path('log');
-        }
-      });*/
-    }
+
+    }*/
     $rootScope.introPrompt = false;
 
      // load logs into view
