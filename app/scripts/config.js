@@ -22,7 +22,7 @@ var app = angular.module('app', [
 
 	$routeProvider
 			.when('/', {
-				templateUrl: '/views/logsoverview1.html',
+				templateUrl: '/views/logsoverview.html',
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
@@ -35,7 +35,7 @@ var app = angular.module('app', [
         }
 			})
 			.when('/logs', {
-				templateUrl: '/views/logsoverview1.html',
+				templateUrl: '/views/logsoverview.html',
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
@@ -48,7 +48,7 @@ var app = angular.module('app', [
 				}
 			})
 			.when('/rapporter', {
-				templateUrl: '/views/rapportoverview1.html',
+				templateUrl: '/views/rapportoverview.html',
 				controller: 'RapportOverviewCtrl',
 				controllerAs: 'RapportOverview',
 				resolve: {
