@@ -27,7 +27,7 @@
         <span class="date" ng-class="{active : RapportOverview.predicate == 'content.to'}">{{item.content.to | date:'dd-MM-yyyy'}}</span>
       </span>
       <span class="col-1-2" ng-class="{active : RapportOverview.predicate == 'title'}">
-        <a ng-href="/rapport/{{item.id}}"><span class="title">{{item.title}}</span></a>
+        <a ng-href="#/rapport/{{item.id}}"><span class="title">{{item.title}}</span></a>
       </span>
       <span class="col-1-8" ng-class="{active : RapportOverview.predicate == 'content.shared'}">
         <span ng-show="{{item.content.shared}}">Ja</span>
@@ -35,7 +35,7 @@
       </span>
       <span class="col-1-8">
         <div class="float-right">
-          <a ng-href="/rapport/{{item.id}}">
+          <a ng-href="#/rapport/{{item.id}}">
             <span class="circ">
               <span class="icon icon-quicklook"></span>
             </span>

@@ -14,7 +14,7 @@ var app = angular.module('app', [
 
 //	Configure module
 .config(['$routeProvider','$locationProvider',function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false);
   // Extend isDefined to also check for null
   angular.isDefinedOrNotNull = function(val) {
     return angular.isDefined(val) || val === null
