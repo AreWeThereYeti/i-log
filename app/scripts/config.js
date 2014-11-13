@@ -22,7 +22,7 @@ var app = angular.module('app', [
 
 	$routeProvider
 			.when('/', {
-				templateUrl: '/views/logsoverview.html',
+				templateUrl: 'views/logsoverview.html',
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
@@ -35,7 +35,7 @@ var app = angular.module('app', [
         }
 			})
 			.when('/logs', {
-				templateUrl: '/views/logsoverview.html',
+				templateUrl: 'views/logsoverview.html',
 				controller: 'LogsOverviewCtrl',
 				controllerAs: 'LogsOverview',
 				resolve: {
@@ -48,7 +48,7 @@ var app = angular.module('app', [
 				}
 			})
 			.when('/rapporter', {
-				templateUrl: '/views/rapportoverview.html',
+				templateUrl: 'views/rapportoverview.html',
 				controller: 'RapportOverviewCtrl',
 				controllerAs: 'RapportOverview',
 				resolve: {
@@ -61,7 +61,7 @@ var app = angular.module('app', [
 				}
 			})
 			.when('/rapport/:id', {
-				templateUrl: '/views/rapport.html',
+				templateUrl: 'views/rapport.html',
 				controller: 'RapportCtrl',
 				controllerAs: 'Rapport',
 				resolve: {
@@ -74,7 +74,7 @@ var app = angular.module('app', [
 				}
 			})
       .when('/log', {
-        templateUrl: '/views/log.html',
+        templateUrl: 'views/log.html',
         controller: 'LogCtrl',
         controllerAs: 'Log',
         resolve: {
@@ -87,7 +87,7 @@ var app = angular.module('app', [
         }
       })
 			.when('/log/:id', {
-				templateUrl: '/views/log.html',
+				templateUrl: 'views/log.html',
 				controller: 'LogCtrl',
 				controllerAs: 'Log',
 				resolve: {
