@@ -15,7 +15,9 @@ include('php/mads/core.php');
 <html lang="en" id="ng-app" ng-app="app" ng-cloak>
     <head>
 
-      <!--[if IE 8]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+      <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-sham.js"></script>
 
