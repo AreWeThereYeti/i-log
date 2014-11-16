@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('DatePickerCtrl', ['$rootScope', '$route', 'getdataservice', '$scope','DateService' ,function ($rootScope, $route, getdataservice, $scope, DateService) {
+app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdataservice', '$scope','DateService' ,function ($location,$rootScope, $route, getdataservice, $scope, DateService) {
 //	Ctrl uses scope in order to use it in directive
 	$scope.year = DateService.year;
 	$scope.month = DateService.month;
@@ -47,7 +47,8 @@ app.controller('DatePickerCtrl', ['$rootScope', '$route', 'getdataservice', '$sc
         .then(function(data){
           // on success reload report view
           $rootScope.dialog = '';
-          $route.reload();
+          //$route.reload();
+          $location.path("rapport/"+$scope.$parent.RapportOverview.reports.length);
         }, function(err){
           // on err
           alert("Error: "+err);
