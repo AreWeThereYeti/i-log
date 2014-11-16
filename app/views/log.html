@@ -64,7 +64,7 @@
 
           <div class="dropdown-hour" ng-show="{{input.data.search('hh') != -1}}">
             <div class="select-inner" >
-              <div ng-class="{active : Log.dropDown == input.id}" class="dropdown_header" ng-click="Log.dropDown = input.id" >{{input.hh|| "Timer"}}</div>
+              <div ng-class="{active : Log.dropDown == input.id}" class="dropdown_header" ng-click="Log.dropDown = input.id" ><span ng-show="input.hh === 0">0</span><span ng-show="input.hh !== 0">{{input.hh|| "Timer"}}</span></div>
               <div ng-if="Log.dropDown == input.id" ng-class="{dropdown_content : Log.dropDown == input.id}" class="animate col-1-8">
                 <ul>
                   <li>
@@ -82,7 +82,7 @@
 
           <div class="dropdown-minute" ng-show="{{input.data.search('mm') != -1}}">
             <div class="select-inner minut" >
-              <div ng-class="{active : Log.dropDown == input.id+'minute'}" class="dropdown_header" ng-click="Log.dropDown = input.id+'minute'" >{{input.mm || "Minutter"}}</div>
+              <div ng-class="{active : Log.dropDown == input.id+'minute'}" class="dropdown_header" ng-click="Log.dropDown = input.id+'minute'" ><span ng-show="input.mm === 0">0</span><span ng-show="input.mm !== 0">{{input.mm || "Minutter"}}</span></div>
               <div ng-if="Log.dropDown == input.id+'minute'" ng-class="{dropdown_content : Log.dropDown == input.id+'minute'}" class="animate col-1-8">
                 <ul>
                   <li>
@@ -100,7 +100,7 @@
 
           <div class="dropdown-second" ng-show="{{input.data.search('ss') != -1}}">
             <div class="select-inner second" >
-              <div ng-class="{active : Log.dropdown == input.id+'second'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'second'" >{{input.ss || "Sekunder"}}</div>
+              <div ng-class="{active : Log.dropdown == input.id+'second'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'second'" ><span ng-show="input.ss === 0">0</span><span ng-show="input.ss !== 0">{{input.ss|| "Sekunder"}}</span></div>
               <div ng-if="Log.dropdown == input.id+'second'" ng-class="{dropdown_content : Log.dropdown == input.id+'second'}" class="animate col-1-8">
                 <ul>
                   <li>
@@ -118,7 +118,7 @@
 
           <div class="dropdown-centi" ng-show="{{input.data.search('cscs') != -1}}">
             <div class="select-inner ceti" >
-              <div ng-class="{active : Log.dropdown == input.id+'ceti'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'ceti'" >{{input.cscs || "Centisekunder"}}</div>
+              <div ng-class="{active : Log.dropdown == input.id+'ceti'}" class="dropdown_header" ng-click="Log.dropdown = input.id+'ceti'" ><span ng-show="input.cscs === 0">0</span><span ng-show="input.cscs !== 0">{{input.cscs|| "Centisekunder"}}</span></div>
               <div ng-if="Log.dropdown == input.id+'ceti'" ng-class="{dropdown_content : Log.dropdown == input.id+'ceti'}" class="animate col-1-8">
                 <ul>
                   <li>

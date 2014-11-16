@@ -130,12 +130,32 @@ table {
   width: 12.5%;
 }
 
+/* line 53, ../sass/_grid.scss */
+.col-2-8 {
+  width: 25%;
+}
+
+/* line 56, ../sass/_grid.scss */
+.col-3-8 {
+  width: 37.5%;
+}
+
+/* line 59, ../sass/_grid.scss */
+.col-4-8 {
+  width: 50%;
+}
+
+/* line 62, ../sass/_grid.scss */
+.col-5-8 {
+  width: 62.5%;
+}
+
 /* Opt-in outside padding */
-/* line 55, ../sass/_grid.scss */
+/* line 67, ../sass/_grid.scss */
 .grid-pad {
   padding: 0px 0 0px 0px;
 }
-/* line 57, ../sass/_grid.scss */
+/* line 69, ../sass/_grid.scss */
 .grid-pad [class*='col-']:last-of-type {
   padding-right: 0px;
 }

@@ -37,8 +37,24 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     }
   }
 
+// set up the initial report view to a view that's defined
+  if(Rapport.dataList.length){
+    Rapport.pane = 'list'
+  } else if(Rapport.dataGraph.length){
+    if(Rapport.dataGraph[0].views.connectedGraph){
+      Rapport.pane = 'graph-line'
+    } else {
+      Rapport.pane = 'graph-dotted'
+    }
+  } else if(Rapport.dataDiagram.length){
+    if(Rapport.dataDiagram[0].views.barchart){
+      Rapport.pane = 'bar'
+    } else {
+      Rapport.pane = 'pie'
+    }
+  }
 
-// set current report to dummy report with index = route.id
+// set current report to report with index = route.id
   Rapport.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(Rapport.route)){
     Rapport.currentReport = Rapport.reports[Rapport.route];
@@ -47,29 +63,30 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   // filter logs so Rapport.logs only contains the logs in the current report interval
   var logsInReportInterval =  [];
   angular.forEach(Rapport.logs, function(log){
-    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= Rapport.currentReport.content.to){
+    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= (Rapport.currentReport.content.to + 84000000)){
       logsInReportInterval.push(log);
     }
   });
   Rapport.logs = logsInReportInterval;
 
 
-  // prepare graph data
-	Rapport.linedata =
-  {
-    "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
-    "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
-    "data": []
-  };
-
-  for(var i = 0; i<Rapport.logs.length; i++){
-    var plot = {
-      "date": Rapport.logs[i].timestamp,
-      "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
+  // prepare graph data if graph view is defined by component
+  if (Rapport.dataGraph.length) {
+    Rapport.linedata =
+    {
+      "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
+      "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
+      "data": []
     };
-    Rapport.linedata.data.push(plot);
-  }
 
+    for (var i = 0; i < Rapport.logs.length; i++) {
+      var plot = {
+        "date": Rapport.logs[i].timestamp,
+        "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
+      };
+      Rapport.linedata.data.push(plot);
+    }
+  }
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
   Rapport.parseElements = function(expr, array){
@@ -173,22 +190,23 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   return $scope.$eval(exp);
 };
 
-  // prepare chart data
-  Rapport.chartdata = {
-    "ytitle": Rapport.dataDiagram[0].chart.value.title,
-    "xtitle": Rapport.dataDiagram[0].chart.domain.title,
-    "data": []
+  // prepare chart data if diagrams views are defined by component
+  if (Rapport.dataDiagram.length) {
+    Rapport.chartdata = {
+      "ytitle": Rapport.dataDiagram[0].chart.value.title,
+      "xtitle": Rapport.dataDiagram[0].chart.domain.title,
+      "data": []
 
-  };
-  for(var i = 0; i<Rapport.logs.length; i++){
-    var plot = {
-      "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
-      "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula,Rapport.logs[i])
     };
-    Rapport.chartdata.data.push(plot);
+    for (var i = 0; i < Rapport.logs.length; i++) {
+      var plot = {
+        "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
+        "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i])
+      };
+      Rapport.chartdata.data.push(plot);
+    }
+
   }
-
-
 
   // Function for parsing calculations in chart/graph view
   Rapport.chartFormula = function(calculation, logs){
@@ -298,15 +316,17 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     return $scope.$eval(exp);
   };
 
-  // set width of list view's first column
-  if(Rapport.dataList[0].calculations.length) {
-    var labelLength = 0;
-    angular.forEach(Rapport.dataList[0].calculations, function(calc) {
-      if(calc.label.length >labelLength){
-        labelLength = calc.label.length;
-      }
-    });
-    Rapport.newWidth = (labelLength*10)+"px";
+  // set width of list view's first column, if list view is defined by component
+  if(Rapport.dataList.length) {
+    if (Rapport.dataList[0].calculations.length) {
+      var labelLength = 0;
+      angular.forEach(Rapport.dataList[0].calculations, function (calc) {
+        if (calc.label.length > labelLength) {
+          labelLength = calc.label.length;
+        }
+      });
+      Rapport.newWidth = (labelLength * 10) + "px";
+    }
   }
 
   // Function for parsing column calculations in list view

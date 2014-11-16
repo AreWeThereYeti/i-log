@@ -63,6 +63,34 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
 
   }
 
+  // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
+  LogsOverview.parseElements = function(expr, array){
+    if(expr.search(/\,/)!=-1){
+
+      array.push($scope.$eval(expr.slice(0, expr.search(/\,/))));
+      LogsOverview.parseElements(expr.slice(expr.search(/\,/)+1, expr.length), array);
+    } else if(expr.length){
+      array.push($scope.$eval(expr.slice(0, expr.length)));
+      expr = "";
+    }
+    return array;
+  };
+
+  // prepare list of input fields and values to display in log list
+  var fields = [];
+  LogsOverview.parseElements(LogsOverview.componentData.settings.listview, fields);
+  LogsOverview.listView = [];
+  angular.forEach(LogsOverview.componentData.inputs, function(logInput){
+    angular.forEach(fields, function(field){
+      if(logInput.id == field){
+        LogsOverview.listView.push({
+          label: logInput.label,
+          fieldID: logInput.id
+        })
+      }
+    });
+  });
+
   //Delete log
   LogsOverview.deleteLog = function(logIndex){
     if (confirm('Er du sikker på du vil slette denne log?')) {
@@ -92,6 +120,19 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
 
   $scope.changeRange = function(range){
     LogsOverview.filterRange = range;
+  };
+
+  LogsOverview.computeCssClass = function(lastField){
+    var cssClass = null;
+    if(lastField){
+      var fieldSize = 8-LogsOverview.listView.length;
+      if(fieldSize >= 3){
+        cssClass = "col-"+(fieldSize-2)+"-8";
+
+        return cssClass
+      }
+    }
+    return "col-1-8"
   };
 
 	//Test variable. If you see it when the app runs you are good to go

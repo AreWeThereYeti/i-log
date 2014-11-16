@@ -101,7 +101,7 @@
                 <li>
                   <div class="custom-radio" ng-repeat="day in day" >
                     <input id="checkto{{day}}{{$index}}" type="radio" name="check" value="checkto{{day}}{{$index}}" ng-checked="toDay == day">
-                    <label for="checkto{{day}}{{$index}}" ng-click="$parent.$parent.toDay= $parent.$parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
+                    <label for="checkto{{day}}{{$index}}" ng-click="$parent.toDay = $parent.day[$index]; $scope.dropDown = ''">{{day}}</label>
                   </div>
                 </li>
               </ul>
