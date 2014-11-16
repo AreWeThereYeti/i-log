@@ -63,7 +63,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   // filter logs so Rapport.logs only contains the logs in the current report interval
   var logsInReportInterval =  [];
   angular.forEach(Rapport.logs, function(log){
-    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= Rapport.currentReport.content.to){
+    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= (Rapport.currentReport.content.to + 84000000)){
       logsInReportInterval.push(log);
     }
   });
