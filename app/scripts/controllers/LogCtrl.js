@@ -276,8 +276,12 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
     }
 
     // evaluates and sets parsed string expression to input field value
-    Log.inputs[index].value = $scope.$eval(exp);
-
+    if($scope.$eval(exp)!="Infinity") {
+      Log.inputs[index].value = $scope.$eval(exp);
+    } else {
+      Log.inputs[index].value = null;
+      return exp;
+    }
     // evaluates and returns parsed string expression as angular expression
     return $scope.$eval(exp);
 
