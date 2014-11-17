@@ -26,7 +26,7 @@
   <div class="report-content" ng-if="Rapport.pane == 'pie'">
     <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
@@ -38,7 +38,7 @@
   <div class="report-content" ng-if="Rapport.pane == 'bar'">
     <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
@@ -78,7 +78,7 @@
   <div class="report-content" ng-if="Rapport.pane == 'graph-dotted'">
     <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <p ng-if="calculation.label">{{calculation.label}}</p>
@@ -90,7 +90,7 @@
   <div class="report-content" ng-if="Rapport.pane == 'graph-line'">
     <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
+    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
