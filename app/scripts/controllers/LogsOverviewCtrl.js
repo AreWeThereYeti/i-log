@@ -131,6 +131,9 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
 
         return cssClass
       }
+    } else if (LogsOverview.listView.length==0){
+      return "col-6-8"
+
     }
     return "col-1-8"
   };

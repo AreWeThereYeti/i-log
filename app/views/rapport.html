@@ -29,8 +29,8 @@
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.label">{{calculation.label}}</div>
+        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -41,8 +41,8 @@
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.label">{{calculation.label}}</div>
+        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -81,8 +81,8 @@
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
-        <p>{{calculation.label}}</p>
-        <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+        <p ng-if="calculation.label">{{calculation.label}}</p>
+        <h2 ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
       </div>
     </div>
   </div>
@@ -93,8 +93,8 @@
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.label">{{calculation.label}}</div>
+        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
