@@ -38,19 +38,19 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   }
 
 // set up the initial report view to a view that's defined
-  if(Rapport.dataList.length){
+  if(Rapport.dataDiagram.length){
+    if(Rapport.dataDiagram[0].views.piechart){
+      Rapport.pane = 'pie'
+    } else if(Rapport.dataDiagram[0].views.barchart){
+      Rapport.pane = 'bar'
+    }
+  } else if(Rapport.dataList.length){
     Rapport.pane = 'list'
   } else if(Rapport.dataGraph.length){
     if(Rapport.dataGraph[0].views.connectedGraph){
       Rapport.pane = 'graph-line'
-    } else {
+    } else if(Rapport.dataGraph[0].views.scatterPlot){
       Rapport.pane = 'graph-dotted'
-    }
-  } else if(Rapport.dataDiagram.length){
-    if(Rapport.dataDiagram[0].views.barchart){
-      Rapport.pane = 'bar'
-    } else {
-      Rapport.pane = 'pie'
     }
   }
 
