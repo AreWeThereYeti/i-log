@@ -112,6 +112,9 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     var regexp = "ID[0-9]+";
     var re = new RegExp(regexp, "i");
 
+    if(exp == null){
+      return exp;
+    }
     // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
     while(exp.search(re) != -1) {
       var id = re.exec(exp)[0].slice(2);
@@ -319,12 +322,15 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   // set width of list view's first column, if list view is defined by component
   if(Rapport.dataList.length) {
     if (Rapport.dataList[0].calculations.length) {
-      var labelLength = 0;
+      var labelLength = 3;
       angular.forEach(Rapport.dataList[0].calculations, function (calc) {
-        if (calc.label.length > labelLength) {
-          labelLength = calc.label.length;
+        if(angular.isDefinedOrNotNull(calc.label)) {
+          if (calc.label.length > labelLength) {
+            labelLength = calc.label.length;
+          }
         }
       });
+
       Rapport.newWidth = (labelLength * 10) + "px";
     }
   }
