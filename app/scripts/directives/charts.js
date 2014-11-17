@@ -396,10 +396,10 @@ angular.module('gyldendal.directives', ['d3'])
               // get dimensions of axis labels
               var lengthX = "",
                 lengthY = "";
-              if(angular.isDefinedOrNotNull(data.xtitle)){
+              if(angular.isDefined(data.xtitle) && data.xtitle != null){
                 lengthX = data.xtitle.length;
               }
-              if(angular.isDefinedOrNotNull(data.ytitle)){
+              if(angular.isDefined(data.ytitle) && data.ytitle != null){
                 lengthY = data.ytitle.length;
               }
 
