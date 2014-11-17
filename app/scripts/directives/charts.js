@@ -519,7 +519,7 @@ angular.module('gyldendal.directives', ['d3'])
                 node.append("text")
                   .attr("x", function(d) { return x(d.date); })
                   .attr("y", function(d) { return y(d.close)+30; })
-                  .text(function(d) { return d.close })
+                  .text(function(d) { var value = d.close; return value.toFixed(2) })
                   .style("text-anchor", "middle")
                   .style("fill", "#383838");
 						};
@@ -656,7 +656,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform", "translate(40,0)")
                 .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { return d.close })
+                .text(function(d) { var value = d.close; return value.toFixed(2) })
                 .style("text-anchor", "middle")
                 .style("fill", "#383838");
 
