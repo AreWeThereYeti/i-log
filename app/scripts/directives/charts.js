@@ -66,10 +66,10 @@ angular.module('gyldendal.directives', ['d3'])
                 var lengthX = "",
                     lengthY = "";
 
-                if(angular.isDefinedOrNotNull(data.xtitle)){
+                if(angular.isDefined(data.xtitle) && data.xtitle != null){
                   lengthX = data.xtitle.length;
                 }
-                if(angular.isDefinedOrNotNull(data.ytitle)){
+                if(angular.isDefined(data.ytitle) && data.ytitle != null){
                   lengthY = data.ytitle.length;
                 }
 
@@ -241,6 +241,19 @@ angular.module('gyldendal.directives', ['d3'])
 
 							var text;
 
+              // get max length of value labels
+              var lengthMax = 0;
+
+              angular.forEach(data.data, function(d){
+                if(angular.isDefined(d.label) && d.label != null){
+                  if(lengthMax < d.label.length){
+                    lengthMax = d.label.length;
+                  }
+                }
+              });
+
+
+
 							var colors = ["#e42b41", "#a965dd", "#2be435", "#dcdd65", "#2be4de", "#ffe40f", "#65a6dd", "#2b4fe4", "#e4902b", "#65ddb2", "#e4532b", "#632be4", "#2be435", "#2be4c0", "#2b8de4", "#e42bca", "#e42b8c", "#fa2114"];
               var colorscale = d3.scale.ordinal().range(colors);
 							//var colorscale = d3.scale.linear().domain([0,data.data.length]).range(colors);
@@ -350,7 +363,7 @@ angular.module('gyldendal.directives', ['d3'])
 
               legendContent.append("text")
                 .attr("class", "legend-percent")
-                .attr("x", 100)
+                .attr("x", (30+(lengthMax * 13)))
                 .attr("y", 10)
                 .attr("dy", ".35em")
                 .style("fill", "#383838")
