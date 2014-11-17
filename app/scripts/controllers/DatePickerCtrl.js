@@ -19,13 +19,13 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
 	$scope.createReport = function(){
     //Check if "from date " is defined
 		if(angular.isDefined($scope.fromYear && $scope.fromMonth && $scope.fromDay)){
-			$scope.dateFrom =  new Date(($scope.fromYear + '-' + $scope.fromMonth.val + '-' + $scope.fromDay)).getTime();
+			$scope.dateFrom =  new Date(($scope.fromYear + '/' + $scope.fromMonth.val + '/' + $scope.fromDay)).getTime();
 		}
 
 
     //Check if "to date" is defined
 		if(angular.isDefined($scope.toYear && $scope.toMonth && $scope.toDay)){
-			$scope.dateTo =  new Date(($scope.toYear + '-' + $scope.toMonth.val + '-' + $scope.toDay)).getTime();
+			$scope.dateTo =  new Date(($scope.toYear + '/' + $scope.toMonth.val + '/' + $scope.toDay)).getTime();
 		}
 
     //If both are defined as well as report title, contact server
@@ -35,8 +35,8 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
         "title": $scope.title,
         "data":
           {
-            "from": $scope.dateFrom,
-            "to": $scope.dateTo,
+            "from": $scope.dateFrom/1000,
+            "to": $scope.dateTo/1000,
             "created": new Date().getTime(),
             "shared": false
           }
