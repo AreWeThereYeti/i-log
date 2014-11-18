@@ -35,8 +35,8 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
         "title": $scope.title,
         "data":
           {
-            "from": $scope.dateFrom/1000,
-            "to": $scope.dateTo/1000,
+            "from": $scope.dateFrom,
+            "to": $scope.dateTo,
             "created": new Date().getTime(),
             "shared": false
           }
