@@ -57,7 +57,23 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
 // set current report to report with index = route.id
   Rapport.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(Rapport.route)){
-    Rapport.currentReport = Rapport.reports[Rapport.route];
+    if(Rapport.route == "new"){
+      // if user has been redirected from new report dialog,
+      // set current report to the newest
+      if(Rapport.reports.length == 1){
+        Rapport.currentReport = Rapport.reports[0];
+      } else {
+        for(var i = 1; i < Rapport.reports.length; i++) {
+          if (Rapport.reports[i].content.created > Rapport.reports[i - 1].content.created) {
+            Rapport.currentReport = Rapport.reports[i];
+          } else {
+            Rapport.currentReport = Rapport.reports[i - 1];
+          }
+        }
+      }
+    } else {
+      Rapport.currentReport = Rapport.reports[Rapport.route];
+    }
   }
 
   // filter logs so Rapport.logs only contains the logs in the current report interval

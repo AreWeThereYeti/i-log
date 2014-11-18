@@ -47,8 +47,8 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
         .then(function(data){
           // on success reload report view
           $rootScope.dialog = '';
-          $route.reload();
-          //$location.path("rapport/"+$scope.$parent.RapportOverview.reports.length);
+          //$route.reload();
+          $location.path("rapport/new");
         }, function(err){
           // on err
           alert("Error: "+err);

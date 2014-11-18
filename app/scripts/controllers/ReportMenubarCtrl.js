@@ -7,7 +7,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
 
   ReportMenubar.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(ReportMenubar.route)){
-    ReportMenubar.currentReport = $scope.$parent.Rapport.reports[ReportMenubar.route];
+    ReportMenubar.currentReport = $scope.$parent.Rapport.currentReport;
   }
 
 
