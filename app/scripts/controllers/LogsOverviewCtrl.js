@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootScope', '$location', 'getdataservice', '$scope', function ($timeout, entries, component, $rootScope, $location, getdataservice, $scope) {
+app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootScope', '$location', 'getdataservice', '$scope', '$route', function ($timeout, entries, component, $rootScope, $location, getdataservice, $scope, $route) {
 
 	//Save reference to controller in order to avoid reference soup
 	var LogsOverview = this;
@@ -99,7 +99,7 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
       if(newLogs.length){
         getdataservice.updateLog(newLogs, LogsOverview.logEntries.objectID)
         .then(function(isDeleted){
-          $location.path('/');
+          $route.reload()
         });
       } else {
         LogsOverview.deleteAll();
