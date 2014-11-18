@@ -11,8 +11,8 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
     // checks if all required fields are filled, alerts and returns if not
     for(var i=0; i<$scope.$parent.Log.inputs.length; i++){
-      if($scope.$parent.Log.inputs[i].type != "data" && $scope.$parent.Log.inputs[i].type != "formula"){
-        if($scope.$parent.Log.inputs[i].value){
+      if(angular.isDefined($scope.$parent.Log.inputs[i].value)){
+        if($scope.$parent.Log.inputs[i].value != $scope.$parent.Log.currentLog.data[$scope.$parent.Log.inputs[i].id]){
           if(confirm("Der er foretaget ikke-gemte indtastninger. Disse vil gå tabt hvis du fortsætter.")){
             $location.path('logs');
             return;
