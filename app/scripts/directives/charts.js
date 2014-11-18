@@ -403,6 +403,10 @@ angular.module('gyldendal.directives', ['d3'])
                 lengthY = data.ytitle.length;
               }
 
+              // calculate min date
+              //var minDate = d3.min(data.data, function(d){return d.date});
+              //var maxDate = d3.max(data.data, function(d){return d.date});
+
               // Set the ranges
               var x = d3.time.scale().range([0, width]);
               var y = d3.scale.linear().range([height, 0]);
@@ -425,15 +429,17 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
+                .attr("class", "base")
                 .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
 
               // calculate a date before the min plot date to use as x-axis min scale
-              var minDate = new Date(d3.min(data.data, function(d) { return d.date; }) - 8.64e7);
+              var minDate = d3.min(data.data, function(d) { return d.date; });
+              var maxDate = d3.max(data.data, function(d){return d.date});
 
               // Scale the range of the data
-              x.domain([minDate, d3.max(data.data, function(d) { return d.date; })]);
+              x.domain([minDate - ((maxDate-minDate)*0.05), maxDate]);
               y.domain([0, d3.max(data.data, function(d) { return d.close; })]);
 
                 // Add the valueline path.
@@ -445,24 +451,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .style("stroke-width", 4);
 
 
-              var node = svg.selectAll("g")
-                .data(data.data)
-                .enter()
-                .append("g");
 
-              node.append("circle")
-                .attr("class", "dot")
-                .attr("cx", function(d) { return x(d.date); })
-                .attr("cy", function(d) { return y(d.close); })
-                .attr("r", 10)
-                .style("fill", "#dc4320");
-
-              node.append("text")
-                .attr("x", function(d) { return x(d.date); })
-                .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { return d.close })
-                .style("text-anchor", "middle")
-                .style("fill", "#383838");
 
 
                 // Add the X Axis
@@ -515,7 +504,24 @@ angular.module('gyldendal.directives', ['d3'])
                   .text(data.ytitle)
                   .style("fill", "#383838");
 
+                var node = svg.selectAll(".base")
+                  .data(data.data)
+                  .enter()
+                  .append("g");
 
+                node.append("circle")
+                  .attr("class", "dot")
+                  .attr("cx", function(d) { return x(d.date); })
+                  .attr("cy", function(d) { return y(d.close); })
+                  .attr("r", 10)
+                  .style("fill", "#dc4320");
+
+                node.append("text")
+                  .attr("x", function(d) { return x(d.date); })
+                  .attr("y", function(d) { return y(d.close)+30; })
+                  .text(function(d) { var value = d.close; return value.toFixed(2) })
+                  .style("text-anchor", "middle")
+                  .style("fill", "#383838");
 						};
 
 //---------------- D3 function for rendering dot chart----------------
@@ -543,7 +549,7 @@ angular.module('gyldendal.directives', ['d3'])
               // get dimensions of axis labels
               var lengthY = "";
 
-              if(angular.isDefinedOrNotNull(data.ytitle)){
+              if(angular.isDefined(data.ytitle) && data.ytitle != null){
                 lengthY = data.ytitle.length;
               }
 
@@ -650,7 +656,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform", "translate(40,0)")
                 .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { return d.close })
+                .text(function(d) { var value = d.close; return value.toFixed(2) })
                 .style("text-anchor", "middle")
                 .style("fill", "#383838");
 
