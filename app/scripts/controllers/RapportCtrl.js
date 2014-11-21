@@ -238,12 +238,13 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
     if(exp.search(/SUM\(/g)!=-1){
       if(exp.search(/SUM\(([^\(]+)(?=\))/i)!=-1){
-        // extract the content of the formula expression as an array
-        var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/SUM\(/g, "");
         var num = [];
         for(var i = 0; i<logs.length; i++) {
-          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          // extract the content of the formula expression as an array
+          var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/SUM\(/g, "");
+
+          // replaces "ID" while these are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
             func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
@@ -264,10 +265,13 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     if(exp.search(/HIGHEST\(/g)!=-1){
 
       if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/HIGHEST\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/HIGHEST\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
@@ -288,10 +292,13 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     if(exp.search(/LOWEST\(/g)!=-1){
 
       if(exp.search(/LOWEST\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/LOWEST\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/LOWEST\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
@@ -311,10 +318,13 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
     if(exp.search(/AVERAGE\(/g)!=-1){
       if(exp.search(/AVERAGE\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/AVERAGE\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/AVERAGE\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
