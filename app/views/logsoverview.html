@@ -23,7 +23,7 @@
           <a ng-href="#/log/{{log.id}}"><span class="title">{{LogsOverview.componentData.title}} #{{log.id+1}}</span></a>
         </span>
         <span  ng-repeat="field in LogsOverview.listView" ng-class="LogsOverview.computeCssClass($last)">
-          <span class="listView-field">{{log.data[field.fieldID]}}</span>
+          <span class="listView-field">{{log.data[field.fieldID]}} {{field.unit}}</span>
         </span>
 
         <span class="col-1-8">
