@@ -83,10 +83,19 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
   angular.forEach(LogsOverview.componentData.inputs, function(logInput){
     angular.forEach(fields, function(field){
       if(logInput.id == field){
-        LogsOverview.listView.push({
-          label: logInput.label,
-          fieldID: logInput.id
-        })
+        if(angular.isDefined(logInput.unit)){
+          LogsOverview.listView.push({
+            label: logInput.label,
+            fieldID: logInput.id,
+            unit: logInput.unit
+          })
+        } else {
+          LogsOverview.listView.push({
+            label: logInput.label,
+            fieldID: logInput.id,
+            unit: ''
+          })
+        }
       }
     });
   });
