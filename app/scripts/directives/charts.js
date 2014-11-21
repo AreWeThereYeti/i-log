@@ -300,7 +300,7 @@ angular.module('gyldendal.directives', ['d3'])
 										.style("fill", "white")
 										.style('pointer-events' , 'none')
 										.attr("class", "on")
-										.text(d.data.label);
+										.text(d.data.value);
 								})
 
 								.on("mouseout", function(d) {
