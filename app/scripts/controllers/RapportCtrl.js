@@ -218,11 +218,21 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
 
     };
     for (var i = 0; i < Rapport.logs.length; i++) {
-      var plot = {
-        "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
-        "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i])
-      };
-      Rapport.chartdata.data.push(plot);
+      // check for existing label. if exists then increase and value don't add new entry
+      var double = false;
+      for (var j = 0; j < Rapport.chartdata.data.length; j++){
+        if(Rapport.chartdata.data[j].label == Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID]){
+          double = true;
+          Rapport.chartdata.data[j].value += Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i]);
+        }
+      }
+      if(!double) {
+        var plot = {
+          "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
+          "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i])
+        };
+        Rapport.chartdata.data.push(plot);
+      }
     }
 
   }
