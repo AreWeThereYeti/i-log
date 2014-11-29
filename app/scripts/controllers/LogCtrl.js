@@ -9,6 +9,9 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
   //check if any of the inputs is required
   Log.anyInputsRequired = false;
 
+  // test variable for inline labels
+  Log.inline = false;
+
 //check if any attributes is required
   for(var i = 0; i < Log.inputs.length; i++){
    if(Log.inputs[i].required && Log.inputs[i].required=== true ){
