@@ -337,7 +337,7 @@ angular.module('gyldendal.directives', ['d3'])
 
               var legendContent = d3.select(".legend").append("svg")
                 .attr("class", "legend-content")
-                .attr("width", 200)
+                .attr("width", 400)
                 .attr("height", 400)
                 .attr("y", 50)
                 .selectAll("g")
@@ -359,7 +359,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .style("fill", "#383838")
                 .text(function(d){
 
-                  return d.data.label });
+                  return d.data.label});
 
               legendContent.append("text")
                 .attr("class", "legend-percent")
@@ -369,8 +369,18 @@ angular.module('gyldendal.directives', ['d3'])
                 .style("fill", "#383838")
                 .text(function(d){
                   var per = ((d.endAngle - d.startAngle)/(2*Math.PI))*100;
-                  return " " + per.toFixed(1) + "%" });
+                  return " "+ d.data.value + " " +data.ytitle + " / " + per.toFixed(1) + "%" });
 
+/*
+              legendContent.append("text")
+                .attr("class", "legend-value")
+                .attr("x", (100+(lengthMax * 13)))
+                .attr("y", 10)
+                .attr("dy", ".35em")
+                .style("fill", "#383838")
+                .text(function(d){
+                  return " "+d.data.value });
+*/
 
 						};
 
