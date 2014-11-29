@@ -12,3 +12,26 @@
   color: #a0a0a0;
   text-transform: uppercase;
 }
+
+.padding{
+  padding: 25px;
+}
+
+.padding-top{
+  padding-top: 25px;
+}
+
+.padding-bottom{
+  padding-bottom: 25px;
+}
+
+.required{
+  &:after{
+    content: '*';
+    color: #E04F2F;
+  }
+}
+
+input:read-only {
+  background-color: #e9e9e9;
+}
