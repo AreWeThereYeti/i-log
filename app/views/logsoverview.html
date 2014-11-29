@@ -22,8 +22,9 @@
         <span   ng-class="{'active' : LogsOverview.predicate == 'id', 'col-1-8': LogsOverview.listView.length != 0, 'col-6-8': LogsOverview.listView.length == 0 }">
           <a ng-href="#/log/{{log.id}}"><span class="title">{{LogsOverview.componentData.title}} #{{log.id+1}}</span></a>
         </span>
-        <span  ng-repeat="field in LogsOverview.listView" ng-class="LogsOverview.computeCssClass($last)">
-          <span class="listView-field">{{log.data[field.fieldID]}} {{field.unit}}</span>
+        <span  ng-repeat="field in LogsOverview.listView" ng-class="LogsOverview.computeCssClass($last)" ng-switch on="field.type">
+          <span class="listView-field" ng-switch-when="time">{{LogsOverview.formatTime(log.data[field.fieldID])}}</span>
+          <span class="listView-field" ng-switch-default>{{log.data[field.fieldID]}} {{field.unit}}</span>
         </span>
 
         <span class="col-1-8">
