@@ -6,6 +6,18 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
   Log.componentData = angular.fromJson(component.data.Content);
   Log.inputs = Log.componentData.inputs;
 
+  //check if any of the inputs is required
+  Log.anyInputsRequired = false;
+
+  // test variable for inline labels
+  Log.inline = false;
+
+//check if any attributes is required
+  for(var i = 0; i < Log.inputs.length; i++){
+   if(Log.inputs[i].required && Log.inputs[i].required=== true ){
+     Log.anyInputsRequired = true;
+   }}
+
   // load and parse log to edit when in edit ilog view
   Log.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(Log.route)){

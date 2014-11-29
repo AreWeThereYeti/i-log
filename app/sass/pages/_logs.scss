@@ -18,6 +18,15 @@ h1{
   .no-padding{
     padding-bottom: 0;
   }
+
+  .inline{
+    float: left;
+    line-height: 35px;
+    width: 225px;
+    text-align: right;
+    clear: both;
+    margin-right: 25px;
+  }
   label{
     font-size: 18px;
     font-weight: bold;
@@ -51,8 +60,21 @@ h1{
   .dropdown{
     width: 320px;
    // border-bottom: 3px solid #000;
+
+    &.dropinline{
+      display: block;
+      height: 40px;
+    }
     label{
       padding-bottom: 0;
+    }.select{
+      &.selectinline{
+        position: absolute;
+        width: 320px;
+        margin-top: -10px;
+        vertical-align: top;
+        margin-left: 250px;
+        }
     }
     .select-inner {
       border-bottom: none;

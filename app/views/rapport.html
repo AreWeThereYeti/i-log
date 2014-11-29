@@ -61,8 +61,8 @@
     </div>
 
     <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
-      <span class="first calc" ng-style="{width: Rapport.newWidth}">{{calculation.label}}</span>
-      <span class="col-1-8 calc" ng-repeat="column in Rapport.dataList[0].columns">
+      <span class="first calc clearfix" ng-style="{width: Rapport.newWidth}">{{calculation.label}}</span>
+      <span class="col-1-8 calc clearfix" ng-repeat="column in Rapport.dataList[0].columns">
         <p class="text-center">{{Rapport.listFormula(calculation, column)}}</p>
       </span>
     </div>
