@@ -154,15 +154,21 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
       exp = exp.replace(re, Log.numFields[i].value);
     }
 
+    // returns if input field used in formula are undefined
+    if(exp.search('undefined')!=-1){
+      Log.inputs[index].value = null;
+      return exp;
+    }
+/*
     // returns placeholder expression if input number fields are not filled out
-    for(var i=0; i<Log.numFields.length; i++){
+   for(var i=0; i<Log.numFields.length; i++){
       if(angular.isUndefined(Log.numFields[i].value)) {
         // empty input value if number fields are not defined
         Log.inputs[index].value = null;
         // Expression returned if number fields are not defined
         return exp;
       }
-    }
+    }*/
 
 
     // Checks for HIGHEST formula. returns math.max(exp) only if all number fields are filled
