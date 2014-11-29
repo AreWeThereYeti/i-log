@@ -54,9 +54,9 @@
     </div>
 
     <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
-      <span class="first clearfix" ng-style="{width: Rapport.newWidth}">{{$index+1}}</span>
-      <span class="col-1-8 clearfix" ng-repeat="column in Rapport.dataList[0].columns">
-        {{ilog.data[column.inputID]}}
+      <span class="first" ng-style="{width: Rapport.newWidth}">{{$index+1}}</span>
+      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
+        {{ilog.data[column.inputID]}} {{Rapport.getListUnit(column.inputID)}}
       </span>
     </div>
 

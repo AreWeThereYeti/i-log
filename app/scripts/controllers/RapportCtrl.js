@@ -419,7 +419,17 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     return (Math.round($scope.$eval(exp)* 100)/100)+" "+calculation.unit;
   };
 
-
-
+  // function for getting units of list elements in report list from component data
+  Rapport.getListUnit = function (inputID){
+    var unit = '';
+    angular.forEach(Rapport.component.inputs, function(input){
+      if(input.id == inputID){
+        if(angular.isDefined(input.unit)){
+          unit = input.unit;
+        }
+      }
+    });
+    return unit
+  }
 
 }]);

@@ -87,12 +87,14 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
           LogsOverview.listView.push({
             label: logInput.label,
             fieldID: logInput.id,
+            type: logInput.type,
             unit: logInput.unit
           })
         } else {
           LogsOverview.listView.push({
             label: logInput.label,
             fieldID: logInput.id,
+            type: logInput.type,
             unit: ''
           })
         }
@@ -147,6 +149,36 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     return "col-1-8"
   };
 
-	//Test variable. If you see it when the app runs you are good to go
-	LogsOverview.id = 32;
+	LogsOverview.formatTime = function(seconds){
+    // function for formating time value from seconds to formaat : hh, mm, ss, cs
+    var newtimeformat = '';
+    var theRest = seconds;
+
+    var hh =  parseInt(theRest / 3600);
+    theRest = theRest % 3600;
+    if(hh){
+      newtimeformat += hh+" t. ";
+    }
+
+    var mm =  parseInt(theRest / 60);
+    theRest = theRest % 60;
+    if(mm){
+      newtimeformat += mm+" m. ";
+    }
+
+    var ss =  parseInt(theRest);
+    theRest = theRest - ss;
+    if(ss){
+      newtimeformat += ss+" s. ";
+    }
+
+    var cs = Math.round(theRest*100);
+    if(cs){
+      newtimeformat += cs+" cs.";
+    }
+
+    return newtimeformat
+
+  }
+
 }]);
