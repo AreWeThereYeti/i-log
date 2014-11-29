@@ -4,11 +4,15 @@ angular.module('gyldendal.filters', [])
       var filtered_list = [];
       if(range) {
         for (var i = 0; i < objects.length; i++) {
-          var two_days_ago = new Date().getTime() - range * 86400000;
+          var one_day = 24*60*60*1000;
+          var today = new Date().getTime();
 
           // objects[i].timestamp should match the data format for logs
           var last_modified = new Date(objects[i].timestamp).getTime();
-          if (two_days_ago <= last_modified) {
+
+          var diffDays = Math.round(Math.abs((today - last_modified)/(one_day)));
+
+          if (diffDays < range) {
             filtered_list.push(objects[i]);
           }
         }

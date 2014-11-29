@@ -65,9 +65,9 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
     if(format=="date"){
       t =  $filter('date')(t, 'dd:MM:yyyy');
     }else if(format=="datetime"){
-      t  =  $filter('date')(t, 'dd:MM:yyyy, hh:mm');
+      t  =  $filter('date')(t, 'dd:MM:yyyy, H:mm');
     } else if(format=="time"){
-      t =  $filter('date')(t, 'hh:mm');
+      t =  $filter('date')(t, 'H:mm');
     }
 
     return t;
