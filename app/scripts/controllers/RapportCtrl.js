@@ -415,8 +415,8 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
 
     }
 
-    // return expression evaluated with $eval rounded to two decimals
-    return (Math.round($scope.$eval(exp)* 100)/100)+" "+calculation.unit;
+    // return expression evaluated with $eval, rounded to two decimals and parsed to string with '.' replaced with ','
+    return (Math.round($scope.$eval(exp)* 100)/100).toString().replace('.', ',')+" "+calculation.unit;
   };
 
   // function for getting units of list elements in report list from component data
