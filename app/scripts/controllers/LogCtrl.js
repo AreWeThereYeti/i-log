@@ -299,10 +299,10 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
 
     // evaluates and sets parsed string expression to input field value
     if($scope.$eval(exp)!="Infinity") {
-      Log.inputs[index].value = $scope.$eval(exp);
+      Log.inputs[index].value = $scope.$eval(exp).toFixed(input.decimals);
 
       // parse input field value as string and replace dot with comma in 'input.output'. ONLY FORR DISPLAY IN VIEW
-      Log.inputs[index].output = $scope.$eval(exp).toString().replace('.',',');
+      Log.inputs[index].output = $scope.$eval(exp).toFixed(input.decimals).toString().replace('.',',');
 
     } else {
       Log.inputs[index].value = null;
