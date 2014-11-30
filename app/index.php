@@ -17,25 +17,26 @@ include('php/mads/core.php');
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
       <!--[if lt IE 9]>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-sham.js"></script>
-
-          <script>
-            document.createElement('ng-include');
-            document.createElement('ng-pluralize');
-            document.createElement('d3-chart');
-          </script>
+        <script>
+          document.createElement('ng-include');
+          document.createElement('ng-pluralize');
+          document.createElement('d3-chart');
+          document.createElement('d3Chart');
+        </script>
 
       <![endif]-->
 
 
-
       <script src="scripts/libs/angular.js"></script>
 
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
       <title>I-log</title>
 
       <script src="//use.typekit.net/ldl1xnu.js"></script>
