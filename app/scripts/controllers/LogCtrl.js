@@ -166,9 +166,10 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
       exp = exp.replace(re, Log.numFields[i].value);
     }
 
-    // returns if input field used in formula are undefined
+    // returns if input field used in formula are undefined and clear view variables
     if(exp.search('undefined')!=-1){
       Log.inputs[index].value = null;
+      Log.inputs[index].output = null;
       return exp;
     }
 /*
@@ -296,12 +297,16 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
     // evaluates and sets parsed string expression to input field value
     if($scope.$eval(exp)!="Infinity") {
       Log.inputs[index].value = $scope.$eval(exp);
+
+      // parse input field value as string and replace dot with comma in 'input.output'. ONLY FORR DISPLAY IN VIEW
+      Log.inputs[index].output = $scope.$eval(exp).toString().replace('.',',');
+
     } else {
       Log.inputs[index].value = null;
       return exp;
     }
     // evaluates and returns parsed string expression as angular expression
-    return $scope.$eval(exp);
+    return $scope.$eval(exp);  // .toString().replace('.',',')
 
   }
 
