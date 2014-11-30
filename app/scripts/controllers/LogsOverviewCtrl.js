@@ -149,6 +149,7 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     return "col-1-8"
   };
 
+  // function for replacing the '.' with ',' in listview values of type formula
   LogsOverview.formatFloat = function(val){
     return val.toString().replace('.',',');
   };

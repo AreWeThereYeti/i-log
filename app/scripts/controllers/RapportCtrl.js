@@ -430,6 +430,22 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
       }
     });
     return unit
-  }
+  };
+
+  // function for replacing the '.' with ',' in view values of type formula
+  // takes log value and log value input id to determine if input is of type formula, and formats formula input is this is the case
+  Rapport.formatFloat = function(val, inputID){
+    var isFormula = false;
+    angular.forEach(Rapport.component.inputs, function(input){
+      if(input.id == inputID && (input.type == 'formula'|| input.type == 'number') ){
+        isFormula = true;
+      }
+    });
+    if(isFormula) {
+      return val.toString().replace('.', ',')
+    } else {
+      return val
+    }
+  };
 
 }]);
