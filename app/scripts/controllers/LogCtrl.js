@@ -160,11 +160,12 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
     var exp = input.formula;
 
     // finds and replaces all "ID" references with corresponding number input fields
-    for(var i=0; i<Log.numFields.length; i++){
-      var regexp = "ID"+(Log.numFields[i].id)+"(?!=\\.)";
+    for(var i=0; i<Log.inputs.length; i++){
+      var regexp = "ID"+(Log.inputs[i].id)+"(?!=\\.)";
       var re = new RegExp(regexp, "i");
-      exp = exp.replace(re, Log.numFields[i].value);
+      exp = exp.replace(re, Log.inputs[i].value);
     }
+
 
     // returns if input field used in formula are undefined and clear view variables
     if(exp.search('undefined')!=-1){
