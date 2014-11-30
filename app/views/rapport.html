@@ -30,7 +30,7 @@
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
-        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.formula">{{Rapport.formatFloat(Rapport.chartFormula(calculation, Rapport.logs), false)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
-        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.formula">{{Rapport.formatFloat(Rapport.chartFormula(calculation, Rapport.logs), false)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <p ng-if="calculation.label">{{calculation.label}}</p>
-        <h2 ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+        <h2 ng-if="calculation.formula">{{Rapport.formatFloat(Rapport.chartFormula(calculation, Rapport.logs), false)}} {{calculation.unit}}</h2>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
         <div ng-if="calculation.label">{{calculation.label}}</div>
-        <div ng-if="calculation.formula">{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+        <div ng-if="calculation.formula">{{Rapport.formatFloat(Rapport.chartFormula(calculation, Rapport.logs), false)}} {{calculation.unit}}</div>
       </div>
     </div>
   </div>

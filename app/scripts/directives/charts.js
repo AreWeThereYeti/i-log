@@ -300,7 +300,7 @@ angular.module('gyldendal.directives', ['d3'])
 										.style("fill", "white")
 										.style('pointer-events' , 'none')
 										.attr("class", "on")
-										.text(d.data.value);
+										.text(d.data.value.toString().replace('.', ','));
 								})
 
 								.on("mouseout", function(d) {
@@ -369,7 +369,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .style("fill", "#383838")
                 .text(function(d){
                   var per = ((d.endAngle - d.startAngle)/(2*Math.PI))*100;
-                  return " "+ d.data.value + " " +data.ytitle + " / " + per.toFixed(1) + "%" });
+                  return " "+ d.data.value.toString().replace('.', ',') + " " +data.ytitle + " / " + per.toFixed(1).toString().replace('.', ',') + "%" });
 
 
 						};
@@ -519,7 +519,7 @@ angular.module('gyldendal.directives', ['d3'])
                 node.append("text")
                   .attr("x", function(d) { return x(d.date); })
                   .attr("y", function(d) { return y(d.close)+30; })
-                  .text(function(d) { var value = d.close; return value.toFixed(2) })
+                  .text(function(d) { var value = d.close; return value.toFixed(2).toString().replace('.', ',') })
                   .style("text-anchor", "middle")
                   .style("fill", "#383838");
 						};
@@ -656,7 +656,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform", "translate(40,0)")
                 .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { var value = d.close; return value.toFixed(2) })
+                .text(function(d) { var value = d.close; return value.toFixed(2).toString().replace('.', ',') })
                 .style("text-anchor", "middle")
                 .style("fill", "#383838");
 
