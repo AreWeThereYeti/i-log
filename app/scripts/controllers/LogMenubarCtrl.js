@@ -73,6 +73,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
   LogMenubar.saveLog = function(){
 
+    $rootScope.loadingView = true;
     // build json object
     var d = new Date();
     // divide getTime with 1000 to get it in unix(seconds instead og ms)
