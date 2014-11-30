@@ -24,6 +24,7 @@
         </span>
         <span  ng-repeat="field in LogsOverview.listView" ng-class="LogsOverview.computeCssClass($last)" ng-switch on="field.type">
           <span class="listView-field" ng-switch-when="time">{{LogsOverview.formatTime(log.data[field.fieldID])}}</span>
+          <span class="listView-field" ng-switch-when="formula">{{LogsOverview.formatFloat(log.data[field.fieldID])}} {{field.unit}}</span>
           <span class="listView-field" ng-switch-default>{{log.data[field.fieldID]}} {{field.unit}}</span>
         </span>
 

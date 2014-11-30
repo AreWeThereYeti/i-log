@@ -149,6 +149,10 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     return "col-1-8"
   };
 
+  LogsOverview.formatFloat = function(val){
+    return val.toString().replace('.',',');
+  };
+
 	LogsOverview.formatTime = function(seconds){
     // function for formating time value from seconds to formaat : hh, mm, ss, cs
     var newtimeformat = '';
