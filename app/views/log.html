@@ -13,7 +13,7 @@
 
         <div ng-switch-when="number">
           <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
-          <input  type="number" required="{{input.required}}"   ng-model="input.value">{{input.unit}}
+          <input  type="number" required="{{input.required}}" ng-style="{'width':+ {{Log.maxChars}} +'ex'}" ng-model="input.value">{{input.unit}}
         </div>
 
         <div class="custom-checkbox" ng-switch-when="checkbox">
