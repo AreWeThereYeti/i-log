@@ -1,23 +1,23 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
   <div class="grid reportsubmenu" >
-    <div ng-class="{active : Rapport.pane == 'pie'}" ng-click="Rapport.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
+    <div ng-class="{'active' : Rapport.pane == 'pie'}" ng-click="Rapport.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
       <span class="icon icon-piechart"></span>
       <span>{{Rapport.dataDiagram[0].title}}</span>
     </div>
-    <div ng-class="{active : Rapport.pane == 'bar'}" ng-click="Rapport.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
+    <div ng-class="{'active' : Rapport.pane == 'bar'}" ng-click="Rapport.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
       <span class="icon icon-bar"></span>
       <span>{{Rapport.dataDiagram[0].title}}</span>
     </div>
-    <div ng-class="{active : Rapport.pane == 'list'}" ng-click="Rapport.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
+    <div ng-class="{'active' : Rapport.pane == 'list'}" ng-click="Rapport.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
       <span class="icon icon-grid"></span>
       <span>{{Rapport.dataList[0].title}}</span>
     </div>
-    <div ng-class="{active : Rapport.pane == 'graph-line'}" ng-click="Rapport.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
+    <div ng-class="{'active' : Rapport.pane == 'graph-line'}" ng-click="Rapport.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
       <span class="icon icon-line"></span>
       <span>Forbundet graf</span>
     </div>
-    <div ng-class="{active : Rapport.pane == 'graph-dotted'}" ng-click="Rapport.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
+    <div ng-class="{'active' : Rapport.pane == 'graph-dotted'}" ng-click="Rapport.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
       <span class="icon icon-dots"></span>
       <span >Punktgraf</span>
     </div>
@@ -25,7 +25,7 @@
 
   <div class="report-content" ng-if="Rapport.pane == 'pie'">
     <div class='d3container'></div>
-    <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
+    <div d3-chart data="Rapport.chartdata" type="pie"></div>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
@@ -37,7 +37,7 @@
 
   <div class="report-content" ng-if="Rapport.pane == 'bar'">
     <div class='d3container'></div>
-    <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
+    <div d3-chart data="Rapport.chartdata" type="bar"></div>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
@@ -77,7 +77,7 @@
 
   <div class="report-content" ng-if="Rapport.pane == 'graph-dotted'">
     <div class='d3container'></div>
-    <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
+    <div d3-chart data="Rapport.linedata" type="dot"></div>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
@@ -89,7 +89,7 @@
 
   <div class="report-content" ng-if="Rapport.pane == 'graph-line'">
     <div class='d3container'></div>
-    <d3-chart data="Rapport.linedata" type="line"></d3-chart>
+    <div d3-chart data="Rapport.linedata" type="line"></div>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations[0].formula">
       <h2>Beregninger</h2>
       <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
