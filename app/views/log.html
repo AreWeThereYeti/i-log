@@ -7,23 +7,23 @@
     <form>
       <div class="input-field" ng-repeat="input in Log.inputs" ng-switch on="input.type">
         <div ng-switch-when="text">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
-          <input id="log-input-{{input.id}}" type="text" required="{{input.required}}" ng-style="{'width':+ {{Log.maxChars}} +'ex'}" ng-model="input.value">{{input.unit}}
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
+          <input id="log-input-{{input.id}}" type="text" required="{{input.required}}" ng-style="{'width':+ {{input.maxChars || 'initial'}} +'ex'}" ng-model="input.value">{{input.unit}}
         </div>
 
         <div ng-switch-when="number">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
-          <input  type="number" required="{{input.required}}" ng-style="{'width':+ {{Log.maxChars}} +'ex'}" ng-model="input.value">{{input.unit}}
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
+          <input  type="number" required="{{input.required}}" ng-style="{'width':+ {{input.maxChars || 'initial'}} +'ex'}" ng-model="input.value">{{input.unit}}
         </div>
 
         <div class="custom-checkbox" ng-switch-when="checkbox">
           <input id="log-input-{{input.id}}" type="checkbox" ng-model="input.value">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
         </div>
 
-        <div class="dropdown" ng-class="{'dropinline' : Log.inline === true}" ng-switch-when="dropdown">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
-          <div class="select" ng-class="{'selectinline' : Log.inline === true}">
+        <div class="dropdown" ng-class="{'dropinline' : Log.componentData.LabelPlacementText === 'left'}" ng-switch-when="dropdown">
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
+          <div class="select" ng-class="{'selectinline' : Log.componentData.settings.LabelPlacementText === 'left'}">
             <div class="select-inner">
               <div ng-class="{active : Log.dropDown == input.id}" class="dropdown_header" ng-click="Log.dropDown = input.id">{{input.value || "Vælg fra liste"}}</div>
               <div ng-if="Log.dropDown == input.id" ng-class="{dropdown_content : Log.dropDown == input.id}" class="animate col-1-8">
@@ -42,7 +42,7 @@
         </div>
 
         <div ng-switch-when="largetext">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
           <textarea id="log-input-{{input.id}}" required="{{input.required}}" ng-model="input.value" style="height: {{input.height}}px; width: {{input.width}}px;">
             height: {{input.height}}
             width: {{input.width}}
@@ -50,17 +50,17 @@
         </div>
 
         <div ng-switch-when="data">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
           <input id="log-input-{{input.id}}" class="data" ng-model="input.value" >
         </div>
 
         <div ng-switch-when="formula">
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
           <input type="text" id="log-input-{{input.id}}" class="formula" value="{{Log.parseFormula(input,$index)}}" ng-model="input.output" readonly>{{input.unit}}
         </div>
 
         <div class="dropdown-time" ng-switch-when="time"  >
-          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.inline === true}">{{input.label}}</label>
+          <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
 
           <div class="dropdown-hour" ng-show="{{input.data.search('hh') != -1}}">
             <div class="select-inner" >
