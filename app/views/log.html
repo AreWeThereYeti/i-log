@@ -123,7 +123,7 @@
                 <ul>
                   <li>
                     <div class="custom-radio" ng-repeat="ceti in Log.centiseconds" >
-                      <input id="log-checkfrom-{{input.id+'ceti'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-checked="input.cscs == ceti">
+                      <input id="log-checkfrom-{{input.id+'ceti'}}{{$index}}" type="radio" name="check" value="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-chæecked="input.cscs == ceti">
                       <label for="log-checkfrom-{{input.id+'ceti'}}{{$index}}" ng-click="input.cscs = Log.centiseconds[$index]; input.value = Log.calcTimeVal(input); Log.dropdown = ''">{{ceti}}</label>
                     </div>
                   </li>
