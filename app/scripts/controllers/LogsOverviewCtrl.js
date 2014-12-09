@@ -137,13 +137,13 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     var cssClass = null;
     if(lastField){
       var fieldSize = 8-LogsOverview.listView.length;
-      if(fieldSize >= 3){
-        cssClass = "col-"+(fieldSize-2)+"-8";
+      if(fieldSize >= 2){
+        cssClass = "col-"+(fieldSize-1)+"-8";
 
         return cssClass
       }
     } else if (LogsOverview.listView.length==0){
-      return "col-6-8"
+      return "col-7-8"
 
     }
     return "col-1-8"
