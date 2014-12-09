@@ -10,9 +10,8 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
   Log.anyInputsRequired = false;
 
   // ------------- test variable for inline labels ----------------------
+
   Log.inline = false;
-  // ----------------- test variable for length of text input -------------------------
-  Log.maxChars = '10';
 
 //check if any attributes is required
   for(var i = 0; i < Log.inputs.length; i++){
