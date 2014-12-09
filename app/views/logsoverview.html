@@ -6,9 +6,9 @@
       <div class="col-1-8">
         <span  ng-class="{active : LogsOverview.predicate == 'timestamp', arrow_box : LogsOverview.predicate == 'timestamp', reverse : reverse}" ng-click="LogsOverview.predicate = 'timestamp'; reverse = dateReverse; dateReverse=!dateReverse; idReverse=false">Dato</span>
       </div>
-      <div class="col-1-8">
+<!--      <div class="col-1-8">
         <span  ng-class="{active : LogsOverview.predicate == 'id', arrow_box : LogsOverview.predicate == 'id', reverse : reverse}" ng-click="LogsOverview.predicate = 'id'; reverse = idReverse; idReverse=!idReverse; dateReverse = false">Titel</span>
-      </div>
+      </div>-->
       <div class="col-1-8" ng-repeat="field in LogsOverview.listView">
         <span>{{field.label}}</span>
       </div>
@@ -19,9 +19,10 @@
         <span class="col-1-8">
           <span class="date" ng-class="{active : LogsOverview.predicate == 'timestamp'}">{{log.timestamp | date:'dd-MM-yyyy'}}</span>
         </span>
-        <span   ng-class="{'active' : LogsOverview.predicate == 'id', 'col-1-8': LogsOverview.listView.length != 0, 'col-6-8': LogsOverview.listView.length == 0 }">
+<!--        <span   ng-class="{'active' : LogsOverview.predicate == 'id', 'col-1-8': LogsOverview.listView.length != 0, 'col-6-8': LogsOverview.listView.length == 0 }">
           <a ng-href="#/log/{{log.id}}"><span class="title">{{LogsOverview.componentData.title}} #{{log.id+1}}</span></a>
         </span>
+        -->
         <span  ng-repeat="field in LogsOverview.listView" ng-class="LogsOverview.computeCssClass($last)" ng-switch on="field.type">
           <span class="listView-field" ng-switch-when="time">{{LogsOverview.formatTime(log.data[field.fieldID])}}</span>
           <span class="listView-field" ng-switch-when="formula">{{LogsOverview.formatFloat(log.data[field.fieldID])}} {{field.unit}}</span>
