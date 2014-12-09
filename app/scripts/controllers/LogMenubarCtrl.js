@@ -111,6 +111,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
           $rootScope.introPrompt = false;
           // stay in current log after save
           //$location.path('logs');
+          $rootScope.loadingView = false;
         }, function(err){
           // on err
           alert("Error: "+err);
@@ -132,6 +133,8 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
                     $rootScope.introPrompt = false;
                     // stay in current log after save
                     //$location.path('logs');
+                    $rootScope.loadingView = false;
+
                   });
               }
             });
@@ -154,6 +157,8 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
                     $rootScope.introPrompt = false;
                     // stay in current log after save
                     //$location.path('logs');
+                    $rootScope.loadingView = false;
+
                   });
               }
             });
