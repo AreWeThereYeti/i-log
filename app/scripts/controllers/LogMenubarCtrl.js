@@ -4,11 +4,15 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
   //Save reference to controller in order to avoid reference soup
   var LogMenubar = this;
 
-  //Test variable. If you see it when the app runs you are good to go
-  LogMenubar.testVar = 'This is data from the menubar!';
+  LogMenubar.justSaved = false;
 
   LogMenubar.checkInputs = function(){
 
+    // check if log has just been saved to ignore confirm promt
+    if(LogMenubar.justSaved){
+      $location.path('logs');
+      return;
+    }
     // if new log entry, check if fields has been filled before discarding these
     if(!angular.isDefined($scope.$parent.Log.route)){
       for(var i=0; i<$scope.$parent.Log.inputs.length; i++){
@@ -112,6 +116,8 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
           // stay in current log after save
           //$location.path('logs');
           $rootScope.loadingView = false;
+          LogMenubar.justSaved = true;
+
         }, function(err){
           // on err
           alert("Error: "+err);
@@ -134,6 +140,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
                     // stay in current log after save
                     //$location.path('logs');
                     $rootScope.loadingView = false;
+                    LogMenubar.justSaved = true;
 
                   });
               }
@@ -158,6 +165,7 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
                     // stay in current log after save
                     //$location.path('logs');
                     $rootScope.loadingView = false;
+                    LogMenubar.justSaved = true;
 
                   });
               }
