@@ -62,6 +62,8 @@
   input[type=checkbox]:checked + label:before {
     content: " ";
     background-color: #dc4320;
+    background-image: url('../images/checked1.png');
+    background-size: 100%;
     display: block;
   }
 }

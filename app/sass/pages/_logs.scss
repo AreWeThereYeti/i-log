@@ -27,6 +27,26 @@ h1{
     clear: both;
     margin-right: 25px;
   }
+
+  .inline-label{
+    margin-top: 10px;
+  }
+
+  .reduce-margin{
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
+
+  .inline_checkbox{
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    &:before{
+      position: absolute;
+      left: 291px;
+      margin-top: -5px;
+    }
+  }
   label{
     font-size: 18px;
     font-weight: bold;
@@ -52,6 +72,7 @@ h1{
     border: 0;
     outline: 0;
     height: 37px;
+    min-width: 10ex;
     padding: 0 0px 0 10px;
     margin-right: 5px;
     font-size: 18px;
@@ -64,16 +85,21 @@ h1{
     &.dropinline{
       display: block;
       height: 40px;
+
+      &.reduce-margin{
+        margin-top: -5px;
+        margin-bottom: -5px;
+      }
     }
     label{
       padding-bottom: 0;
     }.select{
       &.selectinline{
-        position: absolute;
-        width: 320px;
-        margin-top: -10px;
-        vertical-align: top;
-        margin-left: 250px;
+          position: relative;
+          width: 320px;
+          vertical-align: top;
+          margin-left: 250px;
+          display: block;
         }
     }
     .select-inner {
