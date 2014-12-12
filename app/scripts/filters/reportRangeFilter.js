@@ -7,13 +7,19 @@ angular.module('gyldendal.filters')
           var one_day = 24*60*60*1000;
           var today = new Date().getTime();
 
-          var last_modified = new Date(objects[i].content.from).getTime();
+          //var last_modified = new Date(objects[i].content.from).getTime();
+          //
+          //var diffDays = Math.round(Math.abs((today - last_modified)/(one_day)));
 
-          var diffDays = Math.round(Math.abs((today - last_modified)/(one_day)));
+          var filterDate = Math.round(Math.abs((today - (range * one_day))));
 
-          if (diffDays < last_modified) {
+          if (objects[i].content.from < filterDate && filterDate < objects[i].content.to) {
             filtered_list.push(objects[i]);
           }
+
+          //if (diffDays < last_modified) {
+          //  filtered_list.push(objects[i]);
+          //}
         }
         return filtered_list;
       } else {
