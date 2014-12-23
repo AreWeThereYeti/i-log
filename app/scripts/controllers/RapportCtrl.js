@@ -38,7 +38,30 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   }
 
 // set up the initial report view to a view that's defined
-  if(Rapport.dataDiagram.length){
+
+  if(angular.isDefined(Rapport.component.reports)){
+    var firstReportType = Rapport.component.reports[0].type;
+    if(firstReportType == 'diagram'){
+      if(Rapport.dataDiagram.length){
+        if(Rapport.dataDiagram[0].views.piechart){
+          Rapport.pane = 'pie'
+        } else if(Rapport.dataDiagram[0].views.barchart){
+          Rapport.pane = 'bar'
+        }
+      }
+    } else if(firstReportType == 'graph'){
+      if(Rapport.dataGraph.length) {
+        if (Rapport.dataGraph[0].views.connectedGraph) {
+          Rapport.pane = 'graph-line'
+        } else if (Rapport.dataGraph[0].views.scatterPlot) {
+          Rapport.pane = 'graph-dotted'
+        }
+      }
+    } else {
+      Rapport.pane = 'list'
+    }
+  }
+/*  if(Rapport.dataDiagram.length){
     if(Rapport.dataDiagram[0].views.piechart){
       Rapport.pane = 'pie'
     } else if(Rapport.dataDiagram[0].views.barchart){
@@ -52,7 +75,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
     } else if(Rapport.dataGraph[0].views.scatterPlot){
       Rapport.pane = 'graph-dotted'
     }
-  }
+  }*/
 
 // set current report to report with index = route.id
   Rapport.route = $routeParams.id;

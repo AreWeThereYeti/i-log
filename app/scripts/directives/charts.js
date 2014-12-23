@@ -440,7 +440,7 @@ angular.module('gyldendal.directives', ['d3'])
 
               // Scale the range of the data
               x.domain([minDate - ((maxDate-minDate)*0.05), maxDate]);
-              y.domain([0, d3.max(data.data, function(d) { return d.close; })]);
+              y.domain([0, d3.max(data.data, function(d) { return parseFloat(d.close); })]);
 
                 // Add the valueline path.
               svg.append("path")
@@ -511,15 +511,22 @@ angular.module('gyldendal.directives', ['d3'])
 
                 node.append("circle")
                   .attr("class", "dot")
-                  .attr("cx", function(d) { return x(d.date); })
-                  .attr("cy", function(d) { return y(d.close); })
+                  .attr("cx", function(d) {
+                    return x(d.date); })
+                  .attr("cy", function(d) {
+                    return y(d.close);
+                  })
                   .attr("r", 10)
                   .style("fill", "#dc4320");
 
                 node.append("text")
                   .attr("x", function(d) { return x(d.date); })
                   .attr("y", function(d) { return y(d.close)+30; })
-                  .text(function(d) { var value = d.close; return value.toFixed(2).toString().replace('.', ',') })
+                  .text(function(d) {
+                    var value = d.close;
+                    value = parseFloat(value).toFixed(2);
+                    return value.toString().replace('.', ',')
+                  })
                   .style("text-anchor", "middle")
                   .style("fill", "#383838");
 						};
@@ -656,7 +663,10 @@ angular.module('gyldendal.directives', ['d3'])
                 .attr("transform", "translate(40,0)")
                 .attr("x", function(d,i) { return i*(2*dotRadius+dotPadding); })
                 .attr("y", function(d) { return y(d.close)+30; })
-                .text(function(d) { var value = d.close; return value.toFixed(2).toString().replace('.', ',') })
+                .text(function(d) {
+                  var value = d.close;
+                  value = parseFloat(value).toFixed(2);
+                  return value.toString().replace('.', ',') })
                 .style("text-anchor", "middle")
                 .style("fill", "#383838");
 
