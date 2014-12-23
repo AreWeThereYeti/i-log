@@ -587,7 +587,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 
               // Scale the range of the data
-              y.domain([0, d3.max(data.data, function(d) { return parseFloat(d.close; })]);
+              y.domain([0, d3.max(data.data, function(d) { return parseFloat(d.close) })]);
 
               // Add the X Axis
               svg.append("g")
