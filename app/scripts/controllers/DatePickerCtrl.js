@@ -10,10 +10,20 @@ app.controller('DatePickerCtrl', ['$location', '$rootScope', '$route', 'getdatas
 		$scope.fromYear = $scope.year[index];
 	};
 
-	var d = new Date();
+  // initiates to date with the date of today
+
+  var d = new Date();
 	$scope.toYear = d.getFullYear();
 	$scope.toMonth= DateService.month[d.getMonth()];
 	$scope.toDay  = d.getDate();
+
+
+// initiates fromdate with the date of today - 30 days
+  var d2 = new Date();
+  d2.setDate(d2.getDate() - 30);
+  $scope.fromYear = d2.getFullYear();
+  $scope.fromMonth= DateService.month[d2.getMonth()];
+  $scope.fromDay  = d2.getDate();
 
   //On create report click
 	$scope.createReport = function(){
