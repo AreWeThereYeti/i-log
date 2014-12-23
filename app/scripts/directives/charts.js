@@ -413,7 +413,7 @@ angular.module('gyldendal.directives', ['d3'])
 
               // Define the axes
               var xAxis = d3.svg.axis().scale(x)
-                .orient("bottom").ticks(0).tickSize(0);
+                .orient("bottom").ticks(d3.time.days).tickSize(1).tickFormat(d3.time.format('%m/%d')); //.ticks(0).tickSize(0);
 
               var yAxis = d3.svg.axis().scale(y)
                 .orient("left").ticks(0).tickSize(0);
@@ -508,6 +508,24 @@ angular.module('gyldendal.directives', ['d3'])
                   .data(data.data)
                   .enter()
                   .append("g");
+
+/*                node.append("rect")
+                  .attr("class", "dot-background")
+                  //.attr("transform", "translate(40,0)")
+                  .attr("x", function(d) { return (x(d.date)-9); })
+                  .style("fill", "none")
+                  .attr("width", 18)
+                  .attr("height", 40)
+                  .attr("y", height -20 );
+
+                node.append("text")
+                  .attr("class", "dot-label")
+                  //.attr("transform","translate(40,0)")
+                  .attr("transform", function(d,i) {
+                    return "rotate(-90) translate(" + (-height+6) +"," + (x(d.date)+5) + ")"
+                  })
+                  .text(function(d) { return d3.time.format('%e/%m')(new Date(d.date))})
+                  .style("text-anchor", "end");*/
 
                 node.append("circle")
                   .attr("class", "dot")
