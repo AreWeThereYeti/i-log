@@ -1,25 +1,31 @@
 <div class="report">
   <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
-  <div class="grid reportsubmenu" >
-    <div ng-class="{'active' : Rapport.pane == 'pie'}" ng-click="Rapport.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
-      <span class="icon icon-piechart"></span>
-      <span>{{Rapport.dataDiagram[0].title}}</span>
-    </div>
-    <div ng-class="{'active' : Rapport.pane == 'bar'}" ng-click="Rapport.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
-      <span class="icon icon-bar"></span>
-      <span>{{Rapport.dataDiagram[0].title}}</span>
-    </div>
-    <div ng-class="{'active' : Rapport.pane == 'list'}" ng-click="Rapport.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
-      <span class="icon icon-grid"></span>
-      <span>{{Rapport.dataList[0].title}}</span>
-    </div>
-    <div ng-class="{'active' : Rapport.pane == 'graph-line'}" ng-click="Rapport.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
-      <span class="icon icon-line"></span>
-      <span>Forbundet graf</span>
-    </div>
-    <div ng-class="{'active' : Rapport.pane == 'graph-dotted'}" ng-click="Rapport.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
-      <span class="icon icon-dots"></span>
-      <span >Punktgraf</span>
+  <div class="grid reportsubmenu">
+    <div ng-repeat="report in Rapport.component.reports" ng-switch on="report.type">
+      <div ng-switch-when="diagram">
+        <div ng-class="{'active' : Rapport.pane == 'pie'}" ng-click="Rapport.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
+          <span class="icon icon-piechart"></span>
+          <span>{{Rapport.dataDiagram[0].title}}</span>
+        </div>
+        <div ng-class="{'active' : Rapport.pane == 'bar'}" ng-click="Rapport.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
+          <span class="icon icon-bar"></span>
+          <span>{{Rapport.dataDiagram[0].title}}</span>
+        </div>
+      </div>
+      <div ng-switch-when="list" ng-class="{'active' : Rapport.pane == 'list'}" ng-click="Rapport.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
+        <span class="icon icon-grid"></span>
+        <span>{{Rapport.dataList[0].title}}</span>
+      </div>
+      <div ng-switch-when="graph">
+        <div ng-class="{'active' : Rapport.pane == 'graph-line'}" ng-click="Rapport.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
+          <span class="icon icon-line"></span>
+          <span>Forbundet graf</span>
+        </div>
+        <div ng-class="{'active' : Rapport.pane == 'graph-dotted'}" ng-click="Rapport.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
+          <span class="icon icon-dots"></span>
+          <span >Punktgraf</span>
+        </div>
+      </div>
     </div>
   </div>
 
