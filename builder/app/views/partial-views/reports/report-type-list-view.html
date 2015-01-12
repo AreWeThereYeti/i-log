@@ -1,0 +1,148 @@
+<table class="table no-table-borders">
+	<thead>
+		<tr>
+			<th class="column-id-1">ID</th>
+			<th class="column-id-2">Kolonner</th>
+			<th class="column-id-3">Navngiv kolonner <span class="no-so-important-text">(optionel)</span></th>
+			<th class="column-id-4"></th>
+		</tr>
+	</thead>
+
+	<tr ng-repeat="column in activeReport.columns">
+		<td class="column-id-1"><h4>{{ column.id }}</h4></td>
+		<td class="column-id-2">
+			<div class="input-group">
+				<div class="input-group-addon">ID:</div>
+				<input readonly type="text" ng-model="column.inputID" class="form-control" placeholder="Vælg brugerinput">
+
+				<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+
+					<button ng-click="ConstructInputArrayOfIdAndTitle()" type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+						 <span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu" >
+						<li ng-repeat="id in identifierArray">
+							<a ng-click="SelectNewInputID(column, '{{id}}'); toggleDropdown($event)">{{id}}</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</td>
+		<td class="column-id-3">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="column.label" placeholder="Udfyld kolonne titel">
+			</div>
+		</td>
+		<td class="column-id-4">
+			<ul class="list-inline pull-right">
+				<li>
+					<a ng-click="MoveSourceUp($index)" class="btn btn-default btn-fixed-size">
+						<i class="icon ion-arrow-up-b"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="MoveSourceDown($index)" class="btn btn-default btn-fixed-size">
+						<i class="icon ion-arrow-down-b"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="AddReportInputAtIndex($index)" class="btn btn-gyldendal-red btn-fixed-size">
+						<i class="icon ion-plus"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="DeleteInput($index)" class="btn btn-gyldendal-black btn-fixed-size">
+						<i class="icon ion-trash-a"></i>
+					</a>
+				</li>
+			</ul>
+		</td>
+	</tr>
+
+</table>
+
+<button class="btn btn-gyldendal-red" ng-click="AddReportInputAtIndex()">Tilføj kolonne</button>
+
+<div ng-controller="calculationsCtrl">
+
+	<h3>Beregninger</h3>
+
+	<table class="table no-table-borders report-list-calculations">
+		<thead>
+			<tr>
+				<th class="column-id-1">Label</th>
+				<th class="column-id-2">Formel</th>
+				<th class="column-id-7">Angiv decimaler</th>
+				<th class="column-id-3"></th>
+				<th class="column-id-4">Angiv kolonner</th>
+				<th class="column-id-5">Enhedsangivelse</th>
+				<th class="column-id-6"></th>
+			</tr>
+		</thead>
+
+		<tr ng-repeat="calculation in activeReport.calculations">
+			<td class="column-id-1">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="calculation.label" placeholder="Udfyld titel">
+				</div>
+			</td>
+
+			<td class="column-id-2">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="calculation.formula" placeholder="Udfyld formel">
+				</div>
+			</td>
+
+			<td class="column-id-7">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="calculation.decimals" placeholder="Angiv antal">
+				</div>
+			</td>
+
+			<td class="column-id-3"></td>
+
+			<td class="column-id-4">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="calculation.columns" placeholder="Udfyld kolonne ID(er)">
+				</div>
+			</td>
+
+			<td class="column-id-5">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="calculation.unit" placeholder="Angiv enhed">
+				</div>
+			</td>
+
+			<td class="column-id-6">
+				<ul class="list-inline pull-right">
+					<li>
+						<a ng-click="MoveSourceUp(activeReport, $index)" class="btn btn-default btn-fixed-size">
+							<i class="icon ion-arrow-up-b"></i>
+						</a>
+					</li>
+					<li>
+						<a ng-click="MoveSourceDown(activeReport, $index)" class="btn btn-default btn-fixed-size">
+							<i class="icon ion-arrow-down-b"></i>
+						</a>
+					</li>
+					<li>
+						<a ng-click="AddCalcInputAtIndex(activeReport, activeReport.type, $index)" class="btn btn-gyldendal-red btn-fixed-size">
+							<i class="icon ion-plus"></i>
+						</a>
+					</li>
+					<li>
+						<a ng-click="DeleteInput(activeReport, $index)" class="btn btn-gyldendal-black btn-fixed-size">
+							<i class="icon ion-trash-a"></i>
+						</a>
+					</li>
+				</ul>
+			</td>
+		</tr>
+
+	</table>
+
+	<button class="btn btn-gyldendal-red" ng-click="AddCalcInputAtIndex(activeReport, activeReport.type)">Tilføj række med beregning</button>
+
+</div>

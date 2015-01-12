@@ -1,0 +1,19 @@
+header {
+
+	margin: 0 0 40px 0;
+	position: relative;
+	overflow: hidden;
+
+	.logo {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 41px;
+	}
+
+	.pipe {
+		border-right: 2px solid $grey;
+		padding-right: 10px;
+	}
+
+}

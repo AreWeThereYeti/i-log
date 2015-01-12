@@ -1,0 +1,50 @@
+<div class="panel panel-default" ng-controller="reportsCtrl">
+	<div class="panel-body">
+	<h1>Rapporter og statistik</h1>
+
+	<div class="alert alert-info"><strong>OBS!</strong> Lorem ipsum dolor sit amet</div>
+	
+		<ul class="nav nav-tabs gyldendal-tab">
+		
+			<li ng-repeat="report in service.iLogDataSource.reports" ng-controller="dropDownToggleCtrl" dropdown is-open="status.isopen">
+				<a ng-click="PreventDropdownIfNotActive(IsActiveReport(report)); ActivateTab($index)" class="dropdown-toggle" ng-class="{active: IsActiveReport(report)}" ng-bind-html="ConcatTabTitleTo(report, 18)"></a>
+				<ul class="dropdown-menu">
+					<li><a ng-click="MoveTabBack($index)">Flyt tilbage</a></li>
+					<li><a ng-click="MoveTabForward($index)">Flyt frem</a></li>
+					<li class="divider"></li>
+					<li><a ng-click="DeleteReport($index)">Slet rapport</a></li>
+				</ul>
+			</li>
+
+			<li ng-controller="dropDownToggleCtrl" dropdown is-open="status.isopen">
+				<a class="gyldendal-tab-dropdown dropdown-toggle" >Ny rapport/statistik <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a ng-click="AddReport('list'); toggleDropdown($event)" >Liste</a></li>
+					<li><a ng-click="AddReport('diagram'); toggleDropdown($event)">Diagram</a></li>
+					<li><a ng-click="AddReport('graph'); toggleDropdown($event)">Graf</a></li>
+				</ul>
+			</li>
+
+		</ul>
+
+		<div class="report-content" ng-show="reports.length > 0">
+
+			<h4>{{ activeReport.titel }}</h4>
+
+			<h5>Rapport titel</h5>
+
+			<div class="row">
+				<div class="col-md-8 col-lg-6">
+					<div class="form-group">
+						<input type="text" ng-model="activeReport.title" class="form-control" placeholder="Udfyld rapport titel">
+					</div>
+				</div>
+			</div>
+
+			<!-- type specific view for report/tab start -->
+			<div ng-include="activeContentView"></div>
+			<!-- type specific view for report/tab end -->
+
+		</div>
+
+</div>

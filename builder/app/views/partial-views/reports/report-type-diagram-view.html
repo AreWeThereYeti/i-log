@@ -1,0 +1,147 @@
+<h3>Diagram</h3>
+
+<div class="checkbox-inline">
+	<label>
+		<input type="checkbox" ng-model="activeReport.views.piechart">Lagkagediagram
+	</label>
+</div>
+
+<div class="checkbox-inline">
+	<label>
+		<input type="checkbox" ng-model="activeReport.views.barchart">Søjlediagram
+	</label>
+</div>
+
+<h3>Datagrundlag</h3>
+
+<h4>Datarum</h4>
+
+<div class="row">
+	<div class="col-sm-5">
+
+		<h5 class="marginTop0">Datarum</h5>
+
+		<div class="input-group">
+			<div class="input-group-addon">ID:</div>
+			<input readonly type="text" ng-model="activeReport.chart.domain.inputID" class="form-control" placeholder="Vælg brugerinput">
+
+			<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+
+				<button ng-click="ConstructInputArrayOfIdAndTitle()" type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+					 <span class="caret"></span>
+				</button>
+
+				<ul class="dropdown-menu" >
+					<li ng-repeat="id in identifierArray">
+						<a ng-click="SelectNewInputID(activeReport.chart.domain, '{{id}}'); toggleDropdown($event)">{{id}}</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="col-sm-4">
+		<h5 class="marginTop0">Navngiv udfaldsrum <span class="no-so-important-text">(optionel)</span></h5>
+
+		<div class="form-group">
+			<input type="text" ng-model="activeReport.chart.domain.title" class="form-control" placeholder="Udfyld udfaldsrum titel">
+		</div>
+	</div>
+</div>
+
+<h4>Værdi</h4>
+
+<div class="row">
+	<div class="col-sm-5">
+
+		<h5 class="marginTop0">Formel</h5>
+
+		<div class="form-group">
+			<input type="text" ng-model="activeReport.chart.value.formula" class="form-control" placeholder="Angiv formel">
+		</div>
+
+	</div>
+	<div class="col-sm-4">
+		<h5 class="marginTop0">Label</h5>
+
+		<div class="form-group">
+			<input type="text" ng-model="activeReport.chart.value.title" class="form-control" placeholder="Udfyld værdi titel">
+		</div>
+	</div>
+</div>
+
+<h4>Beregninger</h4>
+
+<div ng-controller="calculationsCtrl" class="report-diagram-calculations">
+
+	<div class="row">
+		<div class="col-sm-3">
+			<h5 class="marginTop0">Formel</h5>
+		</div>
+		<div class="col-sm-2 custom-col-12pct">
+			<h5 class="marginTop0">Antal decimaler</h5>
+		</div>
+		<div class="col-sm-2">
+			<h5 class="marginTop0">Label</h5>
+		</div>
+		<div class="col-sm-2">
+			<h5 class="marginTop0">Enhedsangivelse</h5>
+		</div>
+
+	</div>
+
+	<div class="row" ng-repeat="calculation in activeReport.chart.calculations">
+		<div class="col-sm-3">
+			<div class="form-group">
+				<input type="text" ng-model="calculation.formula" class="form-control" placeholder="Angiv formel">
+			</div>
+		</div>
+
+		<div class="col-sm-2 custom-col-12pct">
+			<div class="form-group">
+				<input type="text" ng-model="calculation.decimals" class="form-control" placeholder="Angiv antal">
+			</div>
+		</div>
+
+		<div class="col-sm-2">
+			<div class="form-group">
+				<input type="text" ng-model="calculation.label" class="form-control" placeholder="Udfyld værdi titel">
+			</div>
+		</div>
+
+		<div class="col-sm-2">
+			<div class="form-group">
+				<input type="text" ng-model="calculation.unit" class="form-control" placeholder="Angiv enhed">
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+
+			<ul class="list-inline pull-right">
+				<li>
+					<a ng-click="MoveSourceUp(activeReport.chart, $index)" class="btn btn-default btn-fixed-size">
+						<i class="icon ion-arrow-up-b"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="MoveSourceDown(activeReport.chart, $index)" class="btn btn-default btn-fixed-size">
+						<i class="icon ion-arrow-down-b"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="AddCalcInputAtIndex(activeReport.chart, activeReport.type, $index)" class="btn btn-gyldendal-red btn-fixed-size">
+						<i class="icon ion-plus"></i>
+					</a>
+				</li>
+				<li>
+					<a ng-click="DeleteInput(activeReport.chart, $index)" class="btn btn-gyldendal-black btn-fixed-size">
+						<i class="icon ion-trash-a"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<button class="btn btn-gyldendal-red" ng-click="AddCalcInputAtIndex(activeReport.chart, activeReport.type)">Tilføj række med beregning</button>
+</div>

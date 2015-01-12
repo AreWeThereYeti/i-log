@@ -1,0 +1,12 @@
+.form-control[readonly], .form-control:focus {
+	cursor: inherit;
+	background-color: inherit;
+	opacity: inherit;
+	outline: none;
+	outline-color: transparent;
+	outline-style: none;
+	-webkit-appearance: none;
+	border: 1px solid #CCC;
+	box-shadow: none;
+	background: white;
+}

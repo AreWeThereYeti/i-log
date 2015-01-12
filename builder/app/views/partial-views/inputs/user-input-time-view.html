@@ -1,0 +1,95 @@
+<div class="panel panel-default" ng-controller="userInputTimeCtrl">
+	<div class="panel-heading">
+		<table class="table custom-table-block">
+
+			<tr>
+				<td class="column-id-1"><h4>{{input.id}}</h4></td>
+
+				<td class="column-id-7">
+					<div class="input-group">
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+							<button type="button" class="btn btn-default dropdown-toggle input-type" aria-haspopup="true" aria-expanded="false">
+								{{ ConvertInputTypeToText(input.type) }} <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a ng-click="SwichInputToNewType($index, 'text'); toggleDropdown($event)">Tekstinput</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'number'); toggleDropdown($event)">Talinput</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'data'); toggleDropdown($event)">Datafelt</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'formula'); toggleDropdown($event)">Beregning</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'dropdown'); toggleDropdown($event)">Dropdown</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'checkbox'); toggleDropdown($event)">Checkbox</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'largetext'); toggleDropdown($event)">Tekstfelt</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'time'); toggleDropdown($event)">Tidsinput</a></li>
+							</ul>
+						</div>
+
+						<input type="text" ng-model="input.label" class="form-control label-input" placeholder="Udfyld label">
+					</div>
+				</td>
+
+				<td class="column-id-4">
+
+					<div class="input-group">
+
+						<input readonly type="text" ng-model="convertedValueToText" class="form-control" placeholder="Vælg data">
+
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+
+							<button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+								 <span class="caret"></span>
+							</button>
+
+							<ul class="dropdown-menu">
+								<li><a ng-click="SwitchDataType(input, 'hh:mm:ss,cscs'); toggleDropdown($event)">hh:mm:ss,cscs</a></li>
+								<li><a ng-click="SwitchDataType(input, 'hh:mm:ss'); toggleDropdown($event)">hh:mm:ss</a></li>
+								<li><a ng-click="SwitchDataType(input, 'hh:mm'); toggleDropdown($event)">hh:mm</a></li>
+								<li><a ng-click="SwitchDataType(input, 'mm:ss'); toggleDropdown($event)">mm:ss</a></li>
+								<li><a ng-click="SwitchDataType(input, 'mm:ss,cscs'); toggleDropdown($event)">mm:ss,cscs</a></li>
+								<li><a ng-click="SwitchDataType(input, 'ss,cs'); toggleDropdown($event)">ss,cs</a></li>
+								<li><a ng-click="SwitchDataType(input, 'ss,cscs'); toggleDropdown($event)">ss,cscs</a></li>
+							</ul>
+
+						</div>
+
+
+					</div>
+
+				</td>
+
+				<td class="column-id-5">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" ng-model="input.required"> Påkrævet
+						</label>
+					</div>
+				</td>
+
+				<td class="column-id-6">
+					<ul class="list-inline">
+						<li>
+							<a ng-click="MoveSourceUp($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-up-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="MoveSourceDown($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-down-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="AddInputAtIndex($index)" class="btn btn-gyldendal-red btn-fixed-size">
+								<i class="icon ion-plus"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="DeleteInput($index)" class="btn btn-gyldendal-black btn-fixed-size">
+								<i class="icon ion-trash-a"></i>
+							</a>
+						</li>
+					</ul>
+
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

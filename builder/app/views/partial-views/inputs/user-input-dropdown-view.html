@@ -1,0 +1,124 @@
+<div class="panel panel-default" ng-controller="userInputDropdownCtrl">
+	<div class="panel-heading">
+		<table class="table custom-table-block">
+
+			<tr>
+				<td class="column-id-1"><h4>{{input.id}}</h4></td>
+
+				<td class="column-id-7">
+					<div class="input-group">
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+							<button type="button" class="btn btn-default dropdown-toggle input-type" aria-haspopup="true" aria-expanded="false">
+								{{ ConvertInputTypeToText(input.type) }} <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a ng-click="SwichInputToNewType($index, 'text'); toggleDropdown($event)">Tekstinput</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'number'); toggleDropdown($event)">Talinput</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'data'); toggleDropdown($event)">Datafelt</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'formula'); toggleDropdown($event)">Beregning</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'dropdown'); toggleDropdown($event)">Dropdown</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'checkbox'); toggleDropdown($event)">Checkbox</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'largetext'); toggleDropdown($event)">Tekstfelt</a></li>
+								<li><a ng-click="SwichInputToNewType($index, 'time'); toggleDropdown($event)">Tidsinput</a></li>
+							</ul>
+						</div>
+
+						<input type="text" ng-model="input.label" class="form-control label-input" placeholder="Udfyld label">
+					</div>
+				</td>
+
+				<td class="column-id-4">
+
+					<div class="form-group pull-left">
+						<input type="text" class="form-control unit-set-input" ng-model="input.unit" placeholder="Angiv enhed">
+					</div>
+
+				</td>
+
+				<td class="column-id-5">
+
+						<div style="margin-left: 3px;" class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="input.required"> Påkrævet
+							</label>
+						</div>
+
+<!-- 					<div class="btn-group ng-scope open" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+						<button type="button" class="dropdown-toggle btn btn-default required-button" aria-haspopup="true" aria-expanded="true">
+						{{ ConvertBoolToDKKText(input.required) }} <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a ng-click="IsRequired(input, true); toggleDropdown($event)">Ja</a></li>
+							<li><a ng-click="IsRequired(input, false); toggleDropdown($event)">Nej</a></li>
+						</ul>
+					</div> -->
+				</td>
+
+				<td class="column-id-6">
+					<ul class="list-inline">
+						<li>
+							<a ng-click="MoveSourceUp($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-up-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="MoveSourceDown($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-down-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="AddInputAtIndex($index)" class="btn btn-gyldendal-red btn-fixed-size">
+								<i class="icon ion-plus"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="DeleteInput($index)" class="btn btn-gyldendal-black btn-fixed-size">
+								<i class="icon ion-trash-a"></i>
+							</a>
+						</li>
+					</ul>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="column-id-8"><h5>Valgmuligheder:</h5></td>
+			</tr>
+
+			<tr ng-repeat="optionInput in input.options track by $index" >
+				<td class="column-id-8" colspan="6">
+					<ul class="list-inline">
+						<li>
+							<input ng-model="input.options[$index]" type="text" class="form-control dropdown-input" placeholder="Udfyld label">
+						</li>
+						<li>
+							<a ng-click="MoveOptionUp($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-up-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="MoveOptionDown($index)" class="btn btn-default btn-fixed-size">
+								<i class="icon ion-arrow-down-b"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="AddNewOptionInput($index)" class="btn btn-gyldendal-red btn-fixed-size">
+								<i class="icon ion-plus"></i>
+							</a>
+						</li>
+						<li>
+							<a ng-click="DeleteOptionInput($index)" class="btn btn-gyldendal-black btn-fixed-size">
+								<i class="icon ion-trash-a"></i>
+							</a>
+						</li>
+					</ul>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="column-id-8" colspan="6">
+					<button class="btn btn-gyldendal-red" ng-click="AddNewOptionInput()">Ny valgmulighed</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

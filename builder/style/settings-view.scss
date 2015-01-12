@@ -1,0 +1,26 @@
+.settings-view {
+
+	::-webkit-input-placeholder {
+		color: #333;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #333;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #333;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: #333;  
+	}
+
+	.file-path-text {
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 0;
+		float: left;
+	}
+
+}

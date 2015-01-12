@@ -1,0 +1,76 @@
+.report-content {
+
+	.custom-col-12pct {
+		width: 12% !important;
+		margin-right: 15px;
+	}
+
+	table {
+		margin-bottom: 0;
+		table-layout: fixed;
+	}
+
+	.column-id-1 {
+		width: 4%;
+		text-align: right;
+	}
+
+	.column-id-2 {
+		width: 36%;
+	}
+	.column-id-3 {
+		width: 36%;
+	}
+
+	.report-list-calculations {
+
+		.column-id-1 {
+			width: 18%;
+			text-align: left;
+		}
+
+		.column-id-2 {
+			width: 20%;
+		}
+
+		.column-id-3 {
+			width: 2%;
+		}
+
+		.column-id-7 {
+			width: 11%;
+		}
+
+		.column-id-4 {
+			width: 15%;
+		}
+
+		.column-id-5 {
+			width: 11%;
+		}
+
+		.column-id-6 {
+			width: 22%;
+		}
+	}
+
+	.report-diagram-calculations {
+		[class*="col-"] {
+			padding: 7px;
+		}
+
+		.form-group {
+			margin-bottom: 0;
+		}
+
+		.row {
+			margin-right: -7px;
+			margin-left: -7px;
+		}
+
+		h5 {
+			margin-bottom: 0;
+		}
+	}
+
+}

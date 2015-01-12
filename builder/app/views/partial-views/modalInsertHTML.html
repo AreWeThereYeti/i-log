@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{ item.modalTitle }}</h3>
+</div>
+<div class="modal-body">
+    <h5>{{ item.modalText }}</h5>
+
+	<div class="form-group">
+		<textarea class="form-control" ng-model="item.insertedHTML" placeholder="Indsæt HTML-kode"></textarea>
+	</div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="Cancel()"><i class="icon ion-close"></i> {{ item.modalTextCancel }}</button>
+    <button class="btn btn-gyldendal-red" ng-click="Ok()"><i class="icon ion-checkmark-round"></i> {{ item.modalTextConfirm }}</button>
+</div>

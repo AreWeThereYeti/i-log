@@ -1,0 +1,41 @@
+.nav-tabs.gyldendal-tab {
+
+	.gyldendal-tab-dropdown {
+			border-color: $darkerRed !important;
+			color: white !important;
+			background-color: $red !important;		
+	}
+
+	> li {
+
+		margin-right: 10px;
+
+		> a {
+
+			&.active {
+				background-color: white;
+				color: #333;
+				border-color: #eee #eee #fff;
+			}
+
+			background-color: #eee;
+			border-color: #eee #eee #ddd;
+		}
+
+		.open {
+
+			.gyldendal-tab-dropdown  {
+				border-color: $darkerRed;
+				color: white;
+				background-color: $red;
+			}
+		}
+
+	}
+
+
+}
+
+.disabled {
+	color: #cccccc !important;
+}

@@ -1,0 +1,120 @@
+<div class="settings-view" ng-controller="settingsCtrl">
+	<div class="panel panel-default" >
+		<div class="panel-body">
+			<h3><i class="icon ion-gear-b"></i> Generelle indstillinger</h3>
+			<h5>Skjul funktioner</h5>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="service.iLogDataSource.settings.mail">Send som mail
+				</label>
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="service.iLogDataSource.settings.download">Download pdf
+				</label>
+			</div>
+
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" ng-model="service.iLogDataSource.settings.exportEnabled">Eksporter csv
+				</label>
+			</div>
+
+			<h5>Font familie</h5>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="input-group">
+						<input type="text" readonly class="form-control" ng-model="service.iLogDataSource.settings.fontFamily" placeholder="Vælg font">
+
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+							<button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a ng-click="SelectFont('Arial'); toggleDropdown($event)">Arial</a></li>
+								<li><a ng-click="SelectFont('Courier'); toggleDropdown($event)">Courier</a></li>
+								<li><a ng-click="SelectFont('Franklin'); toggleDropdown($event)">Franklin</a></li>
+								<li><a ng-click="SelectFont('Lucida'); toggleDropdown($event)">Lucida</a></li>
+								<li><a ng-click="SelectFont('Times New Roman'); toggleDropdown($event)">Times</a></li>
+								<li><a ng-click="SelectFont('Verdana'); toggleDropdown($event)">Verdana</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h5>Font Størrelse</h5>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="input-group">
+						<input type="text" ng-model="service.iLogDataSource.settings.fontSize" readonly class="form-control" placeholder="Vælg fontstørrelse">
+
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+							<button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a ng-click="SelectFontSize(11); toggleDropdown($event)">11</a></li>
+								<li><a ng-click="SelectFontSize(12); toggleDropdown($event)">12</a></li>
+								<li><a ng-click="SelectFontSize(13); toggleDropdown($event)">13</a></li>
+								<li><a ng-click="SelectFontSize(14); toggleDropdown($event)">14</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<h5>Label placering</h5>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="input-group">
+						<input type="text" ng-model="LabelPlacementText" readonly class="form-control" placeholder="Vælg labelplacering">
+
+						<div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+							<button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a ng-click="LabelPlacement('left'); toggleDropdown($event)">Venstre for input</a></li>
+								<li><a ng-click="LabelPlacement('over'); toggleDropdown($event)">Over input</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<h6>Baggrundsbillede <span class="no-so-important-text">(optionelt)<span></h6>
+
+			<upload-button
+				action="php/media-upload.php"
+				complete="Uploaded($data, $status)"
+				class="btn btn-gyldendal-red pull-left">
+					Upload
+			</upload-button>
+
+			<h6 class="file-path-text">{{fileName}}</h6>
+			<div class="clearfix"></div>
+
+			<h5>Angiv bruger input felter til listeoversigt</h5>
+
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<input type="text" class="form-control" ng-model="service.iLogDataSource.settings.listview" placeholder="Udfyld bruger input felter">
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8 pull-right" ng-controller="saveCtrl">
+			<button ng-show="service.DataFetched" class="btn btn-gyldendal-red pull-right" ng-click="SaveToService('openViewer')">Gem og åbn i-log</button>
+			<button ng-show="service.DataFetched" class="btn btn-gyldendal-red pull-right" ng-click="SaveToService()">Gem i-log</button>
+			<button class="btn btn-default pull-right" ng-click="CancelSave()">Annuller ændringer</button>
+		</div>
+	</div>
+</div>

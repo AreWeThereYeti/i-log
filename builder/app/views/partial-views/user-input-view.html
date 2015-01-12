@@ -1,0 +1,47 @@
+<div class="user-input-view panel panel-default" ng-controller="userInputCtrl">
+	<div class="panel-body">
+	<h1>Bruger-input</h1>
+
+	<div class="alert alert-info"><strong>OBS!</strong> Lorem ipsum dolor sit amet</div>
+
+
+	<div class="panel panel-default table-header">
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="column-id-1">ID</th>
+						<th class="column-id-2">Type</th>
+						<th class="column-id-3">Label <span class="no-so-important-text">(optionel)</span></th>
+						<th class="column-id-4">Indstillinger</th>
+						<th class="column-id-5"></th>
+						<th class="column-id-6">Funktioner</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+
+	<div ng-repeat="input in service.iLogDataSource.inputs track by $index">
+
+		<div ng-include="InputTemplate(input)"></div>
+
+	</div>
+
+
+	<div class="btn-group ng-scope open" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+		<button type="button" class="dropdown-toggle btn btn-gyldendal-red" aria-haspopup="true" aria-expanded="true">
+		Tilføj input mulighed <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'text'); toggleDropdown($event)">Tekstinput</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'number'); toggleDropdown($event)">Talinput</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'data'); toggleDropdown($event)">Datafelt</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'formula'); toggleDropdown($event)">Beregning</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'dropdown'); toggleDropdown($event)">Dropdown</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'checkbox'); toggleDropdown($event)">Checkbox</a></li>
+			<li><a ng-click="AddInputAtIndex(service.iLogDataSource.inputs.length, 'largetext'); toggleDropdown($event)">Tekstfelt</a></li>
+		</ul>
+	</div>
+
+</div>

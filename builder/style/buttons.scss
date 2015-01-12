@@ -1,0 +1,56 @@
+.btn {
+
+	//min-width: 130px;
+
+	&.btn-gyldendal-red {
+		background-color: $red;
+		color: white;
+	}
+
+	&.btn-gyldendal-grey {
+		color: #333;
+		background-color: #EBEBEB;
+		border-color: #ADADAD;		
+	}
+
+	&.btn-gyldendal-black {
+		background-color: black;
+		color: white;
+	}
+
+	&.pull-right {
+		margin-left: 20px;
+	}
+
+	&.btn-fixed-size {
+		width: 34px;
+		height: 34px;
+		position: relative;
+
+		i {
+			position: absolute;
+			top: 0;
+			left: 8px;
+			font-size: 25px;
+
+			&.ion-arrow-down-b, &.ion-arrow-up-b {
+				left: 9px;
+			}
+
+			&.ion-plus {
+				left: 7px;
+			}
+		}
+	}
+
+}
+
+.row {
+
+	.form-group {
+		.btn:first-child {
+			margin-right: inherit;
+		}
+	}
+
+}
