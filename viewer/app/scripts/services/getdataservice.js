@@ -20,7 +20,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//locationComponentId // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//locationComponentId // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null && angular.isDefined(data.Content)) {
@@ -68,7 +68,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ locationComponentId <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ locationComponentId <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data.Content !== null) {
