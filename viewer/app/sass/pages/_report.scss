@@ -175,3 +175,34 @@
 
   }
 }
+
+.report-pdf {
+  .report-content {
+    height: auto;
+    position:relative;
+    page-break-after:always;
+    overflow:visible;
+    padding:50px 0 60px 22px !important;
+  }
+
+  .listview {
+    box-shadow:none;
+    padding:50px 60px !important
+  }
+
+  .listview span {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    box-sizing:border-box;
+    padding-left:8px !important;
+    padding-right:8px !important;
+  }
+  .listview span:last-child {
+    border-right:0;
+  }
+
+  .chart-calc {
+    padding-bottom:0;
+  }
+}

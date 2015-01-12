@@ -38,10 +38,12 @@ angular.module('gyldendal.directives', ['d3'])
               }
 						});
 
+            scope.containerElem = ele[0].parentNode.querySelector('.d3container');
+
 						// -------------	D3 function for rendering bar ----------------
 						scope.renderbar = function(data) {
 
-              svg = d3.select(".d3container");
+              svg = d3.select(scope.containerElem);
 
               // remove all previous items before render
 							svg.selectAll('*').remove();
@@ -94,7 +96,7 @@ angular.module('gyldendal.directives', ['d3'])
                     .ticks(0)
                     .tickSize(0);
 
-								svg = d3.select(".d3container")
+								svg = d3.select(scope.containerElem)
 										.append("svg")
 										.attr("width", width + margin.left + margin.right)
 										.attr("height", height + margin.top + margin.bottom)
@@ -225,7 +227,7 @@ angular.module('gyldendal.directives', ['d3'])
 //---------------- D3 function for rendering pie chart----------------
 						scope.renderpie = function(data) {
 
-              svg = d3.select(".d3container");
+              svg = d3.select(scope.containerElem);
 
 							// remove all previous items before render
 							svg.selectAll('*').remove();
@@ -233,7 +235,7 @@ angular.module('gyldendal.directives', ['d3'])
 							// If we don't pass any data, return out of the element
 							if (!data) return;
 
-							svg = d3.select(".d3container")
+							svg = d3.select(scope.containerElem)
 								.append('svg')
                 .attr("class", "pie")
                 .style('width', '575px')
@@ -319,7 +321,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 
               // legend
-              var legend = d3.select(".d3container").append("svg")
+              var legend = d3.select(scope.containerElem).append("svg")
                 .attr("class", "legend")
                 .attr("width", 200)
                 .attr("height", 530)
@@ -377,7 +379,7 @@ angular.module('gyldendal.directives', ['d3'])
 						//---------------- D3 function for rendering line chart----------------
 						scope.renderline = function(data) {
 
-              svg = d3.select(".d3container");
+              svg = d3.select(scope.containerElem);
 
 
               // remove all previous items before render
@@ -424,7 +426,7 @@ angular.module('gyldendal.directives', ['d3'])
                 .y(function(d) { return y(d.close); });
 
               // Adds the svg canvas
-              svg = d3.select(".d3container")
+              svg = d3.select(scope.containerElem)
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -553,7 +555,7 @@ angular.module('gyldendal.directives', ['d3'])
 
             scope.renderdot = function(data) {
 //						initialize base svg object on div.d3container
-              var svg = d3.select(".d3container");
+              var svg = d3.select(scope.containerElem);
 
 
               // remove all previous items before render
@@ -594,7 +596,7 @@ angular.module('gyldendal.directives', ['d3'])
 
 
               // Adds the svg canvas
-              svg = d3.select(".d3container")
+              svg = d3.select(scope.containerElem)
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)

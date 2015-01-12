@@ -37,6 +37,9 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     }
   }
 
+  document.getElementById('topheader').style.display = 'none';
+  document.body.style.overflow = 'visible';
+  document.body.style.backgroundColor = '#ffffff !important';
 
 // set current report to dummy report with index = route.id
   Rapport.route = $routeParams.id;
@@ -358,6 +361,8 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
   };
 
 
-
+  var tmpDiv = document.createElement('div');
+  tmpDiv.id = 'gyldendal-i-log-output';
+  document.body.appendChild(tmpDiv);
 
 }]);

@@ -1,29 +1,6 @@
-<div class="report">
-  <div ng-controller="ReportMenubarCtrl as ReportMenubar" class="reportmenu" ng-include="'scripts/templates/reportmenubar.html'"></div>
-  <div class="grid reportsubmenu" ng-init="Report.pane = 'list'">
-    <div ng-class="{active : Report.pane == 'pie'}" ng-click="Report.pane = 'pie'" class="report-type" ng-show="Rapport.dataDiagram[0].views.piechart" >
-      <span class="icon icon-piechart"></span>
-      <span>{{Rapport.dataDiagram[0].title}}</span>
-    </div>
-    <div ng-class="{active : Report.pane == 'bar'}" ng-click="Report.pane = 'bar'" class="report-type" ng-show="Rapport.dataDiagram[0].views.barchart">
-      <span class="icon icon-bar"></span>
-      <span>{{Rapport.dataDiagram[0].title}}</span>
-    </div>
-    <div ng-class="{active : Report.pane == 'list'}" ng-click="Report.pane = 'list'" class="report-type" ng-show="Rapport.dataList[0]">
-      <span class="icon icon-grid"></span>
-      <span>{{Rapport.dataList[0].title}}</span>
-    </div>
-    <div ng-class="{active : Report.pane == 'graph-line'}" ng-click="Report.pane = 'graph-line'" class="report-type" ng-show="Rapport.dataGraph[0].views.connectedGraph"> <!-- ng-show is negated for debugging. should be: ng-show="!Rapport.dataGraph[0].views.connectedGraph" -->
-      <span class="icon icon-line"></span>
-      <span>Forbundet graf</span>
-    </div>
-    <div ng-class="{active : Report.pane == 'graph-dotted'}" ng-click="Report.pane = 'graph-dotted'" class="report-type" ng-show="Rapport.dataGraph[0].views.scatterPlot">
-      <span class="icon icon-dots"></span>
-      <span >Punktgraf</span>
-    </div>
-  </div>
-
-  <div class="report-content" ng-if="Report.pane == 'pie'">
+<div class="report report-pdf">
+  <div class="report-content" ng-if="Rapport.dataDiagram[0].views.piechart">
+    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:-10px;">{{Rapport.dataDiagram[0].title}}</h2>
     <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
@@ -35,7 +12,8 @@
     </div>
   </div>
 
-  <div class="report-content" ng-if="Report.pane == 'bar'">
+  <div class="report-content" ng-if="Rapport.dataDiagram[0].views.barchart">
+    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">{{Rapport.dataDiagram[0].title}}</h2>
     <div class='d3container'></div>
     <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
@@ -47,35 +25,38 @@
     </div>
   </div>
 
-  <div class="listview report-content" ng-if="Report.pane == 'list'">
+  <div class="listview report-content" ng-if="Rapport.dataList[0]">
+    <h2 style="font-weight:bold; font-size:38px; margin-bottom:50px;">{{Rapport.dataList[0].title}}</h2>
+
     <div class="grid list-head" >
-      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
-      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
     </div>
 
     <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
-      <span class="first" ng-style="{width: Rapport.newWidth}">{{$index+1}}</span>
-      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-indent:10px; color:#888;">{{$index+1}}</span>
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
         {{ilog.data[column.inputID]}}
       </span>
     </div>
 
     <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
-      <span class="first calc" ng-style="{width: Rapport.newWidth}">{{calculation.label}}</span>
-      <span class="col-1-8 calc" ng-repeat="column in Rapport.dataList[0].columns">
+      <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-align:center;">{{calculation.label}}</span>
+      <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
         <p class="text-center">{{Rapport.listFormula(calculation, column)}}</p>
       </span>
     </div>
 
     <div class="grid list-content" >
-      <span class="first" ng-style="{width: Rapport.newWidth}"></span>
-      <span class="col-1-8" ng-repeat="column in Rapport.dataList[0].columns">
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
+      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
       </span>
     </div>
 
   </div>
 
-  <div class="report-content" ng-if="Report.pane == 'graph-dotted'">
+  <div class="report-content" ng-if="Rapport.dataGraph[0].views.connectedGraph">
+    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Forbundet graf</h2>
     <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
@@ -87,7 +68,8 @@
     </div>
   </div>
 
-  <div class="report-content" ng-if="Report.pane == 'graph-line'">
+  <div class="report-content" ng-if="Rapport.dataGraph[0].views.scatterPlot">
+    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Punktgraf</h2>
     <div class='d3container'></div>
     <d3-chart data="Rapport.linedata" type="line"></d3-chart>
     <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
