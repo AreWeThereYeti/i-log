@@ -76,9 +76,9 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
     var t = new Date().getTime();
 
     if(format=="date"){
-      t =  $filter('date')(t, 'dd:MM:yyyy');
+      t =  $filter('date')(t, 'dd-MM-yyyy');
     }else if(format=="datetime"){
-      t  =  $filter('date')(t, 'dd:MM:yyyy, H:mm');
+      t  =  $filter('date')(t, 'dd-MM-yyyy, H:mm');
     } else if(format=="time"){
       t =  $filter('date')(t, 'H:mm');
     }
