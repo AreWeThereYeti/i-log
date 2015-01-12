@@ -73,6 +73,19 @@ var app = angular.module('app', [
           }
 				}
 			})
+			.when('/rapport/:id/pdf', {
+				templateUrl: 'views/rapport-pdf.html',
+				controller: 'RapportPDFCtrl',
+				controllerAs: 'Rapport',
+				resolve: {
+          component: function(getdataservice, $route) {
+            return getdataservice.loadComponent($route.current.params);
+          },
+          entries: function (getdataservice, $route) {
+            return getdataservice.getList($route.current.params);
+          }
+				}
+			})
       .when('/log', {
         templateUrl: 'views/log.html',
         controller: 'LogCtrl',

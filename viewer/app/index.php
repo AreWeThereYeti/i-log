@@ -90,6 +90,7 @@ include('php/mads/core.php');
       <script src="scripts/controllers/LogsOverviewCtrl.js"></script>
       <script src="scripts/controllers/RapportOverviewCtrl.js"></script>
       <script src="scripts/controllers/RapportCtrl.js"></script>
+      <script src="scripts/controllers/RapportPDFCtrl.js"></script>
       <script src="scripts/controllers/LogCtrl.js"></script>
       <script src="scripts/controllers/MainCtrl.js"></script>
       <script src="scripts/controllers/ReportMenubarCtrl.js"></script>
