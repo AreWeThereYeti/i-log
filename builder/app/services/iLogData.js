@@ -27,6 +27,13 @@
 				fontSize: null,
 				backgroundImageID: null,
 				listview: null,
+                timeInput: {
+                    label: 'Tidspunkt',
+                    showInOverview: true,
+                    showInLog: true,
+                    editable: true,
+                    format: 'date'
+                }
 			}
 
 		};
@@ -59,11 +66,22 @@
 			$http.get('php/load-component.php?componentID='+componentID).success(function(data, status) {
 
                 if (status === 200) {
-                    self.iLogDataSource = angular.fromJson(data.Content) || {};
+                    self.iLogDataSource = angular.fromJson(data.Content) || self.iLogDataSource;
 
 					if (!self.iLogDataSource.title) {
 						self.iLogDataSource.title = data.Title;
 					}
+
+                    //If content is defined, but no timeInput property. Needs to be in code until old data is updated with new or default values
+                    if (!self.iLogDataSource.settings.timeInput) {
+                        self.iLogDataSource.settings.timeInput = {
+                            label: 'Tidspunkt',
+                            showInOverview: true,
+                            showInLog: true,
+                            editable: true,
+                            format: 'date'
+                        }
+                    }
 
                     self.iLogDataSource.type = data.Type;
                     self.iLogDataSource.userID = data.Owner.UserID;
@@ -73,6 +91,7 @@
 					}
 
 					self.DataFetched = true;
+
 					return;
                 }
 

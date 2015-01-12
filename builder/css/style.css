@@ -4810,4 +4810,24 @@ header .pipe {
   float: left;
 }
 
+.settings-view table {
+    width: 80%;
+    table-layout: fixed;
+}
+
+.settings-view .column-1 {
+    width: 24%;
+    padding: 0 20px 0 0;
+}
+
+.settings-view .column-2 {
+    width: 10%;
+    padding: 0 25px 0 0;
+}
+
+.settings-view .column-3 {
+    width: 24%;
+    padding: 0 20px 0 0;
+}
+
 /*# sourceMappingURL=style.css.map */

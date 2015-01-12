@@ -22,6 +22,78 @@
 				</label>
 			</div>
 
+            <table class="table no-table-borders">
+               <thead>
+                   <tr>
+                        <th class="column-1"><h5>Tidspunkt</h5></th>
+                        <th class="column-2"><h5>Vis i oversigt</h5></th>
+                        <th class="column-2"><h5>Vis i logs</h5></th>
+                        <th class="column-2"><h5>Redigerbart</h5></th>
+                        <th class="column-3"><h5>Format</h5></th>
+                   </tr>
+               </thead>
+                <tr>
+                    <td class="column-1">
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="service.iLogDataSource.settings.timeInput.label" placeholder="Vælg label">
+                        </div>
+                    </td>
+                    <td class="column-2">
+                        <div class="input-group">
+                            <input type="text" readonly class="form-control" value="{{ service.iLogDataSource.settings.timeInput.showInOverview | trueFalse }}">
+
+                            <div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+                                <button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.showInOverview = true; toggleDropdown($event)">Ja</a></li>
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.showInOverview = false; toggleDropdown($event)">Nej</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="column-2">
+                        <div class="input-group">
+                            <input type="text" readonly class="form-control" value="{{ service.iLogDataSource.settings.timeInput.showInLog | trueFalse }}">
+
+                            <div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+                                <button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.showInLog = true; toggleDropdown($event)">Ja</a></li>
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.showInLog = false; toggleDropdown($event)">Nej</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="column-2">
+                        <div class="input-group">
+                            <input type="text" readonly class="form-control" value="{{ service.iLogDataSource.settings.timeInput.editable | trueFalse }}">
+
+                            <div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+                                <button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.editable = true; toggleDropdown($event)">Ja</a></li>
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.editable = false; toggleDropdown($event)">Nej</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="column-3">
+                        <div class="input-group">
+                            <input type="text" readonly class="form-control" value="{{ service.iLogDataSource.settings.timeInput.format | customDate }}">
+
+                            <div class="input-group-btn" ng-controller="dropDownToggleCtrl" dropdown="" is-open="status.isopen">
+                                <button type="button" class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.format = 'datetime'; toggleDropdown($event)">Dato og tid (dd:mm:yyyy, hh:mm)</a></li>
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.format = 'date'; toggleDropdown($event)">Dato (dd:mm:yyyy)</a></li>
+                                    <li><a ng-click="service.iLogDataSource.settings.timeInput.format = 'time'; toggleDropdown($event)">Tid (hh:mm)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
 			<h5>Font familie</h5>
 
 			<div class="row">

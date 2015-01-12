@@ -65,6 +65,8 @@
 	<script src="app/app.js"></script>
 
 	<script src="app/controllers/dropDownCtrl.js"></script>
+    <script src="app/filters/true-false-filter.js"></script>
+    <script src="app/filters/custom-date-filter.js"></script>
 	<script src="app/services/iLogData.js"></script>
 	<script src="app/controllers/userInputCtrl.js"></script>
 	<script src="app/controllers/settingsCtrl.js"></script>
