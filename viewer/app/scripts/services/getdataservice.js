@@ -5,9 +5,11 @@ angular.module('gyldendal.services', [])
         loadComponent: function() {
 
           //finds userID and Component id in url
-          if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
-            localStorage.userID =  $location.search().userID;
-            localStorage.componentID =  $location.search().componentID;
+          var locationComponentId = (window.location.href.split('#')[0].split('componentID=')[1] || '').split('&')[0],
+              locationUserId = (window.location.href.split('#')[0].split('userID=')[1] || '').split('&')[0];
+          if(angular.isDefinedOrNotNull(locationComponentId) && angular.isDefinedOrNotNull(locationUserId)){
+            localStorage.userID =  locationUserId;
+            localStorage.componentID =  locationComponentId;
           }
           var componentID = localStorage.componentID;
 
@@ -18,7 +20,7 @@ angular.module('gyldendal.services', [])
                 'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
               },
               method: 'GET',
-              url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//$location.search().componentID // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+              url: url: 'php/michael/load-component.php?componentID=' + componentID//$rootScope.componentID//locationComponentId // <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
               })
                   .success(function (data, status, headers, config) {
                   if (data.Content !== null && angular.isDefined(data.Content)) {
@@ -51,9 +53,11 @@ angular.module('gyldendal.services', [])
         getList: function() {
 
           //finds userID and Component id in url
-          if(angular.isDefinedOrNotNull($location.search().componentID) && angular.isDefinedOrNotNull($location.search().userID)){
-            localStorage.userID =  $location.search().userID;
-            localStorage.componentID =  $location.search().componentID;
+          var locationComponentId = (window.location.href.split('#')[0].split('componentID=')[1] || '').split('&')[0],
+              locationUserId = (window.location.href.split('#')[0].split('userID=')[1] || '').split('&')[0];
+          if(angular.isDefinedOrNotNull(locationComponentId) && angular.isDefinedOrNotNull(locationUserId)){
+            localStorage.userID =  locationUserId;
+            localStorage.componentID =  locationComponentId;
           }
           var userID = localStorage.userID;
           var componentID = localStorage.componentID;
@@ -64,7 +68,7 @@ angular.module('gyldendal.services', [])
               'Content-Type'  : 'application/x-www-form-urlencoded;charset=utf-8'
             },
             method: 'GET',
-            url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ $location.search().componentID <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
+            url: url: 'php/mads/getList.php?userID=' + userID + '&componentID=' + componentID /*+ locationComponentId <-- --- --- ComponentID er lige nu hardcoded. Skal hentes fra URL*/
           })
             .success(function (data, status, headers, config) {
               if (data.Content !== null) {
