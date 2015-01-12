@@ -26,8 +26,6 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
   // check if there user has previous ilog entries
   if(LogsOverview.logEntries == "Not found"){
 
-    // Debugging
-
     // set ilog save method to "add"
     $rootScope.firstLogEntry = true;
 

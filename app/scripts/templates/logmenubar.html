@@ -1,13 +1,15 @@
 <div class="reportmenu grid">
   <div class="col-3-4">
     <ul>
-      <li ng-click="LogMenubar.checkInputs()">
+      <li ng-hide="$rootScope.firstLogEntry" ng-click="LogMenubar.checkInputs()">
         <span class="back circ">
           <span class="icon icon-arrow">
           </span>
         </span>
       </li>
-      <li ng-click="LogMenubar.checkInputs()">{{Log.componentData.title}}</li>
+      <li ng-hide="$rootScope.firstLogEntry" ng-click="LogMenubar.checkInputs()">{{Log.componentData.title}}</li>
+      <li ng-show="$rootScope.firstLogEntry">{{Log.componentData.title}}</li>
+
     </ul>
   </div>
   <div class="icons col-1-4">
