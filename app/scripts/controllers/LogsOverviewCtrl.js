@@ -119,12 +119,10 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
 
   //Delete all logs
   LogsOverview.deleteAll = function(){
-    if (confirm('Er du sikker på du vil slette alle logs?')) {
       getdataservice.deleteAllLogs(LogsOverview.logEntries.objectID)
         .then(function(isDeleted){
           $location.path('/');
         });
-    }
   };
 
   $scope.changeRange = function(range){
