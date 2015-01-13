@@ -110,7 +110,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
                 }
             }
 
-            // Calculate dimensions for the new window we'll temporarily open
+            /*// Calculate dimensions for the new window we'll temporarily open
             var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 100,
                 height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 100,
                 left = window.screenLeft + 50,
@@ -124,7 +124,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
             // Auto-close this window after 3 seconds
             setTimeout(function () {
                 throbberWindow.close();
-            }, 3000);
+            }, 3000);*/
 
             // Load componentID and userID from the URL
             var componentId = (window.location.href.split('#')[0].split('componentID=')[1] || '').split('&')[0],
