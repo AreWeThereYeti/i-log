@@ -27,7 +27,7 @@
             <div class="circ" >
                 <span class="icon icon-trash-bin"></span>
             </div>
-            <div class="circ" ng-click="Share = !Share">
+            <div class="circ" ng-click="ReportMenubar.toggleShare()">
              <span ng-class="{active: Share}" class="icon icon-share"></span>
             </div>
         </div>
@@ -74,5 +74,5 @@
             </div>
         </div>
     </div>
-    <div ng-show="Share" ng-click="Share =!Share" class="report-overlay"></div>
+    <div ng-show="Share" ng-click="ReportMenubar.toggleShare()" class="report-overlay"></div>
 </div>

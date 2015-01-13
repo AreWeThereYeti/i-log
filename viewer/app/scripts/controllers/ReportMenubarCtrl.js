@@ -4,6 +4,12 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
     //Save reference to controller in order to avoid reference soup
     var ReportMenubar = this;
 
+    $scope.Share = false;
+
+    this.toggleShare = function () {
+        $scope.Share = !$scope.Share;
+    };
+
 
     ReportMenubar.route = $routeParams.id;
     if(angular.isDefinedOrNotNull(ReportMenubar.route)){
@@ -75,6 +81,9 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
 
             downloadFrame.src = window.location.href.split('?')[0].replace('index.php', '') +'/php/mads/generatePDF.php?userID='+ encodeURIComponent(userId) +'&componentID='+ encodeURIComponent(componentId) +'&reportID='+ encodeURIComponent($routeParams.id) +'&rand='+ (new Date).getTime();
             document.body.appendChild(downloadFrame);
+
+            // Auto-close the export-panel
+            $scope.Share = false;
         },
 
         // Helper-method that will start downloading the current report as a
@@ -159,6 +168,9 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
 
             postForm.submit();
             document.body.removeChild(postForm);
+
+            // Auto-close the export-panel
+            $scope.Share = false;
         }
     };
 
