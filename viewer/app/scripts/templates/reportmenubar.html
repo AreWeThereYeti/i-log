@@ -1,66 +1,80 @@
 <div class="menubar reportmenu">
-  <div class="grid">
-    <div class="col-3-4">
-      <ul>
-        <li>
-          <a href="#/rapporter">
-          <span class="back circ">
-            <span class="icon icon-arrow">
-            </span>
-          </span>
-        </span>
-        </a>
-      </li>
-      <li>
-        <a href="#/rapporter">
-          {{ReportMenubar.currentReport.title}}
-        </a>
-      </li>
-      <li class="report-interval"> ({{ReportMenubar.currentReport.content.from | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.content.to | date:'dd-MM-yyyy'}})</li>
-    </ul>
-  </div>
-  <div class="icons col-1-4">
-    <div class="float-right">
-      <div class="circ"  ng-click="Speech = !Speech">
-        <span ng-class="{active: Speech}" class="icon icon-speech"></span>
-      </div>
-      <div class="circ" >
-        <span class="icon icon-trash-bin"></span>
-      </div>
-      <div class="circ" ng-click="Share = !Share">
-       <span ng-class="{active: Share}" class="icon icon-share"></span>
-      </div>
+    <div class="grid">
+        <div class="col-3-4">
+            <ul>
+                <li>
+                    <a href="#/rapporter">
+                    <span class="back circ">
+                        <span class="icon icon-arrow">
+                        </span>
+                    </span>
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#/rapporter">
+                    {{ReportMenubar.currentReport.title}}
+                </a>
+            </li>
+            <li class="report-interval"> ({{ReportMenubar.currentReport.content.from | date:'dd-MM-yyyy'}} til {{ReportMenubar.currentReport.content.to | date:'dd-MM-yyyy'}})</li>
+        </ul>
     </div>
-  </div>
-  </div>
-  <div ng-show="Share" class="ngdialog">
-    <div class="ngdialog-content third">
-      <span class="arrow_box"></span>
-      <div  class="share grid">
-        <div class="header">
-          <ul>
-            <li class="icon icon-share-nocirkel">Del med lærer</li>
-            <li class="icon icon-download">Pdf</li>
-            <li class="icon icon-mail">Mail</li>
-          </ul>
-        </div>
-        <div class="content">
-          <div class="grid">
-            <span class="label">Send kopi til kollega</span>
-            <div class="col-3-4">
-              <div class="select-inner left">
-                <select name="År" class="">
-                  <option value="lærer1">lærer1</option>
-                </select>
-              </div>
+    <div class="icons col-1-4">
+        <div class="float-right">
+            <div class="circ"  ng-click="Speech = !Speech">
+                <span ng-class="{active: Speech}" class="icon icon-speech"></span>
             </div>
-            <div class="col-1-4">
-              <button class="btn">Send</button>
+            <div class="circ" >
+                <span class="icon icon-trash-bin"></span>
             </div>
-          </div>
+            <div class="circ" ng-click="Share = !Share">
+             <span ng-class="{active: Share}" class="icon icon-share"></span>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div ng-show="Share" ng-click="Share =!Share" class="report-overlay"></div>
+    </div>
+    <div ng-show="Share" class="ngdialog">
+        <div class="ngdialog-content third">
+            <span class="arrow_box"></span>
+            <div  class="share grid">
+                <div class="header">
+                    <ul>
+                        <li class="icon icon-share-nocirkel" ng-class="{active: ReportMenubar.exportPanel.isTabActive('share')}" ng-click="ReportMenubar.exportPanel.openTab('share')">Del med lærer</li>
+                        <li class="icon icon-download" ng-class="{active: ReportMenubar.exportPanel.isTabActive('pdf')}" ng-click="ReportMenubar.exportPanel.openTab('pdf')">PDF</li>
+                        <li class="icon icon-download" ng-class="{active: ReportMenubar.exportPanel.isTabActive('csv')}" ng-show="ReportMenubar.exportPanel.isTabAvailable('csv')" ng-click="ReportMenubar.exportPanel.openTab('csv')">CSV</li>
+                    </ul>
+                </div>
+
+                <div class="content" ng-show="ReportMenubar.exportPanel.isTabActive('share')">
+                    <div class="grid">
+                        <span class="label">Send kopi til kollega</span>
+                        <div class="col-3-4">
+                            <div class="select-inner left">
+                                <select name="År" class="">
+                                    <option value="lærer1">lærer1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-1-4">
+                            <button class="btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content" ng-show="ReportMenubar.exportPanel.isTabActive('pdf')" style="overflow:hidden; font-size:14px; line-height:1.25em;">
+                    Genereringen af PDF til download kan tage flere sekunder.
+                    Vær opmærksom på, at den downloadede PDF-fil ikke kan redigeres.<br>
+
+                    <button class="btn" style="margin-bottom:0; margin-top:10px;" ng-click="ReportMenubar.exportPanel.downloadAsPDF()">Download som PDF</button>
+                </div>
+
+                <div class="content" ng-show="ReportMenubar.exportPanel.isTabActive('csv')" style="overflow:hidden; font-size:14px; line-height:1.25em;">
+                    Genereringen af CSV til download kan tage flere sekunder.<br>
+
+                    <button class="btn" style="margin-bottom:0; margin-top:10px;" ng-click="ReportMenubar.exportPanel.downloadAsCSV()">Download som CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="Share" ng-click="Share =!Share" class="report-overlay"></div>
 </div>
