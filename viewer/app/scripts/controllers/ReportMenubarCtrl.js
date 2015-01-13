@@ -43,7 +43,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
         isTabAvailable: function (tab) {
             switch (tab) {
                 case 'share': return true; break;
-                case 'csv': return true; break;
+                case 'csv': return !!window.rapportData.dataList[0]; break;
                 default: return true; break;
             }
         },
