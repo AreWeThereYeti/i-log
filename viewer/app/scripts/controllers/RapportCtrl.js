@@ -61,6 +61,12 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
       Rapport.pane = 'list'
     }
   }
+
+  // Expose to rapport data to global scope - ugly solution, should be done
+  // through a factory, but the code is not currently designed to do this
+  // (we need access to this data to generate a CSV)
+  window.rapportData = Rapport;
+
 /*  if(Rapport.dataDiagram.length){
     if(Rapport.dataDiagram[0].views.piechart){
       Rapport.pane = 'pie'

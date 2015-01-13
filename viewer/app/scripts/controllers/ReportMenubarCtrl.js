@@ -67,7 +67,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
 
             // Begin the download by creating an iframe and directing the user here
             var downloadFrame = document.getElementById('downloadFrame') || document.createElement('iframe');
-            downloadFrame.id = 'downloadFrame';
+            downloadFrame.id = 'downloadFrame'; downloadFrame.name = 'downloadFrame';
             downloadFrame.setAttribute('scrolling', 'no');
             downloadFrame.setAttribute('frameborder', '0');
             downloadFrame.style.width = '0px';
@@ -75,6 +75,90 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', function ($routeP
 
             downloadFrame.src = window.location.href.split('?')[0].replace('index.php', '') +'/php/mads/generatePDF.php?userID='+ encodeURIComponent(userId) +'&componentID='+ encodeURIComponent(componentId) +'&reportID='+ encodeURIComponent($routeParams.id) +'&rand='+ (new Date).getTime();
             document.body.appendChild(downloadFrame);
+        },
+
+        // Helper-method that will start downloading the current report as a
+        // CSV-file
+        downloadAsCSV: function () {
+            // Prepare CSV-output
+            var csv = '';
+
+            // Add headers to the output
+            for (var x in window.rapportData.dataList[0].columns) {
+                csv += ';"'+ String(window.rapportData.dataList[0].columns[x].label).replace(/\"/g, "'") +'"';
+            }
+
+            // Loop through the contents and add to CSV-file
+            for (var x in window.rapportData.logs) {
+                // Prepare new row
+                csv += '\n'+ (x+1);
+
+                // Loop through the list of columns and add output
+                for (var y in window.rapportData.dataList[0].columns) {
+                    csv += ';"'+ String((window.rapportData.formatFloat(window.rapportData.logs[x].data[window.rapportData.dataList[0].columns[y].inputID], window.rapportData.dataList[0].columns[y].inputID) || '') +' '+ (window.rapportData.getListUnit(window.rapportData.dataList[0].columns[y].inputID) || '')).replace(/\"/g, "'") +'"';
+                }
+            }
+
+            // Add calculations to the label
+            for (var x in window.rapportData.dataList[0].calculations) {
+                // Prepare new row
+                csv += '\n'+ window.rapportData.dataList[0].calculations[x].label;
+
+                // Loop through the list of columns and add output
+                for (var y in window.rapportData.dataList[0].columns) {
+                    csv += ';"'+ String(window.rapportData.listFormula(window.rapportData.dataList[0].calculations[x], window.rapportData.dataList[0].columns[y]) || '').replace(/\"/g, "'") +'"';
+                }
+            }
+
+            // Calculate dimensions for the new window we'll temporarily open
+            var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) - 100,
+                height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 100,
+                left = window.screenLeft + 50,
+                top = window.screenTop + 50;
+
+            // Open a window inside which we will render a throbber - this will
+            // be displayed while the CSV-file is being generated
+            var throbberWindow = window.open('javascript:;', 'throbberWindow', 'width='+ width +',height='+ height +',top='+ top +',left='+ left);
+            throbberWindow.document.write('<html><head><style>body {background:#f5f5f5 url('+spinnerImgSrc+') no-repeat center;}</style></head><body><div style="position:absolute; top:50%; left:0; right:0; text-align:center; margin-top:50px; font:14px/1em helvetica, arial, sans-serif; color:#484848;">Vent venligst, din PDF genereres...</div></body></html>');
+
+            // Auto-close this window after 3 seconds
+            setTimeout(function () {
+                throbberWindow.close();
+            }, 3000);
+
+            // Load componentID and userID from the URL
+            var componentId = (window.location.href.split('#')[0].split('componentID=')[1] || '').split('&')[0],
+                userId = (window.location.href.split('#')[0].split('userID=')[1] || '').split('&')[0];
+
+            // Begin the download by creating an iframe and directing the user here
+            var downloadFrame = document.getElementById('downloadFrame') || document.createElement('iframe');
+            downloadFrame.id = 'downloadFrame'; downloadFrame.name = 'downloadFrame';
+            downloadFrame.setAttribute('scrolling', 'no');
+            downloadFrame.setAttribute('frameborder', '0');
+            downloadFrame.style.width = '0px';
+            downloadFrame.style.height = '0px';
+
+            downloadFrame.src = 'javascript:;';
+            document.body.appendChild(downloadFrame);
+
+            // Create a form and post through the hidden iframe, making the PHP
+            // script prepare a download with the generated CSV-data
+            var postForm = document.createElement('form');
+            postForm.target = 'downloadFrame';
+            postForm.action = window.location.href.split('?')[0].replace('index.php', '') +'/php/mads/generateCSV.php';
+            postForm.method = 'POST';
+            postForm.style.display = 'none';
+
+            var postFormInput = document.createElement('input');
+            postFormInput.type = 'hidden';
+            postFormInput.name = 'csv';
+            postFormInput.value = csv;
+
+            postForm.appendChild(postFormInput);
+            document.body.appendChild(postForm);
+
+            postForm.submit();
+            document.body.removeChild(postForm);
         }
     };
 
