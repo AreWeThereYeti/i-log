@@ -2,6 +2,9 @@
 include('php/mads/core.php');
 include('php/mads/auth.php');
 
+// Authenticate user
+ComponentAuthentication::validateSecret();
+
 ?>
 
 <!--//
