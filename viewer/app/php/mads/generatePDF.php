@@ -1,7 +1,17 @@
 <?php
 
+// Load auth-plugin
+require('auth.php');
+
+// Prepare URL
+$params = ComponentAuthentication::generateAuthParameters($_GET['componentID']);
+$params['userID'] = $_GET['userID'];
+
+$url = explode('?', str_ireplace('rocket/i-guides/backend/pdf.php', '', $_SERVER['REQUEST_URI']));
+$url = 'http://'. $_SERVER['HTTP_HOST'] . $url[0] .'?'. http_build_query($params) .'#/layout';
+
 // Generate PDF url
-$url = 'http://'. $_SERVER['HTTP_HOST'] . substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], 'php/mads/generatePDF.php')) .'?componentID='. $_GET['componentID'] .'&userID='. $_GET['userID'] .'&timestamp='. time() .'&signature=xxx#/rapport/'. $_GET['reportID'] .'/pdf';
+$url = 'http://'. $_SERVER['HTTP_HOST'] . substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], 'php/mads/generatePDF.php')) .'?' http_build_query($params) .'#/rapport/'. $_GET['reportID'] .'/pdf';
 $outputPath = 'tmp/'. time() .'.pdf';
 
 // Generate the PDF
