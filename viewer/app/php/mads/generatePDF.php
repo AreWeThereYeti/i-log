@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // Load auth-plugin
 require('auth.php');
 
@@ -19,10 +16,6 @@ $outputPath = 'tmp/'. time() .'.pdf';
 
 // Generate the PDF
 var_dump(shell_exec('phantomjs generatePDF.js '. escapeshellarg($url) .' '. escapeshellarg($outputPath)));
-var_dump('phantomjs generatePDF.js '. escapeshellarg($url) .' '. escapeshellarg($outputPath));
-var_dump(file_exists($outputPath));
-var_dump($outputPath);
-exit;
 
 // Output file for download
 if (file_exists($outputPath)) {
