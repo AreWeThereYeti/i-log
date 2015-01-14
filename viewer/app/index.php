@@ -1,5 +1,6 @@
 <?php
 include('php/mads/core.php');
+include('php/mads/auth.php');
 
 ?>
 
@@ -121,6 +122,21 @@ include('php/mads/core.php');
       <script src="scripts/directives/hideFilterDirective.js"></script>
       <script src="scripts/directives/globalCss.js"></script>
       <script src="scripts/directives/angular-spinner.min.js"></script>
+
+      <!-- Dialogue pane -->
+      <script type="text/javascript" src="scripts/libs/jquery.js"></script>
+      <script type="text/javascript" src="scripts/libs/underscore.js"></script>
+      <script type="text/javascript" src="scripts/libs/moment.js"></script>
+      <script src="<?= PRODUCTION ? 'http://amazon.proxy.gyldendal.dk/g.js' : 'http://test.amazon.proxy.gyldendal.dk/g.js' ?>" type="text/javascript"></script>
+      <script src="<?= PRODUCTION ? 'http://amazon.components.gyldendal.dk/plugins/dialogue/main.js' : 'http://gyldendal.felskov.io/plugins/dialogue/main.js' ?>" type="text/javascript"></script>
+
+      <!-- Initialize user-session in NodeJS proxy -->
+      <script type="text/javascript">
+        GSDK.User.authenticateToken({
+          token: '<?= ComponentAuthentication::generateToken($_GET["userID"]); ?>'
+        });
+      </script>
+
 
     </body>
 </html>

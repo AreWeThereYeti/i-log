@@ -12,14 +12,11 @@ session_start();
 define('HTTP_AUTH_USER', 'test01');
 define('HTTP_AUTH_PWD', 'G2d4My82y18HT72K');
 
-// Define local host address (change this for whatever your local environment
-// runs on to allow automatic determination of whether to use dev or production
-// API)
-define('HTTP_LOCAL_HOST', 'localhost:8888');
-//define('HTTP_LOCAL_HOST', 'jonasyazid.dk');
+// Determine if we're currently in production-mode or not
+define('PRODUCTION', stripos($_SERVER['HTTP_HOST'], 'localhost') === false && stripos($_SERVER['HTTP_HOST'], 'gyldendal.local.io') === false && stripos($_SERVER['HTTP_HOST'], 'gyldendal.felskov.io') === false && stripos($_SERVER['HTTP_HOST'], 'test.') === false && stripos($_SERVER['HTTP_HOST'], 'dev.') === false);
 
 // Define API endpoint URL
-define('USERDATA_API_URL', (stripos($_SERVER['HTTP_HOST'], HTTP_LOCAL_HOST) === false) ? 'http://userdata.gyldendal.dk/api/' : 'http://api.test.userdata.gyldendal.dk/api/');
+define('USERDATA_API_URL', PRODUCTION ? 'http://userdata.gyldendal.dk/api/' : 'http://api.test.userdata.gyldendal.dk/api/');
 
 // All requests must not be cached!
 header('Cache-Control: no-cache, no-store, max-age=0, must-revalidate');

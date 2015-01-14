@@ -21,8 +21,10 @@
     </div>
     <div class="icons col-1-4">
         <div class="float-right">
-            <div class="circ"  ng-click="Speech = !Speech">
-                <span ng-class="{active: Speech}" class="icon icon-speech"></span>
+            {{ ReportMenubar.shared }}
+            {{ReportMenubar.dialogueID}}
+            <div id="dialoguePaneToggler" class="circ" ng-click="ReportMenubar.dialoguePane.open()" ng-show="ReportMenubar.dialoguePane.isAvailable()">
+                <span ng-class="{active: ReportMenubar.dialoguePane.isOpen}" class="icon icon-speech"></span>
             </div>
             <div class="circ" >
                 <span class="icon icon-trash-bin"></span>
@@ -45,19 +47,13 @@
                     </ul>
                 </div>
 
-                <div class="content" ng-show="ReportMenubar.exportPanel.isTabActive('share')">
-                    <div class="grid">
-                        <span class="label">Send kopi til kollega</span>
-                        <div class="col-3-4">
-                            <div class="select-inner left">
-                                <select name="År" class="">
-                                    <option value="lærer1">lærer1</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-1-4">
-                            <button class="btn">Send</button>
-                        </div>
+                <div class="content" ng-show="ReportMenubar.exportPanel.isTabActive('share')" style="overflow:hidden;">
+                    <div ng-hide="ReportMenubar.exportPanel.isShared()">
+                        <textarea ng-model="shareForm.shareMessage" onfocus="if (this.value === 'Eventuel besked...') { this.value = ''; this.style.color = '#484848'; }" onblur="if (!this.value) { this.style.color = '#999'; this.value = 'Eventuel besked...'; }" style="color:#999; border: 0px; width: 365px; box-sizing: border-box; padding: 10px; height: 90px; max-width: 100%; min-width: 100%; max-height: 150px; margin: 0px; background: rgb(255, 255, 255); font: 14px/1.25em helvetica, arial, sans-serif; outline: 0;"></textarea>
+                        <button class="btn" style="margin-bottom:0; margin-top:12px;" ng-click="ReportMenubar.exportPanel.shareWithTeacher()">Del</button>
+                    </div>
+                    <div ng-show="ReportMenubar.exportPanel.isShared()" style="font-size:14px; line-height:1.25em;">
+                        Rapporten er delt med din lærer.
                     </div>
                 </div>
 

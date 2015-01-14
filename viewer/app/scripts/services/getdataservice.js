@@ -202,6 +202,37 @@ angular.module('gyldendal.services', [])
             });
 
           return promise;
+        },
+        shareReport: function (objectId, message) {
+          // Prepare request-data
+          var request = {
+            'objectID': objectId
+          };
+
+          // If a message was entered, add to the request-data
+          if (message) {
+            var userId = (window.location.href.split('#')[0].split('userID=')[1] || '').split('&')[0];
+
+            request.message = {
+              author: {ID: userId},
+              content: message
+            }
+          }
+
+          // Perform the request!
+          var promise = $http({
+            cache: false,
+            headers: {
+              'Content-Type'  : 'application/json; charset=utf-8'
+            },
+            method: 'POST',
+            url: 'php/mads/shareEntry.php',
+            data: angular.toJson(request)
+          })
+            .success(function (data, status, headers, config) {
+            });
+
+          return promise;
         }
 
 			};
