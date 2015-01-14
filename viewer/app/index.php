@@ -43,7 +43,7 @@ ComponentAuthentication::validateSecret();
 
       <title>I-log</title>
 
-      <script src="//use.typekit.net/ldl1xnu.js"></script>
+      <script type="text/javascript" src="//use.typekit.net/vlb8lox.js"></script>
       <script>try{Typekit.load();}catch(e){}</script>
 
 
@@ -117,7 +117,7 @@ ComponentAuthentication::validateSecret();
       <script src="scripts/filters/reportRangeFilter.js"></script>
 
 
-    <!--directives-->
+      <!--directives-->
       <script src="scripts/directives/charts.js"></script>
       <script src="scripts/directives/datepicker.js"></script>
       <script src="scripts/directives/dialog.js"></script>
