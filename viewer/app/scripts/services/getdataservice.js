@@ -33,8 +33,11 @@ angular.module('gyldendal.services', [])
                     $rootScope.download = returndata.settings.download;
                     $rootScope.canExport = returndata.settings.exportEnabled;
 
+                    // Determine if we're on production or dev environment
+                    var isProduction = (window.location.href.toLowerCase().indexOf('stage2.sl-udv.dk') !== -1 || window.location.href.toLowerCase().indexOf('local.io') !== -1 || window.location.href.indexOf('felskov.io') !== -1 || window.location.href.indexOf('test.') !== -1 || window.location.href.indexOf('dev.') !== -1) ? false : true;
+
                     // hardcoded the test api url for testing. remove 'test' for release
-                    $rootScope.backgroundImageID = 'http://bridge.test.components.gyldendal.dk/api/Media/Get/'+returndata.settings.backgroundImageID;
+                    $rootScope.backgroundImageID = (isProduction ? 'http://bridge.components.gyldendal.dk/api/Media/Get/' : 'http://bridge.test.components.gyldendal.dk/api/Media/Get/') + returndata.settings.backgroundImageID;
 
                     // fontFamily is set to franklin and list font to the font defined in settings
                     $rootScope.listFamily = returndata.settings.fontFamily;
