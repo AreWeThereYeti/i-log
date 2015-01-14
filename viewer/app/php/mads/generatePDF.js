@@ -34,45 +34,35 @@ page.viewportSize = {
 console.log(url);
 
 page.onResourceError = function(resourceError) {
-    page.reason = resourceError.errorString;
-    page.reason_url = resourceError.url;
+    console.log(JSON.stringify(resourceError));
 };
 
 page.open(url, function(status) {
-    if(status !== 'success') {
-        console.log(
-                "Error opening url \"" + page.reason_url
-                + "\": " + page.reason
-            );
-        phantom.exit(2);
-    }
-    else {
-        page.evaluate(function(w, h) {
-            document.body.style.width = w + "px";
-            document.body.style.height = h + "px";
-        }, width, height);
+    page.evaluate(function(w, h) {
+        document.body.style.width = w + "px";
+        document.body.style.height = h + "px";
+    }, width, height);
 
-        page.clipRect = {
-            top: 0,
-            left: 0,
-            width: width,
-            height: height
-        };
-        
-        //We make sure the page has done rendering
-        waitFor(
-            function () {
-                return page.evaluate(function () {
-                    return !!document.getElementById('gyldendal-i-log-output');
-                })
-            },
-            function() {
-                page.render(outputFilePath, {format: 'pdf', quality: 100});
-                phantom.exit(0);
-            },
-            60000
-        );
-    }
+    page.clipRect = {
+        top: 0,
+        left: 0,
+        width: width,
+        height: height
+    };
+    
+    //We make sure the page has done rendering
+    waitFor(
+        function () {
+            return page.evaluate(function () {
+                return !!document.getElementById('gyldendal-i-log-output');
+            })
+        },
+        function() {
+            page.render(outputFilePath, {format: 'pdf', quality: 100});
+            phantom.exit(0);
+        },
+        60000
+    );
 });
 
 /**
