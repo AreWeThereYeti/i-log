@@ -31,9 +31,19 @@ page.viewportSize = {
     height: height
 };
 
+console.log(url);
+
+page.onResourceError = function(resourceError) {
+    page.reason = resourceError.errorString;
+    page.reason_url = resourceError.url;
+};
+
 page.open(url, function(status) {
     if(status !== 'success') {
-        console.log('Unable to load the url');
+        console.log(
+                "Error opening url \"" + page.reason_url
+                + "\": " + page.reason
+            );
         phantom.exit(2);
     }
     else {
