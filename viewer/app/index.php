@@ -135,6 +135,7 @@ ComponentAuthentication::validateSecret();
 
       <!-- Initialize user-session in NodeJS proxy -->
       <script type="text/javascript">
+        window.userData = {};
         GSDK.User.authenticateToken({
           token: '<?= ComponentAuthentication::generateToken($_GET["userID"]); ?>',
           onComplete: function () {
