@@ -15,7 +15,7 @@ $url = 'http://'. $_SERVER['HTTP_HOST'] . substr($_SERVER['REQUEST_URI'], 0, str
 $outputPath = 'tmp/'. time() .'.pdf';
 
 // Generate the PDF
-var_dump(shell_exec('phantomjs generatePDF.js '. escapeshellarg($url) .' '. escapeshellarg($outputPath)));
+shell_exec('phantomjs generatePDF.js '. escapeshellarg($url) .' '. escapeshellarg($outputPath));
 
 // Output file for download
 if (file_exists($outputPath)) {
