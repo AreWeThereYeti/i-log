@@ -783,7 +783,16 @@ h1 {
   position: relative;
   z-index: 6;
 }
-/* line 9, ../sass/pages/_report.scss */
+/* line 10, ../sass/pages/_report.scss */
+.report .reportmenu .ngdialog-content .inactive {
+  color: #aaa !important;
+  cursor: default !important;
+}
+/* line 13, ../sass/pages/_report.scss */
+.report .reportmenu .ngdialog-content .inactive:before {
+  color: #aaa !important;
+}
+/* line 19, ../sass/pages/_report.scss */
 .report .reportsubmenu {
   padding: 0 25px;
   line-height: 50px;
@@ -793,19 +802,19 @@ h1 {
   position: relative;
   z-index: 5;
 }
-/* line 18, ../sass/pages/_report.scss */
+/* line 28, ../sass/pages/_report.scss */
 .report .reportsubmenu .report-type {
   float: left;
   cursor: pointer;
   padding-right: 20px;
 }
-/* line 23, ../sass/pages/_report.scss */
+/* line 33, ../sass/pages/_report.scss */
 .report .reportsubmenu .report-type .icon:before {
   vertical-align: middle;
   margin: 0 5px 0 0px;
   font-size: 20px;
 }
-/* line 31, ../sass/pages/_report.scss */
+/* line 41, ../sass/pages/_report.scss */
 .report .report-content {
   overflow: auto;
   width: 100%;
@@ -814,24 +823,24 @@ h1 {
   position: absolute;
   background-color: white;
 }
-/* line 39, ../sass/pages/_report.scss */
+/* line 49, ../sass/pages/_report.scss */
 .report .report-content .d3container {
   width: 100%;
   height: 530px;
 }
-/* line 44, ../sass/pages/_report.scss */
+/* line 54, ../sass/pages/_report.scss */
 .report .listview {
   width: 100%;
   padding: 30px 40px;
   box-shadow: 0px 2px 6px white;
 }
-/* line 49, ../sass/pages/_report.scss */
+/* line 59, ../sass/pages/_report.scss */
 .report .listview span:first-of-type {
   z-index: 1;
   padding-right: 1px;
   border-right: 2px solid #383838;
 }
-/* line 54, ../sass/pages/_report.scss */
+/* line 64, ../sass/pages/_report.scss */
 .report .listview span {
   color: #383838;
   font-size: 14px;
@@ -845,21 +854,21 @@ h1 {
   box-sizing: content-box;
   text-overflow: ellipsis;
 }
-/* line 67, ../sass/pages/_report.scss */
+/* line 77, ../sass/pages/_report.scss */
 .report .listview span.calc {
   color: #e04f2f;
 }
-/* line 74, ../sass/pages/_report.scss */
+/* line 84, ../sass/pages/_report.scss */
 .report .list-content {
   z-index: 0;
   border-bottom: 1px solid #E5E5E5;
   margin-top: -1px;
 }
-/* line 78, ../sass/pages/_report.scss */
+/* line 88, ../sass/pages/_report.scss */
 .report .list-content:last-of-type {
   border-bottom: none;
 }
-/* line 82, ../sass/pages/_report.scss */
+/* line 92, ../sass/pages/_report.scss */
 .report .list-content span.first {
   width: 11.7%;
   float: left;
@@ -869,97 +878,97 @@ h1 {
   padding-right: 20px;
   margin-left: -19px;
 }
-/* line 92, ../sass/pages/_report.scss */
+/* line 102, ../sass/pages/_report.scss */
 .report .list-content span.calc {
   color: #e04f2f;
   font-size: 14px;
   text-align: right;
 }
-/* line 98, ../sass/pages/_report.scss */
+/* line 108, ../sass/pages/_report.scss */
 .report .list-content span {
   margin-top: 1px;
   margin-bottom: -1px;
 }
-/* line 106, ../sass/pages/_report.scss */
+/* line 116, ../sass/pages/_report.scss */
 .report .list-head {
   border-bottom: 2px solid #383838;
 }
-/* line 109, ../sass/pages/_report.scss */
+/* line 119, ../sass/pages/_report.scss */
 .report .list-head span {
   color: #383838;
   font-weight: bold;
 }
-/* line 113, ../sass/pages/_report.scss */
+/* line 123, ../sass/pages/_report.scss */
 .report .list-head span.first {
   width: 11.7%;
   float: left;
 }
-/* line 118, ../sass/pages/_report.scss */
+/* line 128, ../sass/pages/_report.scss */
 .report .chart-calc {
   padding: 30px 40px 145px 40px;
 }
-/* line 121, ../sass/pages/_report.scss */
+/* line 131, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element {
   padding-top: 35px;
 }
-/* line 123, ../sass/pages/_report.scss */
+/* line 133, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element:first-of-type {
   padding-top: 30px;
 }
-/* line 126, ../sass/pages/_report.scss */
+/* line 136, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :first-child {
   font-size: 18px;
   padding-bottom: 10px;
 }
-/* line 130, ../sass/pages/_report.scss */
+/* line 140, ../sass/pages/_report.scss */
 .report .chart-calc .chart-calc-element :last-child {
   font-size: 36px;
 }
-/* line 135, ../sass/pages/_report.scss */
+/* line 145, ../sass/pages/_report.scss */
 .report .bar-value {
   font-size: 18px;
   color: #e04f2f;
 }
-/* line 139, ../sass/pages/_report.scss */
+/* line 149, ../sass/pages/_report.scss */
 .report .bar-label {
   font-size: 14px;
 }
-/* line 142, ../sass/pages/_report.scss */
+/* line 152, ../sass/pages/_report.scss */
 .report .domain-text {
   font-size: 24px;
 }
-/* line 145, ../sass/pages/_report.scss */
+/* line 155, ../sass/pages/_report.scss */
 .report .dot-label {
   font-size: 14px;
 }
-/* line 149, ../sass/pages/_report.scss */
+/* line 159, ../sass/pages/_report.scss */
 .report .axis path,
 .report .axis line {
   fill: none;
   stroke: #e5e5e5;
   stroke-width: 2;
 }
-/* line 158, ../sass/pages/_report.scss */
+/* line 168, ../sass/pages/_report.scss */
 .report .legend {
   top: 61px;
   overflow: visible;
   position: relative;
 }
-/* line 163, ../sass/pages/_report.scss */
+/* line 173, ../sass/pages/_report.scss */
 .report .legend .legend-head {
   font-size: 36px;
 }
-/* line 166, ../sass/pages/_report.scss */
+/* line 176, ../sass/pages/_report.scss */
 .report .legend .legend-text {
   font-size: 24px;
 }
-/* line 170, ../sass/pages/_report.scss */
+/* line 180, ../sass/pages/_report.scss */
 .report .legend .legend-percent {
   font-size: 24px;
   font-weight: bold;
 }
 
-/* line 180, ../sass/pages/_report.scss */
+/* line 190, ../sass/pages/_report.scss */
 .report-pdf .report-content {
   height: auto;
   position: relative;
@@ -967,12 +976,12 @@ h1 {
   overflow: visible;
   padding: 50px 0 60px 22px !important;
 }
-/* line 188, ../sass/pages/_report.scss */
+/* line 198, ../sass/pages/_report.scss */
 .report-pdf .listview {
   box-shadow: none;
   padding: 50px 60px !important;
 }
-/* line 193, ../sass/pages/_report.scss */
+/* line 203, ../sass/pages/_report.scss */
 .report-pdf .listview span {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -981,11 +990,11 @@ h1 {
   padding-left: 8px !important;
   padding-right: 8px !important;
 }
-/* line 201, ../sass/pages/_report.scss */
+/* line 211, ../sass/pages/_report.scss */
 .report-pdf .listview span:last-child {
   border-right: 0;
 }
-/* line 205, ../sass/pages/_report.scss */
+/* line 215, ../sass/pages/_report.scss */
 .report-pdf .chart-calc {
   padding-bottom: 0;
 }

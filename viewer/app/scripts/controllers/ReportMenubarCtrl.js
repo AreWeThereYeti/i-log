@@ -78,7 +78,7 @@ app.controller('ReportMenubarCtrl', ['$routeParams', '$scope', 'getdataservice',
         // Helper-method to determine whether a tab is available
         isTabAvailable: function (tab) {
             switch (tab) {
-                case 'share': return true; break;
+                case 'share': return window.userData.type !== 'lærer' && window.userData.type !== 'teacher'; break;
                 case 'csv': return !!window.rapportData.dataList[0]; break;
                 default: return true; break;
             }

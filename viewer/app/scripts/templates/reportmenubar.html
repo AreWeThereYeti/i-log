@@ -41,7 +41,7 @@
             <div  class="share grid">
                 <div class="header">
                     <ul>
-                        <li class="icon icon-share-nocirkel" ng-class="{active: ReportMenubar.exportPanel.isTabActive('share')}" ng-click="ReportMenubar.exportPanel.openTab('share')">Del med lærer</li>
+                        <li class="icon icon-share-nocirkel" ng-class="{active: ReportMenubar.exportPanel.isTabActive('share'), inactive: !ReportMenubar.exportPanel.isTabAvailable('share')}" ng-click="ReportMenubar.exportPanel.openTab('share')">Del med lærer</li>
                         <li class="icon icon-download" ng-class="{active: ReportMenubar.exportPanel.isTabActive('pdf')}" ng-click="ReportMenubar.exportPanel.openTab('pdf')">PDF</li>
                         <li class="icon icon-download" ng-class="{active: ReportMenubar.exportPanel.isTabActive('csv')}" ng-show="ReportMenubar.exportPanel.isTabAvailable('csv')" ng-click="ReportMenubar.exportPanel.openTab('csv')">CSV</li>
                     </ul>

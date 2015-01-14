@@ -133,7 +133,35 @@ include('php/mads/auth.php');
       <!-- Initialize user-session in NodeJS proxy -->
       <script type="text/javascript">
         GSDK.User.authenticateToken({
-          token: '<?= ComponentAuthentication::generateToken($_GET["userID"]); ?>'
+          token: '<?= ComponentAuthentication::generateToken($_GET["userID"]); ?>',
+          onComplete: function () {
+            // Fetch user-data
+            GSDK.Proxy.get({
+              // Specify URL
+              url: '<?= PRODUCTION ? 'http://userdata.gyldendal.dk/api/' : 'http://api.test.userdata.gyldendal.dk/api/' ?>Utilities.svc/GetUser',
+
+              // Apply security
+              headers: {
+                'X-Security-Method': 'userdata.gyldendal.dk'
+              },
+
+              // Forward userID
+              data: {
+                'userID': GSDK.User.getData().UserId
+              },
+
+              // Wait for response...
+              onComplete: function (response, status) {
+                // Parse data
+                if (status === 'ok') {
+                  response = JSON.parse(response);
+                  window.userData = response;
+                } else {
+                  window.userData = {};
+                }
+              }
+            });
+          }
         });
       </script>
 

@@ -5,6 +5,16 @@
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
     position: relative;
     z-index: 6;
+
+    .ngdialog-content {
+      .inactive {
+        color:#aaa !important;
+        cursor:default !important;
+        &:before{
+          color:#aaa !important;
+        }
+      }
+    }
   }
   .reportsubmenu{
     padding: $base-padding;
