@@ -1,83 +1,89 @@
-<div class="report report-pdf">
-  <div class="report-content" ng-if="Rapport.dataDiagram[0].views.piechart">
-    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:-10px;">{{Rapport.dataDiagram[0].title}}</h2>
-    <div class='d3container'></div>
-    <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
-      <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
-      </div>
-    </div>
-  </div>
+<div class="report report-pdf" ng-repeat="report in Rapport.component.reports" ng-switch on="report.type">
 
-  <div class="report-content" ng-if="Rapport.dataDiagram[0].views.barchart">
-    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">{{Rapport.dataDiagram[0].title}}</h2>
-    <div class='d3container'></div>
-    <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
-      <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
-      </div>
-    </div>
-  </div>
+    <div ng-switch-when="diagram">
+        <div class="report-content" ng-if="Rapport.dataDiagram[0].views.piechart">
+            <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:-10px;">{{Rapport.dataDiagram[0].title}}</h2>
+            <div class='d3container'></div>
+            <d3-chart data="Rapport.chartdata" type="pie"></d3-chart>
+            <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
+                <h2>Beregninger</h2>
+                <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
+                    <div>{{calculation.label}}</div>
+                    <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+                </div>
+            </div>
+        </div>
 
-  <div class="listview report-content" ng-if="Rapport.dataList[0]">
-    <h2 style="font-weight:bold; font-size:38px; margin-bottom:50px;">{{Rapport.dataList[0].title}}</h2>
-
-    <div class="grid list-head" >
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
+        <div class="report-content" ng-if="Rapport.dataDiagram[0].views.barchart">
+            <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">{{Rapport.dataDiagram[0].title}}</h2>
+            <div class='d3container'></div>
+            <d3-chart data="Rapport.chartdata" type="bar"></d3-chart>
+            <div class="chart-calc" ng-show = "Rapport.dataDiagram[0].chart.calculations || !Rapport.dataDiagram[0].chart.calculations.length">
+                <h2>Beregninger</h2>
+                <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataDiagram[0].chart.calculations">
+                    <div>{{calculation.label}}</div>
+                    <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-indent:10px; color:#888;">{{$index+1}}</span>
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
-        {{ilog.data[column.inputID]}}
-      </span>
+    <div ng-switch-when="list">
+        <div class="listview report-content" ng-if="Rapport.dataList[0]">
+            <h2 style="font-weight:bold; font-size:38px; margin-bottom:50px;">{{Rapport.dataList[0].title}}</h2>
+
+            <div class="grid list-head" >
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">{{column.label}}</span>
+            </div>
+
+            <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-indent:10px; color:#888;">{{$index+1}}</span>
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
+                    {{ilog.data[column.inputID]}}
+                </span>
+            </div>
+
+            <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
+                <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-align:center;">{{calculation.label}}</span>
+                <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
+                    <p class="text-center">{{Rapport.listFormula(calculation, column)}}</p>
+                </span>
+            </div>
+
+            <div class="grid list-content" >
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
+                <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
+                </span>
+            </div>
+        </div>
     </div>
 
-    <div class="grid list-content active" ng-repeat="calculation in Rapport.dataList[0].calculations">
-      <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-align:center;">{{calculation.label}}</span>
-      <span class="col-1-8 calc" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
-        <p class="text-center">{{Rapport.listFormula(calculation, column)}}</p>
-      </span>
-    </div>
+    <div ng-switch-when="graph">
+        <div class="report-content" ng-if="Rapport.dataGraph[0].views.connectedGraph">
+            <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Forbundet graf</h2>
+            <div class='d3container'></div>
+            <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
+            <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
+                <h2>Beregninger</h2>
+                <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
+                    <p>{{calculation.label}}</p>
+                    <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
+                </div>
+            </div>
+        </div>
 
-    <div class="grid list-content" >
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}"></span>
-      <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
-      </span>
+        <div class="report-content" ng-if="Rapport.dataGraph[0].views.scatterPlot">
+            <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Punktgraf</h2>
+            <div class='d3container'></div>
+            <d3-chart data="Rapport.linedata" type="line"></d3-chart>
+            <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
+                <h2>Beregninger</h2>
+                <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
+                    <div>{{calculation.label}}</div>
+                    <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
+                </div>
+            </div>
+        </div>
     </div>
-
-  </div>
-
-  <div class="report-content" ng-if="Rapport.dataGraph[0].views.connectedGraph">
-    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Forbundet graf</h2>
-    <div class='d3container'></div>
-    <d3-chart data="Rapport.linedata" type="dot"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
-      <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
-        <p>{{calculation.label}}</p>
-        <h2>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</h2>
-      </div>
-    </div>
-  </div>
-
-  <div class="report-content" ng-if="Rapport.dataGraph[0].views.scatterPlot">
-    <h2 style="font-weight:bold; font-size:38px; padding-left:38px; margin-bottom:25px;">Punktgraf</h2>
-    <div class='d3container'></div>
-    <d3-chart data="Rapport.linedata" type="line"></d3-chart>
-    <div class="chart-calc" ng-show = "Rapport.dataGraph[0].chart.calculations || !Rapport.dataGraph[0].chart.calculations.length">
-      <h2>Beregninger</h2>
-      <div class="chart-calc-element" ng-repeat="calculation in Rapport.dataGraph[0].chart.calculations">
-        <div>{{calculation.label}}</div>
-        <div>{{Rapport.chartFormula(calculation, Rapport.logs)}} {{calculation.unit}}</div>
-      </div>
-    </div>
-  </div>
 </div>
