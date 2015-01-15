@@ -40,7 +40,7 @@
             <div class="grid list-content" ng-repeat="ilog in Rapport.logs track by $index">
                 <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" style="text-indent:10px; color:#888;">{{$index+1}}</span>
                 <span class="col-1-8" ng-style="{'width':'{{100 / (Rapport.dataList[0].columns.length + 1)}}%'}" ng-repeat="column in Rapport.dataList[0].columns">
-                    {{ilog.data[column.inputID]}}
+                    {{Rapport.formatFloat(ilog.data[column.inputID], column.inputID)}} {{Rapport.getListUnit(column.inputID)}}
                 </span>
             </div>
 
