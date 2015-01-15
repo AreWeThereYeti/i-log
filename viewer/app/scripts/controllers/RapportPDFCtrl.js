@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entries', 'statcalcservice', function ($routeParams, component, $scope, entries, statcalcservice) {
-	//Save reference to controller in order to avoid reference soup
-	var Rapport = this;
+  //Save reference to controller in order to avoid reference soup
+  var Rapport = this;
 
   Rapport.reports = [];
 
@@ -37,42 +37,101 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     }
   }
 
-  document.getElementById('topheader').style.display = 'none';
-  document.body.style.overflow = 'visible';
-  document.body.style.backgroundColor = '#ffffff !important';
+// set up the initial report view to a view that's defined
 
-// set current report to dummy report with index = route.id
+  if(angular.isDefined(Rapport.component.reports)){
+    var firstReportType = Rapport.component.reports[0].type;
+    if(firstReportType == 'diagram'){
+      if(Rapport.dataDiagram.length){
+        if(Rapport.dataDiagram[0].views.piechart){
+          Rapport.pane = 'pie'
+        } else if(Rapport.dataDiagram[0].views.barchart){
+          Rapport.pane = 'bar'
+        }
+      }
+    } else if(firstReportType == 'graph'){
+      if(Rapport.dataGraph.length) {
+        if (Rapport.dataGraph[0].views.connectedGraph) {
+          Rapport.pane = 'graph-line'
+        } else if (Rapport.dataGraph[0].views.scatterPlot) {
+          Rapport.pane = 'graph-dotted'
+        }
+      }
+    } else {
+      Rapport.pane = 'list'
+    }
+  }
+
+  // Expose to rapport data to global scope - ugly solution, should be done
+  // through a factory, but the code is not currently designed to do this
+  // (we need access to this data to generate a CSV)
+  window.rapportData = Rapport;
+
+/*  if(Rapport.dataDiagram.length){
+    if(Rapport.dataDiagram[0].views.piechart){
+      Rapport.pane = 'pie'
+    } else if(Rapport.dataDiagram[0].views.barchart){
+      Rapport.pane = 'bar'
+    }
+  } else if(Rapport.dataList.length){
+    Rapport.pane = 'list'
+  } else if(Rapport.dataGraph.length){
+    if(Rapport.dataGraph[0].views.connectedGraph){
+      Rapport.pane = 'graph-line'
+    } else if(Rapport.dataGraph[0].views.scatterPlot){
+      Rapport.pane = 'graph-dotted'
+    }
+  }*/
+
+// set current report to report with index = route.id
   Rapport.route = $routeParams.id;
   if(angular.isDefinedOrNotNull(Rapport.route)){
-    Rapport.currentReport = Rapport.reports[Rapport.route];
+    if(Rapport.route == "new"){
+      // if user has been redirected from new report dialog,
+      // set current report to the newest
+      if(Rapport.reports.length == 1){
+        Rapport.currentReport = Rapport.reports[0];
+      } else {
+        for(var i = 1; i < Rapport.reports.length; i++) {
+          if (Rapport.reports[i].content.created > Rapport.reports[i - 1].content.created) {
+            Rapport.currentReport = Rapport.reports[i];
+          } else {
+            Rapport.currentReport = Rapport.reports[i - 1];
+          }
+        }
+      }
+    } else {
+      Rapport.currentReport = Rapport.reports[Rapport.route];
+    }
   }
 
   // filter logs so Rapport.logs only contains the logs in the current report interval
   var logsInReportInterval =  [];
   angular.forEach(Rapport.logs, function(log){
-    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= Rapport.currentReport.content.to){
+    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= (Rapport.currentReport.content.to + 84000000)){
       logsInReportInterval.push(log);
     }
   });
   Rapport.logs = logsInReportInterval;
 
 
-  // prepare graph data
-	Rapport.linedata =
-  {
-    "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
-    "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
-    "data": []
-  };
-
-  for(var i = 0; i<Rapport.logs.length; i++){
-    var plot = {
-      "date": Rapport.logs[i].timestamp,
-      "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
+  // prepare graph data if graph view is defined by component
+  if (Rapport.dataGraph.length) {
+    Rapport.linedata =
+    {
+      "ytitle": Rapport.dataGraph[0].chart.yAxis.title,
+      "xtitle": Rapport.dataGraph[0].chart.xAxis.title,
+      "data": []
     };
-    Rapport.linedata.data.push(plot);
-  }
 
+    for (var i = 0; i < Rapport.logs.length; i++) {
+      var plot = {
+        "date": Rapport.logs[i].timestamp,
+        "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
+      };
+      Rapport.linedata.data.push(plot);
+    }
+  }
 
   // recursive function for parsing a string on the form "a, b, c" to the array[a,b,c]
   Rapport.parseElements = function(expr, array){
@@ -98,6 +157,9 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     var regexp = "ID[0-9]+";
     var re = new RegExp(regexp, "i");
 
+    if(exp == null){
+      return exp;
+    }
     // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
     while(exp.search(re) != -1) {
       var id = re.exec(exp)[0].slice(2);
@@ -176,22 +238,33 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
   return $scope.$eval(exp);
 };
 
-  // prepare chart data
-  Rapport.chartdata = {
-    "ytitle": Rapport.dataDiagram[0].chart.value.title,
-    "xtitle": Rapport.dataDiagram[0].chart.domain.title,
-    "data": []
+  // prepare chart data if diagrams views are defined by component
+  if (Rapport.dataDiagram.length) {
+    Rapport.chartdata = {
+      "ytitle": Rapport.dataDiagram[0].chart.value.title,
+      "xtitle": Rapport.dataDiagram[0].chart.domain.title,
+      "data": []
 
-  };
-  for(var i = 0; i<Rapport.logs.length; i++){
-    var plot = {
-      "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
-      "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula,Rapport.logs[i])
     };
-    Rapport.chartdata.data.push(plot);
+    for (var i = 0; i < Rapport.logs.length; i++) {
+      // check for existing label. if exists then increase and value don't add new entry
+      var double = false;
+      for (var j = 0; j < Rapport.chartdata.data.length; j++){
+        if(Rapport.chartdata.data[j].label == Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID]){
+          double = true;
+          Rapport.chartdata.data[j].value += Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i]);
+        }
+      }
+      if(!double) {
+        var plot = {
+          "label": Rapport.logs[i].data[Rapport.dataDiagram[0].chart.domain.inputID],
+          "value": Rapport.parseChartFormula(Rapport.dataDiagram[0].chart.value.formula, Rapport.logs[i])
+        };
+        Rapport.chartdata.data.push(plot);
+      }
+    }
+
   }
-
-
 
   // Function for parsing calculations in chart/graph view
   Rapport.chartFormula = function(calculation, logs){
@@ -204,12 +277,13 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     // Checks for SUm formula. returns math.sum(exp) only if all number fields are filled
     if(exp.search(/SUM\(/g)!=-1){
       if(exp.search(/SUM\(([^\(]+)(?=\))/i)!=-1){
-        // extract the content of the formula expression as an array
-        var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/SUM\(/g, "");
         var num = [];
         for(var i = 0; i<logs.length; i++) {
-          // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
+          // extract the content of the formula expression as an array
+          var func = exp.match(/SUM\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/SUM\(/g, "");
+
+          // replaces "ID" while these are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
             func[0] = func[0].replace(re.exec(func[0])[0], logs[i].data[id]);
@@ -230,10 +304,13 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     if(exp.search(/HIGHEST\(/g)!=-1){
 
       if(exp.search(/HIGHEST\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/HIGHEST\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/HIGHEST\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/HIGHEST\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
@@ -254,10 +331,13 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     if(exp.search(/LOWEST\(/g)!=-1){
 
       if(exp.search(/LOWEST\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/LOWEST\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/LOWEST\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/LOWEST\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
@@ -277,10 +357,13 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     // Checks for AVERAGE formula. returns math.mean.mean(exp) only if all number fields are filled
     if(exp.search(/AVERAGE\(/g)!=-1){
       if(exp.search(/AVERAGE\(([^\(]+)(?=\))/i)!=-1){
-        var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
-        func[0] = func[0].replace(/AVERAGE\(/g, "");
+
         var num = [];
         for(var i = 0; i<logs.length; i++) {
+          // extract the content of the formula expression as an array
+          var func = exp.match(/AVERAGE\(([^\(]+)(?=\))/ig);
+          func[0] = func[0].replace(/AVERAGE\(/g, "");
+
           // replaces "ID" while thesse are present. Does not throw error if corresponding input field value (log.data[id]) is undefined.
           while (func[0].search(re) != -1) {
             var id = re.exec(func[0])[0].slice(2);
@@ -301,15 +384,20 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
     return $scope.$eval(exp);
   };
 
-  // set width of list view's first column
-  if(Rapport.dataList[0].calculations.length) {
-    var labelLength = 0;
-    angular.forEach(Rapport.dataList[0].calculations, function(calc) {
-      if(calc.label.length >labelLength){
-        labelLength = calc.label.length;
-      }
-    });
-    Rapport.newWidth = (labelLength*10)+"px";
+  // set width of list view's first column, if list view is defined by component
+  if(Rapport.dataList.length) {
+    if (Rapport.dataList[0].calculations.length) {
+      var labelLength = 3;
+      angular.forEach(Rapport.dataList[0].calculations, function (calc) {
+        if(angular.isDefinedOrNotNull(calc.label)) {
+          if (calc.label.length > labelLength) {
+            labelLength = calc.label.length;
+          }
+        }
+      });
+
+      Rapport.newWidth = (labelLength * 10) + "px";
+    }
   }
 
   // Function for parsing column calculations in list view
@@ -356,10 +444,50 @@ app.controller('RapportPDFCtrl', ['$routeParams', 'component', '$scope', 'entrie
 
     }
 
-    // return expression evaluated with $eval rounded to two decimals
-    return (Math.round($scope.$eval(exp)* 100)/100)+" "+calculation.unit;
+    // return expression evaluated with $eval, rounded to two decimals and parsed to string with '.' replaced with ','
+    return (Math.round($scope.$eval(exp)* 100)/100).toString().replace('.', ',')+" "+calculation.unit;
   };
 
+  // function for getting units of list elements in report list from component data
+  Rapport.getListUnit = function (inputID){
+    var unit = '';
+    angular.forEach(Rapport.component.inputs, function(input){
+      if(input.id == inputID){
+        if(angular.isDefined(input.unit)){
+          unit = input.unit;
+        }
+      }
+    });
+    return unit
+  };
+
+  // function for replacing the '.' with ',' in view values of type formula
+  // takes log value and log value input id to determine if input is of type formula, and formats formula input is this is the case
+  Rapport.formatFloat = function(val, inputID){
+    if(inputID == false){
+
+      // for use in formatin calculation value / values that should always be formated
+      return val.toString().replace('.', ',')
+
+    } else {
+
+      var isFormula = false;
+      angular.forEach(Rapport.component.inputs, function (input) {
+        if (input.id == inputID && (input.type == 'formula' || input.type == 'number')) {
+          isFormula = true;
+        }
+      });
+      if (isFormula) {
+        return val.toString().replace('.', ',')
+      } else {
+        return val
+      }
+    }
+  };
+
+  document.getElementById('topheader').style.display = 'none';
+  document.body.style.overflow = 'visible';
+  document.body.style.backgroundColor = '#ffffff !important';
 
   var tmpDiv = document.createElement('div');
   tmpDiv.id = 'gyldendal-i-log-output';
