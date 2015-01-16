@@ -5,6 +5,12 @@
   <div class="log-content" back-img="{{Log.backgroundImg}}">
 
     <form>
+
+      <div ng-show="Log.componentData.settings.timeInput.showInLog">
+        <label for="timeInput" ng-class="{'no-padding': Log.componentData.settings.timeInput.label==='', 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{Log.componentData.settings.timeInput.label}}</label>
+        <input id="timeInput" class="data" ng-model="" ng-readonly="Log.componentData.settings.timeInput.editable" >
+      </div>
+
       <div class="input-field" ng-repeat="input in Log.inputs" ng-switch on="input.type">
         <div ng-switch-when="text">
           <label for="log-input-{{input.id}}" ng-class="{'no-padding': input.label==='', 'required' : input.required === true, 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{input.label}}</label>
