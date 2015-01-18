@@ -111,7 +111,7 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
   }
 
   // sets up timeInput value if it exists, otherwise generate new timestampe using Log.formatDate()
-  if(angular.isDefined(Log.currentLog.timeInput) && Log.currentLog.timeInput != 0 && Log.currentLog.timeInput != null){
+  if(angular.isDefined(Log.currentLog)){
     Log.timeInput.value = Log.currentLog.timeInput;
   } else {
     Log.timeInput.value = Log.formatDate(Log.timeInput.format);

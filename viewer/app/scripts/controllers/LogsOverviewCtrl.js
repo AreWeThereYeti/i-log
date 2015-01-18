@@ -54,6 +54,23 @@ app.controller('LogsOverviewCtrl', [ '$timeout', 'entries', 'component', '$rootS
     LogsOverview.logs = angular.fromJson(LogsOverview.logEntries.content);
     for(var i = 0; i<LogsOverview.logs.length; i++){
       LogsOverview.logs[i].id = i;
+
+      // parse and convert timeInput from dd-mm-yy, hh:mm to javascript time format
+      if(angular.isDefined(LogsOverview.logs[i].timeInput)){
+
+        var exp = LogsOverview.logs[i].timeInput;
+        var day, mounth, year;
+
+        day = exp.slice(0, 2);
+        exp = exp.slice(3, exp.length);
+        mounth = exp.slice(0, 2);
+        exp = exp.slice(3, exp.length);
+        year = exp.slice(0, 4);
+        exp = exp.slice(6, exp.length);
+
+        var d = new Date(year+"/"+mounth+"/"+day+" "+exp).getTime();
+        LogsOverview.logs[i].timeInput = d;
+      }
     }
 
 
