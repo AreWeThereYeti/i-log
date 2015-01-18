@@ -6,9 +6,9 @@
 
     <form>
 
-      <div ng-show="Log.componentData.settings.timeInput.showInLog">
+      <div class="input-field" ng-show="Log.componentData.settings.timeInput.showInLog">
         <label for="timeInput" ng-class="{'no-padding': Log.componentData.settings.timeInput.label==='', 'inline' : Log.componentData.settings.LabelPlacementText === 'left'}">{{Log.componentData.settings.timeInput.label}}</label>
-        <input id="timeInput" class="data" ng-model="" ng-readonly="Log.componentData.settings.timeInput.editable" >
+        <input id="timeInput" class="data" ng-model="Log.timeInput.value" ng-readonly="!Log.componentData.settings.timeInput.editable" >
       </div>
 
       <div class="input-field" ng-repeat="input in Log.inputs" ng-switch on="input.type">
