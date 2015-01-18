@@ -5,6 +5,7 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
 	var Log = this;
   Log.componentData = angular.fromJson(component.data.Content);
   Log.inputs = Log.componentData.inputs;
+  Log.timeInput = Log.componentData.settings.timeInput;
 
   //check if any of the inputs is required
   Log.anyInputsRequired = false;
@@ -107,6 +108,13 @@ app.controller('LogCtrl', ['entries', 'statcalcservice', '$scope', 'component', 
    if(Log.inputs[i].type == "formula"){
       Log.inputs[i].formula = "TIMEFORMAT(ID8, 'hh:mm:ss,cscs')";
     }*/
+  }
+
+  // sets up timeInput value if it exists, otherwise generate new timestampe using Log.formatDate()
+  if(angular.isDefined(Log.currentLog)){
+    Log.timeInput.value = Log.currentLog.timeInput;
+  } else {
+    Log.timeInput.value = Log.formatDate(Log.timeInput.format);
   }
 
   // populate log form fields if user is in edit log view

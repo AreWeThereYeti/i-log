@@ -72,7 +72,7 @@ class ComponentAuthentication {
         $allowTesting = $_SERVER['REMOTE_ADDR'] === '192.168.33.1' || $_SERVER['REMOTE_ADDR'] === '2.107.231.102';
 
         // ... Or certain domains
-        $allowTesting |= stripos($_SERVER['HTTP_HOST'], 'local.io') !== false || stripos($_SERVER['HTTP_HOST'], 'felskov.io') !== false || stripos($_SERVER['HTTP_HOST'], 'test.') !== false || stripos($_SERVER['HTTP_HOST'], 'dev.') !== false;
+        $allowTesting |= stripos($_SERVER['HTTP_HOST'], 'local.io') !== false || stripos($_SERVER['HTTP_HOST'], 'felskov.io') !== false || stripos($_SERVER['HTTP_HOST'], 'test.') !== false || stripos($_SERVER['HTTP_HOST'], 'dev.') !== false || stripos($_SERVER['HTTP_HOST'], 'localhost') !== false;
 
         if ($allowTesting && !$_GET['userID']) {
             $_GET['userID'] = 'mort088k';

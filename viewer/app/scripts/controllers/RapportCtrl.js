@@ -108,7 +108,23 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
   // filter logs so Rapport.logs only contains the logs in the current report interval
   var logsInReportInterval =  [];
   angular.forEach(Rapport.logs, function(log){
-    if(log.timestamp >= Rapport.currentReport.content.from && log.timestamp <= (Rapport.currentReport.content.to + 84000000)){
+
+    // parse and convert timeInput from dd-mm-yy, hh:mm to javascript time format
+    var exp = log.timeInput;
+    var day, mounth, year;
+
+    day = exp.slice(0, 2);
+    exp = exp.slice(3, exp.length);
+    mounth = exp.slice(0, 2);
+    exp = exp.slice(3, exp.length);
+    year = exp.slice(0, 4);
+    exp = exp.slice(6, exp.length);
+
+    var d = new Date(year+"/"+mounth+"/"+day+" "+exp).getTime();
+    log.timeInput = d;
+
+
+    if(log.timeInput >= Rapport.currentReport.content.from && log.timeInput <= (Rapport.currentReport.content.to + 84000000)){
       logsInReportInterval.push(log);
     }
   });
@@ -126,7 +142,7 @@ app.controller('RapportCtrl', ['$routeParams', 'component', '$scope', 'entries',
 
     for (var i = 0; i < Rapport.logs.length; i++) {
       var plot = {
-        "date": Rapport.logs[i].timestamp,
+        "date": Rapport.logs[i].timeInput,
         "close": Rapport.logs[i].data[Rapport.dataGraph[0].chart.yAxis.inputID]
       };
       Rapport.linedata.data.push(plot);

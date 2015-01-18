@@ -310,7 +310,7 @@ angular.module('gyldendal.directives', ['d3'])
 										.duration(1000)
 										.attr("d", arc)
 										.ease("elastic");
-									text.remove();
+                    text.remove();
 								});
 
 							renderarcs.append('text')
@@ -389,6 +389,38 @@ angular.module('gyldendal.directives', ['d3'])
 							if (!data) return;
 
 
+              /* For the drop shadow filter... */
+              var defs = svg.append("defs");
+
+              var filter = defs.append("filter")
+                .attr("id", "dropshadow");
+
+              filter.append("feGaussianBlur")
+                .attr("in", "SourceAlpha")
+                .attr("stdDeviation", 4)
+                .attr("result", "blur");
+              filter.append("feOffset")
+                .attr("in", "blur")
+                .attr("dx", 2)
+                .attr("dy", 2)
+                .attr("result", "offsetBlur");
+              filter.append("feFlood")
+                .attr("in", "offsetBlur")
+                .attr("flood-color", "#3d3d3d")
+                .attr("flood-opacity", "0.5")
+                .attr("result", "offsetColor");
+              filter.append("feComposite")
+                .attr("in", "offsetColor")
+                .attr("in2", "offsetBlur")
+                .attr("operator", "in")
+                .attr("result", "offsetBlur");
+
+              var feMerge = filter.append("feMerge");
+
+              feMerge.append("feMergeNode")
+                .attr("in", "offsetBlur");
+              feMerge.append("feMergeNode")
+                .attr("in", "SourceGraphic");
 
               // Set the dimensions of the canvas / graph
               var margin = {top: 30, right: 40, bottom: 30, left: 40},
@@ -529,7 +561,47 @@ angular.module('gyldendal.directives', ['d3'])
                   .text(function(d) { return d3.time.format('%e/%m')(new Date(d.date))})
                   .style("text-anchor", "end");*/
 
-                node.append("circle")
+                var rect = node.append("rect")
+                  .attr("class", "graph-tooltip")
+                  //.attr("transform", "translate(40,0)")
+                  .attr("x", function(d) {
+                    return (x(d.date)-15);
+                  })
+                  .attr("y", function(d) {
+                    return (y(d.close)-15);
+                  })
+                  .style("fill", "#FFFFFF")
+                  .attr("width", 150)
+                  .attr("height", 30)
+                  .attr("filter", "url(#dropshadow)")
+                  .style("opacity", "0");
+
+                node.append("text")
+                  .attr("class", "graph-tooltip-text")
+                  .attr("x", function(d) { return x(d.date)+15; })
+                  .attr("y", function(d) { return y(d.close)+5; })
+                  .text(function(d){
+                    return d.date;
+                  })
+                  .style("text-anchor", "to")
+                  .style("fill", "#383838")
+                  .style("opacity", "0");
+
+
+              node.append("circle")
+
+                  .on("mouseover", function(d) {
+                    d3.select(this.parentNode).select("rect").style("opacity", "1");
+                    d3.select(this.parentNode).select("text").style("opacity", "1");
+
+                })
+                  .on("mouseout", function(d) {
+                    d3.select(this.parentNode).select("rect").style("opacity", "0");
+                    d3.select(this.parentNode).select("text").style("opacity", "0");
+
+                })
+
+
                   .attr("class", "dot")
                   .attr("cx", function(d) {
                     return x(d.date); })
@@ -538,6 +610,7 @@ angular.module('gyldendal.directives', ['d3'])
                   })
                   .attr("r", 10)
                   .style("fill", "#dc4320");
+
 
                 node.append("text")
                   .attr("x", function(d) { return x(d.date); })

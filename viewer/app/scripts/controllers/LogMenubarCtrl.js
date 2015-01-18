@@ -42,6 +42,15 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
       }
 
     }
+    // check if timeInput have been changed
+    if(angular.isDefined($scope.$parent.Log.timeInput.value) && angular.isDefined($scope.$parent.Log.currentLog.timeInput) && $scope.$parent.Log.timeInput.value != $scope.$parent.Log.currentLog.timeInput){
+      if(confirm("Der er foretaget ikke-gemte indtastninger. Disse vil gå tabt hvis du fortsætter.")) {
+        $location.path('logs');
+        return;
+      } else {
+        return;
+      }
+    }
     $location.path('logs');
 
   };
@@ -79,8 +88,10 @@ app.controller('LogMenubarCtrl', ['$routeParams', 'getdataservice', '$rootScope'
 
     // build json object
     var d = new Date();
-    // divide getTime with 1000 to get it in unix(seconds instead og ms)
-    var iLog = {"timestamp" : d.getTime(), "data" : {} };
+    var iLog = {
+      "timestamp" : d.getTime(),
+      "timeInput" : $scope.$parent.Log.timeInput.value,
+      "data" : {} };
 
     // checks if all required fields are filled, alerts and returns if not
     for(var i=0; i<$scope.$parent.Log.inputs.length; i++){
